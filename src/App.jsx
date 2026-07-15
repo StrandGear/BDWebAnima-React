@@ -13,7 +13,7 @@ import { Screen6 } from "./screens/Screen6";
 const router = createBrowserRouter([
   {
     path: "/*",
-    element: <UnityBuildingdemocracy />,
+    element: <Buildingdemocracy />,
   },
   {
     path: "/buildingdemocracy-start",

@@ -1,7 +1,26 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
+import "../../services/firebase"; // Keep your Firebase bridge
 import "./style.css";
 
 export const Buildingdemocracy = () => {
+  const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsFirebaseReady(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Configure paths (make sure these files are in your /public folder)
+  const { unityProvider } = useUnityContext({
+    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
+    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
+    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
+    streamingAssetsUrl: "/public/unity/StreamingAssets"
+  });
+  
   return (
     <div className="buildingdemocracy">
       <div className="overlap-group-wrapper">
@@ -55,18 +74,14 @@ export const Buildingdemocracy = () => {
             Mitwirkende
           </Link>
           <div className="gruppe">
-            <button className="button">
-              <div className="text-wrapper-5">Tap to start!</div>
-            </button>
-            <div className="BD-logo">
-              <img className="pfad" alt="Pfad" src="/img/pfad-210-3.png" />
-              <div className="gruppe-2" />
-            </div>
-            <div className="deine-demokratie-app">
-              Deine Demokratie-App
-              <br />
-              lokal. digital. interaktiv
-            </div>
+            {isFirebaseReady ? (
+              <Unity 
+                unityProvider={unityProvider} 
+                style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+              />
+            ) : (
+              <div className="loading-text">Loading Game...</div>
+            )}
           </div>
           <Link
             className="k-nigin-luise-schule-wrapper"

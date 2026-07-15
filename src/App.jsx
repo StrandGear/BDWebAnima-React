@@ -2,6 +2,7 @@ import React  from "react";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Buildingdemocracy } from "./screens/Buildingdemocracy";
+import { UnityBuildingdemocracy } from "./screens/UnityBuildingdemocracy";
 import { BuildingdemocracyScreen } from "./screens/BuildingdemocracyScreen";
 import { DivWrapper } from "./screens/DivWrapper";
 import { RemoteIslandStart } from "./screens/RemoteIslandStart";
@@ -12,7 +13,7 @@ import { Screen6 } from "./screens/Screen6";
 const router = createBrowserRouter([
   {
     path: "/*",
-    element: <Buildingdemocracy />,
+    element: <UnityBuildingdemocracy />,
   },
   {
     path: "/buildingdemocracy-start",

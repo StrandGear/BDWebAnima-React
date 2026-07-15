@@ -1,1 +1,1 @@
-export { Buildingdemocracy } from "./UnityBuildingdemocracy";
+export { Buildingdemocracy } from "./Buildingdemocracy";

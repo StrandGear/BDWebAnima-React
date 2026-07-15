@@ -1,0 +1,490 @@
+.buildingdemocracy-screen {
+  align-items: start;
+  background-color: #090a0b;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.buildingdemocracy-screen .buildingdemocracy-2 {
+  align-items: flex-start;
+  background-color: #090a0b;
+  display: flex;
+  width: 1920px;
+}
+
+.buildingdemocracy-screen .overlap-group-2 {
+  height: 1080px;
+  position: relative;
+  width: 1920px;
+}
+
+.buildingdemocracy-screen .wiederholungsraster-2 {
+  align-items: flex-end;
+  display: flex;
+  height: 1080px;
+  left: 0;
+  min-width: 1920px;
+  position: absolute;
+  top: 0;
+}
+
+.buildingdemocracy-screen .auto-flex-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -12px;
+  min-height: 1092px;
+  width: 427px;
+}
+
+.buildingdemocracy-screen .div-2 {
+  background-image: url(../../../static/img/waves-01-4.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 364px;
+  width: 427px;
+}
+
+.buildingdemocracy-screen .text-wrapper-8 {
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 658px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy-screen .text-wrapper-9 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 1025px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy-screen .schalter-2 {
+  display: block;
+  height: 46px;
+  left: 906px;
+  position: absolute;
+  top: 69px;
+  width: 100px;
+}
+
+.buildingdemocracy-screen .rechteck-6 {
+  background-color: #fae5ba;
+  border-radius: 22px;
+  height: 44px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(1deg);
+  width: 99px;
+}
+
+.buildingdemocracy-screen .uncheck-2 {
+  background-color: #a59342;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 18.5px;
+  box-shadow: inset 3px 3px 2px #00000029;
+  height: calc(100% - 9px);
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  width: calc(100% - 63px);
+}
+
+.buildingdemocracy-screen .NS-dok-logo-2 {
+  background-image: url(../../../static/img/gruppe-165-2.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 71px;
+  left: 84px;
+  position: absolute;
+  top: 79px;
+  width: 94px;
+}
+
+.buildingdemocracy-screen .gruppe-8 {
+  background-image: url(../../../static/img/gruppe-159-25.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 458px;
+  left: 855px;
+  position: absolute;
+  top: 321px;
+  width: 210px;
+}
+
+.buildingdemocracy-screen .button-2 {
+  all: unset;
+  background-image: url(../../../static/img/pfad-201-3.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 51px;
+  box-sizing: border-box;
+  height: 48px;
+  left: 46px;
+  position: absolute;
+  width: calc(100% - 92px);
+}
+
+.buildingdemocracy-screen .text-wrapper-10 {
+  bottom: calc(46.75% - 7px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  height: 15px;
+  left: calc(48.43% - 35px);
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.buildingdemocracy-screen .BD-logo-2 {
+  height: 53px;
+  left: 46px;
+  position: absolute;
+  top: calc(28.09% - 15px);
+  width: calc(100% - 92px);
+}
+
+.buildingdemocracy-screen .pfad-2 {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.buildingdemocracy-screen .gruppe-9 {
+  background-image: url(../../../static/img/gruppe-162-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.buildingdemocracy-screen .deine-demokratie-app-2 {
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  height: 26px;
+  left: 46px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  top: calc(42.23% - 11px);
+  width: calc(100% - 91px);
+}
+
+.buildingdemocracy-screen .gruppe-10 {
+  background-image: url(../../../static/img/gruppe-159-26.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 418px;
+  left: 1118px;
+  position: absolute;
+  top: 342px;
+  width: 190px;
+}
+
+.buildingdemocracy-screen .k-nigin-luise-schule-4 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  height: 73px;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 19.4px;
+  margin-right: 17px;
+  margin-top: 17.2px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy-screen .text-wrapper-11 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.buildingdemocracy-screen .text-wrapper-12 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.buildingdemocracy-screen .gruppe-11 {
+  background-image: url(../../../static/img/gruppe-159-27.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 418px;
+  left: 611px;
+  position: absolute;
+  top: 342px;
+  width: 190px;
+}
+
+.buildingdemocracy-screen .k-nigin-luise-schule-5 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  height: 73px;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 19.1px;
+  margin-right: 17.3px;
+  margin-top: 17.2px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy-screen .gruppe-12 {
+  background-image: url(../../../static/img/gruppe-159-28.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 374px;
+  left: 1350px;
+  position: absolute;
+  top: 364px;
+  width: 171px;
+}
+
+.buildingdemocracy-screen .k-nigin-luise-schule-6 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 18px;
+  height: 64px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-left: 19.3px;
+  margin-right: 18px;
+  margin-top: 17.5px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy-screen .gruppe-13 {
+  background-image: url(../../../static/img/gruppe-159-29.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 374px;
+  left: 398px;
+  position: absolute;
+  top: 364px;
+  width: 171px;
+}
+
+.buildingdemocracy-screen .k-nigin-luise-schule-7 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 18px;
+  height: 64px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-left: 20.1px;
+  margin-right: 17.1px;
+  margin-top: 17.5px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy-screen .polygon-2 {
+  height: 18px;
+  left: 340px;
+  object-fit: cover;
+  position: absolute;
+  top: 531px;
+  width: 16px;
+}
+
+.buildingdemocracy-screen .polygon-3 {
+  display: block;
+  height: 18px;
+  left: 1563px;
+  object-fit: cover;
+  position: absolute;
+  top: 531px;
+  width: 16px;
+}
+
+.buildingdemocracy-screen .das-NS-DOK-ist-ein-wrapper {
+  background-color: #42435f;
+  border-radius: 9px;
+  display: flex;
+  height: 459px;
+  left: 855px;
+  position: absolute;
+  top: 321px;
+  width: 210px;
+}
+
+.buildingdemocracy-screen .das-NS-DOK-ist-ein {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 17px;
+  margin-bottom: 23px;
+  margin-left: 17px;
+  margin-right: 23px;
+  margin-top: 23px;
+  width: 170px;
+}
+
+.buildingdemocracy-screen .smartphone-2 {
+  background-image: url(../../../static/img/gruppe-157-3.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 472px;
+  left: 843px;
+  position: absolute;
+  top: 315px;
+  width: 234px;
+}
+
+.buildingdemocracy-screen .text-wrapper-13 {
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 941px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  top: 848px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy-screen .spielaleitung-2 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 1030px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 849px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy-screen .text-wrapper-14 {
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 808px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  top: 848px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy-screen .gruppe-14 {
+  display: block;
+  height: 61px;
+  left: 923px;
+  position: absolute;
+  top: 894px;
+  width: 76px;
+}
+
+.buildingdemocracy-screen .gruppe-15 {
+  bottom: 0;
+  height: 43px;
+  position: absolute;
+  right: calc(45.16% - 19px);
+  width: 43px;
+}
+
+.buildingdemocracy-screen .rechteck-7 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.buildingdemocracy-screen .rechteck-8 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  bottom: 0;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 20px;
+}
+
+.buildingdemocracy-screen .rechteck-9 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.buildingdemocracy-screen .rechteck-10 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  bottom: 0;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  width: 20px;
+}
+
+.buildingdemocracy-screen .text-wrapper-15 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  height: 14px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+  width: calc(100% + 2px);
+}

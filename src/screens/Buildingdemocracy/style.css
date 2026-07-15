@@ -1,0 +1,477 @@
+.buildingdemocracy {
+  align-items: start;
+  background-color: #090a0b;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.buildingdemocracy .overlap-group-wrapper {
+  align-items: flex-start;
+  background-color: #090a0b;
+  display: flex;
+  width: 1920px;
+}
+
+.buildingdemocracy .overlap-group {
+  height: 1080px;
+  position: relative;
+  width: 1920px;
+}
+
+.buildingdemocracy .wiederholungsraster {
+  align-items: flex-end;
+  display: flex;
+  height: 1080px;
+  left: 0;
+  min-width: 1920px;
+  position: absolute;
+  top: 0;
+}
+
+.buildingdemocracy .auto-flex {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -12px;
+  min-height: 1092px;
+  width: 427px;
+}
+
+.buildingdemocracy .div {
+  background-image: url(../../../static/img/waves-01-4.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 364px;
+  width: 427px;
+}
+
+.buildingdemocracy .schalter-mit {
+  display: block;
+  height: 46px;
+  left: 658px;
+  position: absolute;
+  top: 69px;
+  width: 531px;
+}
+
+.buildingdemocracy .text-wrapper {
+  bottom: calc(39.67% - 10px);
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  white-space: nowrap;
+  width: 230px;
+}
+
+.buildingdemocracy .text-wrapper-2 {
+  bottom: calc(39.67% - 10px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  right: -2px;
+  white-space: nowrap;
+  width: 164px;
+}
+
+.buildingdemocracy .schalter {
+  height: 100%;
+  position: absolute;
+  right: calc(42.64% - 43px);
+  top: 0;
+  width: 100px;
+}
+
+.buildingdemocracy .rechteck {
+  background-color: #fae5ba;
+  border-radius: 22px;
+  height: 44px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(1deg);
+  width: 99px;
+}
+
+.buildingdemocracy .uncheck {
+  background-color: #a59342;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 18.5px;
+  box-shadow: inset 3px 3px 2px #00000029;
+  height: calc(100% - 9px);
+  left: 4px;
+  position: absolute;
+  top: 4px;
+  width: calc(100% - 63px);
+}
+
+.buildingdemocracy .NS-dok-logo {
+  background-image: url(../../../static/img/gruppe-165-2.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 71px;
+  left: 84px;
+  position: absolute;
+  top: 79px;
+  width: 94px;
+}
+
+.buildingdemocracy .smartphone {
+  background-image: url(../../../static/img/gruppe-157-3.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 472px;
+  left: 843px;
+  position: absolute;
+  top: 315px;
+  width: 234px;
+}
+
+.buildingdemocracy .text-wrapper-3 {
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 925px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  top: 848px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy .spielaleitung {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 1030px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  top: 849px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy .text-wrapper-4 {
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  left: 808px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  top: 848px;
+  white-space: nowrap;
+}
+
+.buildingdemocracy .gruppe {
+  background-image: url(../../../static/img/gruppe-159-25.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 458px;
+  left: 855px;
+  position: absolute;
+  top: 321px;
+  width: 210px;
+}
+
+.buildingdemocracy .button {
+  all: unset;
+  background-image: url(../../../static/img/pfad-201-3.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 51px;
+  box-sizing: border-box;
+  height: 48px;
+  left: 46px;
+  position: absolute;
+  width: calc(100% - 92px);
+}
+
+.buildingdemocracy .text-wrapper-5 {
+  bottom: calc(46.75% - 7px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  height: 15px;
+  left: calc(48.43% - 35px);
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  text-align: center;
+  white-space: nowrap;
+  width: 72px;
+}
+
+.buildingdemocracy .BD-logo {
+  height: 53px;
+  left: 46px;
+  position: absolute;
+  top: calc(28.09% - 15px);
+  width: calc(100% - 92px);
+}
+
+.buildingdemocracy .pfad {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.buildingdemocracy .gruppe-2 {
+  background-image: url(../../../static/img/gruppe-162-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.buildingdemocracy .deine-demokratie-app {
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 400;
+  height: 26px;
+  left: 46px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  top: calc(42.23% - 11px);
+  width: calc(100% - 91px);
+}
+
+.buildingdemocracy .k-nigin-luise-schule-wrapper {
+  background-image: url(../../../static/img/gruppe-159-26.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 418px;
+  left: 1118px;
+  position: absolute;
+  top: 342px;
+  width: 190px;
+}
+
+.buildingdemocracy .k-nigin-luise-schule {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  height: 73px;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 19.4px;
+  margin-right: 17px;
+  margin-top: 17.2px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy .span {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.buildingdemocracy .text-wrapper-6 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.buildingdemocracy .gruppe-3 {
+  background-image: url(../../../static/img/gruppe-159-27.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 418px;
+  left: 611px;
+  position: absolute;
+  top: 342px;
+  width: 190px;
+}
+
+.buildingdemocracy .p {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  height: 73px;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 19.1px;
+  margin-right: 17.3px;
+  margin-top: 17.2px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy .gruppe-4 {
+  background-image: url(../../../static/img/gruppe-159-28.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 374px;
+  left: 1350px;
+  position: absolute;
+  top: 364px;
+  width: 171px;
+}
+
+.buildingdemocracy .k-nigin-luise-schule-2 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 18px;
+  height: 64px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-left: 19.3px;
+  margin-right: 18px;
+  margin-top: 17.5px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy .gruppe-5 {
+  background-image: url(../../../static/img/gruppe-159-29.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 374px;
+  left: 398px;
+  position: absolute;
+  top: 364px;
+  width: 171px;
+}
+
+.buildingdemocracy .k-nigin-luise-schule-3 {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 18px;
+  height: 64px;
+  letter-spacing: 0;
+  line-height: 18px;
+  margin-left: 20.1px;
+  margin-right: 17.1px;
+  margin-top: 17.5px;
+  text-shadow: 0px 3px 6px #000000cc;
+}
+
+.buildingdemocracy .polygon {
+  height: 18px;
+  left: 340px;
+  object-fit: cover;
+  position: absolute;
+  top: 531px;
+  width: 16px;
+}
+
+.buildingdemocracy .img {
+  display: block;
+  height: 18px;
+  left: 1563px;
+  object-fit: cover;
+  position: absolute;
+  top: 531px;
+  width: 16px;
+}
+
+.buildingdemocracy .gruppe-6 {
+  display: block;
+  height: 61px;
+  left: 923px;
+  position: absolute;
+  top: 894px;
+  width: 76px;
+}
+
+.buildingdemocracy .gruppe-7 {
+  bottom: 0;
+  height: 43px;
+  position: absolute;
+  right: calc(45.16% - 19px);
+  width: 43px;
+}
+
+.buildingdemocracy .rechteck-2 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.buildingdemocracy .rechteck-3 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  bottom: 0;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 20px;
+}
+
+.buildingdemocracy .rechteck-4 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+}
+
+.buildingdemocracy .rechteck-5 {
+  background-color: #fae5ba;
+  border-radius: 2px;
+  bottom: 0;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  width: 20px;
+}
+
+.buildingdemocracy .text-wrapper-7 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-weight: 400;
+  height: 14px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  text-align: center;
+  top: 1px;
+  white-space: nowrap;
+  width: calc(100% + 2px);
+}

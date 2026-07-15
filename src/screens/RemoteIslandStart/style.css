@@ -1,0 +1,358 @@
+.remote-island-start {
+  background-image: url(../../../static/img/inselrat-v03-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  min-height: 1080px;
+  min-width: 1920px;
+  position: relative;
+  width: 100%;
+}
+
+.remote-island-start .rechteck-11 {
+  background-color: #b79eb6;
+  border: 1px solid;
+  border-color: #707070;
+  height: 100%;
+  left: 0;
+  mix-blend-mode: multiply;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.remote-island-start .schalter-mit-2 {
+  display: block;
+  height: 46px;
+  left: calc(47.67% - 252px);
+  position: absolute;
+  top: 69px;
+  width: 529px;
+}
+
+.remote-island-start .text-wrapper-16 {
+  bottom: calc(39.67% - 10px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 230px;
+}
+
+.remote-island-start .text-wrapper-17 {
+  bottom: calc(39.67% - 10px);
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  right: -2px;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 164px;
+}
+
+.remote-island-start .schalter-3 {
+  height: 100%;
+  position: absolute;
+  right: calc(42.64% - 43px);
+  top: 0;
+  width: 100px;
+}
+
+.remote-island-start .rechteck-12 {
+  background-color: #fae5ba;
+  border-radius: 22px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 44px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(1deg);
+  width: 99px;
+}
+
+.remote-island-start .uncheck-3 {
+  background-color: #a59342;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 18.5px;
+  box-shadow: inset 3px 3px 2px #00000029;
+  height: calc(100% - 9px);
+  left: 58px;
+  position: absolute;
+  top: 4px;
+  width: calc(100% - 63px);
+}
+
+.remote-island-start .pfad-3 {
+  height: 97px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(19.26% - 36px);
+  top: calc(20.40% - 20px);
+  width: 185px;
+}
+
+.remote-island-start .pfad-4 {
+  height: 93px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(35.62% - 57px);
+  top: calc(19.92% - 19px);
+  width: 161px;
+}
+
+.remote-island-start .pfad-5 {
+  height: 115px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(45.04% - 83px);
+  top: calc(23.13% - 27px);
+  width: 184px;
+}
+
+.remote-island-start .pfad-6 {
+  height: 192px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(47.26% - 48px);
+  top: calc(37.42% - 72px);
+  width: 103px;
+}
+
+.remote-island-start .pfad-7 {
+  height: 201px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(26.41% - 129px);
+  top: calc(30.98% - 62px);
+  width: 489px;
+}
+
+.remote-island-start .LOGO-REMOTE {
+  height: 146px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(32.43% - 48px);
+  top: 22px;
+  width: 147px;
+}
+
+.remote-island-start .gruppe-16 {
+  bottom: calc(39.84% - 134px);
+  height: 337px;
+  position: absolute;
+  right: calc(26.76% - 121px);
+  width: 451px;
+}
+
+.remote-island-start .pfad-8 {
+  height: calc(100% + 18px);
+  left: -9px;
+  object-fit: cover;
+  position: absolute;
+  top: -6px;
+  width: calc(100% + 18px);
+}
+
+.remote-island-start .dauer-stunden {
+  bottom: calc(40.81% - 118px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 290px;
+  left: calc(45.74% - 183px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 401px;
+}
+
+.remote-island-start .pfad-9 {
+  bottom: calc(39.38% - 270px);
+  height: 685px;
+  left: calc(25.59% - 157px);
+  object-fit: cover;
+  position: absolute;
+  width: 614px;
+}
+
+.remote-island-start .text-wrapper-18 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 56px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: calc(29.98% - 17px);
+  width: 480px;
+}
+
+.remote-island-start .nach-einer-globalen {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 146px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: calc(41.22% - 60px);
+  width: 480px;
+}
+
+.remote-island-start .im-inselrat {
+  bottom: calc(42.99% - 47px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 110px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 480px;
+}
+
+.remote-island-start .wie-sehen-sie-ihre {
+  bottom: calc(28.68% - 37px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 128px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 480px;
+}
+
+.remote-island-start .buchen-als {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(21.26% - 17px);
+  top: calc(22.56% - 8px);
+  white-space: nowrap;
+  width: 80px;
+}
+
+.remote-island-start .gruppe-17 {
+  display: block;
+  height: 80px;
+  position: absolute;
+  right: calc(28.27% - 33px);
+  top: calc(19.79% - 16px);
+  width: 115px;
+}
+
+.remote-island-start .text-wrapper-19 {
+  bottom: calc(43.56% - 8px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 18px;
+  left: calc(41.53% - 21px);
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.remote-island-start .buchen-als-gruppe {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(36.65% - 27px);
+  top: calc(21.61% - 7px);
+  white-space: nowrap;
+  width: 74px;
+}
+
+.remote-island-start .gr-e-aus-remote {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(45.60% - 46px);
+  top: calc(25.62% - 9px);
+  white-space: nowrap;
+  width: 101px;
+}
+
+.remote-island-start .text-wrapper-20 {
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(32.78% - 13px);
+  top: calc(30.41% - 5px);
+  white-space: nowrap;
+  width: 41px;
+}
+
+.remote-island-start .text-wrapper-21 {
+  bottom: 50px;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(49.92% - 36px);
+  text-align: center;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 73px;
+}
+
+.remote-island-start .NS-dok-logo-3 {
+  background-image: url(../../../static/img/gruppe-165-2.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 71px;
+  left: 84px;
+  position: absolute;
+  top: 79px;
+  width: 94px;
+}

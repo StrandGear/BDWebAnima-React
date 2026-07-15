@@ -1,0 +1,776 @@
+.remoteisland-gallery {
+  background-image: url(../../../static/img/inselrat-v03-1.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  min-height: 1080px;
+  min-width: 1920px;
+  position: relative;
+  width: 100%;
+}
+
+.remoteisland-gallery .rechteck-23 {
+  background-color: #b79eb6;
+  border: 1px solid;
+  border-color: #707070;
+  height: 100%;
+  left: 0;
+  mix-blend-mode: multiply;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.remoteisland-gallery .schalter-mit-5 {
+  display: block;
+  height: 46px;
+  left: calc(47.67% - 252px);
+  position: absolute;
+  top: 69px;
+  width: 529px;
+}
+
+.remoteisland-gallery .text-wrapper-37 {
+  bottom: calc(39.67% - 10px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 230px;
+}
+
+.remoteisland-gallery .text-wrapper-38 {
+  bottom: calc(39.67% - 10px);
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 25px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  right: -2px;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 164px;
+}
+
+.remoteisland-gallery .schalter-6 {
+  height: 100%;
+  position: absolute;
+  right: calc(42.64% - 43px);
+  top: 0;
+  width: 100px;
+}
+
+.remoteisland-gallery .rechteck-24 {
+  background-color: #fae5ba;
+  border-radius: 22px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 44px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  transform: rotate(1deg);
+  width: 99px;
+}
+
+.remoteisland-gallery .uncheck-6 {
+  background-color: #a59342;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 18.5px;
+  box-shadow: inset 3px 3px 2px #00000029;
+  height: calc(100% - 9px);
+  left: 58px;
+  position: absolute;
+  top: 4px;
+  width: calc(100% - 63px);
+}
+
+.remoteisland-gallery .pfad-11 {
+  height: 97px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(19.26% - 36px);
+  top: calc(20.40% - 20px);
+  width: 185px;
+}
+
+.remoteisland-gallery .pfad-12 {
+  height: 98px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(28.05% - 37px);
+  top: calc(19.54% - 19px);
+  width: 133px;
+}
+
+.remoteisland-gallery .pfad-13 {
+  height: 93px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(35.62% - 57px);
+  top: calc(19.92% - 19px);
+  width: 161px;
+}
+
+.remoteisland-gallery .pfad-14 {
+  height: 115px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(45.04% - 83px);
+  top: calc(23.13% - 27px);
+  width: 184px;
+}
+
+.remoteisland-gallery .pfad-15 {
+  height: 192px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(47.26% - 48px);
+  top: calc(37.42% - 72px);
+  width: 103px;
+}
+
+.remoteisland-gallery .pfad-16 {
+  height: 201px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(26.41% - 129px);
+  top: calc(30.98% - 62px);
+  width: 489px;
+}
+
+.remoteisland-gallery .LOGO-op-REMOTE {
+  height: 146px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(32.43% - 48px);
+  top: 22px;
+  width: 147px;
+}
+
+.remoteisland-gallery .gruppe-37 {
+  bottom: calc(39.84% - 134px);
+  height: 337px;
+  position: absolute;
+  right: calc(26.76% - 121px);
+  width: 451px;
+}
+
+.remoteisland-gallery .pfad-17 {
+  height: calc(100% + 18px);
+  left: -9px;
+  object-fit: cover;
+  position: absolute;
+  top: -6px;
+  width: calc(100% + 18px);
+}
+
+.remoteisland-gallery .dauer-stunden-2 {
+  bottom: calc(40.81% - 118px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  height: 290px;
+  left: calc(45.74% - 183px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 401px;
+}
+
+.remoteisland-gallery .pfad-18 {
+  bottom: calc(39.38% - 270px);
+  height: 685px;
+  left: calc(25.59% - 157px);
+  object-fit: cover;
+  position: absolute;
+  width: 614px;
+}
+
+.remoteisland-gallery .text-wrapper-39 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 56px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: calc(29.98% - 17px);
+  width: 480px;
+}
+
+.remoteisland-gallery .nach-einer-globalen-2 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 146px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: calc(41.22% - 60px);
+  width: 480px;
+}
+
+.remoteisland-gallery .im-inselrat-2 {
+  bottom: calc(42.99% - 47px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 110px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 480px;
+}
+
+.remoteisland-gallery .wie-sehen-sie-ihre-2 {
+  bottom: calc(28.68% - 37px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 128px;
+  left: calc(28.55% - 137px);
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  width: 480px;
+}
+
+.remoteisland-gallery .buchen-als-2 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(21.26% - 17px);
+  top: calc(22.56% - 8px);
+  white-space: nowrap;
+  width: 80px;
+}
+
+.remoteisland-gallery .text-wrapper-40 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(29.32% - 15px);
+  top: calc(21.94% - 4px);
+  white-space: nowrap;
+  width: 50px;
+}
+
+.remoteisland-gallery .buchen-als-gruppe-2 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(36.65% - 27px);
+  top: calc(21.61% - 7px);
+  white-space: nowrap;
+  width: 74px;
+}
+
+.remoteisland-gallery .gr-e-aus-remote-2 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 34px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(45.60% - 46px);
+  top: calc(25.62% - 9px);
+  white-space: nowrap;
+  width: 101px;
+}
+
+.remoteisland-gallery .text-wrapper-41 {
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(32.78% - 13px);
+  top: calc(30.41% - 5px);
+  white-space: nowrap;
+  width: 41px;
+}
+
+.remoteisland-gallery .text-wrapper-42 {
+  bottom: 50px;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(49.92% - 36px);
+  text-align: center;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 73px;
+}
+
+.remoteisland-gallery .NS-dok-logo-6 {
+  background-image: url(../../../static/img/gruppe-165-6.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 71px;
+  left: 84px;
+  position: absolute;
+  top: 79px;
+  width: 94px;
+}
+
+.remoteisland-gallery .gruppe-wrapper {
+  display: flex;
+  height: 433px;
+  left: 223px;
+  position: absolute;
+  top: calc(44.53% - 193px);
+  width: 532px;
+}
+
+.remoteisland-gallery .gruppe-38 {
+  display: flex;
+  flex: 1;
+  width: 531.96px;
+}
+
+.remoteisland-gallery .gruppe-39 {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 531.96px;
+}
+
+.remoteisland-gallery .gruppe-40 {
+  background-image: url(../../../static/img/gruppe-191.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 26px;
+  height: 321px;
+  left: 50px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  width: calc(100% - 50px);
+}
+
+.remoteisland-gallery .gruppe-41 {
+  background-image: url(../../../static/img/gruppe-199.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 1px;
+  height: 349px;
+  left: 1px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  width: calc(100% - 26px);
+}
+
+.remoteisland-gallery .pfad-19 {
+  height: calc(100% - 46px);
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 18px;
+  width: calc(100% - 26px);
+}
+
+.remoteisland-gallery .rechteck-25 {
+  background-color: #212121;
+  height: calc(100% - 143px);
+  left: 42px;
+  position: absolute;
+  top: 67px;
+  transform: rotate(-8.52deg);
+  width: calc(100% - 106px);
+}
+
+.remoteisland-gallery .gruppe-42 {
+  background-image: url(../../../static/img/gruppe-207.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 78px;
+  opacity: 0.8;
+  position: absolute;
+  right: 31px;
+  top: 0;
+  width: 117px;
+}
+
+.remoteisland-gallery .gruppe-43 {
+  bottom: calc(48.32% - 254px);
+  display: flex;
+  height: 525px;
+  left: calc(38.09% - 141px);
+  position: absolute;
+  width: 370px;
+}
+
+.remoteisland-gallery .gruppe-44 {
+  display: flex;
+  flex: 1;
+  width: 369.78px;
+}
+
+.remoteisland-gallery .gruppe-45 {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 369.78px;
+}
+
+.remoteisland-gallery .gruppe-46 {
+  background-image: url(../../../static/img/gruppe-214.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 1px;
+  height: 323px;
+  left: 7px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  width: 182px;
+}
+
+.remoteisland-gallery .gruppe-47 {
+  background-image: url(../../../static/img/gruppe-222.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 7px;
+  height: 427px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  right: 0;
+  width: 203px;
+}
+
+.remoteisland-gallery .pfad-20 {
+  height: calc(100% - 27px);
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 14px;
+  width: calc(100% - 20px);
+}
+
+.remoteisland-gallery .rechteck-26 {
+  background-color: #212121;
+  height: calc(100% - 82px);
+  left: 29px;
+  position: absolute;
+  top: 41px;
+  transform: rotate(-2.76deg);
+  width: calc(100% - 80px);
+}
+
+.remoteisland-gallery .gruppe-48 {
+  background-image: url(../../../static/img/gruppe-230.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 50px;
+  left: calc(45.12% - 58px);
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  width: 129px;
+}
+
+.remoteisland-gallery .gruppe-49 {
+  display: flex;
+  height: 382px;
+  position: absolute;
+  right: calc(43.18% - 217px);
+  top: calc(38.40% - 147px);
+  width: 502px;
+}
+
+.remoteisland-gallery .gruppe-50 {
+  display: flex;
+  flex: 1;
+  width: 501.74px;
+}
+
+.remoteisland-gallery .gruppe-51 {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 501.74px;
+}
+
+.remoteisland-gallery .gruppe-52 {
+  background-image: url(../../../static/img/gruppe-237.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: calc(100% - 53px);
+  left: 17px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  top: 53px;
+  width: calc(100% - 34px);
+}
+
+.remoteisland-gallery .gruppe-53 {
+  background-image: url(../../../static/img/gruppe-245.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: calc(100% - 27px);
+  left: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  top: 20px;
+  width: calc(100% - 41px);
+}
+
+.remoteisland-gallery .pfad-21 {
+  height: calc(100% - 33px);
+  left: 15px;
+  object-fit: cover;
+  position: absolute;
+  top: 19px;
+  width: calc(100% - 32px);
+}
+
+.remoteisland-gallery .rechteck-27 {
+  background-color: #212121;
+  height: calc(100% + 28px);
+  left: 111px;
+  position: absolute;
+  top: -12px;
+  transform: rotate(-85.76deg);
+  width: calc(100% - 222px);
+}
+
+.remoteisland-gallery .gruppe-54 {
+  background-image: url(../../../static/img/gruppe-253.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 72px;
+  left: 6px;
+  opacity: 0.95;
+  position: absolute;
+  top: 0;
+  width: 102px;
+}
+
+.remoteisland-gallery .gruppe-55 {
+  background-image: url(../../../static/img/gruppe-256.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 83px;
+  opacity: 0.95;
+  position: absolute;
+  right: 0;
+  top: 29px;
+  width: 91px;
+}
+
+.remoteisland-gallery .gruppe-56 {
+  bottom: calc(42.65% - 165px);
+  display: flex;
+  height: 386px;
+  position: absolute;
+  right: 208px;
+  width: 582px;
+}
+
+.remoteisland-gallery .gruppe-57 {
+  flex: 1;
+  position: relative;
+  width: 582.13px;
+}
+
+.remoteisland-gallery .gruppe-58 {
+  display: flex;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.remoteisland-gallery .gruppe-59 {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 582.13px;
+}
+
+.remoteisland-gallery .gruppe-60 {
+  background-image: url(../../../static/img/gruppe-263.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: calc(30.14% - 46px);
+  height: 154px;
+  left: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  width: 210px;
+}
+
+.remoteisland-gallery .pfad-22 {
+  height: 299px;
+  left: 5px;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 295px;
+}
+
+.remoteisland-gallery .rechteck-28 {
+  background-color: #212121;
+  height: 251px;
+  left: 28px;
+  position: absolute;
+  top: 37px;
+  transform: rotate(-89.57deg);
+  width: 251px;
+}
+
+.remoteisland-gallery .gruppe-61 {
+  background-image: url(../../../static/img/gruppe-271.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: calc(100% - 47px);
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  right: 61px;
+  top: 22px;
+  width: 303px;
+}
+
+.remoteisland-gallery .gruppe-62 {
+  background-image: url(../../../static/img/gruppe-279.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 0;
+  height: 224px;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
+  position: absolute;
+  right: 23px;
+  width: 283px;
+}
+
+.remoteisland-gallery .pfad-23 {
+  height: calc(100% - 47px);
+  object-fit: cover;
+  position: absolute;
+  right: 1px;
+  top: 22px;
+  width: 347px;
+}
+
+.remoteisland-gallery .rechteck-29 {
+  background-color: #212121;
+  height: calc(100% - 135px);
+  position: absolute;
+  right: 51px;
+  top: 65px;
+  transform: rotate(-79.06deg);
+  width: 251px;
+}
+
+.remoteisland-gallery .gruppe-63 {
+  background-image: url(../../../static/img/gruppe-289.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 63px;
+  position: absolute;
+  right: calc(47.20% - 37px);
+  top: 1px;
+  width: 79px;
+}
+
+.remoteisland-gallery .gruppe-64 {
+  background-image: url(../../../static/img/gruppe-294.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.remoteisland-gallery .kamera {
+  bottom: calc(27.71% - 92px);
+  height: 333px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(46.74% - 187px);
+  width: 401px;
+}
+
+.remoteisland-gallery .golden-compass {
+  height: 273px;
+  object-fit: cover;
+  position: absolute;
+  right: calc(28.10% - 82px);
+  top: calc(23.97% - 65px);
+  width: 293px;
+}
+
+.remoteisland-gallery .vereinigungsmenge-wrapper {
+  display: flex;
+  height: 55px;
+  position: absolute;
+  right: 287px;
+  top: calc(29.64% - 16px);
+  transform: rotate(45deg);
+  width: 55px;
+}
+
+.remoteisland-gallery .vereinigungsmenge {
+  flex: 1;
+  margin-bottom: -22.4px;
+  margin-left: -18.2px;
+  margin-right: -22.4px;
+  margin-top: -18.2px;
+  object-fit: cover;
+  transform: rotate(-45deg);
+  width: 95.23px;
+}

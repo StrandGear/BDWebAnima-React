@@ -1,0 +1,1 @@
+export { BuildingdemocracyMobile } from "./BuildingdemocracyMobile";

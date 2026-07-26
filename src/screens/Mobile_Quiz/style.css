@@ -1,0 +1,355 @@
+.quiz {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.quiz .quiz-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.quiz .overlap-7 {
+  height: 1075px;
+  margin-left: 6px;
+  position: relative;
+  width: 882px;
+}
+
+.quiz .overlap-8 {
+  height: 1075px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 882px;
+}
+
+.quiz .overlap-group-7 {
+  height: 1075px;
+  left: 187px;
+  position: absolute;
+  top: 0;
+  width: 696px;
+}
+
+.quiz .gruppe-23 {
+  background-image: url(../../../static/img/gruppe-4-21.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 47px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.quiz .text-wrapper-92 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 353px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-93 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-94 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 119px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 266px;
+}
+
+.quiz .linie-3 {
+  height: 780px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 294px;
+  width: 2px;
+}
+
+.quiz .unser-2 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 327px;
+  width: 585px;
+}
+
+.quiz .text-wrapper-95 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 167px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 358px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-96 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 79px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 424px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-97 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 556px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-98 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 490px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-99 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-100 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 2px;
+  margin-top: 73px;
+  min-height: 26px;
+  width: 100px;
+}
+
+.quiz .overlap-9 {
+  height: 776px;
+  position: relative;
+  width: 817px;
+}
+
+.quiz .overlap-group-8 {
+  height: 776px;
+  left: 26px;
+  position: absolute;
+  top: 0;
+  width: 791px;
+}
+
+.quiz .gruppe-24 {
+  background-image: url(../../../static/img/gruppe-4-5.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 117px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.quiz .text-wrapper-101 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.quiz .text-wrapper-102 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.quiz .text-wrapper-103 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 525px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 73px;
+  width: 266px;
+}
+
+.quiz .text-wrapper-104 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 189px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 266px;
+}
+
+.quiz .linie-4 {
+  height: 478px;
+  left: 321px;
+  object-fit: cover;
+  position: absolute;
+  top: 298px;
+  width: 1px;
+}
+
+.quiz .text-wrapper-105 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 234px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-106 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 418px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-107 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.quiz .text-wrapper-108 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 484px;
+  white-space: nowrap;
+}
+
+.quiz .unser-3 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 380px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 331px;
+  width: 298px;
+}

@@ -1,0 +1,355 @@
+.rollenspiele {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.rollenspiele .rollenspiele-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.rollenspiele .overlap-10 {
+  height: 811px;
+  margin-left: 2px;
+  position: relative;
+  width: 878px;
+}
+
+.rollenspiele .overlap-11 {
+  height: 811px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 878px;
+}
+
+.rollenspiele .overlap-group-9 {
+  height: 811px;
+  left: 187px;
+  position: absolute;
+  top: 0;
+  width: 692px;
+}
+
+.rollenspiele .gruppe-25 {
+  background-image: url(../../../static/img/gruppe-4-23.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 47px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.rollenspiele .text-wrapper-109 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 353px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-110 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-111 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 119px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 266px;
+}
+
+.rollenspiele .linie-5 {
+  height: 516px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 294px;
+  width: 2px;
+}
+
+.rollenspiele .rollenspiele-machen {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 327px;
+  width: 581px;
+}
+
+.rollenspiele .text-wrapper-112 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 167px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 358px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-113 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 79px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 424px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-114 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 556px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-115 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 490px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-116 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-117 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 2px;
+  margin-top: 73px;
+  min-height: 26px;
+  width: 100px;
+}
+
+.rollenspiele .overlap-12 {
+  height: 640px;
+  position: relative;
+  width: 817px;
+}
+
+.rollenspiele .overlap-group-10 {
+  height: 640px;
+  left: 26px;
+  position: absolute;
+  top: 0;
+  width: 791px;
+}
+
+.rollenspiele .gruppe-26 {
+  background-image: url(../../../static/img/gruppe-4-9.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 117px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.rollenspiele .text-wrapper-118 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.rollenspiele .text-wrapper-119 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.rollenspiele .text-wrapper-120 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 525px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 73px;
+  width: 266px;
+}
+
+.rollenspiele .text-wrapper-121 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 189px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 266px;
+}
+
+.rollenspiele .linie-6 {
+  height: 342px;
+  left: 321px;
+  object-fit: cover;
+  position: absolute;
+  top: 298px;
+  width: 1px;
+}
+
+.rollenspiele .text-wrapper-122 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 234px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-123 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 418px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-124 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.rollenspiele .text-wrapper-125 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 484px;
+  white-space: nowrap;
+}
+
+.rollenspiele .rollenspiele-machen-2 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 380px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 331px;
+  width: 298px;
+}

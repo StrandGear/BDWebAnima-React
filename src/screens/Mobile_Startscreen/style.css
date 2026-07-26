@@ -1,0 +1,74 @@
+.startscreen {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.startscreen .startscreen-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.startscreen .overlap-group {
+  position: relative;
+}
+
+.startscreen .makosa-illu {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 648px;
+  opacity: 0.3;
+  position: absolute;
+  width: 504px;
+}
+
+.startscreen .snow {
+  height: 1920px;
+  left: 0;
+  mix-blend-mode: screen;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 3640px;
+}
+
+.startscreen .pressanykey {
+  display: flex;
+  height: 51px;
+  left: 1656px;
+  position: absolute;
+  top: 1233px;
+  width: 330px;
+}
+
+.startscreen .text-wrapper-48 {
+  color: #fcebbc;
+  flex: 1;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  height: 53px;
+  letter-spacing: 0;
+  line-height: 42px;
+  margin-right: -2px;
+  text-align: center;
+}
+
+.startscreen .text-wrapper-49 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 860px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  text-align: center;
+  top: 846px;
+  width: 330px;
+}

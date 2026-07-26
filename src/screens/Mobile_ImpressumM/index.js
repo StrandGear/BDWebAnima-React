@@ -1,0 +1,1 @@
+export { ImpressumM } from "./ImpressumM";

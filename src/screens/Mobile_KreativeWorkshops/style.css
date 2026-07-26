@@ -1,0 +1,355 @@
+.kreative-workshops {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.kreative-workshops .kreative-workshops-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.kreative-workshops .overlap-13 {
+  height: 619px;
+  margin-left: 4px;
+  position: relative;
+  width: 880px;
+}
+
+.kreative-workshops .overlap-14 {
+  height: 619px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 880px;
+}
+
+.kreative-workshops .overlap-group-11 {
+  height: 619px;
+  left: 187px;
+  position: absolute;
+  top: 0;
+  width: 692px;
+}
+
+.kreative-workshops .gruppe-27 {
+  background-image: url(../../../static/img/gruppe-4-27.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 47px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.kreative-workshops .text-wrapper-126 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 353px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-127 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-128 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 119px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 266px;
+}
+
+.kreative-workshops .linie-7 {
+  height: 324px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 294px;
+  width: 2px;
+}
+
+.kreative-workshops .workshops-an-der {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 327px;
+  width: 582px;
+}
+
+.kreative-workshops .text-wrapper-129 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 167px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 358px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-130 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 79px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 424px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-131 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 556px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-132 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 490px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-133 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-134 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 2px;
+  margin-top: 73px;
+  min-height: 26px;
+  width: 100px;
+}
+
+.kreative-workshops .overlap-15 {
+  height: 602px;
+  position: relative;
+  width: 817px;
+}
+
+.kreative-workshops .overlap-group-12 {
+  height: 596px;
+  left: 26px;
+  position: absolute;
+  top: 0;
+  width: 791px;
+}
+
+.kreative-workshops .gruppe-28 {
+  background-image: url(../../../static/img/gruppe-4-9.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 117px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.kreative-workshops .text-wrapper-135 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.kreative-workshops .text-wrapper-136 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.kreative-workshops .text-wrapper-137 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 525px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 73px;
+  width: 266px;
+}
+
+.kreative-workshops .text-wrapper-138 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 189px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 266px;
+}
+
+.kreative-workshops .linie-8 {
+  height: 298px;
+  left: 321px;
+  object-fit: cover;
+  position: absolute;
+  top: 298px;
+  width: 1px;
+}
+
+.kreative-workshops .text-wrapper-139 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 234px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-140 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 418px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-141 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .text-wrapper-142 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 484px;
+  white-space: nowrap;
+}
+
+.kreative-workshops .workshops-an-der-2 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 380px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 331px;
+  width: 298px;
+}

@@ -1,0 +1,1 @@
+export { SozialeSpiele } from "./SozialeSpiele";

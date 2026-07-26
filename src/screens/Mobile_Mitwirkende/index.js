@@ -1,0 +1,1 @@
+export { Mitwirkende } from "./Mitwirkende";

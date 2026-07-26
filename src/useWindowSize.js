@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 
 export const useWindowSize = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
+    handleResize(); // trigger immediately
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return isMobile;
+  return {
+    windowWidth,
+    isMobile: windowWidth < 1024, // Adjust this breakpoint to your design threshold (e.g., 768 or 1920)
+  };
 };

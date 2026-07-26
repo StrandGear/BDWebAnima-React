@@ -1,0 +1,220 @@
+.impressum {
+  background-color: #090a0b;
+  min-height: 932px;
+  min-width: 430px;
+  position: relative;
+  width: 100%;
+}
+
+.impressum .wiederholungsraster-4 {
+  align-items: flex-end;
+  display: flex;
+  height: 100%;
+  left: 0;
+  min-width: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.impressum .auto-flex-4 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -160px;
+  min-height: 1092px;
+  width: 427px;
+}
+
+.impressum .div-4 {
+  background-image: url(../../../static/img/waves-01-4.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 364px;
+  width: 427px;
+}
+
+.impressum .rechteck-7 {
+  background-color: #090a0b;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 91px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.impressum .rechteck-8 {
+  background-color: #090a0b;
+  bottom: 0;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 90px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.impressum .gruppe-8 {
+  display: block;
+  height: 28px;
+  left: 42px;
+  position: fixed;
+  top: 31px;
+  width: 308px;
+}
+
+.impressum .text-wrapper-16 {
+  bottom: calc(35.11% - 5px);
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 12px;
+  font-weight: 700;
+  height: 15px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 12px;
+  position: absolute;
+  white-space: nowrap;
+  width: 139px;
+}
+
+.impressum .text-wrapper-17 {
+  bottom: calc(32.62% - 5px);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-weight: 700;
+  height: 14px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: absolute;
+  right: -2px;
+  white-space: nowrap;
+  width: 91px;
+}
+
+.impressum .schalter-3 {
+  background-color: #fae5ba;
+  border-radius: 22px;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  right: calc(40.77% - 26px);
+  top: 0;
+  width: 63px;
+}
+
+.impressum .uncheck-4 {
+  background-color: #a59342;
+  border: 1px solid;
+  border-color: #707070;
+  border-radius: 11.81px;
+  box-shadow: inset 3px 3px 2px #00000029;
+  flex: 1;
+  margin-bottom: 2.5px;
+  margin-left: 2.1px;
+  margin-right: 37.5px;
+  margin-top: 2px;
+  width: 23.63px;
+}
+
+.impressum .NS-dok-logo-4 {
+  background-image: url(../../../static/img/gruppe-165-4.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  bottom: 29px;
+  height: 34px;
+  left: 33px;
+  position: fixed;
+  width: 45px;
+}
+
+.impressum .text-wrapper-18 {
+  bottom: 26px;
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  height: 14px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: fixed;
+  right: 38px;
+  text-align: right;
+  white-space: nowrap;
+  width: 58px;
+}
+
+.impressum .text-wrapper-19 {
+  bottom: 50px;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  height: 14px;
+  letter-spacing: 0;
+  line-height: 11px;
+  position: fixed;
+  right: 38px;
+  text-align: right;
+  white-space: nowrap;
+  width: 68px;
+}
+
+.impressum .polygon-4 {
+  height: 18px;
+  left: 12px;
+  object-fit: cover;
+  position: absolute;
+  top: calc(50.00% - 9px);
+  width: 16px;
+}
+
+.impressum .polygon-5 {
+  display: block;
+  height: 18px;
+  object-fit: cover;
+  position: absolute;
+  right: 12px;
+  top: calc(50.00% - 9px);
+  width: 16px;
+}
+
+.impressum .das-NS-DOK-ist-ein-wrapper {
+  background-color: #42435f;
+  border-radius: 9px;
+  display: flex;
+  height: calc(100% - 171px);
+  left: 42px;
+  position: absolute;
+  top: 78px;
+  width: calc(100% - 82px);
+}
+
+.impressum .das-NS-DOK-ist-ein {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 17px;
+  letter-spacing: 0;
+  line-height: 17px;
+  margin-bottom: 40px;
+  margin-left: 28px;
+  margin-right: 40px;
+  margin-top: 38px;
+  width: 280px;
+}
+
+.impressum .text-wrapper-20 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.impressum .text-wrapper-21 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 700;
+}

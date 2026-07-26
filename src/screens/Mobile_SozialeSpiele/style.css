@@ -1,0 +1,355 @@
+.soziale-spiele {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.soziale-spiele .soziale-spiele-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.soziale-spiele .overlap-16 {
+  height: 826px;
+  margin-left: 2px;
+  position: relative;
+  width: 878px;
+}
+
+.soziale-spiele .overlap-17 {
+  height: 826px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 878px;
+}
+
+.soziale-spiele .overlap-group-13 {
+  height: 826px;
+  left: 187px;
+  position: absolute;
+  top: 0;
+  width: 692px;
+}
+
+.soziale-spiele .gruppe-29 {
+  background-image: url(../../../static/img/gruppe-4-27.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 47px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.soziale-spiele .text-wrapper-143 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 353px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-144 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-145 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 119px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 266px;
+}
+
+.soziale-spiele .linie-9 {
+  height: 532px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 294px;
+  width: 2px;
+}
+
+.soziale-spiele .spielerische {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 327px;
+  width: 581px;
+}
+
+.soziale-spiele .text-wrapper-146 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 167px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 358px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-147 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 79px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 424px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-148 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 556px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-149 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 490px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-150 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-151 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 2px;
+  margin-top: 73px;
+  min-height: 26px;
+  width: 100px;
+}
+
+.soziale-spiele .overlap-18 {
+  height: 644px;
+  position: relative;
+  width: 817px;
+}
+
+.soziale-spiele .overlap-group-14 {
+  height: 644px;
+  left: 26px;
+  position: absolute;
+  top: 0;
+  width: 791px;
+}
+
+.soziale-spiele .gruppe-30 {
+  background-image: url(../../../static/img/gruppe-4-11.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 331px;
+  left: 117px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.soziale-spiele .text-wrapper-152 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.soziale-spiele .text-wrapper-153 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.soziale-spiele .text-wrapper-154 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 525px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 73px;
+  width: 266px;
+}
+
+.soziale-spiele .text-wrapper-155 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 189px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 266px;
+}
+
+.soziale-spiele .linie-10 {
+  height: 346px;
+  left: 321px;
+  object-fit: cover;
+  position: absolute;
+  top: 298px;
+  width: 1px;
+}
+
+.soziale-spiele .text-wrapper-156 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 234px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-157 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 418px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-158 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .text-wrapper-159 {
+  color: #7d745d;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 484px;
+  white-space: nowrap;
+}
+
+.soziale-spiele .spielerische-2 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 380px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 331px;
+  width: 298px;
+}

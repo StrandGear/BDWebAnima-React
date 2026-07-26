@@ -1,0 +1,384 @@
+.portfolio {
+  align-items: start;
+  background-color: #0d0d0d;
+  display: grid;
+  justify-items: center;
+  width: 100vw;
+}
+
+.portfolio .portfolio-m {
+  align-items: flex-start;
+  background-color: #0d0d0d;
+  display: flex;
+}
+
+.portfolio .overlap-4 {
+  height: 1075px;
+  margin-left: 6px;
+  position: relative;
+  width: 882px;
+}
+
+.portfolio .overlap-5 {
+  height: 1075px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 882px;
+}
+
+.portfolio .overlap-group-5 {
+  height: 1075px;
+  left: 187px;
+  position: absolute;
+  top: 0;
+  width: 696px;
+}
+
+.portfolio .gruppe-21 {
+  background-image: url(../../../static/img/gruppe-4-19.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: block;
+  height: 331px;
+  left: 47px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.portfolio .text-wrapper-72 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 353px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-73 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-74 {
+  color: #fcebbc;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 119px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 174px;
+  width: 266px;
+}
+
+.portfolio .linie {
+  height: 780px;
+  left: 78px;
+  object-fit: cover;
+  position: absolute;
+  top: 294px;
+  width: 2px;
+}
+
+.portfolio .unser {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 28px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 28px;
+  position: absolute;
+  top: 327px;
+  width: 585px;
+}
+
+.portfolio .text-wrapper-75 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 772px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-76 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 167px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 358px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-77 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 79px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 424px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-78 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 556px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-79 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 30px;
+  position: absolute;
+  top: 490px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-80 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  top: 82px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-81 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-left: 2px;
+  margin-top: 73px;
+  min-height: 26px;
+  width: 100px;
+}
+
+.portfolio .overlap-6 {
+  height: 776px;
+  position: relative;
+  width: 817px;
+}
+
+.portfolio .overlap-group-6 {
+  height: 776px;
+  left: 26px;
+  position: absolute;
+  top: 0;
+  width: 791px;
+}
+
+.portfolio .gruppe-22 {
+  background-image: url(../../../static/img/gruppe-4-13.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: block;
+  height: 331px;
+  left: 117px;
+  mix-blend-mode: screen;
+  position: absolute;
+  top: 0;
+  width: 408px;
+}
+
+.portfolio .text-wrapper-82 {
+  color: #fcebbc;
+  display: block;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 378px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.portfolio .text-wrapper-83 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 73px;
+  width: 266px;
+}
+
+.portfolio .text-wrapper-84 {
+  color: #fcebbc;
+  font-family: "Raleway-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 525px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: right;
+  top: 73px;
+  width: 266px;
+}
+
+.portfolio .text-wrapper-85 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 189px;
+  letter-spacing: 0;
+  line-height: 20px;
+  position: absolute;
+  text-align: center;
+  top: 170px;
+  width: 266px;
+}
+
+.portfolio .linie-2 {
+  height: 478px;
+  left: 321px;
+  object-fit: cover;
+  position: absolute;
+  top: 298px;
+  width: 1px;
+}
+
+.portfolio .makosa-e-v {
+  color: #fcebbc;
+  font-family: "Raleway", Helvetica;
+  font-size: 16px;
+  left: 380px;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: absolute;
+  top: 331px;
+  width: 299px;
+}
+
+.portfolio .text-wrapper-86 {
+  font-family: "Raleway-Bold", Helvetica;
+  font-weight: 700;
+}
+
+.portfolio .text-wrapper-87 {
+  font-family: "Raleway-Regular", Helvetica;
+  font-weight: 400;
+}
+
+.portfolio .text-wrapper-88 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 234px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 352px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-89 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 110px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 418px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-90 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 89px;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 550px;
+  white-space: nowrap;
+}
+
+.portfolio .text-wrapper-91 {
+  color: #fcebbc;
+  display: block;
+  font-family: "ChineseRocks-Regular", Helvetica;
+  font-size: 42px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: 42px;
+  position: absolute;
+  top: 484px;
+  white-space: nowrap;
+}

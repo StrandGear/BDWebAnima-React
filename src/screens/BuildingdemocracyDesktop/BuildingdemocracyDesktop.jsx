@@ -63,7 +63,7 @@ export const BuildingdemocracyDesktop = () => {
             </div>
           </Link>
           <div className="NS-dok-logo" />
-          <div className="smartphone" />
+          <div className="smartphone" style={{ zIndex: 20}} />
           <Link className="text-wrapper-3" to="/buildingdemocracy-impressum">
             Impressum
           </Link>
@@ -79,7 +79,7 @@ export const BuildingdemocracyDesktop = () => {
             {isFirebaseReady ? (
               <Unity 
                 unityProvider={unityProvider} 
-                style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+                style={{ width: "100%", height: "100%", borderRadius: "20px", zIndex: 5, }} 
               />
             ) : (
               <div className="loading-text">Loading Game...</div>

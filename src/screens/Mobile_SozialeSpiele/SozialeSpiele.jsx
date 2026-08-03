@@ -39,7 +39,7 @@ export const SozialeSpiele = () => {
                 <div className="text-wrapper-143">Mitglied werden</div>
                 <div className="text-wrapper-144">Portfolio</div>
                 <div className="text-wrapper-145">makosa</div>
-                <img className="linie-9" alt="Linie" src="/img/linie-1-9.png" />
+                <img className="linie-9" alt="Linie" src="/BDWebAnima-React/img/linie-1-9.png" />
                 <p className="spielerische">
                   Spielerische Methoden ermöglichen es, komplexe
                   gesellschaftliche Prozesse niedrigschwellig zu vermitteln.
@@ -90,7 +90,7 @@ export const SozialeSpiele = () => {
                 <img
                   className="linie-10"
                   alt="Linie"
-                  src="/img/linie-1-4.png"
+                  src="/BDWebAnima-React/img/linie-1-4.png"
                 />
               </div>
               <Link className="text-wrapper-156" to="/quiz">

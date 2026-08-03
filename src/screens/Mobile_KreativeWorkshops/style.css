@@ -36,7 +36,7 @@
 }
 
 .kreative-workshops .gruppe-27 {
-  background-image: url(../../../static/img/gruppe-4-27.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-4-27.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 331px;
@@ -208,7 +208,7 @@
 }
 
 .kreative-workshops .gruppe-28 {
-  background-image: url(../../../static/img/gruppe-4-9.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-4-9.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 331px;

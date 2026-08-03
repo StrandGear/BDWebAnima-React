@@ -39,7 +39,7 @@ export const KreativeWorkshops = () => {
                 <div className="text-wrapper-126">Mitglied werden</div>
                 <div className="text-wrapper-127">Portfolio</div>
                 <div className="text-wrapper-128">makosa</div>
-                <img className="linie-7" alt="Linie" src="/img/linie-1-8.png" />
+                <img className="linie-7" alt="Linie" src="/BDWebAnima-React/img/linie-1-8.png" />
                 <p className="workshops-an-der">
                   Workshops an der Schnittstelle von Kunst, Musik, Medien und
                   gesellschaftlicher Bildung.
@@ -81,7 +81,7 @@ export const KreativeWorkshops = () => {
                 </Link>
                 <div className="text-wrapper-137">Impressum</div>
                 <div className="text-wrapper-138">makosa</div>
-                <img className="linie-8" alt="Linie" src="/img/linie-1-3.png" />
+                <img className="linie-8" alt="Linie" src="/BDWebAnima-React/img/linie-1-3.png" />
               </div>
               <Link className="text-wrapper-139" to="/quiz">
                 Quize

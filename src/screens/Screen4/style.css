@@ -39,7 +39,7 @@
 }
 
 .screen-4 .div-4 {
-  background-image: url(../../../static/img/waves-01-4.png);
+  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 364px;
@@ -118,7 +118,7 @@
 }
 
 .screen-4 .NS-dok-logo-5 {
-  background-image: url(../../../static/img/gruppe-165-6.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-165-6.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 71px;
@@ -129,7 +129,7 @@
 }
 
 .screen-4 .gruppe-30 {
-  background-image: url(../../../static/img/gruppe-159-20.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-20.png);
   background-position: 50% 50%;
   background-size: cover;
   display: block;
@@ -142,7 +142,7 @@
 
 .screen-4 .button-3 {
   all: unset;
-  background-image: url(../../../static/img/pfad-201-2.png);
+  background-image: url(/BDWebAnima-React/img/pfad-201-2.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 46px;
@@ -187,7 +187,7 @@
 }
 
 .screen-4 .gruppe-31 {
-  background-image: url(../../../static/img/gruppe-162-2.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-162-2.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 100%;
@@ -213,7 +213,7 @@
 }
 
 .screen-4 .gruppe-32 {
-  background-image: url(../../../static/img/gruppe-159-21.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-21.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -251,7 +251,7 @@
 }
 
 .screen-4 .gruppe-33 {
-  background-image: url(../../../static/img/gruppe-159-22.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-22.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -277,7 +277,7 @@
 }
 
 .screen-4 .gruppe-34 {
-  background-image: url(../../../static/img/gruppe-159-28.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-28.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -303,7 +303,7 @@
 }
 
 .screen-4 .gruppe-rechts {
-  background-image: url(../../../static/img/gruppe-159-24.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-24.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -348,7 +348,7 @@
 }
 
 .screen-4 .smartphone-3 {
-  background-image: url(../../../static/img/gruppe-157-3.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 472px;

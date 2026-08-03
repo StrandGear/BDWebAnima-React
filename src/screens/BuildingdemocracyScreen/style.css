@@ -39,7 +39,7 @@
 }
 
 .buildingdemocracy-screen .div-2 {
-  background-image: url(../../../static/img/waves-01-4.png);
+  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 364px;
@@ -106,7 +106,7 @@
 }
 
 .buildingdemocracy-screen .NS-dok-logo-2 {
-  background-image: url(../../../static/img/gruppe-165-2.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-165-2.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 71px;
@@ -117,7 +117,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-8 {
-  background-image: url(../../../static/img/gruppe-159-25.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-25.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 458px;
@@ -129,7 +129,7 @@
 
 .buildingdemocracy-screen .button-2 {
   all: unset;
-  background-image: url(../../../static/img/pfad-201-3.png);
+  background-image: url(/BDWebAnima-React/img/pfad-201-3.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 51px;
@@ -174,7 +174,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-9 {
-  background-image: url(../../../static/img/gruppe-162-1.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-162-1.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 100%;
@@ -200,7 +200,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-10 {
-  background-image: url(../../../static/img/gruppe-159-26.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-26.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -238,7 +238,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-11 {
-  background-image: url(../../../static/img/gruppe-159-27.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-27.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -264,7 +264,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-12 {
-  background-image: url(../../../static/img/gruppe-159-28.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-28.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -290,7 +290,7 @@
 }
 
 .buildingdemocracy-screen .gruppe-13 {
-  background-image: url(../../../static/img/gruppe-159-29.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-159-29.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -360,7 +360,7 @@
 }
 
 .buildingdemocracy-screen .smartphone-2 {
-  background-image: url(../../../static/img/gruppe-157-3.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 472px;

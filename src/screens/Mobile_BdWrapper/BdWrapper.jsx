@@ -55,9 +55,9 @@ export const BdWrapper = () => {
           <span className="text-wrapper-15">Klasse 10b, 2026</span>
         </p>
       </div>
-      <img className="polygon-2" alt="Polygon" src="/img/polygon-1-4.png" />
+      <img className="polygon-2" alt="Polygon" src="/BDWebAnima-React/img/polygon-1-4.png" />
       <Link to="/bd">
-        <img className="polygon-3" alt="Polygon" src="/img/polygon-3-3.png" />
+        <img className="polygon-3" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
       </Link>
     </div>
   );

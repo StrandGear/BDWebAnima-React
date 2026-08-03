@@ -47,7 +47,7 @@ export const Screen6 = () => {
               <div className="text-wrapper-45">Tap to start!</div>
             </button>
             <div className="BD-logo-4">
-              <img className="pfad-24" alt="Pfad" src="/img/pfad-210-3.png" />
+              <img className="pfad-24" alt="Pfad" src="/BDWebAnima-React/img/pfad-210-3.png" />
               <div className="gruppe-66" />
             </div>
             <div className="deine-demokratie-app-4">
@@ -96,12 +96,12 @@ export const Screen6 = () => {
               <span className="text-wrapper-47">Klasse 10b, 2026</span>
             </p>
           </div>
-          <img className="polygon-6" alt="Polygon" src="/img/polygon-2-3.png" />
+          <img className="polygon-6" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
           <Link to="/buildingdemocracy-start-2">
             <img
               className="polygon-7"
               alt="Polygon"
-              src="/img/polygon-3-3.png"
+              src="/BDWebAnima-React/img/polygon-3-3.png"
             />
           </Link>
           <div className="mitwirkende-wrapper">

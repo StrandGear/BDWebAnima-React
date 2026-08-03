@@ -21,12 +21,12 @@ export const RiWrapper = () => {
         Mitwirkende
       </Link>
       <div className="rechteck-19" />
-      <img className="a-2" alt="A" src="/img/a-10731x2970-2.png" />
-      <img className="pfad-14" alt="Pfad" src="/img/pfad-234-3.png" />
-      <img className="pfad-15" alt="Pfad" src="/img/pfad-235-3.png" />
-      <img className="pfad-16" alt="Pfad" src="/img/pfad-236-3.png" />
-      <img className="pfad-17" alt="Pfad" src="/img/pfad-238-3.png" />
-      <img className="pfad-18" alt="Pfad" src="/img/pfad-239-3.png" />
+      <img className="a-2" alt="A" src="/BDWebAnima-React/img/a-10731x2970-2.png" />
+      <img className="pfad-14" alt="Pfad" src="/BDWebAnima-React/img/pfad-234-3.png" />
+      <img className="pfad-15" alt="Pfad" src="/BDWebAnima-React/img/pfad-235-3.png" />
+      <img className="pfad-16" alt="Pfad" src="/BDWebAnima-React/img/pfad-236-3.png" />
+      <img className="pfad-17" alt="Pfad" src="/BDWebAnima-React/img/pfad-238-3.png" />
+      <img className="pfad-18" alt="Pfad" src="/BDWebAnima-React/img/pfad-239-3.png" />
       <Link className="buchen-als-3" to="/ri">
         Buchen als <br />
         Schulklasse
@@ -38,11 +38,11 @@ export const RiWrapper = () => {
         Gruppe
       </Link>
       <div className="gruppe-17">
-        <img className="pfad-19" alt="Pfad" src="/img/pfad-237-3.png" />
+        <img className="pfad-19" alt="Pfad" src="/BDWebAnima-React/img/pfad-237-3.png" />
         <div className="text-wrapper-45">Beschreibung</div>
       </div>
       <div className="text-wrapper-46">Video</div>
-      <img className="pfad-20" alt="Pfad" src="/img/pfad-243.png" />
+      <img className="pfad-20" alt="Pfad" src="/BDWebAnima-React/img/pfad-243.png" />
       <p className="text-wrapper-47">
         Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
         Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf

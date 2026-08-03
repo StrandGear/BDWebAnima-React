@@ -39,7 +39,7 @@ export const Quiz = () => {
                 <div className="text-wrapper-92">Mitglied werden</div>
                 <div className="text-wrapper-93">Portfolio</div>
                 <div className="text-wrapper-94">makosa</div>
-                <img className="linie-3" alt="Linie" src="/img/linie-1-6.png" />
+                <img className="linie-3" alt="Linie" src="/BDWebAnima-React/img/linie-1-6.png" />
                 <p className="unser-2">
                   Unser Diskussionsquiz ist eines unserer bekanntesten und
                   erfolgreichsten Formate. Spielerische Fragen führen
@@ -95,7 +95,7 @@ export const Quiz = () => {
                 </Link>
                 <div className="text-wrapper-103">Impressum</div>
                 <div className="text-wrapper-104">makosa</div>
-                <img className="linie-4" alt="Linie" src="/img/linie-1-1.png" />
+                <img className="linie-4" alt="Linie" src="/BDWebAnima-React/img/linie-1-1.png" />
               </div>
               <div className="text-wrapper-105">Quize</div>
               <Link className="text-wrapper-106" to="/rollenspiele">

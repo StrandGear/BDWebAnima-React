@@ -30,8 +30,8 @@ export const Mitwirkende = () => {
       <Link className="text-wrapper-25" to="/impressum">
         Mitwirkende
       </Link>
-      <img className="polygon-6" alt="Polygon" src="/img/polygon-1-4.png" />
-      <img className="polygon-7" alt="Polygon" src="/img/polygon-2-3.png" />
+      <img className="polygon-6" alt="Polygon" src="/BDWebAnima-React/img/polygon-1-4.png" />
+      <img className="polygon-7" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
       <div className="mitwirkende-blab-bla-wrapper">
         <div className="mitwirkende-blab-bla">
           Mitwirkende

@@ -45,7 +45,7 @@ export const BuildingdemocracyScreen = () => {
               <div className="text-wrapper-10">Tap to start!</div>
             </button>
             <div className="BD-logo-2">
-              <img className="pfad-2" alt="Pfad" src="/img/pfad-210-3.png" />
+              <img className="pfad-2" alt="Pfad" src="/BDWebAnima-React/img/pfad-210-3.png" />
               <div className="gruppe-9" />
             </div>
             <div className="deine-demokratie-app-2">
@@ -94,12 +94,12 @@ export const BuildingdemocracyScreen = () => {
               <span className="text-wrapper-12">Klasse 10b, 2026</span>
             </p>
           </div>
-          <img className="polygon-2" alt="Polygon" src="/img/polygon-2-3.png" />
+          <img className="polygon-2" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
           <Link to="/buildingdemocracy-start-2">
             <img
               className="polygon-3"
               alt="Polygon"
-              src="/img/polygon-3-3.png"
+              src="/BDWebAnima-React/img/polygon-3-3.png"
             />
           </Link>
           <div className="das-NS-DOK-ist-ein-wrapper">

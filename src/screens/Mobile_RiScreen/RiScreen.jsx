@@ -21,14 +21,14 @@ export const RiScreen = () => {
         Mitwirkende
       </Link>
       <div className="rechteck-16" />
-      <img className="a-x" alt="A" src="/img/a-10731x2970-2.png" />
-      <img className="pfad-8" alt="Pfad" src="/img/pfad-234-3.png" />
-      <img className="pfad-9" alt="Pfad" src="/img/pfad-235-3.png" />
-      <img className="pfad-10" alt="Pfad" src="/img/pfad-236-3.png" />
-      <img className="pfad-11" alt="Pfad" src="/img/pfad-238-3.png" />
-      <img className="pfad-12" alt="Pfad" src="/img/pfad-239-3.png" />
+      <img className="a-x" alt="A" src="/BDWebAnima-React/img/a-10731x2970-2.png" />
+      <img className="pfad-8" alt="Pfad" src="/BDWebAnima-React/img/pfad-234-3.png" />
+      <img className="pfad-9" alt="Pfad" src="/BDWebAnima-React/img/pfad-235-3.png" />
+      <img className="pfad-10" alt="Pfad" src="/BDWebAnima-React/img/pfad-236-3.png" />
+      <img className="pfad-11" alt="Pfad" src="/BDWebAnima-React/img/pfad-238-3.png" />
+      <img className="pfad-12" alt="Pfad" src="/BDWebAnima-React/img/pfad-239-3.png" />
       <div className="gruppe-14">
-        <img className="pfad-13" alt="Pfad" src="/img/pfad-242-1.png" />
+        <img className="pfad-13" alt="Pfad" src="/BDWebAnima-React/img/pfad-242-1.png" />
         <p className="p">
           Dauer
           <br />3 Stunden
@@ -62,7 +62,7 @@ export const RiScreen = () => {
         Gruppe
       </div>
       <div className="gruppe-15">
-        <img className="pfad-13" alt="Pfad" src="/img/pfad-237-2.png" />
+        <img className="pfad-13" alt="Pfad" src="/BDWebAnima-React/img/pfad-237-2.png" />
         <div className="text-wrapper-38">Beschreibung</div>
       </div>
       <div className="text-wrapper-39">Video</div>

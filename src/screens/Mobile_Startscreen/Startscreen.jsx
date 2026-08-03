@@ -65,7 +65,7 @@ export const Startscreen = () => {
           />
           {screenWidth < 1920 && (
             <>
-              <img className="snow" alt="Snow" src="/img/snow-1.png" />
+              <img className="snow" alt="Snow" src="/BDWebAnima-React/img/snow-1.png" />
               <div className="pressanykey">
                 <div className="text-wrapper-48">drücke eine taste</div>
               </div>

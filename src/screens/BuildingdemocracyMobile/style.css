@@ -90,7 +90,7 @@
 }
 
 .RI .NS-dok-logo {
-  background-image: url(../../../static/img/gruppe-165.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-165.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 29px;

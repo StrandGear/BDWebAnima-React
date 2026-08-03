@@ -128,9 +128,9 @@ export const BuildingdemocracyDesktop = () => {
               <span className="text-wrapper-6">Klasse 10b, 2026</span>
             </p>
           </div>
-          <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
+          <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
           <Link to="/buildingdemocracy-start-2">
-            <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
+            <img className="img" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
           </Link>
           <Link className="gruppe-6" to="/buildingdemocracy-gallery">
             <div className="gruppe-7">

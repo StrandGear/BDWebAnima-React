@@ -82,7 +82,7 @@ export const Bd = () => {
       
       {/* --- ARROWS AND TEXT GUARANTEED TO BE ON TOP --- */}
       <Link className="gruppe-3" to="/bd-1" style={{ zIndex: 20, position: "absolute" }}>
-        <img className="polygon" alt="Polygon" src="/img/polygon-1-4.png" />
+        <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-1-4.png" />
         <div className="ergebnis-beitr-ge">
           Ergebnis-
           <br />
@@ -96,7 +96,7 @@ export const Bd = () => {
           <br />
           Download
         </div>
-        <img className="polygon" alt="Polygon" src="/img/polygon-3-3.png" />
+        <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
       </Link>
     </div>
   );

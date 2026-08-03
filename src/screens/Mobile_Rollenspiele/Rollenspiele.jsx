@@ -39,7 +39,7 @@ export const Rollenspiele = () => {
                 <div className="text-wrapper-109">Mitglied werden</div>
                 <div className="text-wrapper-110">Portfolio</div>
                 <div className="text-wrapper-111">makosa</div>
-                <img className="linie-5" alt="Linie" src="/img/linie-1-7.png" />
+                <img className="linie-5" alt="Linie" src="/BDWebAnima-React/img/linie-1-7.png" />
                 <p className="rollenspiele-machen">
                   Rollenspiele machen gesellschaftliche Strukturen,
                   Machtverhältnisse und Ungleichheiten erlebbar.
@@ -87,7 +87,7 @@ export const Rollenspiele = () => {
                 </Link>
                 <div className="text-wrapper-120">Impressum</div>
                 <div className="text-wrapper-121">makosa</div>
-                <img className="linie-6" alt="Linie" src="/img/linie-1-2.png" />
+                <img className="linie-6" alt="Linie" src="/BDWebAnima-React/img/linie-1-2.png" />
               </div>
               <Link className="text-wrapper-122" to="/quiz">
                 Quize

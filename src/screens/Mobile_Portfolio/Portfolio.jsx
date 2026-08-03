@@ -41,7 +41,7 @@ export const Portfolio = () => {
                 </Link>
                 <div className="text-wrapper-73">Portfolio</div>
                 <div className="text-wrapper-74">makosa</div>
-                <img className="linie" alt="Linie" src="/img/linie-1-6.png" />
+                <img className="linie" alt="Linie" src="/BDWebAnima-React/img/linie-1-6.png" />
                 <p className="unser">
                   Unser Diskussionsquiz ist eines unserer bekanntesten und
                   erfolgreichsten Formate. Spielerische Fragen führen
@@ -103,7 +103,7 @@ export const Portfolio = () => {
                 <Link className="text-wrapper-85" to="/aboutus">
                   makosa
                 </Link>
-                <img className="linie-2" alt="Linie" src="/img/linie-1-1.png" />
+                <img className="linie-2" alt="Linie" src="/BDWebAnima-React/img/linie-1-1.png" />
               </div>
               <p className="makosa-e-v">
                 <span className="text-wrapper-86">Makosa </span>

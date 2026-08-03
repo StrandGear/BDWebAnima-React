@@ -33,9 +33,9 @@ export const BdScreen = () => {
         Mitwirkende
       </Link>
       <Link to="/bd">
-        <img className="img" alt="Polygon" src="/img/polygon-1-4.png" />
+        <img className="img" alt="Polygon" src="/BDWebAnima-React/img/polygon-1-4.png" />
       </Link>
-      <img className="PDF" alt="Pdf" src="/img/pdf.png" />
+      <img className="PDF" alt="Pdf" src="/BDWebAnima-React/img/pdf.png" />
       <div className="spielaleitung-2">
         Spielaleitung
         <br />

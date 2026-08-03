@@ -30,9 +30,9 @@ export const Impressum = () => {
         Impressum
       </Link>
       <div className="text-wrapper-19">Mitwirkende</div>
-      <img className="polygon-4" alt="Polygon" src="/img/polygon-1-4.png" />
+      <img className="polygon-4" alt="Polygon" src="/BDWebAnima-React/img/polygon-1-4.png" />
       <Link to="/bd">
-        <img className="polygon-5" alt="Polygon" src="/img/polygon-2-3.png" />
+        <img className="polygon-5" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
       </Link>
       <div className="das-NS-DOK-ist-ein-wrapper">
         <p className="das-NS-DOK-ist-ein">

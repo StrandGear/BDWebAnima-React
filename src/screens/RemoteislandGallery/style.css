@@ -1,5 +1,5 @@
 .remoteisland-gallery {
-  background-image: url(../../../static/img/inselrat-v03-1.png);
+  background-image: url(/BDWebAnima-React/img/inselrat-v03-1.png);
   background-position: 50% 50%;
   background-size: cover;
   min-height: 1080px;
@@ -347,7 +347,7 @@
 }
 
 .remoteisland-gallery .NS-dok-logo-6 {
-  background-image: url(../../../static/img/gruppe-165-6.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-165-6.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 71px;
@@ -380,7 +380,7 @@
 }
 
 .remoteisland-gallery .gruppe-40 {
-  background-image: url(../../../static/img/gruppe-191.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-191.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 26px;
@@ -393,7 +393,7 @@
 }
 
 .remoteisland-gallery .gruppe-41 {
-  background-image: url(../../../static/img/gruppe-199.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-199.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 1px;
@@ -425,7 +425,7 @@
 }
 
 .remoteisland-gallery .gruppe-42 {
-  background-image: url(../../../static/img/gruppe-207.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-207.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 78px;
@@ -459,7 +459,7 @@
 }
 
 .remoteisland-gallery .gruppe-46 {
-  background-image: url(../../../static/img/gruppe-214.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-214.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 1px;
@@ -472,7 +472,7 @@
 }
 
 .remoteisland-gallery .gruppe-47 {
-  background-image: url(../../../static/img/gruppe-222.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-222.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 7px;
@@ -504,7 +504,7 @@
 }
 
 .remoteisland-gallery .gruppe-48 {
-  background-image: url(../../../static/img/gruppe-230.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-230.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 50px;
@@ -538,7 +538,7 @@
 }
 
 .remoteisland-gallery .gruppe-52 {
-  background-image: url(../../../static/img/gruppe-237.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-237.png);
   background-position: 50% 50%;
   background-size: cover;
   height: calc(100% - 53px);
@@ -551,7 +551,7 @@
 }
 
 .remoteisland-gallery .gruppe-53 {
-  background-image: url(../../../static/img/gruppe-245.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-245.png);
   background-position: 50% 50%;
   background-size: cover;
   height: calc(100% - 27px);
@@ -583,7 +583,7 @@
 }
 
 .remoteisland-gallery .gruppe-54 {
-  background-image: url(../../../static/img/gruppe-253.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-253.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 72px;
@@ -595,7 +595,7 @@
 }
 
 .remoteisland-gallery .gruppe-55 {
-  background-image: url(../../../static/img/gruppe-256.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-256.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 83px;
@@ -638,7 +638,7 @@
 }
 
 .remoteisland-gallery .gruppe-60 {
-  background-image: url(../../../static/img/gruppe-263.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-263.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: calc(30.14% - 46px);
@@ -670,7 +670,7 @@
 }
 
 .remoteisland-gallery .gruppe-61 {
-  background-image: url(../../../static/img/gruppe-271.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-271.png);
   background-position: 50% 50%;
   background-size: cover;
   height: calc(100% - 47px);
@@ -683,7 +683,7 @@
 }
 
 .remoteisland-gallery .gruppe-62 {
-  background-image: url(../../../static/img/gruppe-279.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-279.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 0;
@@ -715,7 +715,7 @@
 }
 
 .remoteisland-gallery .gruppe-63 {
-  background-image: url(../../../static/img/gruppe-289.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-289.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 63px;
@@ -726,7 +726,7 @@
 }
 
 .remoteisland-gallery .gruppe-64 {
-  background-image: url(../../../static/img/gruppe-294.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-294.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 100%;

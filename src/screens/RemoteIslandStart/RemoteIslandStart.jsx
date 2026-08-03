@@ -13,18 +13,18 @@ export const RemoteIslandStart = () => {
           <div className="uncheck-3" />
         </div>
       </Link>
-      <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />
-      <img className="pfad-4" alt="Pfad" src="/img/pfad-236-1.png" />
-      <img className="pfad-5" alt="Pfad" src="/img/pfad-237-1.png" />
-      <img className="pfad-6" alt="Pfad" src="/img/pfad-238-1.png" />
-      <img className="pfad-7" alt="Pfad" src="/img/pfad-239-1.png" />
+      <img className="pfad-3" alt="Pfad" src="/BDWebAnima-React/img/pfad-234-1.png" />
+      <img className="pfad-4" alt="Pfad" src="/BDWebAnima-React/img/pfad-236-1.png" />
+      <img className="pfad-5" alt="Pfad" src="/BDWebAnima-React/img/pfad-237-1.png" />
+      <img className="pfad-6" alt="Pfad" src="/BDWebAnima-React/img/pfad-238-1.png" />
+      <img className="pfad-7" alt="Pfad" src="/BDWebAnima-React/img/pfad-239-1.png" />
       <img
         className="LOGO-REMOTE"
         alt="Logo REMOTE"
-        src="/img/logo-op7-remote-island-imagotyp-2023-1.png"
+        src="/BDWebAnima-React/img/logo-op7-remote-island-imagotyp-2023-1.png"
       />
       <div className="gruppe-16">
-        <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
+        <img className="pfad-8" alt="Pfad" src="/BDWebAnima-React/img/pfad-242-1.png" />
         <p className="dauer-stunden">
           Dauer
           <br />3 Stunden
@@ -47,7 +47,7 @@ export const RemoteIslandStart = () => {
           Am Wochenende und feiertags fallen zusätzliche Gebühren an.
         </p>
       </div>
-      <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />
+      <img className="pfad-9" alt="Pfad" src="/BDWebAnima-React/img/pfad-243-1.png" />
       <p className="text-wrapper-18">
         Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
         Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
@@ -82,7 +82,7 @@ export const RemoteIslandStart = () => {
         Schulklasse
       </div>
       <Link className="gruppe-17" to="/remoteisland-gallery">
-        <img className="pfad-8" alt="Pfad" src="/img/pfad-235-1.png" />
+        <img className="pfad-8" alt="Pfad" src="/BDWebAnima-React/img/pfad-235-1.png" />
         <div className="text-wrapper-19">Galerie</div>
       </Link>
       <div className="buchen-als-gruppe">

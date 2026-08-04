@@ -63,7 +63,7 @@ export const BuildingdemocracyDesktop = () => {
             </div>
           </Link>
           <div className="NS-dok-logo" />
-          <div className="smartphone" style={{ zIndex: 20}} />
+          <div className="smartphone" />
           <Link className="text-wrapper-3" to="/buildingdemocracy-impressum">
             Impressum
           </Link>

@@ -186,7 +186,7 @@
 }
 
 .buildingdemocracy .gruppe {
-  background-image: url(/BDWebAnima-React/img/gruppe-159-25.png);
+ /* background-image: url(/BDWebAnima-React/img/gruppe-159-25.png);*/
   background-position: 50% 50%;
   background-size: cover;
   height: 458px;

@@ -16,11 +16,11 @@ export const BuildingdemocracyDesktop = () => {
 
   // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
-    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
-    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
-    streamingAssetsUrl: "/public/unity/StreamingAssets"
+   loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/BDWebAnima-React/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
+    frameworkUrl: "/BDWebAnima-React/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
+    codeUrl: "/BDWebAnima-React/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
+    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
   });
   
   return (

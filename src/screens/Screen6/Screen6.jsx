@@ -96,7 +96,9 @@ export const Screen6 = () => {
               <span className="text-wrapper-47">Klasse 10b, 2026</span>
             </p>
           </div>
-          <img className="polygon-6" alt="Polygon" src="/img/polygon-2-3.png" />
+          <Link to="/buildingdemocracy-start">
+                    <img className="polygon-6" alt="Polygon" src="/img/polygon-2-3.png" />
+          </Link>
           <Link to="/buildingdemocracy-start-2">
             <img
               className="polygon-7"

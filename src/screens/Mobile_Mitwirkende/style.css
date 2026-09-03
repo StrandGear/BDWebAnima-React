@@ -190,6 +190,10 @@
   position: absolute;
   top: 78px;
   width: calc(100% - 82px);
+
+  overflow-y: scroll;
+  overflow-x: hidden; 
+  box-sizing: border-box;
 }
 
 .mitwirkende .mitwirkende-blab-bla {
@@ -201,9 +205,9 @@
   font-weight: 400;
   letter-spacing: 0;
   line-height: 17px;
-  margin-bottom: 40px;
-  margin-left: 28px;
-  margin-right: 40px;
-  margin-top: 38px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 18px;
   width: 280px;
 }

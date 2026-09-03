@@ -128,16 +128,7 @@ export const Mitwirkende = () => {
       <img className="polygon-7" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
       <div className="mitwirkende-blab-bla-wrapper">
         <div className="mitwirkende-blab-bla">
-          Mitwirkende
-          <br />
-          <br />
-          blab
-          <br />
-          <br />
-          bla
-          <br />
-          <br />
-          blub
+          {legalText}
         </div>
       </div>
     </div>

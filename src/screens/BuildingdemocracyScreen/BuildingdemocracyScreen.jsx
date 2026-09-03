@@ -198,27 +198,7 @@ export const BuildingdemocracyScreen = () => {
           </Link>
           <div className="das-NS-DOK-ist-ein-wrapper">
             <p className="das-NS-DOK-ist-ein">
-              <span className="text-wrapper-12">Das </span>
-              <span className="text-wrapper-11">NS-DOK</span>
-              <span className="text-wrapper-12">
-                {" "}
-                ist ein zeithistorisches Museum und eine der größten kommunalen
-                Gedenkstätten für die Opfer des Nationalsozialismus. <br />
-                <br />
-                Appellhofplatz 23-25
-                <br />
-                50667 Köln
-                <br />
-                0221/221-26332
-                <br />
-                Führungen: 0221/2212-6331
-                <br />
-                nsdok@stadt-koeln.de
-                <br />
-                <br />
-              </span>
-              <span className="text-wrapper-11">Datenschutz </span>
-              <span className="text-wrapper-12">etc.</span>
+              {legalText}
             </p>
           </div>
           <div className="smartphone-2" />

@@ -343,13 +343,21 @@
   position: absolute;
   top: 321px;
   width: 210px;
+
+  /* Enable vertical scroll */
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Move spacing from the <p> here so scrolling feels natural */
+  padding: 18px 40px 40px 18px;
+  box-sizing: border-box;
 }
 
 .buildingdemocracy-screen .das-NS-DOK-ist-ein {
   color: #fae5ba;
   flex: 1;
   font-family: "Ubuntu", Helvetica;
-  font-size: 17px;
+  font-size: 14px;
   letter-spacing: 0;
   line-height: 17px;
   margin-bottom: 23px;
@@ -357,10 +365,14 @@
   margin-right: 23px;
   margin-top: 23px;
   width: 170px;
+
+  line-height: 24px; /* Slightly increased for better readability */
+  margin: 0;         /* Clear margins so they don't fight the wrapper padding */
 }
 
 .buildingdemocracy-screen .smartphone-2 {
   background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
+  pointer-events: none;
   background-position: 50% 50%;
   background-size: cover;
   height: 472px;

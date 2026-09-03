@@ -349,6 +349,7 @@
 
 .screen-4 .smartphone-3 {
   background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
+  pointer-events: none;
   background-position: 50% 50%;
   background-size: cover;
   height: 472px;

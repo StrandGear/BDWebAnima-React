@@ -6,15 +6,14 @@ import "firebase/compat/auth";
 import "firebase/compat/database";
 
 const firebaseConfig = {
-        apiKey: "AIzaSyDdZu-G5Nz73j7MPeCEefbikV-TxSWxq1M",
-        authDomain: "sori-3353a.firebaseapp.com",
-        databaseURL: "https://sori-3353a-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "sori-3353a",
-        storageBucket: "sori-3353a.firebasestorage.app",
-        messagingSenderId: "319362189609",
-        appId: "1:319362189609:web:e7c9e7f4ecc18309c8cf38",
-        measurementId: "G-HV1112GG37"
-      };
+  apiKey: "AIzaSyBzTyDx9owTXtGNQiERM11MtkG8R4xs-L4",
+  authDomain: "remote-island-app.firebaseapp.com",
+  databaseURL: "https://remote-island-app-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "remote-island-app",
+  storageBucket: "remote-island-app.firebasestorage.app",
+  messagingSenderId: "834803459470",
+  appId: "1:834803459470:web:6a52b8e4c546df48d630df"
+};
       
 const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.apps[0];
 const db = firebase.database();

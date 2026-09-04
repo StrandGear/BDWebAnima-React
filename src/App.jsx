@@ -11,6 +11,7 @@ import { RemoteIslandStart } from "./screens/RemoteIslandStart";
 import { RemoteislandGallery } from "./screens/RemoteislandGallery";
 import { Screen4 } from "./screens/Screen4";
 import { Screen6 } from "./screens/Screen6";
+import { TestimonyDebug } from "./screens/TestimonyDebug";
 
 //Mobile
 import { Aboutus } from "./screens/Mobile_Aboutus";
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
     {
       path: "/remoteisland-gallery",
       element: <RemoteislandGallery />,
+    },
+    {
+      path: "/testimony-debug",
+      element: <TestimonyDebug />,
     },
     {
       path: "/buildingdemocracy-start-5",

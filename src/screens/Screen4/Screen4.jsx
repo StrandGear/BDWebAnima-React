@@ -1,7 +1,70 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./style.css";
+import { fetchApprovedTestimonies } from "../../services/testimonyService";
+
+// The template has 4 visible card slots, left to right:
+// gruppe-33 (small, left) -> gruppe-32 (large, center) -> gruppe-rechts -> gruppe-34
+const CARD_SLOTS = [
+  { className: "gruppe-33", textClassName: "k-nigin-luise-schule-13" },
+  { className: "gruppe-32", textClassName: "k-nigin-luise-schule-12" },
+  { className: "gruppe-rechts", textClassName: "k-nigin-luise-schule-15" },
+  { className: "gruppe-34", textClassName: "k-nigin-luise-schule-14" },
+];
+
+const TestimonyCard = ({ className, textClassName, testimony }) => (
+  <div
+    className={className}
+    style={
+      testimony?.imageUrl
+        ? {
+            backgroundImage: `url(${testimony.imageUrl})`,
+            backgroundPosition: "50% 50%",
+            backgroundSize: "cover",
+          }
+        : undefined
+    }
+  >
+    {testimony && (
+      <p className={textClassName}>
+        <span className="text-wrapper-32">{testimony.orgaName}: </span>
+        <span className="text-wrapper-33">
+          {testimony.teams
+            .map((team) => team.text)
+            .filter(Boolean)
+            .join(" · ")}
+        </span>
+      </p>
+    )}
+  </div>
+);
 
 export const Screen4 = () => {
+  const [testimonies, setTestimonies] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchApprovedTestimonies().then((data) => {
+      if (!cancelled) setTestimonies(data);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const visibleTestimonies = CARD_SLOTS.map(
+    (_, offset) => testimonies[startIndex + offset] ?? null
+  );
+
+  const canAdvance = startIndex + CARD_SLOTS.length < testimonies.length;
+
+  const handleAdvance = () => {
+    if (canAdvance) setStartIndex((i) => i + 1);
+  };
+
+  const handleReset = () => setStartIndex(0);
+
   return (
     <div className="screen-4">
       <div className="buildingdemocracy-4">
@@ -56,54 +119,43 @@ export const Screen4 = () => {
               lokal. digital. interaktiv
             </div>
           </Link>
-          <div className="gruppe-32">
-            <p className="k-nigin-luise-schule-12">
-              <span className="text-wrapper-32">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-33">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-33">
-            <p className="k-nigin-luise-schule-13">
-              <span className="text-wrapper-32">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-33">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-34">
-            <p className="k-nigin-luise-schule-14">
-              <span className="text-wrapper-32">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-33">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-rechts">
-            <p className="k-nigin-luise-schule-15">
-              <span className="text-wrapper-32">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-33">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <Link to="/buildingdemocracy-start">
-            <img
-              className="polygon-4"
-              alt="Polygon"
-              src="/img/polygon-2-3.png"
-            />
-          </Link>
-          <img className="polygon-5" alt="Polygon" src="/img/polygon-3-3.png" />
+          <TestimonyCard
+            className={CARD_SLOTS[1].className}
+            textClassName={CARD_SLOTS[1].textClassName}
+            testimony={visibleTestimonies[1]}
+          />
+          <TestimonyCard
+            className={CARD_SLOTS[0].className}
+            textClassName={CARD_SLOTS[0].textClassName}
+            testimony={visibleTestimonies[0]}
+          />
+          <TestimonyCard
+            className={CARD_SLOTS[3].className}
+            textClassName={CARD_SLOTS[3].textClassName}
+            testimony={visibleTestimonies[3]}
+          />
+          <TestimonyCard
+            className={CARD_SLOTS[2].className}
+            textClassName={CARD_SLOTS[2].textClassName}
+            testimony={visibleTestimonies[2]}
+          />
+          <img
+            className="polygon-4"
+            alt="Weitere Testimonials"
+            src="/img/polygon-2-3.png"
+            onClick={handleAdvance}
+            style={{
+              cursor: canAdvance ? "pointer" : "default",
+              opacity: canAdvance ? 1 : 0.4,
+            }}
+          />
+          <img
+            className="polygon-5"
+            alt="Zurück zum Anfang"
+            src="/img/polygon-3-3.png"
+            onClick={handleReset}
+            style={{ cursor: "pointer" }}
+          />
           <div className="smartphone-3" />
           <Link className="text-wrapper-34" to="/buildingdemocracy-impressum">
             Impressum

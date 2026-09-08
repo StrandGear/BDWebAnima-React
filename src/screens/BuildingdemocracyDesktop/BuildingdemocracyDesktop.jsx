@@ -1,20 +1,70 @@
 import React, { useState, useEffect } from "react";
 import { useWindowSize } from "../../useWindowSize";
 import { Link } from "react-router-dom";
-import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
-import "../../services/firebase"; // Keep your Firebase bridge
+import { Unity, useUnityContext } from "react-unity-webgl"; 
+import "../../services/firebase"; 
+import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
+
+const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) => {
+  if (!testimony) return null; // hide the slot rather than show a placeholder
+
+  const style = testimony.imageUrl
+    ? {
+        backgroundImage: `url(${testimony.imageUrl})`,
+        backgroundPosition: "50% 50%",
+        backgroundSize: "cover",
+      }
+    : undefined;
+
+  const content = (
+    <div className={textClassName}>
+      <p className="text-wrapper-6" style={{ margin: 0 }}>
+        {testimony.orgaName}
+      </p>
+      {testimony.teams
+        .filter((team) => team.text)
+        .map((team) => (
+          <p key={team.teamId} style={{ margin: "4px 0 0", color: "#fae5ba" }}>
+            {team.text}
+          </p>
+        ))}
+    </div>
+  );
+
+  return linkTo ? (
+    <Link className={className} to={linkTo} style={style}>
+      {content}
+    </Link>
+  ) : (
+    <div className={className} style={style}>
+      {content}
+    </div>
+  );
+};
 
 export const BuildingdemocracyDesktop = () => {
   
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+  const [testimonies, setTestimonies] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Configure paths (make sure these files are in your /public folder)
+  useEffect(() => {
+    let cancelled = false;
+    fetchApprovedTestimonies().then((data) => {
+      if (!cancelled) setTestimonies(data);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const [slot0, slot1, slot2, slot3] = testimonies;
+
   const { unityProvider } = useUnityContext({
     loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
     dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
@@ -85,49 +135,27 @@ export const BuildingdemocracyDesktop = () => {
               <div className="loading-text">Loading Game...</div>
             )}
           </div>
-          <Link
+          <StaticTestimonyCard
             className="k-nigin-luise-schule-wrapper"
-            to="/buildingdemocracy-start-2"
-          >
-            <p className="k-nigin-luise-schule">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </Link>
-          <div className="gruppe-3">
-            <p className="p">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-4">
-            <p className="k-nigin-luise-schule-2">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-5">
-            <p className="k-nigin-luise-schule-3">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
+            textClassName="k-nigin-luise-schule"
+            testimony={slot2}
+            linkTo="/buildingdemocracy-start-2"
+          />
+          <StaticTestimonyCard
+            className="gruppe-3"
+            textClassName="p"
+            testimony={slot1}
+          />
+          <StaticTestimonyCard
+            className="gruppe-4"
+            textClassName="k-nigin-luise-schule-2"
+            testimony={slot3}
+          />
+          <StaticTestimonyCard
+            className="gruppe-5"
+            textClassName="k-nigin-luise-schule-3"
+            testimony={slot0}
+          />
           <Link to="/buildingdemocracy-start-5">
           <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
           </Link>

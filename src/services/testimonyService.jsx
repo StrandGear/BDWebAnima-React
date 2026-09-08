@@ -12,7 +12,7 @@ import { db } from "./firebase";
 import { Testimony } from "../models/Testimony";
 
 const CACHE_KEY = "testimonies_cache_v1";
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 1 day
+const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
 
 function readCache() {
   console.log("Fetching testimonies from cache");
@@ -68,7 +68,7 @@ async function fetchFromFirebase() {
  * hit Firebase (e.g. from an admin "refresh" button).
  * @returns {Promise<Testimony[]>}
  */
-export async function fetchApprovedTestimonies({ forceRefresh = true } = {}) {
+export async function fetchApprovedTestimonies({ forceRefresh = false } = {}) {
   if (!forceRefresh) {
     const cached = readCache();
     if (cached) return hydrate(cached);

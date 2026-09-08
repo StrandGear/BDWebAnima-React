@@ -12,32 +12,47 @@ const CARD_SLOTS = [
   { className: "gruppe-34", textClassName: "k-nigin-luise-schule-14" },
 ];
 
-const TestimonyCard = ({ className, textClassName, testimony }) => (
-  <div
-    className={className}
-    style={
-      testimony?.imageUrl
-        ? {
-            backgroundImage: `url(${testimony.imageUrl})`,
-            backgroundPosition: "50% 50%",
-            backgroundSize: "cover",
-          }
-        : undefined
-    }
-  >
-    {testimony && (
-      <p className={textClassName}>
-        <span className="text-wrapper-32">{testimony.orgaName}: </span>
-        <span className="text-wrapper-33">
-          {testimony.teams
-            .map((team) => team.text)
-            .filter(Boolean)
-            .join(" · ")}
-        </span>
-      </p>
-    )}
-  </div>
-);
+const TestimonyCard = ({ className, textClassName, testimony, onSelect }) => {
+  if (!testimony) return null; // no placeholder box when there's nothing to show
+
+  return (
+    <div
+      className={className}
+      onClick={() => {
+        console.log("[TestimonyCard] clicked", className, testimony.sessionId);
+        onSelect();
+      }}
+      style={{
+        cursor: "pointer",
+        zIndex: 2, // sits above decorative overlays like .smartphone-3
+        ...(testimony.imageUrl
+          ? {
+              backgroundImage: `url(${testimony.imageUrl})`,
+              backgroundPosition: "50% 50%",
+              backgroundSize: "cover",
+            }
+          : {}),
+      }}
+    >
+      <div className={textClassName}>
+        <p className="text-wrapper-32" style={{ margin: 0 }}>
+          {testimony.orgaName}
+        </p>
+        {testimony.teams
+          .filter((team) => team.text)
+          .map((team) => (
+            <p
+              className="text-wrapper-33"
+              style={{ margin: "4px 0 0" }}
+              key={team.teamId}
+            >
+              {team.text}
+            </p>
+          ))}
+      </div>
+    </div>
+  );
+};
 
 export const Screen4 = () => {
   const [testimonies, setTestimonies] = useState([]);
@@ -53,8 +68,14 @@ export const Screen4 = () => {
     };
   }, []);
 
-  const visibleTestimonies = CARD_SLOTS.map(
-    (_, offset) => testimonies[startIndex + offset] ?? null
+  // Wraps an index into [0, length) circularly, handling negatives correctly
+  // (plain `%` in JS can return negative results for negative inputs).
+  const wrapIndex = (index, length) => ((index % length) + length) % length;
+
+  const visibleTestimonies = CARD_SLOTS.map((_, offset) =>
+    testimonies.length > 0
+      ? testimonies[wrapIndex(startIndex + offset, testimonies.length)]
+      : null
   );
 
   const canAdvance = startIndex + CARD_SLOTS.length < testimonies.length;
@@ -64,6 +85,26 @@ export const Screen4 = () => {
   };
 
   const handleReset = () => setStartIndex(0);
+
+  // Clicking a card re-centers the carousel so that card lands in the
+  // center slot (slot index 1). Slot indices map left-to-right: 0, 1, 2, 3.
+  // Wraps circularly: clicking past either end loops to the other side.
+  const CENTER_SLOT_INDEX = 1;
+  const handleCardClick = (slotIndex) => {
+    if (testimonies.length === 0) return;
+    const clickedGlobalIndex = startIndex + slotIndex;
+    const nextStartIndex = wrapIndex(
+      clickedGlobalIndex - CENTER_SLOT_INDEX,
+      testimonies.length
+    );
+    console.log("[Screen4] handleCardClick", {
+      slotIndex,
+      startIndex,
+      clickedGlobalIndex,
+      nextStartIndex,
+    });
+    setStartIndex(nextStartIndex);
+  };
 
   return (
     <div className="screen-4">
@@ -123,21 +164,25 @@ export const Screen4 = () => {
             className={CARD_SLOTS[1].className}
             textClassName={CARD_SLOTS[1].textClassName}
             testimony={visibleTestimonies[1]}
+            onSelect={() => handleCardClick(1)}
           />
           <TestimonyCard
             className={CARD_SLOTS[0].className}
             textClassName={CARD_SLOTS[0].textClassName}
             testimony={visibleTestimonies[0]}
+            onSelect={() => handleCardClick(0)}
           />
           <TestimonyCard
             className={CARD_SLOTS[3].className}
             textClassName={CARD_SLOTS[3].textClassName}
             testimony={visibleTestimonies[3]}
+            onSelect={() => handleCardClick(3)}
           />
           <TestimonyCard
             className={CARD_SLOTS[2].className}
             textClassName={CARD_SLOTS[2].textClassName}
             testimony={visibleTestimonies[2]}
+            onSelect={() => handleCardClick(2)}
           />
           <img
             className="polygon-4"

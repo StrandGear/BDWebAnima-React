@@ -68,7 +68,7 @@ async function fetchFromFirebase() {
  * hit Firebase (e.g. from an admin "refresh" button).
  * @returns {Promise<Testimony[]>}
  */
-export async function fetchApprovedTestimonies({ forceRefresh = false } = {}) {
+export async function fetchApprovedTestimonies({ forceRefresh = true } = {}) {
   if (!forceRefresh) {
     const cached = readCache();
     if (cached) return hydrate(cached);

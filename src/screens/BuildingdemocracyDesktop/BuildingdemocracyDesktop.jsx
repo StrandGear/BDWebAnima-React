@@ -7,9 +7,12 @@ import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
 
 // Static (non-carousel) testimony card: renders once and never reshuffles.
-// If `linkTo` is given it renders as a Link (preserving whatever original
-// navigation that slot had); otherwise it's a plain div.
-const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) => {
+// Shows only the photo + org name, and always links through to the full
+// carousel screen (Screen4) so people can tap any of the 4 previews to
+// browse everything there.
+const CAROUSEL_ROUTE = "/buildingdemocracy-start-2";
+
+const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
   if (!testimony) return null; // hide the slot rather than show a placeholder
 
   const style = testimony.imageUrl
@@ -20,29 +23,14 @@ const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) =>
       }
     : undefined;
 
-  const content = (
-    <div className={textClassName}>
-      <p className="text-wrapper-6" style={{ margin: 0 }}>
-        {testimony.orgaName}
-      </p>
-      {testimony.teams
-        .filter((team) => team.text)
-        .map((team) => (
-          <p key={team.teamId} style={{ margin: "4px 0 0", color: "#fae5ba" }}>
-            {team.text}
-          </p>
-        ))}
-    </div>
-  );
-
-  return linkTo ? (
-    <Link className={className} to={linkTo} style={style}>
-      {content}
+  return (
+    <Link className={className} to={CAROUSEL_ROUTE} style={style}>
+      <div className={textClassName}>
+        <p className="text-wrapper-6" style={{ margin: 0 }}>
+          {testimony.orgaName}
+        </p>
+      </div>
     </Link>
-  ) : (
-    <div className={className} style={style}>
-      {content}
-    </div>
   );
 };
 
@@ -144,7 +132,6 @@ export const BuildingdemocracyDesktop = () => {
             className="k-nigin-luise-schule-wrapper"
             textClassName="k-nigin-luise-schule"
             testimony={slot2}
-            linkTo="/buildingdemocracy-start-2"
           />
           <StaticTestimonyCard
             className="gruppe-3"

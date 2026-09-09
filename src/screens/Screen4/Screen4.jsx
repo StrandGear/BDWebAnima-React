@@ -184,7 +184,7 @@ export const Screen4 = () => {
               <div className="text-wrapper-31">Tap to start!</div>
             </button>
             <div className="BD-logo-3">
-              <img className="pfad-10" alt="Pfad" src="/img/pfad-210-2.png" />
+              <img className="pfad-10" alt="Pfad" src="/BDWebAnima-React/img/pfad-210-2.png" />
               <div className="gruppe-31" />
             </div>
             <div className="deine-demokratie-app-3">

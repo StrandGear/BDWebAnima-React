@@ -3,24 +3,67 @@ import { useWindowSize } from "../../useWindowSize";
 import { Link } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
 import "../../services/firebase"; // Keep your Firebase bridge
+import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
+
+// Static (non-carousel) testimony card: renders once and never reshuffles.
+// Shows only the photo + org name, and always links through to the full
+// carousel screen (Screen4) so people can tap any of the 4 previews to
+// browse everything there.
+const CAROUSEL_ROUTE = "/buildingdemocracy-start-2";
+
+const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
+  if (!testimony) return null; // hide the slot rather than show a placeholder
+
+  const style = testimony.imageUrl
+    ? {
+        backgroundImage: `url(${testimony.imageUrl})`,
+        backgroundPosition: "50% 50%",
+        backgroundSize: "cover",
+      }
+    : undefined;
+
+  return (
+    <Link className={className} to={CAROUSEL_ROUTE} style={style}>
+      <div className={textClassName}>
+        <p className="text-wrapper-6" style={{ margin: 0 }}>
+          {testimony.orgaName}
+        </p>
+      </div>
+    </Link>
+  );
+};
 
 export const BuildingdemocracyDesktop = () => {
   
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+  const [testimonies, setTestimonies] = useState([]);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    let cancelled = false;
+    fetchApprovedTestimonies().then((data) => {
+      if (!cancelled) setTestimonies(data);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Left-to-right slot order matches actual on-screen position (by `left` px).
+  const [slot0, slot1, slot2, slot3] = testimonies;
+
   // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
-   loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/BDWebAnima-React/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
-    frameworkUrl: "/BDWebAnima-React/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
-    codeUrl: "/BDWebAnima-React/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
-    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
+    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
+    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
+    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
+    streamingAssetsUrl: "/public/unity/StreamingAssets"
   });
   
   return (
@@ -85,52 +128,32 @@ export const BuildingdemocracyDesktop = () => {
               <div className="loading-text">Loading Game...</div>
             )}
           </div>
-          <Link
+          <StaticTestimonyCard
             className="k-nigin-luise-schule-wrapper"
-            to="/buildingdemocracy-start-2"
-          >
-            <p className="k-nigin-luise-schule">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
+            textClassName="k-nigin-luise-schule"
+            testimony={slot2}
+          />
+          <StaticTestimonyCard
+            className="gruppe-3"
+            textClassName="p"
+            testimony={slot1}
+          />
+          <StaticTestimonyCard
+            className="gruppe-4"
+            textClassName="k-nigin-luise-schule-2"
+            testimony={slot3}
+          />
+          <StaticTestimonyCard
+            className="gruppe-5"
+            textClassName="k-nigin-luise-schule-3"
+            testimony={slot0}
+          />
+          <Link to="/buildingdemocracy-start-5">
+          <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
           </Link>
-          <div className="gruppe-3">
-            <p className="p">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-4">
-            <p className="k-nigin-luise-schule-2">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-5">
-            <p className="k-nigin-luise-schule-3">
-              <span className="span">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-6">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
+          {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
           <Link to="/buildingdemocracy-start-2">
-            <img className="img" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
+            <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
           </Link>
           <Link className="gruppe-6" to="/buildingdemocracy-gallery">
             <div className="gruppe-7">

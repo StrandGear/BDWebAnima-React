@@ -6,6 +6,7 @@ import { fetchApprovedTestimonies } from "../../services/testimonyService";
 export const BdWrapper = () => {
   const [testimonies, setTestimonies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -26,6 +27,7 @@ export const BdWrapper = () => {
     if (testimonies.length === 0) return;
     // wraps around: from the first, "previous" loops to the last
     setCurrentIndex((i) => (i - 1 + testimonies.length) % testimonies.length);
+    setIsFlipped(false); // new testimony always starts on the front
   };
 
   return (
@@ -72,35 +74,49 @@ export const BdWrapper = () => {
         <div className="text-wrapper-14">Tap to start!</div>
       </div>
       <div
-        className="k-nigin-luise-schule-wrapper"
-        style={
-          testimony?.imageUrl
-            ? {
-                backgroundImage: `url(${testimony.imageUrl})`,
-                backgroundPosition: "50% 50%",
-                backgroundSize: "cover",
-              }
-            : undefined
-        }
+        className="k-nigin-luise-schule-wrapper testimony-flip-outer"
+        onClick={() => testimony && setIsFlipped((f) => !f)}
+        style={{ cursor: testimony ? "pointer" : "default" }}
       >
-        {testimony && (
-          <div className="k-nigin-luise-schule">
-            <p className="text-wrapper-15" style={{ margin: 0 }}>
-              {testimony.orgaName}
-            </p>
-            {testimony.teams
-              .filter((team) => team.text)
-              .map((team) => (
-                <p
-                  key={team.teamId}
-                  className="text-wrapper-15"
-                  style={{ margin: "4px 0 0" }}
-                >
-                  {team.text}
-                </p>
-              ))}
+        <div className={`testimony-flip-inner ${isFlipped ? "is-flipped" : ""}`}>
+          {/* FRONT: image + org name only */}
+          <div
+            className="testimony-flip-front"
+            style={
+              testimony?.imageUrl
+                ? { backgroundImage: `url(${testimony.imageUrl})` }
+                : undefined
+            }
+          >
+            {testimony && (
+              <p className="k-nigin-luise-schule" style={{ margin: 0 }}>
+                <span className="text-wrapper-15">{testimony.orgaName}</span>
+              </p>
+            )}
           </div>
-        )}
+
+          {/* BACK: shaded color + each team's testimony, reachable by tapping */}
+          <div className="testimony-flip-back">
+            {testimony && (
+              <div className="k-nigin-luise-schule">
+                <p className="text-wrapper-15" style={{ margin: 0 }}>
+                  {testimony.orgaName}
+                </p>
+                {testimony.teams
+                  .filter((team) => team.text)
+                  .map((team) => (
+                    <p
+                      key={team.teamId}
+                      className="text-wrapper-15"
+                      style={{ margin: "4px 0 0" }}
+                    >
+                      {team.text}
+                    </p>
+                  ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
       <img
         className="polygon-2"

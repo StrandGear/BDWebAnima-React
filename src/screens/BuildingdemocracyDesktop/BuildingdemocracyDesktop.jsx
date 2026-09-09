@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useWindowSize } from "../../useWindowSize";
 import { Link } from "react-router-dom";
-import { Unity, useUnityContext } from "react-unity-webgl"; 
-import "../../services/firebase"; 
+import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
+import "../../services/firebase"; // Keep your Firebase bridge
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
 
+// Static (non-carousel) testimony card: renders once and never reshuffles.
+// If `linkTo` is given it renders as a Link (preserving whatever original
+// navigation that slot had); otherwise it's a plain div.
 const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) => {
   if (!testimony) return null; // hide the slot rather than show a placeholder
 
@@ -63,8 +66,10 @@ export const BuildingdemocracyDesktop = () => {
     };
   }, []);
 
+  // Left-to-right slot order matches actual on-screen position (by `left` px).
   const [slot0, slot1, slot2, slot3] = testimonies;
 
+  // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
     loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
     dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",

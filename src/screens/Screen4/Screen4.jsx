@@ -12,43 +12,69 @@ const CARD_SLOTS = [
   { className: "gruppe-34", textClassName: "k-nigin-luise-schule-14" },
 ];
 
-const TestimonyCard = ({ className, textClassName, testimony, onSelect }) => {
+const TestimonyCard = ({
+  className,
+  textClassName,
+  testimony,
+  onSelect,
+  flippable = false,
+  isFlipped = false,
+  onFlipToggle,
+}) => {
   if (!testimony) return null; // no placeholder box when there's nothing to show
+
+  const handleClick = () => {
+    if (flippable) {
+      onFlipToggle();
+    } else {
+      onSelect();
+    }
+  };
 
   return (
     <div
-      className={className}
-      onClick={() => {
-        console.log("[TestimonyCard] clicked", className, testimony.sessionId);
-        onSelect();
-      }}
-      style={{
-        cursor: "pointer",
-        zIndex: 2, // sits above decorative overlays like .smartphone-3
-        ...(testimony.imageUrl
-          ? {
-              backgroundImage: `url(${testimony.imageUrl})`,
-              backgroundPosition: "50% 50%",
-              backgroundSize: "cover",
-            }
-          : {}),
-      }}
+      className={`${className} testimony-flip-outer`}
+      onClick={handleClick}
+      style={{ cursor: "pointer", zIndex: 2 }}
     >
-      <div className={textClassName}>
-        <p className="text-wrapper-32" style={{ margin: 0 }}>
-          {testimony.orgaName}
-        </p>
-        {testimony.teams
-          .filter((team) => team.text)
-          .map((team) => (
-            <p
-              className="text-wrapper-33"
-              style={{ margin: "4px 0 0" }}
-              key={team.teamId}
-            >
-              {team.text}
+      <div
+        className={`testimony-flip-inner ${isFlipped ? "is-flipped" : ""}`}
+      >
+        {/* FRONT: image + org name only */}
+        <div
+          className="testimony-flip-front"
+          style={
+            testimony.imageUrl
+              ? { backgroundImage: `url(${testimony.imageUrl})` }
+              : undefined
+          }
+        >
+          <div className={textClassName}>
+            <p className="text-wrapper-32" style={{ margin: 0 }}>
+              {testimony.orgaName}
             </p>
-          ))}
+          </div>
+        </div>
+
+        {/* BACK: shaded color + each team's testimony, only reachable by flipping */}
+        <div className="testimony-flip-back">
+          <div className={textClassName}>
+            <p className="text-wrapper-32" style={{ margin: 0 }}>
+              {testimony.orgaName}
+            </p>
+            {testimony.teams
+              .filter((team) => team.text)
+              .map((team) => (
+                <p
+                  className="text-wrapper-33"
+                  style={{ margin: "4px 0 0" }}
+                  key={team.teamId}
+                >
+                  {team.text}
+                </p>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -57,6 +83,7 @@ const TestimonyCard = ({ className, textClassName, testimony, onSelect }) => {
 export const Screen4 = () => {
   const [testimonies, setTestimonies] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
+  const [isCenterFlipped, setIsCenterFlipped] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -67,6 +94,12 @@ export const Screen4 = () => {
       cancelled = true;
     };
   }, []);
+
+  // Whenever the carousel moves, the center card is a "new" testimony —
+  // always start it back on the front (image + org name).
+  useEffect(() => {
+    setIsCenterFlipped(false);
+  }, [startIndex]);
 
   // Wraps an index into [0, length) circularly, handling negatives correctly
   // (plain `%` in JS can return negative results for negative inputs).
@@ -165,6 +198,9 @@ export const Screen4 = () => {
             textClassName={CARD_SLOTS[1].textClassName}
             testimony={visibleTestimonies[1]}
             onSelect={() => handleCardClick(1)}
+            flippable
+            isFlipped={isCenterFlipped}
+            onFlipToggle={() => setIsCenterFlipped((f) => !f)}
           />
           <TestimonyCard
             className={CARD_SLOTS[0].className}

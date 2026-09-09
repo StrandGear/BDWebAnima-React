@@ -272,6 +272,8 @@
   background-image: url(../../../static/img/gruppe-159-26.png);
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   height: 418px;
   left: 1118px;
@@ -310,6 +312,8 @@
   background-image: url(../../../static/img/gruppe-159-27.png);
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   height: 418px;
   left: 611px;
@@ -336,6 +340,8 @@
   background-image: url(../../../static/img/gruppe-159-28.png);
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   height: 374px;
   left: 1350px;
@@ -362,6 +368,8 @@
   background-image: url(../../../static/img/gruppe-159-29.png);
   background-position: 50% 50%;
   background-size: cover;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   height: 374px;
   left: 398px;

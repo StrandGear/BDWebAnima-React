@@ -329,6 +329,24 @@
 }
 
 .remote-island-start .text-wrapper-21 {
+   bottom: 50px;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  height: 18px;
+  left: calc(44.83% - 33px);
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0px 3px 6px #00000029;
+  white-space: nowrap;
+  width: 73px;
+}
+
+.remote-island-start .text-wrapper-33 {
   bottom: 50px;
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
@@ -339,11 +357,11 @@
   letter-spacing: 0;
   line-height: 14px;
   position: absolute;
-  right: calc(49.92% - 36px);
+  right: calc(48.01% - 41px);
   text-align: center;
   text-shadow: 0px 3px 6px #00000029;
   white-space: nowrap;
-  width: 73px;
+  width: 85px;
 }
 
 .remote-island-start .NS-dok-logo-3 {
@@ -355,4 +373,15 @@
   position: absolute;
   top: 79px;
   width: 94px;
+}
+
+.remote-island-start .gruppe-26 {
+  background-image: url(../../../static/img/gruppe-300.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 60px;
+  left: calc(25.91% - 47px);
+  position: absolute;
+  top: 69px;
+  width: 182px;
 }

@@ -7,6 +7,9 @@ export const RemoteIslandStart = () => {
   // State to track whether the gallery overlay is visible
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
+// State to track the active text view: "default", "about", or "greetings"
+  const [activeTab, setActiveTab] = useState("default");
+
   return (
     <div className="remote-island-start">
       <div className="rechteck-11" />
@@ -60,51 +63,102 @@ export const RemoteIslandStart = () => {
       </div>
       <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />
 
+{/* --- MERGED & SWITCHABLE TEXT CONTAINER --- */}
+      <div className="text-content-container">
+        {activeTab === "default" && (
+          <div className="text-main-block">
+            <p className="text-sub-block">
+              Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
+              Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
+              Remote Island organisieren wollen.
+            </p>
+            <p className="text-sub-block">
+              Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
+              Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
+              unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
+              Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
+              Challenges in den jeweiligen Räumen und durch anregende
+              Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
+              ein Zusammenleben auf Remote Island organisiert werden kann.
+            </p>
+            <p className="text-sub-block">
+              Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
+              und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
+              jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
+              abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
+              dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
+            </p>
+            <p className="text-sub-block">
+              Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
+              die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
+              auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
+              diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
+              Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
+              Alltag?
+            </p>
+          </div>
+        )}
 
-      <p className="text-wrapper-18">
-        Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-        Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-        Remote Island organisieren wollen.
-      </p>
-      <p className="nach-einer-globalen">
-        Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-        Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-        unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-        Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-        Challenges in den jeweiligen Räumen und durch anregende
-        Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-        ein Zusammenleben auf Remote Island organisiert werden kann.
-      </p>
-      <p className="im-inselrat">
-        Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-        und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-        jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-        abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-        dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-      </p>
-      <p className="wie-sehen-sie-ihre">
-        Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-        die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-        auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-        diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-        Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-        Alltag?
-      </p>
+        {activeTab === "about" && (
+          <div className="text-main-block">
+            <p className="text-sub-block">
+              Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
+              Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
+              Remote Island organisieren wollen.
+            </p>
+            <p className="text-sub-block">
+              Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
+              Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
+              unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
+              Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
+              Challenges in den jeweiligen Räumen und durch anregende
+              Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
+              ein Zusammenleben auf Remote Island organisiert werden kann.
+            </p>
+            <p className="text-sub-block">
+              Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
+              und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
+              jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
+              abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
+              dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
+            </p>
+            <p className="text-sub-block">
+              Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
+              die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
+              auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
+              diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
+              Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
+              Alltag?
+            </p>
+          </div>
+        )}
+
+        {activeTab === "greetings" && (
+          <div className="text-main-block">
+          <p className="text-sub-block">
+            Placeholder text for Grüße aus Remote Island. Placeholder text for Grüße aus Remote Island. 
+            Placeholder text for Grüße aus Remote Island. Placeholder text for Grüße aus Remote Island.
+          </p>
+          </div>
+        )}
+      </div>
 
 {/* Buttons */}
-      <Link className="" to="">
-      <div className="buchen-als">
-        Buchen
-      </div>
+<Link className="" to="">
+        <div className="buchen-als">Buchen</div>
       </Link>
 
-      <Link className="gruppe-17" to="">
+ {/* "Über uns" Button triggers state change */}
+      <div 
+        className="gruppe-17" 
+        onClick={() => setActiveTab("about")}
+        style={{ cursor: "pointer" }}
+      >
         <img className="pfad-8" alt="Pfad" src="/img/pfad-235-1.png" />
         <div className="text-wrapper-19">Über uns</div>
-      </Link>
+      </div>
 
-{/* Gallery Button: toggles state to TRUE instead of using a React Router <Link> */}
-<div 
+      <div 
         className="buchen-als-gruppe" 
         onClick={() => setIsGalleryOpen(true)}
         style={{ cursor: "pointer" }}
@@ -112,15 +166,17 @@ export const RemoteIslandStart = () => {
         Galerie
       </div>
 
-      <Link className="" to="">
-      <div className="gr-e-aus-remote">
-        Grüße aus <br />
-        Remote Island
-      </div>
-      </Link> 
+      {/* "Grüße aus Remote Island" Button triggers state change */}
+      <div 
+        className="gr-e-aus-remote" 
+        onClick={() => setActiveTab("greetings")}
+        style={{ cursor: "pointer" }}
+      >
+        Grüße aus <br />Remote Island
+      </div> 
 
       <Link className="" to="">
-      <div className="text-wrapper-20">Video</div>
+        <div className="text-wrapper-20">Video</div>
       </Link>
 
       <div className="text-wrapper-21">Impressum</div>

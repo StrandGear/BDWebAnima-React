@@ -187,7 +187,7 @@
   position: absolute;
   width: 614px;
 }
-
+/* 
 .remote-island-start .text-wrapper-18 {
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
@@ -242,6 +242,29 @@
   line-height: 16px;
   position: absolute;
   width: 480px;
+} */
+
+.remote-island-start .text-content-container {
+  position: absolute;
+  top: calc(29.98% - 17px);
+  left: calc(28.55% - 137px);
+  width: 480px;
+  /* Adjust max-height and overflow if your placeholder text gets too long */
+  max-height: 600px;
+  overflow-y: auto; 
+}
+
+.remote-island-start .text-main-block {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.remote-island-start .text-sub-block {
+  line-height: 16px;
+  margin-bottom: 30px;
 }
 
 .remote-island-start .buchen-als {

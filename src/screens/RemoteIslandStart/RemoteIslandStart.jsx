@@ -96,7 +96,9 @@ export const RemoteIslandStart = () => {
       </div>
       <div className="text-wrapper-20">Video</div>
       <div className="text-wrapper-21">Impressum</div>
+      <div className="text-wrapper-33">Datenschutz</div>
       <div className="NS-dok-logo-3" />
+      <div className="gruppe-26" />
     </div>
   );
 };

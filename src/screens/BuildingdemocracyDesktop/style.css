@@ -131,6 +131,7 @@
 .buildingdemocracy .smartphone {
   background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
   pointer-events: none;
+  z-index: 1;
   background-position: 50% 50%;
   background-size: cover;
   height: 472px;

@@ -4,6 +4,7 @@ import { getDatabase } from "firebase/database";
 import firebase from "firebase/compat/app"; 
 import "firebase/compat/auth";
 import "firebase/compat/database";
+import "firebase/compat/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBzTyDx9owTXtGNQiERM11MtkG8R4xs-L4",
@@ -18,13 +19,15 @@ const firebaseConfig = {
 const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.apps[0];
 const db = firebase.database();
 const auth = firebase.auth();
+const storage = firebase.storage();
 
 //  expose to Unity
 window.firebase = {
     app,
     database: () => db,
     auth: () => auth,
+    storage: () => storage,
     apps: firebase.apps
 };
 
-export { app, db, auth };
+export { app, db, auth, storage };

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useWindowSize } from "../../useWindowSize";
 import { Link } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
 import "../../services/firebase"; // Keep your Firebase bridge
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
+import { DesktopLayout } from "../../DesktopLayout";
 
 
 const legalText = `
@@ -151,12 +151,6 @@ export const BuildingdemocracyDesktop = () => {
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   const [testimonies, setTestimonies] = useState([]);
 
- const size = useWindowSize();
- console.log("useWindowSize output:", size);
-  const width = size?.width ?? size?.innerWidth ?? size?.[0] ?? window.innerWidth;
-const height = size?.height ?? size?.innerHeight ?? size?.[1] ?? window.innerHeight;
-const scale = Math.min(width / 1920, height / 1080);
-
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
@@ -185,121 +179,116 @@ const scale = Math.min(width / 1920, height / 1080);
   });
   
   return (
-    <div className="buildingdemocracy">
-      <div className="overlap-group-wrapper">
-        <div className="overlap-group"
-        style={{ 
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: `translate(-50%, -50%) scale(${scale})`, 
-    transformOrigin: "center center" 
-    }}>
-          <Link className="schalter-mit" to="/remoteislandstart">
-            <div className="text-wrapper">BUILDING DEMOCRACY</div>
-            <div className="text-wrapper-2">REMOTE ISLAND</div>
-            <div className="schalter">
-              <div className="rechteck" />
-              <div className="uncheck" />
-            </div>
-          </Link>
-          <div className="NS-dok-logo" />
+    <DesktopLayout>
+      <div className="buildingdemocracy">
+        <div className="overlap-group-wrapper">
+          <div className="overlap-group">
+            <Link className="schalter-mit" to="/remoteislandstart">
+              <div className="text-wrapper">BUILDING DEMOCRACY</div>
+              <div className="text-wrapper-2">REMOTE ISLAND</div>
+              <div className="schalter">
+                <div className="rechteck" />
+                <div className="uncheck" />
+              </div>
+            </Link>
+            <div className="NS-dok-logo" />
 
-          <div className="middle-screen">
-            {/* phone frame */}
-            <div className="smartphone" /> 
+            <div className="middle-screen">
+              {/* phone frame */}
+              <div className="smartphone" /> 
 
-            {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
-            <div className={`unity-wrapper ${activeView === "text" ? "hidden-behind" : "active"}`}>
-              {isFirebaseReady ? (
-                <Unity 
-                  unityProvider={unityProvider} 
-                  style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
-                />
-              ) : (
-                <div className="loading-text">Loading Game...</div>
+              {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
+              <div className={`unity-wrapper ${activeView === "text" ? "hidden-behind" : "active"}`}>
+                {isFirebaseReady ? (
+                  <Unity 
+                    unityProvider={unityProvider} 
+                    style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+                  />
+                ) : (
+                  <div className="loading-text">Loading Game...</div>
+                )}
+              </div>
+
+              {/* Text overlay that shows/hides dynamically */}
+              {activeView !== "game" && (
+                <div className="phone-text-overlay">
+                  <p className="das-NS-DOK-ist-ein">
+                    <span className="text-wrapper-12">
+                      {activeView === "impressum" && legalText}
+                      {activeView === "mitwirkende" && mitwirkendeText}
+                    </span>
+                  </p>
+                </div>
               )}
             </div>
+            
+            <div className="bottom-nav-container">
+            {/* 1. Mitwirkende Button */}
+            <button 
+              className="raw-text-btn nav-btn"
+              onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
+            >
+              {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
+            </button>
 
-            {/* Text overlay that shows/hides dynamically */}
-            {activeView !== "game" && (
-              <div className="phone-text-overlay">
-                <p className="das-NS-DOK-ist-ein">
-                  <span className="text-wrapper-12">
-                    {activeView === "impressum" && legalText}
-                    {activeView === "mitwirkende" && mitwirkendeText}
-                  </span>
-                </p>
-              </div>
-            )}
-        </div>
-          
-          <div className="bottom-nav-container">
-          {/* 1. Mitwirkende Button */}
-          <button 
-            className="raw-text-btn nav-btn"
-            onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
-          >
-            {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
-          </button>
+            {/* 2. Impressum / Home Button */}
+            <button 
+              className="raw-text-btn nav-btn"
+              onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
+            >
+              {activeView === "impressum" ? "Home" : "Impressum"}
+            </button>
 
-          {/* 2. Impressum / Home Button */}
-          <button 
-            className="raw-text-btn nav-btn"
-            onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
-          >
-            {activeView === "impressum" ? "Home" : "Impressum"}
-          </button>
-
-          {/* 3. PDF Download Button */}
-          <a 
-            href="/pdf/spielanleitung.pdf" 
-            download="Spielanleitung.pdf"
-            className="raw-text-btn nav-btn download-btn"
-          >
-            Spielanleitung<br />Download
-          </a>
-        </div>
-
-          <StaticTestimonyCard
-            className="k-nigin-luise-schule-wrapper"
-            textClassName="k-nigin-luise-schule"
-            testimony={slot2}
-            linkTo="/buildingdemocracy-start-2"
-          />
-          <StaticTestimonyCard
-            className="gruppe-3"
-            textClassName="p"
-            testimony={slot1}
-          />
-          <StaticTestimonyCard
-            className="gruppe-4"
-            textClassName="k-nigin-luise-schule-2"
-            testimony={slot3}
-          />
-          <StaticTestimonyCard
-            className="gruppe-5"
-            textClassName="k-nigin-luise-schule-3"
-            testimony={slot0}
-          />
-          <Link to="/buildingdemocracy-start-5">
-          <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
-          </Link>
-          {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
-          <Link to="/buildingdemocracy-start-2">
-            <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
-          </Link>
-          <Link className="gruppe-6" to="/buildingdemocracy-gallery">
-            <div className="gruppe-7">
-              <div className="rechteck-2" />
-              <div className="rechteck-3" />
-              <div className="rechteck-4" />
-              <div className="rechteck-5" />
+            {/* 3. PDF Download Button */}
+            <a 
+              href="/pdf/spielanleitung.pdf" 
+              download="Spielanleitung.pdf"
+              className="raw-text-btn nav-btn download-btn"
+            >
+              Spielanleitung<br />Download
+            </a>
             </div>
-            <div className="text-wrapper-7">Ansicht ändern</div>
-          </Link>
+
+            <StaticTestimonyCard
+              className="k-nigin-luise-schule-wrapper"
+              textClassName="k-nigin-luise-schule"
+              testimony={slot2}
+              linkTo="/buildingdemocracy-start-2"
+            />
+            <StaticTestimonyCard
+              className="gruppe-3"
+              textClassName="p"
+              testimony={slot1}
+            />
+            <StaticTestimonyCard
+              className="gruppe-4"
+              textClassName="k-nigin-luise-schule-2"
+              testimony={slot3}
+            />
+            <StaticTestimonyCard
+              className="gruppe-5"
+              textClassName="k-nigin-luise-schule-3"
+              testimony={slot0}
+            />
+            <Link to="/buildingdemocracy-start-5">
+            <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
+            </Link>
+            {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
+            <Link to="/buildingdemocracy-start-2">
+              <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
+            </Link>
+            <Link className="gruppe-6" to="/buildingdemocracy-gallery">
+              <div className="gruppe-7">
+                <div className="rechteck-2" />
+                <div className="rechteck-3" />
+                <div className="rechteck-4" />
+                <div className="rechteck-5" />
+              </div>
+              <div className="text-wrapper-7">Ansicht ändern</div>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </DesktopLayout>
   );
 };

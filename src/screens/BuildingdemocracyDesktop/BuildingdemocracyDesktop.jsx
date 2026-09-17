@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useWindowSize } from "../../useWindowSize";
-import { Link } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
 import "../../services/firebase"; // Keep your Firebase bridge
+import { Link, useLocation } from "react-router-dom"; // Added useLocation
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
+import { DesktopLayout } from "../../DesktopLayout";
 
 
 const legalText = `
@@ -106,12 +106,9 @@ Mitwirkende & Projektteam:
 `;
 
 // Static (non-carousel) testimony card: renders once and never reshuffles.
-// Shows only the photo + org name, and always links through to the full
-// carousel screen (Screen4) so people can tap any of the 4 previews to
-// browse everything there.
-const CAROUSEL_ROUTE = "/buildingdemocracy-start-2";
-
-const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
+// If `linkTo` is given it renders as a Link (preserving whatever original
+// navigation that slot had); otherwise it's a plain div.
+const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) => {
   if (!testimony) return null; // hide the slot rather than show a placeholder
 
   const style = testimony.imageUrl
@@ -122,28 +119,48 @@ const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
       }
     : undefined;
 
-  return (
-    <Link className={className} to={CAROUSEL_ROUTE} style={style}>
-      <div className={textClassName}>
-        <p className="text-wrapper-6" style={{ margin: 0 }}>
-          {testimony.orgaName}
-        </p>
-      </div>
+  const content = (
+    <div className={textClassName}>
+      <p className="text-wrapper-6" style={{ margin: 0 }}>
+        {testimony.orgaName}
+      </p>
+      {testimony.teams
+        .filter((team) => team.text)
+        .map((team) => (
+          <p key={team.teamId} style={{ margin: "4px 0 0", color: "#fae5ba" }}>
+            {team.text}
+          </p>
+        ))}
+    </div>
+  );
+
+  return linkTo ? (
+    <Link className={className} to={linkTo} style={style}>
+      {content}
     </Link>
+  ) : (
+    <div className={className} style={style}>
+      {content}
+    </div>
   );
 };
 
 export const BuildingdemocracyDesktop = () => {
+  const location = useLocation();
+// Read activeView passed from DivWrapper navigation state, default to "game"
+  const [activeView, setActiveView] = useState(
+    location.state?.activeView || "game"
+  );
 
-  const [activeView, setActiveView] = useState("game"); 
+  // Sync state if navigation state changes while mounted
+  useEffect(() => {
+    if (location.state?.activeView) {
+      setActiveView(location.state.activeView);
+    }
+  }, [location.state]);
+  
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   const [testimonies, setTestimonies] = useState([]);
-
- const size = useWindowSize();
- console.log("useWindowSize output:", size);
-  const width = size?.width ?? size?.innerWidth ?? size?.[0] ?? window.innerWidth;
-const height = size?.height ?? size?.innerHeight ?? size?.[1] ?? window.innerHeight;
-const scale = Math.min(width / 1920, height / 1080);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
@@ -163,129 +180,126 @@ const scale = Math.min(width / 1920, height / 1080);
   // Left-to-right slot order matches actual on-screen position (by `left` px).
   const [slot0, slot1, slot2, slot3] = testimonies;
 
+  // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/BDWebAnima-React/unity/Build/c52841c9150b40a1a91d58d841fd5675.data",
-    frameworkUrl: "/BDWebAnima-React/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
-    codeUrl: "/BDWebAnima-React/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
-    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
+    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
+    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
+    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
+    streamingAssetsUrl: "/public/unity/StreamingAssets"
   });
   
   return (
-    <div className="buildingdemocracy">
-      <div className="overlap-group-wrapper">
-        <div className="overlap-group"
-        style={{ 
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: `translate(-50%, -50%) scale(${scale})`, 
-    transformOrigin: "center center" 
-    }}>
-          <Link className="schalter-mit" to="/remoteislandstart">
-            <div className="text-wrapper">BUILDING DEMOCRACY</div>
-            <div className="text-wrapper-2">REMOTE ISLAND</div>
-            <div className="schalter">
-              <div className="rechteck" />
-              <div className="uncheck" />
-            </div>
-          </Link>
-          <div className="NS-dok-logo" />
+    <DesktopLayout>
+      <div className="buildingdemocracy">
+        <div className="overlap-group-wrapper">
+          <div className="overlap-group">
+            <Link className="schalter-mit" to="/remoteislandstart">
+              <div className="text-wrapper">BUILDING DEMOCRACY</div>
+              <div className="text-wrapper-2">REMOTE ISLAND</div>
+              <div className="schalter">
+                <div className="rechteck" />
+                <div className="uncheck" />
+              </div>
+            </Link>
+            <div className="NS-dok-logo" />
 
-          <div className="middle-screen">
-            {/* phone frame */}
-            <div className="smartphone" /> 
+            <div className="middle-screen">
+              {/* phone frame */}
+              <div className="smartphone" /> 
 
-            {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
-            <div className={`unity-wrapper ${activeView === "text" ? "hidden-behind" : "active"}`}>
-              {isFirebaseReady ? (
-                <Unity 
-                  unityProvider={unityProvider} 
-                  style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
-                />
-              ) : (
-                <div className="loading-text">Loading Game...</div>
+              {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
+              <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
+                {isFirebaseReady ? (
+                  <Unity 
+                    unityProvider={unityProvider} 
+                    style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+                  />
+                ) : (
+                  <div className="loading-text">Loading Game...</div>
+                )}
+              </div>
+
+              {/* Text overlay that shows/hides dynamically */}
+              {activeView !== "game" && (
+                <div className="phone-text-overlay">
+                  <p className="das-NS-DOK-ist-ein">
+                    <span className="text-wrapper-12">
+                      {activeView === "impressum" && legalText}
+                      {activeView === "mitwirkende" && mitwirkendeText}
+                    </span>
+                  </p>
+                </div>
               )}
             </div>
+            
+            <div className="bottom-nav-container">
+            {/* 1. Mitwirkende Button */}
+            <button 
+              className="raw-text-btn nav-btn"
+              onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
+            >
+              {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
+            </button>
 
-            {/* Text overlay that shows/hides dynamically */}
-            {activeView !== "game" && (
-              <div className="phone-text-overlay">
-                <p className="das-NS-DOK-ist-ein">
-                  <span className="text-wrapper-12">
-                    {activeView === "impressum" && legalText}
-                    {activeView === "mitwirkende" && mitwirkendeText}
-                  </span>
-                </p>
-              </div>
-            )}
-        </div>
-          
-          <div className="bottom-nav-container">
-          {/* 1. Mitwirkende Button */}
-          <button 
-            className="raw-text-btn nav-btn"
-            onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
-          >
-            {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
-          </button>
+            {/* 2. Impressum / Home Button */}
+            <button 
+              className="raw-text-btn nav-btn"
+              onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
+            >
+              {activeView === "impressum" ? "Home" : "Impressum"}
+            </button>
 
-          {/* 2. Impressum / Home Button */}
-          <button 
-            className="raw-text-btn nav-btn"
-            onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
-          >
-            {activeView === "impressum" ? "Home" : "Impressum"}
-          </button>
-
-          {/* 3. PDF Download Button */}
-          <a 
-            href="/pdf/spielanleitung.pdf" 
-            download="Spielanleitung.pdf"
-            className="raw-text-btn nav-btn download-btn"
-          >
-            Spielanleitung<br />Download
-          </a>
-        </div>
-
-          <StaticTestimonyCard
-            className="k-nigin-luise-schule-wrapper"
-            textClassName="k-nigin-luise-schule"
-            testimony={slot2}
-          />
-          <StaticTestimonyCard
-            className="gruppe-3"
-            textClassName="p"
-            testimony={slot1}
-          />
-          <StaticTestimonyCard
-            className="gruppe-4"
-            textClassName="k-nigin-luise-schule-2"
-            testimony={slot3}
-          />
-          <StaticTestimonyCard
-            className="gruppe-5"
-            textClassName="k-nigin-luise-schule-3"
-            testimony={slot0}
-          />
-          <Link to="/buildingdemocracy-start-5">
-          <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
-          </Link>
-          {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
-          <Link to="/buildingdemocracy-start-2">
-            <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
-          </Link>
-          <Link className="gruppe-6" to="/buildingdemocracy-gallery">
-            <div className="gruppe-7">
-              <div className="rechteck-2" />
-              <div className="rechteck-3" />
-              <div className="rechteck-4" />
-              <div className="rechteck-5" />
+            {/* 3. PDF Download Button */}
+            <a 
+              href="/pdf/spielanleitung.pdf" 
+              download="Spielanleitung.pdf"
+              className="raw-text-btn nav-btn download-btn"
+            >
+              Spielanleitung<br />Download
+            </a>
             </div>
-            <div className="text-wrapper-7">Ansicht ändern</div>
-          </Link>
+
+            <StaticTestimonyCard
+              className="k-nigin-luise-schule-wrapper"
+              textClassName="k-nigin-luise-schule"
+              testimony={slot2}
+              linkTo="/buildingdemocracy-start-2"
+            />
+            <StaticTestimonyCard
+              className="gruppe-3"
+              textClassName="p"
+              testimony={slot1}
+            />
+            <StaticTestimonyCard
+              className="gruppe-4"
+              textClassName="k-nigin-luise-schule-2"
+              testimony={slot3}
+            />
+            <StaticTestimonyCard
+              className="gruppe-5"
+              textClassName="k-nigin-luise-schule-3"
+              testimony={slot0}
+            />
+            <Link to="/buildingdemocracy-start-5">
+            <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
+            </Link>
+            {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
+            <Link to="/buildingdemocracy-start-2">
+              <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
+            </Link>
+            <Link className="gruppe-6" to="/buildingdemocracy-gallery">
+              <div className="gruppe-7">
+                <div className="rechteck-2" />
+                <div className="rechteck-3" />
+                <div className="rechteck-4" />
+                <div className="rechteck-5" />
+              </div>
+              <div className="text-wrapper-7">Ansicht ändern</div>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </DesktopLayout>
   );
 };

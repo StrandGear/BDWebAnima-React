@@ -136,8 +136,31 @@ export const RemoteIslandStart = () => {
         {activeTab === "greetings" && (
           <div className="text-main-block">
           <p className="text-sub-block">
-            Placeholder text for Grüße aus Remote Island. Placeholder text for Grüße aus Remote Island. 
-            Placeholder text for Grüße aus Remote Island. Placeholder text for Grüße aus Remote Island.
+            Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:
+          </p>
+          <p className="text-sub-block">
+            "REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt."
+          </p>
+          <p className="text-sub-block">
+            "Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion."
+          </p>
+          <p className="text-sub-block">
+            "Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!"
+          </p>
+          <p className="text-sub-block">
+            "TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!"
+          </p>
+          <p className="text-sub-block">
+            "Unsere Entscheidungen haben Folgen!"
+          </p>
+          <p className="text-sub-block">
+            "Stimmt zusammen ab und achtet auf einander!"
+          </p>
+          <p className="text-sub-block">
+            "Demokratie ist schön – macht aber Arbeit."
+          </p>
+          <p className="text-sub-block">
+            "Immer einigen. Spaß haben. Teamarbeit ist wichtig."
           </p>
           </div>
         )}

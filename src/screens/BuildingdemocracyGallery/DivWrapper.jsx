@@ -88,105 +88,39 @@ export const DivWrapper = () => {
               <div className="text-wrapper-28">Ansicht ändern</div>
             </Link>
 
-          <div className="gruppe-18">
-            <p className="k-nigin-luise-schule-8">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-19">
-            <p className="k-nigin-luise-schule-8">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-20">
-            <p className="k-nigin-luise-schule-9">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-21">
-            <p className="k-nigin-luise-schule-9">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-22">
-            <p className="k-nigin-luise-schule-10">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-23">
-            <p className="k-nigin-luise-schule-10">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-24">
-            <p className="k-nigin-luise-schule-10">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-25">
-            <p className="k-nigin-luise-schule-10">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-26">
-            <p className="k-nigin-luise-schule-11">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
-          </div>
-          <div className="gruppe-27">
-            <p className="k-nigin-luise-schule-11">
-              <span className="text-wrapper-24">
-                Königin-Luise-
-                <br />
-                Schule:{" "}
-              </span>
-              <span className="text-wrapper-25">Klasse 10b, 2026</span>
-            </p>
+            {/* Cards Grid */}
+          <div className="cards-grid">
+            <div className="card-item">
+              <p className="card-text">
+                <span className="card-school">
+                  Königin-Luise-
+                  <br />
+                  Schule:{" "}
+                </span>
+                <span className="card-class">Klasse 10b, 2026</span>
+              </p>
+            </div>
+            <div className="card-item">
+              <p className="card-text">
+                <span className="card-school">
+                  Königin-Luise-
+                  <br />
+                  Schule:{" "}
+                </span>
+                <span className="card-class">Klasse 10b, 2026</span>
+              </p>
+            </div>
+            {/* Old example with static position 
+             <div className="gruppe-20">
+              <p className="k-nigin-luise-schule-9">
+                <span className="text-wrapper-24">
+                  Königin-Luise-
+                  <br />
+                  Schule:{" "}
+                </span>
+                <span className="text-wrapper-25">Klasse 10b, 2026</span>
+              </p>
+            </div> */}
           </div>
         </div>
       </div>

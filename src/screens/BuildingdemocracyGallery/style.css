@@ -21,7 +21,7 @@
   background-position: top left;
   background-repeat: repeat;
   background-size: 350px auto;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,9 +32,8 @@
   -ms-overflow-style: none;  /* IE and Edge */
 }
 
-/* Card Grid Container */
 .div-wrapper .overlap-group-3 {
-  min-height: 1207px;        /* Allows grid height to grow dynamically */
+  min-height: 1080px;        /* Allows grid height to grow dynamically */
   position: relative;
   width: 1920px;
   z-index: 1;
@@ -149,19 +148,34 @@
   width: 94px;
 }
 
-.div-wrapper .gruppe-18 {
-  background-image: url(../../../static/img/gruppe-159-26.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1087px;
-  position: absolute;
-  top: 342px;
-  width: 190px;
+/* Cards Grid Container */
+.div-wrapper .cards-grid {
+  position: relative;
+  margin-top: 342px;               /* Starting height under header controls */
+  padding-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(5, 190px); /* 5 columns matching your design layout */
+  gap: 35px 35px;             /* Vertical & horizontal space between cards */
+  justify-content: center;
+  z-index: 1;
 }
 
-.div-wrapper .k-nigin-luise-schule-8 {
+/* Shared Card Styling  */
+.div-wrapper .card-item {
+  background-image: url(../../../static/img/gruppe-159-26.png);
+  width: 190px;
+  height: 418px;
+  border-radius: 20px;
+  background-position: 50% 50%;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.div-wrapper .card-text {
   color: #fae5ba;
   flex: 1;
   font-family: "Ubuntu", Helvetica;
@@ -175,30 +189,19 @@
   text-shadow: 0px 3px 6px #000000cc;
 }
 
-.div-wrapper .text-wrapper-24 {
+.div-wrapper .card-school{
   font-family: "Ubuntu", Helvetica;
   font-style: italic;
   font-weight: 700;
 }
 
-.div-wrapper .text-wrapper-25 {
+.div-wrapper .card-class {
   font-family: "Ubuntu", Helvetica;
   font-style: italic;
   font-weight: 400;
 }
 
-.div-wrapper .gruppe-19 {
-  background-image: url(../../../static/img/gruppe-159-26.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1087px;
-  position: absolute;
-  top: 790px;
-  width: 190px;
-}
-
+/* Example
 .div-wrapper .gruppe-20 {
   background-image: url(../../../static/img/gruppe-159-27.png);
   background-position: 50% 50%;
@@ -209,7 +212,7 @@
   position: absolute;
   top: 342px;
   width: 190px;
-}
+} 
 
 .div-wrapper .k-nigin-luise-schule-9 {
   color: #fae5ba;
@@ -223,119 +226,8 @@
   margin-right: 17.3px;
   margin-top: 17.2px;
   text-shadow: 0px 3px 6px #000000cc;
-}
+}*/
 
-.div-wrapper .gruppe-21 {
-  background-image: url(../../../static/img/gruppe-159-27.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 642px;
-  position: absolute;
-  top: 790px;
-  width: 190px;
-}
-
-.div-wrapper .gruppe-22 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1310px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .k-nigin-luise-schule-10 {
-  color: #fae5ba;
-  flex: 1;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 18px;
-  height: 64px;
-  letter-spacing: 0;
-  line-height: 18px;
-  margin-left: 21.2px;
-  margin-right: 20.9px;
-  margin-top: 19.2px;
-  text-shadow: 0px 3px 6px #000000cc;
-}
-
-.div-wrapper .gruppe-23 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1310px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-24 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 864px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-25 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 864px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-26 {
-  background-image: url(../../../static/img/gruppe-159-19.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 419px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .k-nigin-luise-schule-11 {
-  color: #fae5ba;
-  flex: 1;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 18px;
-  height: 64px;
-  letter-spacing: 0;
-  line-height: 18px;
-  margin-left: 22.1px;
-  margin-right: 20.1px;
-  margin-top: 19.2px;
-  text-shadow: 0px 3px 6px #000000cc;
-}
-
-.div-wrapper .gruppe-27 {
-  background-image: url(../../../static/img/gruppe-159-19.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 419px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
 
 /* Nav Panel (Mitwirkende, Impressum, Download) */
 .div-wrapper .auto {

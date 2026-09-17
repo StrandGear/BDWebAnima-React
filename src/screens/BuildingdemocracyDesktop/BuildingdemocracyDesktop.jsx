@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
 import "../../services/firebase"; // Keep your Firebase bridge
+import { Link, useLocation } from "react-router-dom"; // Added useLocation
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
 import { DesktopLayout } from "../../DesktopLayout";
@@ -146,8 +146,19 @@ const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) =>
 };
 
 export const BuildingdemocracyDesktop = () => {
+  const location = useLocation();
+// Read activeView passed from DivWrapper navigation state, default to "game"
+  const [activeView, setActiveView] = useState(
+    location.state?.activeView || "game"
+  );
 
-  const [activeView, setActiveView] = useState("game"); 
+  // Sync state if navigation state changes while mounted
+  useEffect(() => {
+    if (location.state?.activeView) {
+      setActiveView(location.state.activeView);
+    }
+  }, [location.state]);
+  
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   const [testimonies, setTestimonies] = useState([]);
 
@@ -198,7 +209,7 @@ export const BuildingdemocracyDesktop = () => {
               <div className="smartphone" /> 
 
               {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
-              <div className={`unity-wrapper ${activeView === "text" ? "hidden-behind" : "active"}`}>
+              <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
                 {isFirebaseReady ? (
                   <Unity 
                     unityProvider={unityProvider} 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./style.css";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
+import { DesktopLayout } from "../../DesktopLayout";
 
 // The template has 4 visible card slots, left to right:
 // gruppe-33 (small, left) -> gruppe-32 (large, center) -> gruppe-rechts -> gruppe-34
@@ -138,8 +139,18 @@ export const Screen4 = () => {
     });
     setStartIndex(nextStartIndex);
   };
+    const handleNext = () => {
+    if (testimonies.length === 0) return;
+    setStartIndex((i) => wrapIndex(i + 1, testimonies.length));
+    };
+
+  const handlePrev = () => {
+    if (testimonies.length === 0) return;
+    setStartIndex((i) => wrapIndex(i - 1, testimonies.length));
+    };
 
   return (
+    <DesktopLayout>
     <div className="screen-4">
       <div className="buildingdemocracy-4">
         <div className="overlap-group-4">
@@ -184,7 +195,7 @@ export const Screen4 = () => {
               <div className="text-wrapper-31">Tap to start!</div>
             </button>
             <div className="BD-logo-3">
-              <img className="pfad-10" alt="Pfad" src="/BDWebAnima-React/img/pfad-210-2.png" />
+              <img className="pfad-10" alt="Pfad" src="/img/pfad-210-2.png" />
               <div className="gruppe-31" />
             </div>
             <div className="deine-demokratie-app-3">
@@ -220,23 +231,24 @@ export const Screen4 = () => {
             testimony={visibleTestimonies[2]}
             onSelect={() => handleCardClick(2)}
           />
+
+          {/* Right Arrow: Next Testimony */}
           <img
             className="polygon-4"
-            alt="Weitere Testimonials"
+            alt="Nächstes Testimonial"
             src="/img/polygon-2-3.png"
-            onClick={handleAdvance}
-            style={{
-              cursor: canAdvance ? "pointer" : "default",
-              opacity: canAdvance ? 1 : 0.4,
-            }}
-          />
-          <img
-            className="polygon-5"
-            alt="Zurück zum Anfang"
-            src="/img/polygon-3-3.png"
-            onClick={handleReset}
+            onClick={handlePrev}
             style={{ cursor: "pointer" }}
           />
+          {/* Left Arrow: Previous Testimony */}
+          <img
+            className="polygon-5"
+            alt="Vorheriges Testimonial"
+            src="/img/polygon-3-3.png"
+            onClick={handleNext}
+            style={{ cursor: "pointer" }}
+          />
+
           <div className="smartphone-3" />
           <Link className="text-wrapper-34" to="/buildingdemocracy-impressum">
             Impressum
@@ -261,5 +273,6 @@ export const Screen4 = () => {
         </div>
       </div>
     </div>
+    </DesktopLayout>
   );
 };

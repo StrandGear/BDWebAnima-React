@@ -133,7 +133,7 @@
 }
 
 .smartphone {
-  position: absolute;
+  position: relative;
   inset: 0; /* Equivalent to top:0, left:0, width:100%, height:100% */
   width: 100%;
   height: 100%;
@@ -141,8 +141,18 @@
   background-position: center;
   background-size: contain; /* Preserves exact PNG image ratio without stretching */
   background-repeat: no-repeat;
-  z-index: 2;
+  z-index: 10;
   pointer-events: none;
+}
+.smartphone-screen {
+  position: absolute;
+  top: 6px;                /* Adjust offsets so content sits strictly inside bezel */
+  left: 10px;
+  right: 10px;
+  bottom: 6px;
+  border-radius: 20px;       /* Match inner bezel curvature */
+  overflow: hidden;          /* Clips any child content overflowing screen bounds */
+  background-color: #3e4259; /* Blue/grey slate background seen in screenshots */
 }
 
 /* .buildingdemocracy .text-wrapper-3 {
@@ -198,6 +208,7 @@ position: absolute;
   left: 843px;
   width: 234px;
   height: 472px;
+  overflow: hidden;
 }
 
 /* Was as unity wrapper rn */
@@ -213,13 +224,10 @@ position: absolute;
 } */
 
 .unity-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 /* When showing text, fade or hide Unity without unmounting it */
@@ -285,20 +293,21 @@ position: absolute;
 
 /* Text overlay sits on top inside the frame */
 .phone-text-overlay {
-position: absolute;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10; /* Sits securely on top of Unity */
+  z-index: 5; /* Sits securely on top of Unity */
   background-color: #42435f;
-  border-radius: 9px; /* Match your phone/card curve if needed */
+  border-radius: 24px; /* Match your phone/card curve if needed */
   
   /* Scroll & Spacing configuration */
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
-  padding: 18px 40px 40px 18px;
+  padding: 28px 16px 20px;
+  overflow-y: auto;
 }
 
 .text-wrapper-12 {

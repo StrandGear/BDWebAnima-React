@@ -1,8 +1,70 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./style.css";
 import { DesktopLayout } from "../../DesktopLayout";
+import { fetchApprovedTestimonies } from "../../services/testimonyService";
+
+const GalleryCard = ({ testimony }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  if (!testimony) return null;
+
+  return (
+    <div
+      className="card-item"
+      onClick={() => setIsFlipped((f) => !f)}
+      style={{ cursor: "pointer" }}
+    >
+      <div className={`testimony-flip-inner ${isFlipped ? "is-flipped" : ""}`}>
+        {/* FRONT: image + org name only */}
+        <div
+          className="testimony-flip-front"
+          style={
+            testimony.imageUrl
+              ? { backgroundImage: `url(${testimony.imageUrl})` }
+              : undefined
+          }
+        >
+          <div>
+            <p className="card-text">
+              <span className="card-school">{testimony.orgaName}</span>
+            </p>
+          </div>
+        </div>
+
+        {/* BACK: shaded color + each team's testimony */}
+        <div className="testimony-flip-back">
+          <div>
+            <p className="card-text">
+              <span className="card-school">{testimony.orgaName}</span>
+            </p>
+            {testimony.teams
+              .filter((team) => team.text)
+              .map((team) => (
+                <p className="card-text" key={team.teamId}>
+                  {team.text}
+                </p>
+              ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const DivWrapper = () => {
+  const [testimonies, setTestimonies] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchApprovedTestimonies().then((data) => {
+      if (!cancelled) setTestimonies(data);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <DesktopLayout>
     <div className="div-wrapper">
@@ -90,37 +152,9 @@ export const DivWrapper = () => {
 
             {/* Cards Grid */}
           <div className="cards-grid">
-            <div className="card-item">
-              <p className="card-text">
-                <span className="card-school">
-                  Königin-Luise-
-                  <br />
-                  Schule:{" "}
-                </span>
-                <span className="card-class">Klasse 10b, 2026</span>
-              </p>
-            </div>
-            <div className="card-item">
-              <p className="card-text">
-                <span className="card-school">
-                  Königin-Luise-
-                  <br />
-                  Schule:{" "}
-                </span>
-                <span className="card-class">Klasse 10b, 2026</span>
-              </p>
-            </div>
-            {/* Old example with static position 
-             <div className="gruppe-20">
-              <p className="k-nigin-luise-schule-9">
-                <span className="text-wrapper-24">
-                  Königin-Luise-
-                  <br />
-                  Schule:{" "}
-                </span>
-                <span className="text-wrapper-25">Klasse 10b, 2026</span>
-              </p>
-            </div> */}
+            {testimonies.map((testimony) => (
+              <GalleryCard key={testimony.sessionId} testimony={testimony} />
+            ))}
           </div>
         </div>
       </div>

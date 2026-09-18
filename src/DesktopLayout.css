@@ -22,7 +22,9 @@
 .desktop-layout-canvas .buildingdemocracy,
 .desktop-layout-canvas .overlap-group-wrapper,
 .desktop-layout-canvas .overlap-group,
-.desktop-layout-canvas .screen-4 {
+.desktop-layout-canvas .screen-4,
+.buildingdemocracy-4,
+.overlap-group-4 {
   width: 1920px !important;
   height: 1080px !important;
   position: absolute !important;
@@ -30,3 +32,4 @@
   left: 0 !important;
   transform: none !important;
   margin: 0 !important;
+}

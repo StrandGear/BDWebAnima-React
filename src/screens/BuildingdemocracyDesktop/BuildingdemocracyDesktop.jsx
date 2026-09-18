@@ -205,33 +205,37 @@ export const BuildingdemocracyDesktop = () => {
             <div className="NS-dok-logo" />
 
             <div className="middle-screen">
+            
               {/* phone frame */}
               <div className="smartphone" /> 
+              {/* Inner Screen Container */}
+              <div className="smartphone-screen">
 
-              {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
-              <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
-                {isFirebaseReady ? (
-                  <Unity 
-                    unityProvider={unityProvider} 
-                    style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
-                  />
-                ) : (
-                  <div className="loading-text">Loading Game...</div>
-                )}
-              </div>
-
-              {/* Text overlay that shows/hides dynamically */}
-              {activeView !== "game" && (
-                <div className="phone-text-overlay">
-                  <p className="das-NS-DOK-ist-ein">
-                    <span className="text-wrapper-12">
-                      {activeView === "impressum" && legalText}
-                      {activeView === "mitwirkende" && mitwirkendeText}
-                    </span>
-                  </p>
+                {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
+                <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
+                  {isFirebaseReady ? (
+                    <Unity 
+                      unityProvider={unityProvider} 
+                      style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+                    />
+                  ) : (
+                    <div className="loading-text">Loading Game...</div>
+                  )}
                 </div>
-              )}
-            </div>
+
+                {/* Text overlay that shows/hides dynamically */}
+                {activeView !== "game" && (
+                  <div className="phone-text-overlay">
+                    <p className="das-NS-DOK-ist-ein">
+                      <span className="text-wrapper-12">
+                        {activeView === "impressum" && legalText}
+                        {activeView === "mitwirkende" && mitwirkendeText}
+                      </span>
+                    </p>
+                  </div>
+                )}
+              </div> {/* smartphone-screen */}
+            </div> {/*  phone frame */}
             
             <div className="bottom-nav-container">
             {/* 1. Mitwirkende Button */}

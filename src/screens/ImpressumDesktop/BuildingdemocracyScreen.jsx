@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
-import "../../services/firebase"; // Keep your Firebase bridge
-import { Link, useLocation } from "react-router-dom"; // Added useLocation
-import { fetchApprovedTestimonies } from "../../services/testimonyService";
+import { Link } from "react-router-dom";
 import "./style.css";
-import { DesktopLayout } from "../../DesktopLayout";
-
 
 const legalText = `
 Anbieterkennzeichnung nach § 5 Digitale-Dienste-Gesetz (DDG) in Verbindung mit § 18 Absatz 2 Medienstaatsvertrag
@@ -99,207 +93,141 @@ Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeichert
 Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.
 
 `;
-const mitwirkendeText = `
-Mitwirkende & Projektteam:
-- Projektleitung: NS-Dokumentationszentrum der Stadt Köln
-- Konzept & Entwicklung: Max Gede, Anastasiia Ermolaeva
-`;
 
-// Static (non-carousel) testimony card: renders once and never reshuffles.
-// If `linkTo` is given it renders as a Link (preserving whatever original
-// navigation that slot had); otherwise it's a plain div.
-const StaticTestimonyCard = ({ className, textClassName, testimony, linkTo }) => {
-  if (!testimony) return null; // hide the slot rather than show a placeholder
-
-  const style = testimony.imageUrl
-    ? {
-        backgroundImage: `url(${testimony.imageUrl})`,
-        backgroundPosition: "50% 50%",
-        backgroundSize: "cover",
-      }
-    : undefined;
-
-  const content = (
-    <div className={textClassName}>
-      <p className="text-wrapper-6" style={{ margin: 0 }}>
-        {testimony.orgaName}
-      </p>
-      {testimony.teams
-        .filter((team) => team.text)
-        .map((team) => (
-          <p key={team.teamId} style={{ margin: "4px 0 0", color: "#fae5ba" }}>
-            {team.text}
-          </p>
-        ))}
-    </div>
-  );
-
-  return linkTo ? (
-    <Link className={className} to={linkTo} style={style}>
-      {content}
-    </Link>
-  ) : (
-    <div className={className} style={style}>
-      {content}
-    </div>
-  );
-};
-
-export const BuildingdemocracyDesktop = () => {
-  const location = useLocation();
-// Read activeView passed from DivWrapper navigation state, default to "game"
-  const [activeView, setActiveView] = useState(
-    location.state?.activeView || "game"
-  );
-
-  // Sync state if navigation state changes while mounted
-  useEffect(() => {
-    if (location.state?.activeView) {
-      setActiveView(location.state.activeView);
-    }
-  }, [location.state]);
-  
-  const [isFirebaseReady, setIsFirebaseReady] = useState(false);
-  const [testimonies, setTestimonies] = useState([]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsFirebaseReady(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    let cancelled = false;
-    fetchApprovedTestimonies().then((data) => {
-      if (!cancelled) setTestimonies(data);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  // Left-to-right slot order matches actual on-screen position (by `left` px).
-  const [slot0, slot1, slot2, slot3] = testimonies;
-
-  // Configure paths (make sure these files are in your /public folder)
-  const { unityProvider } = useUnityContext({
-    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
-    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
-    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
-    streamingAssetsUrl: "/public/unity/StreamingAssets"
-  });
-  
+export const BuildingdemocracyScreen = () => {
   return (
-    <DesktopLayout>
-      <div className="buildingdemocracy">
-        <div className="overlap-group-wrapper">
-          <div className="overlap-group">
-            <Link className="schalter-mit" to="/remoteislandstart">
-              <div className="text-wrapper">BUILDING DEMOCRACY</div>
-              <div className="text-wrapper-2">REMOTE ISLAND</div>
-              <div className="schalter">
-                <div className="rechteck" />
-                <div className="uncheck" />
-              </div>
-            </Link>
-            <div className="NS-dok-logo" />
-
-            <div className="middle-screen">
-              {/* phone frame */}
-              <div className="smartphone" /> 
-
-              {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
-              <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
-                {isFirebaseReady ? (
-                  <Unity 
-                    unityProvider={unityProvider} 
-                    style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
-                  />
-                ) : (
-                  <div className="loading-text">Loading Game...</div>
-                )}
-              </div>
-
-              {/* Text overlay that shows/hides dynamically */}
-              {activeView !== "game" && (
-                <div className="phone-text-overlay">
-                  <p className="das-NS-DOK-ist-ein">
-                    <span className="text-wrapper-12">
-                      {activeView === "impressum" && legalText}
-                      {activeView === "mitwirkende" && mitwirkendeText}
-                    </span>
-                  </p>
-                </div>
-              )}
+    <div className="buildingdemocracy-screen">
+      <div className="buildingdemocracy-2">
+        <div className="overlap-group-2">
+          <div className="wiederholungsraster-2">
+            <div className="auto-flex-2">
+              <div className="div-2" />
+              <div className="div-2" />
+              <div className="div-2" />
             </div>
-            
-            <div className="bottom-nav-container">
-            {/* 1. Mitwirkende Button */}
-            <button 
-              className="raw-text-btn nav-btn"
-              onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
-            >
-              {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
-            </button>
-
-            {/* 2. Impressum / Home Button */}
-            <button 
-              className="raw-text-btn nav-btn"
-              onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
-            >
-              {activeView === "impressum" ? "Home" : "Impressum"}
-            </button>
-
-            {/* 3. PDF Download Button */}
-            <a 
-              href="/pdf/spielanleitung.pdf" 
-              download="Spielanleitung.pdf"
-              className="raw-text-btn nav-btn download-btn"
-            >
-              Spielanleitung<br />Download
-            </a>
+            <div className="auto-flex-2">
+              <div className="div-2" />
+              <div className="div-2" />
+              <div className="div-2" />
             </div>
-
-            <StaticTestimonyCard
-              className="k-nigin-luise-schule-wrapper"
-              textClassName="k-nigin-luise-schule"
-              testimony={slot2}
-              linkTo="/buildingdemocracy-start-2"
-            />
-            <StaticTestimonyCard
-              className="gruppe-3"
-              textClassName="p"
-              testimony={slot1}
-            />
-            <StaticTestimonyCard
-              className="gruppe-4"
-              textClassName="k-nigin-luise-schule-2"
-              testimony={slot3}
-            />
-            <StaticTestimonyCard
-              className="gruppe-5"
-              textClassName="k-nigin-luise-schule-3"
-              testimony={slot0}
-            />
-            <Link to="/buildingdemocracy-start-5">
-            <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
-            </Link>
-            {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
-            <Link to="/buildingdemocracy-start-2">
-              <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
-            </Link>
-            <Link className="gruppe-6" to="/buildingdemocracy-gallery">
-              <div className="gruppe-7">
-                <div className="rechteck-2" />
-                <div className="rechteck-3" />
-                <div className="rechteck-4" />
-                <div className="rechteck-5" />
-              </div>
-              <div className="text-wrapper-7">Ansicht ändern</div>
-            </Link>
+            <div className="auto-flex-2">
+              <div className="div-2" />
+              <div className="div-2" />
+              <div className="div-2" />
+            </div>
+            <div className="auto-flex-2">
+              <div className="div-2" />
+              <div className="div-2" />
+              <div className="div-2" />
+            </div>
+            <div className="auto-flex-2">
+              <div className="div-2" />
+              <div className="div-2" />
+              <div className="div-2" />
+            </div>
           </div>
+          <div className="text-wrapper-8">BUILDING DEMOCRACY</div>
+          <div className="text-wrapper-9">REMOTE ISLAND</div>
+          <Link className="schalter-2" to="/remoteislandstart">
+            <div className="rechteck-6" />
+            <div className="uncheck-2" />
+          </Link>
+          <div className="NS-dok-logo-2" />
+          <div className="gruppe-8">
+            <button className="button-2">
+              <div className="text-wrapper-10">Tap to start!</div>
+            </button>
+            <div className="BD-logo-2">
+              <img className="pfad-2" alt="Pfad" src="/img/pfad-210-3.png" />
+              <div className="gruppe-9" />
+            </div>
+            <div className="deine-demokratie-app-2">
+              Deine Demokratie-App
+              <br />
+              lokal. digital. interaktiv
+            </div>
+          </div>
+          <Link className="gruppe-10" to="/buildingdemocracy-start-2">
+            <p className="k-nigin-luise-schule-4">
+              <span className="text-wrapper-11">
+                Königin-Luise-
+                <br />
+                Schule:{" "}
+              </span>
+              <span className="text-wrapper-12">Klasse 10b, 2026</span>
+            </p>
+          </Link>
+          <div className="gruppe-11">
+            <p className="k-nigin-luise-schule-5">
+              <span className="text-wrapper-11">
+                Königin-Luise-
+                <br />
+                Schule:{" "}
+              </span>
+              <span className="text-wrapper-12">Klasse 10b, 2026</span>
+            </p>
+          </div>
+          <div className="gruppe-12">
+            <p className="k-nigin-luise-schule-6">
+              <span className="text-wrapper-11">
+                Königin-Luise-
+                <br />
+                Schule:{" "}
+              </span>
+              <span className="text-wrapper-12">Klasse 10b, 2026</span>
+            </p>
+          </div>
+          <div className="gruppe-13">
+            <p className="k-nigin-luise-schule-7">
+              <span className="text-wrapper-11">
+                Königin-Luise-
+                <br />
+                Schule:{" "}
+              </span>
+              <span className="text-wrapper-12">Klasse 10b, 2026</span>
+            </p>
+          </div>
+          <img className="polygon-2" alt="Polygon" src="/img/polygon-2-3.png" />
+          <Link to="/buildingdemocracy-start-2">
+            <img
+              className="polygon-3"
+              alt="Polygon"
+              src="/img/polygon-3-3.png"
+            />
+          </Link>
+          <div className="das-NS-DOK-ist-ein-wrapper">
+            <p className="das-NS-DOK-ist-ein">
+              <span className="text-wrapper-12">
+                {legalText}
+                
+              </span>
+              <span className="text-wrapper-11">Datenschutz </span>
+              <span className="text-wrapper-12">etc.</span>
+            </p>
+          </div>
+          <div className="smartphone-2" />
+          <Link className="text-wrapper-13" to="/buildingdemocracy-start">
+            Home
+          </Link>
+          <div className="spielaleitung-2">
+            Spielaleitung
+            <br />
+            Download
+          </div>
+          <Link className="text-wrapper-14" to="/buildingdemocracy-start-5">
+            Mitwirkende
+          </Link>
+          <Link className="gruppe-14" to="/buildingdemocracy-gallery">
+            <div className="gruppe-15">
+              <div className="rechteck-7" />
+              <div className="rechteck-8" />
+              <div className="rechteck-9" />
+              <div className="rechteck-10" />
+            </div>
+            <div className="text-wrapper-15">Ansicht ändern</div>
+          </Link>
         </div>
       </div>
-    </DesktopLayout>
+    </div>
   );
 };

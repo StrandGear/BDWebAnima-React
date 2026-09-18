@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./style.css";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
+import { useWindowSize } from "../../useWindowSize";
 
 // The template has 4 visible card slots, left to right:
 // gruppe-33 (small, left) -> gruppe-32 (large, center) -> gruppe-rechts -> gruppe-34

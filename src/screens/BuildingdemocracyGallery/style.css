@@ -1,24 +1,42 @@
 .div-wrapper {
-  align-items: start;
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #090a0b;
-  display: grid;
-  justify-items: center;
-  width: 100vw;
+  overflow: hidden;
 }
 
+/* Scrollable Inner Canvas */
 .div-wrapper .buildingdemocracy-3 {
-  align-items: center;
+  width: 1920px;
+  height: 1080px;
+  overflow-y: auto;          /* Enables vertical scrolling for dynamic content */
+  overflow-x: hidden;
+  position: relative;
   background-color: #090a0b;
+
+  background-image: url(../../../static/img/waves-01-4.png);
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: 350px auto;
+
   display: flex;
   flex-direction: column;
-  height: 1563px;
-  width: 1920px;
+  align-items: center;
+  padding-bottom: 140px; /* Extra space at bottom */
+
+  /* Hide scrollbar for Firefox, IE/Edge, and modern Chromium */
+  scrollbar-width: none;      /* Firefox 64+ and Chrome 121+ */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
 
 .div-wrapper .overlap-group-3 {
-  height: 1207px;
+  min-height: 1080px;        /* Allows grid height to grow dynamically */
   position: relative;
   width: 1920px;
+  z-index: 1;
 }
 
 .div-wrapper .wiederholungsraster-3 {
@@ -130,19 +148,34 @@
   width: 94px;
 }
 
-.div-wrapper .gruppe-18 {
-  background-image: url(../../../static/img/gruppe-159-26.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1087px;
-  position: absolute;
-  top: 342px;
-  width: 190px;
+/* Cards Grid Container */
+.div-wrapper .cards-grid {
+  position: relative;
+  margin-top: 342px;               /* Starting height under header controls */
+  padding-bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(5, 190px); /* 5 columns matching your design layout */
+  gap: 35px 35px;             /* Vertical & horizontal space between cards */
+  justify-content: center;
+  z-index: 1;
 }
 
-.div-wrapper .k-nigin-luise-schule-8 {
+/* Shared Card Styling  */
+.div-wrapper .card-item {
+  background-image: url(../../../static/img/gruppe-159-26.png);
+  width: 190px;
+  height: 418px;
+  border-radius: 20px;
+  background-position: 50% 50%;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.div-wrapper .card-text {
   color: #fae5ba;
   flex: 1;
   font-family: "Ubuntu", Helvetica;
@@ -156,30 +189,19 @@
   text-shadow: 0px 3px 6px #000000cc;
 }
 
-.div-wrapper .text-wrapper-24 {
+.div-wrapper .card-school{
   font-family: "Ubuntu", Helvetica;
   font-style: italic;
   font-weight: 700;
 }
 
-.div-wrapper .text-wrapper-25 {
+.div-wrapper .card-class {
   font-family: "Ubuntu", Helvetica;
   font-style: italic;
   font-weight: 400;
 }
 
-.div-wrapper .gruppe-19 {
-  background-image: url(../../../static/img/gruppe-159-26.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1087px;
-  position: absolute;
-  top: 790px;
-  width: 190px;
-}
-
+/* Example
 .div-wrapper .gruppe-20 {
   background-image: url(../../../static/img/gruppe-159-27.png);
   background-position: 50% 50%;
@@ -190,7 +212,7 @@
   position: absolute;
   top: 342px;
   width: 190px;
-}
+} 
 
 .div-wrapper .k-nigin-luise-schule-9 {
   color: #fae5ba;
@@ -204,128 +226,33 @@
   margin-right: 17.3px;
   margin-top: 17.2px;
   text-shadow: 0px 3px 6px #000000cc;
-}
+}*/
 
-.div-wrapper .gruppe-21 {
-  background-image: url(../../../static/img/gruppe-159-27.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 642px;
-  position: absolute;
-  top: 790px;
-  width: 190px;
-}
 
-.div-wrapper .gruppe-22 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1310px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .k-nigin-luise-schule-10 {
-  color: #fae5ba;
-  flex: 1;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 18px;
-  height: 64px;
-  letter-spacing: 0;
-  line-height: 18px;
-  margin-left: 21.2px;
-  margin-right: 20.9px;
-  margin-top: 19.2px;
-  text-shadow: 0px 3px 6px #000000cc;
-}
-
-.div-wrapper .gruppe-23 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 1310px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-24 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 864px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-25 {
-  background-image: url(../../../static/img/gruppe-159-17.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 864px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
-
-.div-wrapper .gruppe-26 {
-  background-image: url(../../../static/img/gruppe-159-19.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 419px;
-  position: absolute;
-  top: 342px;
-  width: 191px;
-}
-
-.div-wrapper .k-nigin-luise-schule-11 {
-  color: #fae5ba;
-  flex: 1;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 18px;
-  height: 64px;
-  letter-spacing: 0;
-  line-height: 18px;
-  margin-left: 22.1px;
-  margin-right: 20.1px;
-  margin-top: 19.2px;
-  text-shadow: 0px 3px 6px #000000cc;
-}
-
-.div-wrapper .gruppe-27 {
-  background-image: url(../../../static/img/gruppe-159-19.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  display: flex;
-  height: 418px;
-  left: 419px;
-  position: absolute;
-  top: 790px;
-  width: 191px;
-}
-
+/* Nav Panel (Mitwirkende, Impressum, Download) */
 .div-wrapper .auto {
-  align-items: flex-start;
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  align-items: flex-start;
   gap: 32px;
   height: 35px;
-  margin-left: 6px;
-  margin-top: 32px;
   min-width: 310px;
+  z-index: 10;
+}
+
+/* Ansicht ändern Button (Positioned below .auto) */
+.div-wrapper .gruppe-28 {
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  height: 61px;
+  width: 76px;
+  z-index: 10;
 }
 
 .div-wrapper .text-wrapper-26 {
@@ -359,26 +286,20 @@
 }
 
 .div-wrapper .spielaleitung-3 {
-  align-self: flex-end;
-  color: #fae5ba;
+color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
   font-size: 14px;
   font-style: italic;
   font-weight: 700;
-  letter-spacing: 0;
   line-height: 14px;
-  min-height: 34px;
-  min-width: 88px;
-  white-space: nowrap;
+  text-decoration: none; /* Prevents default anchor underline */
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
-.div-wrapper .gruppe-28 {
-  display: block;
-  height: 61px;
-  margin-left: 2px;
-  margin-top: 11px;
-  position: relative;
-  width: 76px;
+.div-wrapper .spielaleitung-3:hover {
+  opacity: 0.8;
 }
 
 .div-wrapper .gruppe-29 {

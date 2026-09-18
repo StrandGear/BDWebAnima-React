@@ -33,13 +33,12 @@ export const RiWrapper = () => {
       </Link>
       <div className="text-wrapper-44">Galerie</div>
       <Link className="buchen-als-gruppe-3" to="/ri">
-        Buchen als
-        <br />
-        Gruppe
+        Galerie
       </Link>
       <div className="gruppe-17">
         <img className="pfad-19" alt="Pfad" src="/img/pfad-237-3.png" />
-        <div className="text-wrapper-45">Beschreibung</div>
+        <div className="text-wrapper-45">          Grüße aus <br />
+          Remote Island</div>
       </div>
       <div className="text-wrapper-46">Video</div>
       <img className="pfad-20" alt="Pfad" src="/img/pfad-243.png" />

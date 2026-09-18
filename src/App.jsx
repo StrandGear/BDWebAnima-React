@@ -4,9 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 //Desktop
 import { Buildingdemocracy } from "./screens/Buildingdemocracy";
-import { UnityBuildingdemocracy } from "./screens/UnityBuildingdemocracy";
-import { BuildingdemocracyScreen } from "./screens/BuildingdemocracyScreen";
-import { DivWrapper } from "./screens/DivWrapper";
+// import { UnityBuildingdemocracy } from "./screens/UnityBuildingdemocracy";
+import { BuildingdemocracyScreen } from "./screens/ImpressumDesktop";
+import { DivWrapper } from "./screens/BuildingdemocracyGallery";
 import { RemoteIslandStart } from "./screens/RemoteIslandStart";
 import { RemoteislandGallery } from "./screens/RemoteislandGallery";
 import { Screen4 } from "./screens/Screen4";

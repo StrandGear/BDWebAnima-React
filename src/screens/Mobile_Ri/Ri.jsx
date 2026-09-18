@@ -65,7 +65,9 @@ export const Ri = () => {
       </div>
       <Link className="gruppe-12" to="/ri-2">
         <img className="pfad-7" alt="Pfad" src="/img/pfad-237-2.png" />
-        <div className="text-wrapper-31">Beschreibung</div>
+        <div className="text-wrapper-31">
+          Grüße aus <br />
+          Remote Island</div>
       </Link>
       <div className="text-wrapper-32">Video</div>
     </div>

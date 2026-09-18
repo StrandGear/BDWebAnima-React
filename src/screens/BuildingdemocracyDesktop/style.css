@@ -1,32 +1,36 @@
 .buildingdemocracy {
-  align-items: start;
-  background-color: #090a0b;
-  display: grid;
-  justify-items: center;
   width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-position: top left; /* Aligning to top-left prevents mid-tile seams */
+  background-repeat: repeat;     /* Tiles the image horizontally and vertically */
+  background-size: 350px auto;
+  background-image: url(../../../static/img/waves-01-4.png);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .buildingdemocracy .overlap-group-wrapper {
-  align-items: flex-start;
-  background-color: #090a0b;
+ width: 100vw; /* Override fixed 1920px width */
+  height: 100vh;
   display: flex;
-  width: 1920px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
 }
 
 .buildingdemocracy .overlap-group {
   height: 1080px;
   position: relative;
   width: 1920px;
+  flex-shrink: 0;
 }
 
 .buildingdemocracy .wiederholungsraster {
-  align-items: flex-end;
-  display: flex;
-  height: 1080px;
-  left: 0;
-  min-width: 1920px;
-  position: absolute;
-  top: 0;
+ display: none;
 }
 
 .buildingdemocracy .auto-flex {
@@ -39,11 +43,11 @@
 }
 
 .buildingdemocracy .div {
-  background-image: url(../../../static/img/waves-01-4.png);
+  /* background-image: url(../../../static/img/waves-01-4.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 364px;
-  width: 427px;
+  width: 427px; */
 }
 
 .buildingdemocracy .schalter-mit {
@@ -128,18 +132,20 @@
   width: 94px;
 }
 
-.buildingdemocracy .smartphone {
-  background-image: url(../../../static/img/gruppe-157-3.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  height: 472px;
-  left: 843px;
+.smartphone {
   position: absolute;
-  top: 315px;
-  width: 234px;
+  inset: 0; /* Equivalent to top:0, left:0, width:100%, height:100% */
+  width: 100%;
+  height: 100%;
+  background-image: url(../../../static/img/gruppe-157-3.png);
+  background-position: center;
+  background-size: contain; /* Preserves exact PNG image ratio without stretching */
+  background-repeat: no-repeat;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.buildingdemocracy .text-wrapper-3 {
+/* .buildingdemocracy .text-wrapper-3 {
   color: #fae5ba;
   display: block;
   font-family: "Ubuntu", Helvetica;
@@ -183,9 +189,19 @@
   text-align: center;
   top: 848px;
   white-space: nowrap;
+} */
+
+/* Master container anchored to the page layout */
+.middle-screen {
+position: absolute;
+  top: 315px;
+  left: 843px;
+  width: 234px;
+  height: 472px;
 }
 
-.buildingdemocracy .gruppe {
+/* Was as unity wrapper rn */
+/* .buildingdemocracy .gruppe {
   background-image: url(../../../static/img/gruppe-159-25.png);
   background-position: 50% 50%;
   background-size: cover;
@@ -194,6 +210,137 @@
   position: absolute;
   top: 321px;
   width: 210px;
+} */
+
+.unity-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* When showing text, fade or hide Unity without unmounting it */
+.unity-wrapper.hidden-behind {
+  opacity: 0;
+  pointer-events: none; /* Allows clicking through if needed */
+}
+
+.raw-text-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+
+  /* Centers text and prevents layout shifts when word changes */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px; /* Reserves enough fixed width for "Impressum" */
+  text-align: center;
+}
+
+/* Centered Navigation Container */
+.bottom-nav-container {
+  position: absolute;
+  top: 848px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px; /* Spacing between the three items */
+  z-index: 5;
+}
+
+/* Shared styling for all 3 bottom buttons */
+.nav-btn {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  min-width: 100px; /* Keeps width stable when toggling to 'Home' */
+}
+
+/* Specific fix for multi-line link download button */
+.download-btn {
+  display: inline-block;
+  text-align: center;
+}
+
+.raw-text-btn:hover {
+  opacity: 0.8;
+}
+
+/* Text overlay sits on top inside the frame */
+.phone-text-overlay {
+position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Sits securely on top of Unity */
+  background-color: #42435f;
+  border-radius: 9px; /* Match your phone/card curve if needed */
+  
+  /* Scroll & Spacing configuration */
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 18px 40px 40px 18px;
+}
+
+.text-wrapper-12 {
+  font-family: "Ubuntu", Helvetica;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.buildingdemocracy-screen .das-NS-DOK-ist-ein-wrapper {
+  background-color: #42435f;
+  border-radius: 9px;
+  display: flex;
+  height: 459px;
+  left: 855px;
+  position: absolute;
+  top: 321px;
+  width: 210px;
+
+  /* Enable vertical scroll */
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  /* Move spacing from the <p> here so scrolling feels natural */
+  padding: 18px 40px 40px 18px;
+  box-sizing: border-box;
+}
+
+.phone-text-overlay .das-NS-DOK-ist-ein {
+  color: #fae5ba;
+  flex: 1;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 17px;
+  /* margin-bottom: 23px;
+  margin-left: 17px;
+  margin-right: 23px;
+  margin-top: 23px;
+  width: 170px;
+
+  line-height: 24px; */
+  margin: 0;         /* Clear margins so they don't fight the wrapper padding */
 }
 
 .buildingdemocracy .button {

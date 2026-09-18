@@ -1,0 +1,32 @@
+.desktop-layout-outer {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-color: #090a0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.desktop-layout-canvas {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  flex-shrink: 0;
+}
+
+.desktop-layout-canvas .buildingdemocracy,
+.desktop-layout-canvas .overlap-group-wrapper,
+.desktop-layout-canvas .overlap-group,
+.desktop-layout-canvas .screen-4 {
+  width: 1920px !important;
+  height: 1080px !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  margin: 0 !important;

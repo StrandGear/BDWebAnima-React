@@ -121,12 +121,12 @@ export const BdWrapper = () => {
       <img
         className="polygon-2"
         alt="Vorheriges Testimonial"
-        src="/img/polygon-1-4.png"
+        src="/BDWebAnima-React/img/polygon-1-4.png"
         onClick={handlePrevious}
         style={{ cursor: testimonies.length > 0 ? "pointer" : "default" }}
       />
       <Link to="/bd">
-        <img className="polygon-3" alt="Polygon" src="/img/polygon-3-3.png" />
+        <img className="polygon-3" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
       </Link>
     </div>
   );

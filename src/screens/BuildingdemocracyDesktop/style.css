@@ -5,7 +5,7 @@
   background-position: top left; /* Aligning to top-left prevents mid-tile seams */
   background-repeat: repeat;     /* Tiles the image horizontally and vertically */
   background-size: 350px auto;
-  /*background-image: url(../../../static/img/waves-01-4.png);*/
+  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
   display: flex;
   align-items: center;
   justify-content: center;

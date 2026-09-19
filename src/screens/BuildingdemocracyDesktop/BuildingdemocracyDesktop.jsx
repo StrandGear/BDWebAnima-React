@@ -182,11 +182,11 @@ export const BuildingdemocracyDesktop = () => {
 
   // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
-    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
-    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
-    streamingAssetsUrl: "/public/unity/StreamingAssets"
+    loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+        dataUrl: "/BDWebAnima-React/unity/Build/c52841c9150b40a1a91d58d841fd5675.data",
+    frameworkUrl: "/BDWebAnima-React/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
+    codeUrl: "/BDWebAnima-React/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
+    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
   });
   
   return (
@@ -286,11 +286,11 @@ export const BuildingdemocracyDesktop = () => {
               testimony={slot0}
             />
             <Link to="/buildingdemocracy-start-5">
-            <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
+            <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
             </Link>
-            {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
+            {/* <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" /> */}
             <Link to="/buildingdemocracy-start-2">
-              <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
+              <img className="img" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
             </Link>
             <Link className="gruppe-6" to="/buildingdemocracy-gallery">
               <div className="gruppe-7">

@@ -52,10 +52,16 @@ export const BdScreen = () => {
       {/* Footer Logo & Aligned Links */}
       <div className="NS-dok-logo-2" />
       <div className="footer-links">
-        <Link className="footer-link" to="/impressum">
+        <Link className="footer-link"
+          to="/bd" 
+          state={{ activeView: "mitwirkende", from: "/bd-2" }}
+        >
           Mitwirkende
         </Link>
-        <Link className="footer-link" to="/mitwirkende">
+        <Link className="footer-link"
+          to="/bd" 
+          state={{ activeView: "impressum", from: "/bd-2" }}
+        >
           Impressum
         </Link>
       </div>

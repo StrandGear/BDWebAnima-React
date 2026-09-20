@@ -334,3 +334,55 @@
   overflow-y: auto;
   padding: 4px;
 }
+
+
+.BD .footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.BD .footer-link-btn.active {
+  color: #a59342;
+}
+
+/* Container alignment */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Link styling reset */
+.footer-link,
+.footer-link:visited {
+  color: #fae5ba;               /* Match theme text color */
+  text-decoration: none;       /* Removes blue underline */
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Hover & Active states */
+.footer-link:hover,
+.footer-link:active {
+  color: #a59342;               /* Optional highlight color on hover */
+  text-decoration: none;
+}

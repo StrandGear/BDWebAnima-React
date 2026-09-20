@@ -38,7 +38,7 @@
   top: 91px;
   left: 50%;
   transform: translateX(-50%);
-  width: min(90vw, 360px);
+  width: min(72vw, 280px);
   height: calc(100dvh - 181px); /* Restricted so it ends above bottom footer */
   max-height: 720px;
   z-index: 5;
@@ -48,6 +48,70 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.BD .unity-wrapper {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.2s ease;
+}
+
+.BD .unity-wrapper.hidden-behind {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Purple Rounded Info Overlay Card */
+.BD .info-overlay-card {
+  position: absolute;
+  inset: 0;
+  background-color: #42435f;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.BD .overlay-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  color: #fae5ba;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 12;
+}
+
+.BD .info-overlay-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Scrollbar Styling for Overlay */
+.BD .info-overlay-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.BD .info-overlay-scroll::-webkit-scrollbar-thumb {
+  background-color: #fae5ba;
+  border-radius: 4px;
+}
+
+.BD .info-text-content {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
 }
 
 .BD .BD-logo {
@@ -78,6 +142,7 @@
   width: 100%;
 }
 
+/* Top Navigation Bar */
 .BD .rechteck {
   background-color: #090a0b;
   box-shadow: 0px 3px 6px #00000029;
@@ -86,9 +151,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
 }
 
+/* Bottom Bar & Logo */
 .BD .rechteck-2 {
   background-color: #090a0b;
   bottom: 0;
@@ -111,7 +177,8 @@
   position: fixed;
   top: 31px;
   width: min(308px, 85vw);
-  z-index: 20;
+  z-index: 25;
+  text-decoration: none;
 }
 
 .BD .text-wrapper {
@@ -154,7 +221,7 @@
 
 .BD .NS-dok-logo {
   background-image: url(../../../static/img/gruppe-165-4.png);
-background-position: 50% 50%;
+  background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
   bottom: 28px;
@@ -165,6 +232,7 @@ background-position: 50% 50%;
   z-index: 25;
 }
 
+/* Footer Buttons Right-Aligned Column */
 .BD .footer-links {
   position: fixed;
   right: 20px;
@@ -173,10 +241,14 @@ background-position: 50% 50%;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
-  z-index: 20;
+  z-index: 25;
 }
 
-.BD .footer-link {
+.BD .footer-link-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
   font-size: 11px;
@@ -184,7 +256,12 @@ background-position: 50% 50%;
   font-weight: 700;
   text-align: right;
   white-space: nowrap;
-  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.BD .footer-link-btn.active {
+  color: #a59342;
 }
 
 .BD .text-wrapper-3 {
@@ -260,7 +337,7 @@ background-position: 50% 50%;
   width: 118px;
 }
 
-/* --- Floating Side Actions --- */
+/* Side Action Controls */
 .BD .gruppe-3 {
   display: flex;
   align-items: center;
@@ -270,12 +347,13 @@ background-position: 50% 50%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 20;
+  text-decoration: none;
 }
 
 .BD .polygon {
   object-fit: cover;
-  width: 16px;
-  height: 18px;
+  width: 14px;
+  height: auto;
 }
 
 .BD .ergebnis-beitr-ge {
@@ -296,6 +374,7 @@ background-position: 50% 50%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 20;
+  text-decoration: none;
 }
 
 .BD .spielaleitung {

@@ -241,3 +241,34 @@
   text-align: center;
   white-space: nowrap;
 }
+
+/* Container alignment */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Link styling reset */
+.footer-link,
+.footer-link:visited {
+  color: #fae5ba;               /* Match theme text color */
+  text-decoration: none;       /* Removes blue underline */
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Hover & Active states */
+.footer-link:hover,
+.footer-link:active {
+  color: #a59342;               /* Optional highlight color on hover */
+  text-decoration: none;
+}

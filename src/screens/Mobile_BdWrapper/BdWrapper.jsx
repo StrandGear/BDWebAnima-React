@@ -53,12 +53,23 @@ export const BdWrapper = () => {
         </div>
         <div className="text-wrapper-11">REMOTE ISLAND</div>
       </Link>
-      <div className="NS-dok-logo-3" />
       
-      <div className="footer-links">
-  <Link className="footer-link" to="/impressum">Mitwirkende</Link>
-  <Link className="footer-link" to="/mitwirkende">Impressum</Link>
-</div>
+      {/* Footer links */}
+      <div className="NS-dok-logo-3" />
+            <div className="footer-links">
+        <Link className="footer-link"
+          to="/bd" 
+          state={{ activeView: "mitwirkende", from: "/bd-2" }}
+        >
+          Mitwirkende
+        </Link>
+        <Link className="footer-link"
+          to="/bd" 
+          state={{ activeView: "impressum", from: "/bd-2" }}
+        >
+          Impressum
+        </Link>
+      </div>
 
       <div className="spielaleitung-3">
         Spielaleitung

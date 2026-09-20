@@ -13,11 +13,11 @@ export const Bd = () => {
   }, []);
 
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/public/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/public/unity/Build/9a6aeb4cf4dcafeee9a1d054dc7408fa.data",
-    frameworkUrl: "/public/unity/Build/a29c1b8001122d8afb2a4eebb2644813.framework.js",
-    codeUrl: "/public/unity/Build/4c54c85938a146a1353ebe1dcb687fba.wasm",
-    streamingAssetsUrl: "/public/unity/StreamingAssets"
+    loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/BDWebAnima-React/unity/Build/c52841c9150b40a1a91d58d841fd5675.data",
+    frameworkUrl: "/BDWebAnima-React/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
+    codeUrl: "/BDWebAnima-React/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
+    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
   });
 
   return (
@@ -63,7 +63,7 @@ export const Bd = () => {
       
       {/* Side Control Links */}
       <Link className="gruppe-3" to="/bd-1">
-        <img className="polygon" alt="Previous" src="/img/polygon-1-4.png" />
+        <img className="polygon" alt="Previous" src="/BDWebAnima-React/img/polygon-1-4.png" />
         <div className="ergebnis-beitr-ge">
           Ergebnis-
           <br />
@@ -77,7 +77,7 @@ export const Bd = () => {
           <br />
           Download
         </div>
-        <img className="polygon" alt="Next" src="/img/polygon-3-3.png" />
+        <img className="polygon" alt="Next" src="/BDWebAnima-React/img/polygon-3-3.png" />
       </Link>
     </div>
   );

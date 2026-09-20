@@ -28,7 +28,7 @@ export const BdScreen = () => {
 
       {/* Back Navigation Arrow */}
       <Link to="/bd">
-        <img className="img" alt="Back" src="/img/polygon-1-4.png" />
+        <img className="img" alt="Back" src="/BDWebAnima-React/img/polygon-1-4.png" />
       </Link>
 
       {/* Centered Clickable PDF Block */}
@@ -40,7 +40,7 @@ export const BdScreen = () => {
           rel="noopener noreferrer"
           className="pdf-download-link"
         >
-          <img className="PDF" alt="Spielanleitung PDF" src="/img/pdf.png" />
+          <img className="PDF" alt="Spielanleitung PDF" src="/BDWebAnima-React/img/pdf.png" />
         </a>
         <div className="spielaleitung-2">
           Spielanleitung

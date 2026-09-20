@@ -68,7 +68,7 @@
 }
 
 .BD .gruppe {
-  background-image: url(../../../static/img/gruppe-167.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-167.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 100%;
@@ -153,7 +153,7 @@
 }
 
 .BD .NS-dok-logo {
-  background-image: url(../../../static/img/gruppe-165-4.png);
+  background-image: url(/BDWebAnima-React/img/gruppe-165-4.png);
 background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -234,7 +234,7 @@ background-position: 50% 50%;
 }
 
 .BD .div-wrapper {
-  background-image: url(../../../static/img/pfad-201-1.png);
+  background-image: url(/BDWebAnima-React/img/pfad-201-1.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: calc(27.38% - 23px);

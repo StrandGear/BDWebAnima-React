@@ -56,12 +56,10 @@ export const Bd = () => {
       
       <div className="NS-dok-logo" />
       
-      <Link className="text-wrapper-3" to="/mitwirkende">
-        Impressum
-      </Link>
-      <Link className="text-wrapper-4" to="/impressum">
-        Mitwirkende
-      </Link>
+      <div className="footer-links">
+        <Link className="footer-link" to="/impressum">Mitwirkende</Link>
+        <Link className="footer-link" to="/mitwirkende">Impressum</Link>
+      </div>
       
       {/* Side Control Links */}
       <Link className="gruppe-3" to="/bd-1">

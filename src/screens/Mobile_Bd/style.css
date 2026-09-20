@@ -165,6 +165,28 @@ background-position: 50% 50%;
   z-index: 25;
 }
 
+.BD .footer-links {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 20;
+}
+
+.BD .footer-link {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
 .BD .text-wrapper-3 {
   bottom: 24px;
   color: #fae5ba;
@@ -252,8 +274,8 @@ background-position: 50% 50%;
 
 .BD .polygon {
   object-fit: cover;
-  width: 14px;
-  height: auto;
+  width: 16px;
+  height: 18px;
 }
 
 .BD .ergebnis-beitr-ge {

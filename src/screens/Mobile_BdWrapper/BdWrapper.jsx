@@ -48,15 +48,18 @@ export const BdWrapper = () => {
       <div className="rechteck-6" />
       <Link className="gruppe-6" to="/ri">
         <div className="text-wrapper-10">BUILDING DEMOCRACY</div>
-        <div className="text-wrapper-11">REMOTE ISLAND</div>
         <div className="schalter-2">
           <div className="uncheck-3" />
         </div>
+        <div className="text-wrapper-11">REMOTE ISLAND</div>
       </Link>
       <div className="NS-dok-logo-3" />
-      <Link className="text-wrapper-12" to="/mitwirkende">
-        Impressum
-      </Link>
+      
+      <div className="footer-links">
+  <Link className="footer-link" to="/impressum">Mitwirkende</Link>
+  <Link className="footer-link" to="/mitwirkende">Impressum</Link>
+</div>
+
       <div className="spielaleitung-3">
         Spielaleitung
         <br />
@@ -67,9 +70,7 @@ export const BdWrapper = () => {
         <br />
         beiträge
       </div>
-      <Link className="text-wrapper-13" to="/impressum">
-        Mitwirkende
-      </Link>
+
       <div className="gruppe-7">
         <div className="text-wrapper-14">Tap to start!</div>
       </div>

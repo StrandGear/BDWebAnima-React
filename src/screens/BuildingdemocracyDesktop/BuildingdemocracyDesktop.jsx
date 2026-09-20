@@ -247,6 +247,13 @@ export const BuildingdemocracyDesktop = () => {
               {activeView === "impressum" ? "Home" : "Impressum"}
             </button>
 
+            <button 
+                className="raw-text-btn nav-btn"
+                onClick={() => setActiveView(prev => prev === "video" ? "game" : "video")}
+              >
+                {activeView === "video" ? "Home" : "Video"}
+              </button>
+
             {/* 3. PDF Download Button */}
             <a 
               href="/pdf/spielanleitung.pdf" 
@@ -295,6 +302,26 @@ export const BuildingdemocracyDesktop = () => {
             </Link>
           </div>
         </div>
+        {/* Big Video Popup Container on top of everything */}
+        {activeView === "video" && (
+          <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+            <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+              <button 
+                className="video-modal-close" 
+                onClick={() => setActiveView("game")}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+              <video 
+                src="/videos/video.mp4" 
+                controls 
+                autoPlay 
+                className="popup-video-element"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </DesktopLayout>
   );

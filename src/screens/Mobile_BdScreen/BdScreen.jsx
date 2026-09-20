@@ -35,7 +35,7 @@ export const BdScreen = () => {
       <div className="pdf-content-container">
         <a
           href="/BDWebAnima-React/pdf/Anleitung.pdf" 
-          download="Spielanleitung.pdf"
+          download="Anleitung.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="pdf-download-link"

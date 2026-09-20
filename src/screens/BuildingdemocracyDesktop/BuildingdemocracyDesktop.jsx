@@ -256,7 +256,7 @@ export const BuildingdemocracyDesktop = () => {
 
             {/* 3. PDF Download Button */}
             <a 
-              href="/pdf/spielanleitung.pdf" 
+              href="/BDWebAnima-React/pdf/Anleitung.pdf" 
               download="Spielanleitung.pdf"
               className="raw-text-btn nav-btn download-btn"
             >

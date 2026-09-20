@@ -34,7 +34,7 @@ export const BdScreen = () => {
       {/* Centered Clickable PDF Block */}
       <div className="pdf-content-container">
         <a
-          href="/pdf/Spielanleitung.pdf"
+          href="/BDWebAnima-React/pdf/Anleitung.pdf" 
           download="Spielanleitung.pdf"
           target="_blank"
           rel="noopener noreferrer"

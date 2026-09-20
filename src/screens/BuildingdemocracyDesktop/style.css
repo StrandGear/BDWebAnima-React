@@ -441,6 +441,8 @@ position: absolute;
 .buildingdemocracy .k-nigin-luise-schule {
   color: #fae5ba;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "Ubuntu", Helvetica;
   font-size: 20px;
   height: 73px;
@@ -481,6 +483,8 @@ position: absolute;
 .buildingdemocracy .p {
   color: #fae5ba;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "Ubuntu", Helvetica;
   font-size: 20px;
   height: 73px;
@@ -509,6 +513,8 @@ position: absolute;
 .buildingdemocracy .k-nigin-luise-schule-2 {
   color: #fae5ba;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "Ubuntu", Helvetica;
   font-size: 18px;
   height: 64px;
@@ -537,6 +543,8 @@ position: absolute;
 .buildingdemocracy .k-nigin-luise-schule-3 {
   color: #fae5ba;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   font-family: "Ubuntu", Helvetica;
   font-size: 18px;
   height: 64px;

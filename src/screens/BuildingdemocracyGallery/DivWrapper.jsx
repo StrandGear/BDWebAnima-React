@@ -25,7 +25,7 @@ const GalleryCard = ({ testimony }) => {
               : undefined
           }
         >
-          <div>
+          <div className="testimony-text-block">
             <p className="card-text">
               <span className="card-school">{testimony.orgaName}</span>
             </p>
@@ -34,7 +34,7 @@ const GalleryCard = ({ testimony }) => {
 
         {/* BACK: shaded color + each team's testimony */}
         <div className="testimony-flip-back">
-          <div>
+          <div className="testimony-text-block">
             <p className="card-text">
               <span className="card-school">{testimony.orgaName}</span>
             </p>

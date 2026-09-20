@@ -4,42 +4,60 @@ import "./style.css";
 export const BdScreen = () => {
   return (
     <div className="BD-screen">
+      {/* Background Waves Pattern */}
       <div className="wiederholungsraster-2">
         <div className="auto-flex-2">
           <div className="div-2" />
           <div className="div-2" />
           <div className="div-2" />
         </div>
-{/*         <div className="auto-flex-2">
-          <div className="div-2" />
-          <div className="div-2" />
-          <div className="div-2" />
-        </div> */}
       </div>
+
+      {/* Top and Bottom Bars */}
       <div className="rechteck-3" />
       <div className="rechteck-4" />
+
+      {/* Centered Top Toggle */}
       <Link className="gruppe-5" to="/ri">
         <div className="text-wrapper-6">BUILDING DEMOCRACY</div>
-        <div className="text-wrapper-7">REMOTE ISLAND</div>
-        <div className="uncheck-wrapper">
+        <div className="schalter-3">
           <div className="uncheck-2" />
         </div>
+        <div className="text-wrapper-7">REMOTE ISLAND</div>
       </Link>
-      <div className="NS-dok-logo-2" />
-      <Link className="text-wrapper-8" to="/mitwirkende">
-        Impressum
-      </Link>
-      <Link className="text-wrapper-9" to="/impressum">
-        Mitwirkende
-      </Link>
+
+      {/* Back Navigation Arrow */}
       <Link to="/bd">
-        <img className="img" alt="Polygon" src="/img/polygon-1-4.png" />
+        <img className="img" alt="Back" src="/img/polygon-1-4.png" />
       </Link>
-      <img className="PDF" alt="Pdf" src="/img/pdf.png" />
-      <div className="spielaleitung-2">
-        Spielaleitung
-        <br />
-        Download
+
+      {/* Centered Clickable PDF Block */}
+      <div className="pdf-content-container">
+        <a
+          href="/pdf/Spielanleitung.pdf"
+          download="Spielanleitung.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="pdf-download-link"
+        >
+          <img className="PDF" alt="Spielanleitung PDF" src="/img/pdf.png" />
+        </a>
+        <div className="spielaleitung-2">
+          Spielanleitung
+          <br />
+          Download
+        </div>
+      </div>
+
+      {/* Footer Logo & Aligned Links */}
+      <div className="NS-dok-logo-2" />
+      <div className="footer-links">
+        <Link className="footer-link" to="/impressum">
+          Mitwirkende
+        </Link>
+        <Link className="footer-link" to="/mitwirkende">
+          Impressum
+        </Link>
       </div>
     </div>
   );

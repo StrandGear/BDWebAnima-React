@@ -168,6 +168,12 @@ export const Bd = () => {
         >
           {activeView === "impressum" ? "Home" : "Impressum"}
         </button>
+        <button 
+          className={`footer-link-btn ${activeView === "video" ? "active" : ""}`} 
+          onClick={() => handleToggleView("video")}
+        >
+          {activeView === "video" ? "Home" : "Video"}
+        </button>
       </div>
       
       {/* Side Action Controls */}
@@ -188,6 +194,26 @@ export const Bd = () => {
         </div>
         <img className="polygon" alt="Next" src="/img/polygon-3-3.png" />
       </Link>
+      {/* Standalone Video Modal Container on top of everything for Mobile */}
+      {activeView === "video" && (
+        <div className="video-modal-backdrop" onClick={() => handleToggleView("video")}>
+          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+            <button 
+              className="video-modal-close" 
+              onClick={() => handleToggleView("video")}
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <video 
+              src="/videos/video.mp4" 
+              controls 
+              autoPlay 
+              className="popup-video-element"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
 import "./style.css";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import { DesktopLayout } from "../../DesktopLayout";
@@ -82,6 +82,10 @@ const TestimonyCard = ({
 };
 
 export const Screen4 = () => {
+  const location = useLocation();
+  const targetSessionId = location.state?.sessionId;
+  const hasAppliedInitialCenter = useRef(false);
+
   const [testimonies, setTestimonies] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [isCenterFlipped, setIsCenterFlipped] = useState(false);
@@ -95,6 +99,30 @@ export const Screen4 = () => {
       cancelled = true;
     };
   }, []);
+
+  // If we arrived here from a preview card's click, center the carousel on
+  // that exact testimony once the data has loaded. Only do this once, so
+  // clicking around the carousel afterward isn't overridden by this effect
+  // re-running.
+  useEffect(() => {
+    if (hasAppliedInitialCenter.current) return;
+    if (testimonies.length === 0) return;
+
+    hasAppliedInitialCenter.current = true;
+
+    if (!targetSessionId) return;
+
+    const targetIndex = testimonies.findIndex(
+      (t) => t.sessionId === targetSessionId
+    );
+    if (targetIndex === -1) return;
+
+    const CENTER_SLOT_INDEX = 1;
+    setStartIndex(
+      ((targetIndex - CENTER_SLOT_INDEX) % testimonies.length + testimonies.length) %
+        testimonies.length
+    );
+  }, [testimonies, targetSessionId]);
 
   // Whenever the carousel moves, the center card is a "new" testimony —
   // always start it back on the front (image + org name).

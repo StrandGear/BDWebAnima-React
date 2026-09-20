@@ -206,7 +206,7 @@ export const Bd = () => {
               ✕
             </button>
             <video 
-              src="/videos/video.mp4" 
+              src="/BDWebAnima-React/video/building-democracy.mp4" 
               controls 
               autoPlay 
               className="popup-video-element"

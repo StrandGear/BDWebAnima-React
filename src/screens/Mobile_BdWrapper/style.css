@@ -26,7 +26,7 @@
 }
 
 .BD-wrapper .div-3 {
-  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
+  background-image: url(/img/waves-01-4.png);
   background-position: 50% 50%;
   background-size: cover;
   flex: 1;
@@ -108,7 +108,7 @@
 }
 
 .BD-wrapper .NS-dok-logo-3 {
-  background-image: url(/BDWebAnima-React/img/gruppe-165-4.png);
+  background-image: url(/img/gruppe-165-4.png);
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
@@ -206,7 +206,7 @@
 }
 
 .BD-wrapper .gruppe-7 {
-  background-image: url(/BDWebAnima-React/img/pfad-201-1.png);
+  background-image: url(/img/pfad-201-1.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: calc(27.38% - 23px);
@@ -233,7 +233,7 @@
 }
 
 .BD-wrapper .k-nigin-luise-schule-wrapper {
-  background-image: url(/BDWebAnima-React/img/gruppe-159.png);
+  background-image: url(/img/gruppe-159.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;

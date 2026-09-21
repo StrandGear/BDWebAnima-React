@@ -26,7 +26,7 @@
 }
 
 .BD-screen .div-2 {
-  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
+  background-image: url(/img/waves-01-4.png);
   background-position: 50% 50%;
   background-size: cover;
   flex: 1;
@@ -120,7 +120,7 @@
 }
 
 .BD-screen .NS-dok-logo-2 {
-  background-image: url(/BDWebAnima-React/img/gruppe-165-4.png);
+  background-image: url(/img/gruppe-165-4.png);
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;

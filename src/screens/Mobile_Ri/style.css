@@ -1,9 +1,18 @@
+:root {
+  --scale: 0.8;
+}
+
 .RI {
   background-color: #090a0b;
   min-height: 932px;
   min-width: 430px;
+  width: 430px;
+  height: 932px;
   position: relative;
-  width: 100%;
+  overflow: hidden;
+  transform: scale(var(--scale));
+  transform-origin: top left;
+  margin: 0 auto;
 }
 
 .RI .rechteck-11 {
@@ -11,7 +20,7 @@
   box-shadow: 0px 3px 6px #00000029;
   height: 91px;
   left: 0;
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
 }
@@ -22,7 +31,7 @@
   box-shadow: 0px 3px 6px #00000029;
   height: 90px;
   left: 0;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 
@@ -30,7 +39,7 @@
   display: block;
   height: 28px;
   left: 42px;
-  position: fixed;
+  position: absolute;
   top: 31px;
   width: 308px;
 }
@@ -91,13 +100,13 @@
 }
 
 .RI .NS-dok-logo-6 {
-  background-image: url(/BDWebAnima-React/img/gruppe-165-7.png);
+  background-image: url(/img/gruppe-165-7.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 29px;
   height: 34px;
   left: 33px;
-  position: fixed;
+  position: absolute;
   width: 45px;
 }
 
@@ -112,7 +121,7 @@
   height: 14px;
   letter-spacing: 0;
   line-height: 11px;
-  position: fixed;
+  position: absolute;
   right: 38px;
   text-align: right;
   white-space: nowrap;
@@ -130,7 +139,7 @@
   height: 14px;
   letter-spacing: 0;
   line-height: 11px;
-  position: fixed;
+  position: absolute;
   right: 38px;
   text-align: right;
   white-space: nowrap;
@@ -201,6 +210,7 @@
   width: 295px;
 }
 
+/* MAIN CARD CONTAINER */
 .RI .gruppe-11 {
   bottom: calc(45.94% - 209px);
   height: 455px;
@@ -216,22 +226,49 @@
   position: absolute;
   top: -6px;
   width: calc(100% + 18px);
+  pointer-events: none;
 }
 
-.RI .dauer-stunden {
+/* SCROLLABLE TEXT AREA INSIDE MAIN CARD */
+.RI .text-content-container {
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
-  font-size: 16px;
-  font-weight: 400;
-  height: 398px;
-  left: calc(44.65% - 106px);
-  letter-spacing: 0;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
+  height: 380px;
+  width: 230px;
   position: absolute;
-  top: calc(28.35% - 113px);
-  width: 237px;
+  top: 35px;
+  left: 18px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 6px;
+  box-sizing: border-box;
+  z-index: 2;
 }
 
+.RI .text-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+/* VISIBLE SCROLLBAR */
+.RI .text-content-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.RI .text-content-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+
+.RI .text-content-container::-webkit-scrollbar-thumb {
+  background: #fae5ba;
+  border-radius: 3px;
+}
+
+/* NAVIGATION BUTTON POSITIONS */
 .RI .buchen-als {
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
@@ -245,6 +282,7 @@
   top: calc(14.44% - 3px);
   white-space: nowrap;
   width: 58px;
+  z-index: 3;
 }
 
 .RI .text-wrapper-30 {
@@ -261,6 +299,7 @@
   top: calc(14.21% - 2px);
   white-space: nowrap;
   width: 36px;
+  z-index: 3;
 }
 
 .RI .buchen-als-gruppe {
@@ -276,6 +315,7 @@
   top: calc(13.70% - 3px);
   white-space: nowrap;
   width: 53px;
+  z-index: 3;
 }
 
 .RI .gruppe-12 {
@@ -285,6 +325,7 @@
   position: absolute;
   top: 129px;
   width: 98px;
+  z-index: 3;
 }
 
 .RI .text-wrapper-31 {
@@ -315,4 +356,54 @@
   top: calc(20.08% - 3px);
   white-space: nowrap;
   width: 30px;
+  z-index: 3;
+}
+
+/* OVERLAY VIDEO STYLING */
+.RI .video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(9, 10, 11, 0.95);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.RI .video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+}
+
+.RI .video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.RI .video-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  background: #fae5ba;
+  color: #090a0b;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 11px;
+  font-weight: 700;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 16px;
+  cursor: pointer;
+  z-index: 101;
 }

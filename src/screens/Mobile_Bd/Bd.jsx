@@ -178,11 +178,11 @@ export const Bd = () => {
   }, []);
 
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/BDWebAnima-React/unity/Build/421fa42f2c5f8d04f14c89c3627f0336.data",
-    frameworkUrl: "/BDWebAnima-React/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
-    codeUrl: "/BDWebAnima-React/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
-    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
+    loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+    dataUrl: "/unity/Build/421fa42f2c5f8d04f14c89c3627f0336.data",
+    frameworkUrl: "/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
+    codeUrl: "/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
+    streamingAssetsUrl: "/unity/StreamingAssets"
   });
 
   // Handler to toggle overlay view or return to game
@@ -281,7 +281,7 @@ export const Bd = () => {
       
       {/* Side Action Controls */}
       <Link className="gruppe-3" to="/bd-1">
-        <img className="polygon" alt="Previous" src="/BDWebAnima-React/img/polygon-1-4.png" />
+        <img className="polygon" alt="Previous" src="/img/polygon-1-4.png" />
         <div className="ergebnis-beitr-ge">
           Ergebnis-
           <br />
@@ -295,7 +295,7 @@ export const Bd = () => {
           <br />
           Download
         </div>
-        <img className="polygon" alt="Next" src="/BDWebAnima-React/img/polygon-3-3.png" />
+        <img className="polygon" alt="Next" src="/img/polygon-3-3.png" />
       </Link>
 
         {/* Dynamic Video Popup */}

@@ -5,7 +5,7 @@
   background-position: top left; /* Aligning to top-left prevents mid-tile seams */
   background-repeat: repeat;     /* Tiles the image horizontally and vertically */
   background-size: 350px auto;
-  background-image: url(/BDWebAnima-React/img/waves-01-4.png);
+  background-image: url(/img/waves-01-4.png);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@
 }
 
 .buildingdemocracy .NS-dok-logo {
-  background-image: url(/BDWebAnima-React/img/gruppe-165-2.png);
+  background-image: url(/img/gruppe-165-2.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 71px;
@@ -137,7 +137,7 @@
   inset: 0; /* Equivalent to top:0, left:0, width:100%, height:100% */
   width: 100%;
   height: 100%;
-  background-image: url(/BDWebAnima-React/img/gruppe-157-3.png);
+  background-image: url(/img/gruppe-157-3.png);
   background-position: center;
   background-size: contain; /* Preserves exact PNG image ratio without stretching */
   background-repeat: no-repeat;
@@ -354,7 +354,7 @@ position: absolute;
 
 .buildingdemocracy .button {
   all: unset;
-  background-image: url(/BDWebAnima-React/img/pfad-201-3.png);
+  background-image: url(/img/pfad-201-3.png);
   background-position: 50% 50%;
   background-size: cover;
   bottom: 51px;
@@ -399,7 +399,7 @@ position: absolute;
 }
 
 .buildingdemocracy .gruppe-2 {
-  background-image: url(/BDWebAnima-React/img/gruppe-162-1.png);
+  background-image: url(/img/gruppe-162-1.png);
   background-position: 50% 50%;
   background-size: cover;
   height: 100%;
@@ -425,7 +425,7 @@ position: absolute;
 }
 
 .buildingdemocracy .k-nigin-luise-schule-wrapper {
-  background-image: url(/BDWebAnima-React/img/gruppe-159-26.png);
+  background-image: url(/img/gruppe-159-26.png);
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 20px;
@@ -467,7 +467,7 @@ position: absolute;
 }
 
 .buildingdemocracy .gruppe-3 {
-  background-image: url(/BDWebAnima-React/img/gruppe-159-27.png);
+  background-image: url(/img/gruppe-159-27.png);
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 20px;
@@ -497,7 +497,7 @@ position: absolute;
 }
 
 .buildingdemocracy .gruppe-4 {
-  background-image: url(/BDWebAnima-React/img/gruppe-159-28.png);
+  background-image: url(/img/gruppe-159-28.png);
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 20px;
@@ -527,7 +527,7 @@ position: absolute;
 }
 
 .buildingdemocracy .gruppe-5 {
-  background-image: url(/BDWebAnima-React/img/gruppe-159-29.png);
+  background-image: url(/img/gruppe-159-29.png);
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 20px;

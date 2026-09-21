@@ -705,3 +705,156 @@ position: absolute;
   border-radius: 10px;
   object-fit: contain;
 }
+
+/* ==========================================================================
+   Impressum / Mitwirkende — formatted legal + credits text
+   Scoped to .phone-text-overlay so it stays inside the existing
+   phone frame and inherits that container's scrolling.
+   ========================================================================== */
+
+.phone-text-overlay .legal-text {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-align: left;
+  hyphens: auto;            /* long German compounds wrap instead of overflowing */
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+/* --- Impressum ---------------------------------------------------------- */
+
+/* Bold headings (\b runs in the RTF) */
+.phone-text-overlay .legal-heading {
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 16px;
+  margin: 16px 0 5px;
+  color: #fae5ba;
+}
+
+.phone-text-overlay .legal-heading:first-child {
+  margin-top: 0;
+}
+
+/* Normal body paragraphs */
+.phone-text-overlay .legal-paragraph {
+  margin: 0 0 9px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Address / contact blocks: hard line breaks preserved, tighter leading */
+.phone-text-overlay .legal-block {
+  margin: 0 0 12px;
+  white-space: pre-line;
+  line-height: 15px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Dash list under "Server-Log-Files" */
+.phone-text-overlay .legal-list {
+  margin: 0 0 9px;
+  padding-left: 14px;
+  list-style: none;
+}
+
+.phone-text-overlay .legal-list li {
+  position: relative;
+  margin-bottom: 2px;
+}
+
+.phone-text-overlay .legal-list li::before {
+  content: "\2013";
+  position: absolute;
+  left: -12px;
+}
+
+/* Underlined hyperlinks */
+.phone-text-overlay .legal-link {
+  color: #fae5ba;
+  text-decoration: underline;
+  overflow-wrap: anywhere;   /* URLs can't blow out the narrow column */
+}
+
+.phone-text-overlay .legal-link:hover {
+  color: #a59342;
+}
+
+/* --- Mitwirkende (credits) ---------------------------------------------- */
+
+.phone-text-overlay .legal-credit {
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+.phone-text-overlay .legal-credit:first-child {
+  margin-top: 0;
+}
+
+.phone-text-overlay .legal-credit-role {
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 16px;
+  margin: 0 0 4px;
+  color: #fae5ba;
+}
+
+.phone-text-overlay .legal-credit-name {
+  margin: 0 0 1px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Closing cooperation note */
+.phone-text-overlay .legal-note {
+  margin: 16px 0 18px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  line-height: 15px;
+}
+
+/* --- Logos -------------------------------------------------------------- */
+
+.phone-text-overlay .legal-logo-group {
+  margin: 0 0 18px;
+  text-align: center;
+}
+
+.phone-text-overlay .legal-logo-label {
+  margin: 0 0 8px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+}
+
+.phone-text-overlay .legal-logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.phone-text-overlay .legal-logo {
+  display: block;
+  max-width: calc(50% - 7px);
+  max-height: 46px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Last element shouldn't add dead space at the end of the scroll */
+.phone-text-overlay .legal-text > *:last-child {
+  margin-bottom: 0;
+}

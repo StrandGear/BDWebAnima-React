@@ -269,6 +269,9 @@
 .BD-wrapper .text-wrapper-15 {
   font-family: "Ubuntu", Helvetica;
   font-style: italic;
+  position: relative;
+  top: 15px;
+  left: 15px;
   font-weight: 400;
 }
 

@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom"; // Added useLocation
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
 import { DesktopLayout } from "../../DesktopLayout";
+import { fetchVideoUrls } from "../../services/videoService";
 
 
 const legalText = `
@@ -132,6 +133,59 @@ const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
         </p>
       </div>
     </Link>
+  );
+};
+
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView("game")}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -299,25 +353,9 @@ export const BuildingdemocracyDesktop = () => {
             </Link>
           </div>
         </div>
-        {/* Big Video Popup Container on top of everything */}
+        {/* Dynamic Video Popup */}
         {activeView === "video" && (
-          <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
-            <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
-              <button 
-                className="video-modal-close" 
-                onClick={() => setActiveView("game")}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-              <video 
-                src="/BDWebAnima-React/video/building-democracy.mp4" 
-                controls 
-                autoPlay 
-                className="popup-video-element"
-              />
-            </div>
-          </div>
+          <VideoModal setActiveView={setActiveView} />
         )}
       </div>
     </DesktopLayout>

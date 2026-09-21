@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import "../../services/firebase"; 
 import "./style.css";
+import { fetchVideoUrls } from "../../services/videoService";
 
 // Editable Text Variables
 export const legalText = `Anbieterkennzeichnung nach § 5 Digitale-Dienste-Gesetz (DDG) in Verbindung mit § 18 Absatz 2 Medienstaatsvertrag
@@ -99,6 +100,59 @@ export const mitwirkendeText = `
 Konzept, Gestaltung, Programmierung der Internetseiten: 
 Max Gede, Anastasiia Ermolaeva, Juan-Pablo Ortiz Reyes
 `;
+
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView("game")}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export const Bd = () => {
   const location = useLocation();
@@ -243,26 +297,11 @@ export const Bd = () => {
         </div>
         <img className="polygon" alt="Next" src="/BDWebAnima-React/img/polygon-3-3.png" />
       </Link>
-      {/* Standalone Video Modal Container on top of everything for Mobile */}
-      {activeView === "video" && (
-        <div className="video-modal-backdrop" onClick={() => handleToggleView("video")}>
-          <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
-            <button 
-              className="video-modal-close" 
-              onClick={() => handleToggleView("video")}
-              aria-label="Close"
-            >
-              ✕
-            </button>
-            <video 
-              src="/BDWebAnima-React/video/building-democracy.mp4" 
-              controls 
-              autoPlay 
-              className="popup-video-element"
-            />
-          </div>
-        </div>
-      )}
+
+        {/* Dynamic Video Popup */}
+        {activeView === "video" && (
+          <VideoModal setActiveView={setActiveView} />
+        )}
     </div>
   );
 };

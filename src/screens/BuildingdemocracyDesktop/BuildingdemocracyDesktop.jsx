@@ -226,11 +226,11 @@ export const BuildingdemocracyDesktop = () => {
 
   // Configure paths (make sure these files are in your /public folder)
   const { unityProvider } = useUnityContext({
-    loaderUrl: "/BDWebAnima-React/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-        dataUrl: "/BDWebAnima-React/unity/Build/421fa42f2c5f8d04f14c89c3627f0336.data",
-    frameworkUrl: "/BDWebAnima-React/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
-    codeUrl: "/BDWebAnima-React/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
-    streamingAssetsUrl: "/BDWebAnima-React/unity/StreamingAssets"
+    loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
+        dataUrl: "/unity/Build/421fa42f2c5f8d04f14c89c3627f0336.data",
+    frameworkUrl: "/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
+    codeUrl: "/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
+    streamingAssetsUrl: "/unity/StreamingAssets"
   });
   
   return (
@@ -307,7 +307,7 @@ export const BuildingdemocracyDesktop = () => {
 
             {/* 3. PDF Download Button */}
             <a 
-              href="/BDWebAnima-React/pdf/Anleitung.pdf" 
+              href="/pdf/Anleitung.pdf" 
               download="Anleitung.pdf"
               className="raw-text-btn nav-btn download-btn"
             >
@@ -336,11 +336,11 @@ export const BuildingdemocracyDesktop = () => {
               testimony={slot0}
             />
             <Link to="/buildingdemocracy-start-2">
-            <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
+            <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" />
             </Link>
-            {/* <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" /> */}
+            {/* <img className="polygon" alt="Polygon" src="/img/polygon-2-3.png" /> */}
             <Link to="/buildingdemocracy-start-2">
-              <img className="img" alt="Polygon" src="/BDWebAnima-React/img/polygon-3-3.png" />
+              <img className="img" alt="Polygon" src="/img/polygon-3-3.png" />
             </Link>
             <Link className="gruppe-6" to="/buildingdemocracy-gallery">
               <div className="gruppe-7">

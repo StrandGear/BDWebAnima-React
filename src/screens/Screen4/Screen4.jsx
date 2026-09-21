@@ -218,7 +218,7 @@ export const Screen4 = () => {
               <div className="text-wrapper-31">Tap to start!</div>
             </button>
             <div className="BD-logo-3">
-              <img className="pfad-10" alt="Pfad" src="/BDWebAnima-React/img/pfad-210-2.png" />
+              <img className="pfad-10" alt="Pfad" src="/img/pfad-210-2.png" />
               <div className="gruppe-31" />
             </div>
             <div className="deine-demokratie-app-3">
@@ -260,7 +260,7 @@ export const Screen4 = () => {
             <img
               className="polygon-4"
               alt="Zurück zur Startseite"
-              src="/BDWebAnima-React/img/polygon-2-3.png"
+              src="/img/polygon-2-3.png"
               style={{ cursor: "pointer" }}
             />
           </Link>
@@ -268,7 +268,7 @@ export const Screen4 = () => {
           <img
             className="polygon-5"
             alt="Vorheriges Testimonial"
-            src="/BDWebAnima-React/img/polygon-3-3.png"
+            src="/img/polygon-3-3.png"
             onClick={handleNext}
             style={{ cursor: "pointer" }}
           />

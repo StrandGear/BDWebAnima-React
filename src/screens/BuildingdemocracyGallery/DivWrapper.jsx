@@ -99,6 +99,7 @@ export const DivWrapper = () => {
             </div>
           </div> */}
 
+            {/* Top Bar with toggle 
           <Link className="schalter-mit-3" to="/remoteislandstart">
             <div className="text-wrapper-22">BUILDING DEMOCRACY</div>
             <div className="text-wrapper-23">REMOTE ISLAND</div>
@@ -106,7 +107,7 @@ export const DivWrapper = () => {
               <div className="rechteck-13" />
               <div className="uncheck-4" />
             </div>
-          </Link>
+          </Link> */}
           <div className="NS-dok-logo-4" />
 
           {/* 1. Nav Panel with state navigation */}

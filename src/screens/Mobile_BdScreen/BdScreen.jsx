@@ -18,13 +18,13 @@ export const BdScreen = () => {
       <div className="rechteck-4" />
 
       {/* Centered Top Toggle */}
-      <Link className="gruppe-5" to="/ri">
+      {/* <Link className="gruppe-5" to="/ri">
         <div className="text-wrapper-6">BUILDING DEMOCRACY</div>
         <div className="schalter-3">
           <div className="uncheck-2" />
         </div>
         <div className="text-wrapper-7">REMOTE ISLAND</div>
-      </Link>
+      </Link> */}
 
       {/* Back Navigation Arrow */}
       <Link to="/bd">

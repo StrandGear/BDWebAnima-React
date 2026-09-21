@@ -204,14 +204,15 @@ export const Screen4 = () => {
               <div className="div-4" />
             </div>
           </div>
-          <Link className="schalter-mit-4" to="/remoteislandstart">
+          {/* Top Bar with toggle */}
+          {/* <Link className="schalter-mit-4" to="/remoteislandstart">
             <div className="text-wrapper-29">BUILDING DEMOCRACY</div>
             <div className="text-wrapper-30">REMOTE ISLAND</div>
             <div className="schalter-5">
               <div className="rechteck-18" />
               <div className="uncheck-5" />
             </div>
-          </Link>
+          </Link> */}
           <div className="NS-dok-logo-5" />
           <Link className="gruppe-30" to="/buildingdemocracy-start">
             <button className="button-3">

@@ -247,13 +247,13 @@ export const Bd = () => {
       <div className="rechteck-2" />
       
       {/* Top Toggle Header */}
-      <Link className="gruppe-2" to="/ri">
+      {/* <Link className="gruppe-2" to="/ri">
         <div className="text-wrapper">BUILDING DEMOCRACY</div>
         <div className="schalter">
           <div className="uncheck" />
         </div>
         <div className="text-wrapper-2">REMOTE ISLAND</div>
-      </Link>
+      </Link> */}
       
       <div className="NS-dok-logo" />
       

@@ -1,1 +1,18 @@
 AddType application/wasm .wasm
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # If the requested URL is already index.html, stop here
+  RewriteRule ^index\.html$ - [L]
+  
+  # If the requested URL is NOT a real file (.data, .wasm, .png, etc.)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  
+  # And the requested URL is NOT a real directory
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Then serve index.html instead, allowing React Router to take over
+  RewriteRule . /index.html [L]
+</IfModule>

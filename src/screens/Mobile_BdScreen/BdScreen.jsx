@@ -1,7 +1,64 @@
 import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import "./style.css";
+import { fetchVideoUrls } from "../../services/videoService";
+
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView("game")}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export const BdScreen = () => {
+  const [activeView, setActiveView] = useState("game");
+
   return (
     <div className="BD-screen">
       {/* Background Waves Pattern */}
@@ -33,19 +90,40 @@ export const BdScreen = () => {
 
       {/* Centered Clickable PDF Block */}
       <div className="pdf-content-container">
-        <a
-          href="/Anleitung.pdf" 
-          download="Anleitung.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="pdf-download-link"
-        >
-          <img className="PDF" alt="Spielanleitung PDF" src="/img/pdf.png" />
-        </a>
-        <div className="spielaleitung-2">
-          Spielanleitung
-          <br />
-          Download
+{/* PDF 1: Spielanleitung */}
+        <div className="pdf-item" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <a
+            href="/Anleitung.pdf" 
+            download="Anleitung.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pdf-download-link"
+          >
+            <img className="PDF" alt="Spielanleitung PDF" src="/img/pdf.png" />
+          </a>
+          <div className="spielaleitung-2" style={{ textAlign: "center", marginTop: "10px", position: "static" }}>
+            Spielanleitung
+            <br />
+            Download
+          </div>
+        </div>
+
+        {/* PDF 2: Datenschutz */}
+        <div className="pdf-item" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <a
+            href="/Datenschutz.pdf" 
+            download="Datenschutz.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pdf-download-link"
+          >
+            <img className="PDF" alt="Datenschutz PDF" src="/img/pdf.png" />
+          </a>
+          <div className="spielaleitung-2" style={{ textAlign: "center", marginTop: "10px", position: "static" }}>
+            Datenschutz
+            <br />
+            Download
+          </div>
         </div>
       </div>
 
@@ -64,7 +142,33 @@ export const BdScreen = () => {
         >
           Impressum
         </Link>
+      {/* Added Video Button matching main screen */}
+        <button 
+          className="footer-link-btn" 
+          onClick={() => setActiveView("video")} 
+          style={{ 
+            background: "transparent", 
+            border: "none", 
+            padding: 0, 
+            margin: 0, 
+            cursor: "pointer", 
+            fontFamily: '"Ubuntu", Helvetica, sans-serif',
+            fontSize: "11px",
+            fontStyle: "italic",
+            fontWeight: 700,
+            color: "#fae5ba",
+            textAlign: "right"
+          }}
+        >
+          Video
+        </button>
       </div>
+
+      {/* Dynamic Video Popup Modal */}
+      {activeView === "video" && (
+        <VideoModal setActiveView={setActiveView} />
+      )}
+
     </div>
   );
 };

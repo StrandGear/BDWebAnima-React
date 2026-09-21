@@ -132,8 +132,67 @@ export const BuildingdemocracyDesktop = () => {
     dataUrl: "/unity/Build/6640e2f4be267caee486349ef91bf17e.data",
     frameworkUrl: "/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
     codeUrl: "/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
-    streamingAssetsUrl: "/unity/StreamingAssets"
+    streamingAssetsUrl: "/unity/StreamingAssets",
+
+    companyName: "NS-DOK Köln",
+    productName: "Building Democracy",
+    productVersion: "1.0",
+
+    // 2. Intercept fatal Unity errors to suppress the alert popup and auto-reload
+    errorHandler: (message) => {
+      console.warn("Intercepted Unity crash, reloading page...", message);
+      window.location.reload();
+      return true; // Returns true to prevent default browser alert/popup
+    }
   });
+
+  // Auto-reload page if the user leaves/locks the phone for more than 30 seconds
+  useEffect(() => {
+    let hiddenTime = null;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Record the timestamp when the user leaves or locks the phone
+        hiddenTime = Date.now();
+      } else {
+        // User has returned / unlocked the phone
+        if (hiddenTime) {
+          const elapsedSeconds = (Date.now() - hiddenTime) / 1000;
+          
+          // If the phone was locked/inactive for more than 30 seconds, reload the page
+          if (elapsedSeconds > 30) {
+            console.log(`App was inactive for ${Math.round(elapsedSeconds)}s. Reloading page...`);
+            window.location.reload();
+          }
+        }
+        hiddenTime = null;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, []);
+
+  // Automatically catch Unity runtime errors and force a page reload
+  useEffect(() => {
+    const handleUnityError = (message) => {
+      console.error("Caught Unity error:", message);
+      window.location.reload();
+    };
+
+    // Listen to Unity canvas error events
+    if (window.addEventListener) {
+      window.addEventListener("unity-error", handleUnityError);
+    }
+
+    return () => {
+      if (window.removeEventListener) {
+        window.removeEventListener("unity-error", handleUnityError);
+      }
+    };
+  }, []);
 
   // Long-load timeout: trigger prompt after 15 seconds of waiting
   useEffect(() => {
@@ -257,15 +316,21 @@ export const BuildingdemocracyDesktop = () => {
               </button>
 
               {/* Spielanleitung download link hides when playing */}
-              {!isGameStarted && (
                 <a 
-                  href="/pdf/Anleitung.pdf" 
+                  href="/Anleitung.pdf" 
                   download="Anleitung.pdf"
                   className="raw-text-btn nav-btn download-btn"
                 >
                   Spielanleitung<br />Download
                 </a>
-              )}
+              {/* Datenschutz download link */}
+                <a 
+                  href="/Datenschutz.pdf" 
+                  download="Datenschutz.pdf"
+                  className="raw-text-btn nav-btn download-btn"
+                >
+                  Datenschutz<br />Download
+                </a>
             </div>
 
             <StaticTestimonyCard

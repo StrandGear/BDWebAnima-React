@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import "./style.css";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import { DesktopLayout } from "../../DesktopLayout";
+import { fetchVideoUrls } from "../../services/videoService";
 
 // The template has 4 visible card slots, left to right:
 // gruppe-33 (small, left) -> gruppe-32 (large, center) -> gruppe-rechts -> gruppe-34
@@ -81,6 +82,59 @@ const TestimonyCard = ({
   );
 };
 
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView("game")}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
 export const Screen4 = () => {
   const location = useLocation();
   const targetSessionId = location.state?.sessionId;
@@ -89,6 +143,9 @@ export const Screen4 = () => {
   const [testimonies, setTestimonies] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [isCenterFlipped, setIsCenterFlipped] = useState(false);
+
+  // Track active view popup on Screen4 ("game" means normal view, "video" opens modal)
+  const [activeView, setActiveView] = useState("game");
 
   useEffect(() => {
     let cancelled = false;
@@ -276,24 +333,35 @@ export const Screen4 = () => {
 
           <div className="smartphone-3" />
 
-          <Link className="text-wrapper-34" to="/buildingdemocracy-start" state={{ activeView: "impressum" }}>
-            Impressum
-          </Link>
-
-          <a 
-            href="/Anleitung.pdf" 
-            download="Anleitung.pdf"
-            className="spielaleitung-4"
-            style={{ textDecoration: "none", cursor: "pointer" }}
-          >
-            Spielanleitung
-            <br />
-            Download
-          </a>
-
-          <Link className="text-wrapper-35" to="/buildingdemocracy-start" state={{ activeView: "mitwirkende" }}>
-            Mitwirkende
-          </Link>
+          {/* Clean Flexbox Bottom Navigation Container matching main desktop layout */}
+            <div className="bottom-nav-container">
+              <Link className="raw-text-btn nav-btn" to="/buildingdemocracy-start" state={{ activeView: "mitwirkende" }}>
+                Mitwirkende
+              </Link>
+              <Link className="raw-text-btn nav-btn" to="/buildingdemocracy-start" state={{ activeView: "impressum" }}>
+                Impressum
+              </Link>
+              <button 
+                className="raw-text-btn nav-btn" 
+                onClick={() => setActiveView("video")}
+              >
+                Video
+              </button>
+              <a 
+                href="/Anleitung.pdf" 
+                download="Anleitung.pdf"
+                className="raw-text-btn nav-btn download-btn"
+              >
+                Spielanleitung<br />Download
+              </a>
+              <a 
+                href="/Datenschutz.pdf" 
+                download="Datenschutz.pdf"
+                className="raw-text-btn nav-btn download-btn"
+              >
+                Datenschutz<br />Download
+              </a>
+            </div>
           
           <Link className="gruppe-35" to="/buildingdemocracy-gallery">
             <div className="gruppe-36">
@@ -306,6 +374,11 @@ export const Screen4 = () => {
           </Link>
         </div>
       </div>
+
+      {/* Dynamic Video Popup Modal */}
+      {activeView === "video" && (
+        <VideoModal setActiveView={setActiveView} />
+      )}
     </div>
     </DesktopLayout>
   );

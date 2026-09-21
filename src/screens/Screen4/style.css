@@ -529,3 +529,39 @@
   align-items: flex-start;
   padding: 4px;
 }
+
+.screen-4 .bottom-nav-container {
+  position: absolute;
+  top: 848px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+  z-index: 5;
+}
+.screen-4 .nav-btn {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.screen-4 .nav-btn:hover {
+  opacity: 0.8;
+}
+
+.screen-4 .download-btn {
+  display: inline-block;
+  text-align: center;
+}

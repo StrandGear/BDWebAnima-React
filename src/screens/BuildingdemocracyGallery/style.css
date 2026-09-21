@@ -182,9 +182,9 @@
   color: #fae5ba;
   overflow-wrap: anywhere;
   font-family: "Ubuntu", Helvetica;
-  font-size: 20px;
+  font-size: 17px;
   letter-spacing: 0;
-  line-height: 20px;
+  line-height: 17px;
   margin-left: 19.4px;
   margin-right: 17px;
   margin-top: 17.2px;
@@ -404,4 +404,30 @@ color: #fae5ba;
   transform: rotateY(180deg);
   align-items: flex-start;
   padding: 4px;
+}
+
+/* Styling for the Gallery Video Button matching the other nav links */
+.div-wrapper .video-nav-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fae5ba;
+  display: block;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 14px;
+  min-height: 18px;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.15s ease;
+}
+
+.div-wrapper .video-nav-btn:hover {
+  opacity: 0.8;
 }

@@ -3,6 +3,60 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import { DesktopLayout } from "../../DesktopLayout";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
+import { fetchVideoUrls } from "../../services/videoService";
+
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView("game")}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const GalleryCard = ({ testimony }) => {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -54,6 +108,8 @@ const GalleryCard = ({ testimony }) => {
 
 export const DivWrapper = () => {
   const [testimonies, setTestimonies] = useState([]);
+  // Declaring state fixes ReferenceError: activeView is not defined
+  const [activeView, setActiveView] = useState("game");
 
   useEffect(() => {
     let cancelled = false;
@@ -67,52 +123,13 @@ export const DivWrapper = () => {
 
   return (
     <DesktopLayout>
-    <div className="div-wrapper">
-      <div className="buildingdemocracy-3">
-        <div className="overlap-group-3">
-        {/* Background grid */}
-          {/* <div className="wiederholungsraster-3">
-            <div className="auto-flex-3">
-              <div className="div-3" />
-              <div className="div-3" />
-              <div className="div-3" />
-            </div>
-            <div className="auto-flex-3">
-              <div className="div-3" />
-              <div className="div-3" />
-              <div className="div-3" />
-            </div>
-            <div className="auto-flex-3">
-              <div className="div-3" />
-              <div className="div-3" />
-              <div className="div-3" />
-            </div>
-            <div className="auto-flex-3">
-              <div className="div-3" />
-              <div className="div-3" />
-              <div className="div-3" />
-            </div>
-            <div className="auto-flex-3">
-              <div className="div-3" />
-              <div className="div-3" />
-              <div className="div-3" />
-            </div>
-          </div> */}
+      <div className="div-wrapper">
+        <div className="buildingdemocracy-3">
+          <div className="overlap-group-3">
+            <div className="NS-dok-logo-4" />
 
-            {/* Top Bar with toggle 
-          <Link className="schalter-mit-3" to="/remoteislandstart">
-            <div className="text-wrapper-22">BUILDING DEMOCRACY</div>
-            <div className="text-wrapper-23">REMOTE ISLAND</div>
-            <div className="schalter-4">
-              <div className="rechteck-13" />
-              <div className="uncheck-4" />
-            </div>
-          </Link> */}
-          <div className="NS-dok-logo-4" />
-
-          {/* 1. Nav Panel with state navigation */}
+            {/* 1. Nav Panel with clean horizontal layout */}
             <div className="auto">
-              {/* Navigates to main screen & opens Mitwirkende */}
               <Link 
                 className="text-wrapper-26" 
                 to="/buildingdemocracy-start" 
@@ -121,7 +138,6 @@ export const DivWrapper = () => {
                 Mitwirkende
               </Link>
 
-              {/* Navigates to main screen & opens Impressum */}
               <Link 
                 className="text-wrapper-27" 
                 to="/buildingdemocracy-start" 
@@ -130,17 +146,32 @@ export const DivWrapper = () => {
                 Impressum
               </Link>
 
-              {/* Direct PDF Download Link */}
+              {/* Video button participates in standard flex layout */}
+              <button 
+                className="video-nav-btn" 
+                onClick={() => setActiveView("video")}
+              >
+                Video
+              </button>
+
               <a 
-                href="/pdf/spielanleitung.pdf" 
-                download="Spielanleitung.pdf" 
+                href="/Anleitung.pdf" 
+                download="Anleitung.pdf" 
                 className="spielaleitung-3"
               >
                 Spielanleitung<br />Download
               </a>
+              {/* Direct Datenschutz PDF Download Link */}
+              <a 
+                href="/Datenschutz.pdf" 
+                download="Datenschutz.pdf" 
+                className="spielaleitung-3"
+              >
+                Datenschutz<br />Download
+              </a>
             </div>
 
-            {/* 2. "Ansicht ändern" Button directly below .auto */}
+            {/* 2. "Ansicht ändern" Button */}
             <Link className="gruppe-28" to="/buildingdemocracy-start">
               <div className="gruppe-29">
                 <div className="rechteck-14" />
@@ -152,14 +183,19 @@ export const DivWrapper = () => {
             </Link>
 
             {/* Cards Grid */}
-          <div className="cards-grid">
-            {testimonies.map((testimony) => (
-              <GalleryCard key={testimony.sessionId} testimony={testimony} />
-            ))}
+            <div className="cards-grid">
+              {testimonies.map((testimony) => (
+                <GalleryCard key={testimony.sessionId} testimony={testimony} />
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Dynamic Video Popup Modal */}
+        {activeView === "video" && (
+          <VideoModal setActiveView={setActiveView} />
+        )}
       </div>
-    </div>
     </DesktopLayout>
   );
 };

@@ -69,10 +69,6 @@ Telefax +49 (0) 221 221-25512`,
   },
   {
     type: "p",
-    text: "Inhaltlich verantwortlich für diese Webseite i.S.d. § 55 II RStV ist der Direktor der Einrichtung.",
-  },
-  {
-    type: "p",
     text: "Sollten Sie Fragen zu Ihren personenbezogenen Daten haben, können Sie sich an den Datenschutzbeauftragten der Stadt Köln oder die Datenschutzbeauftragte des Landes NRW (LDI) wenden.",
   },
   {

@@ -34,7 +34,7 @@ export const BdScreen = () => {
       {/* Centered Clickable PDF Block */}
       <div className="pdf-content-container">
         <a
-          href="/pdf/Anleitung.pdf" 
+          href="/Anleitung.pdf" 
           download="Anleitung.pdf"
           target="_blank"
           rel="noopener noreferrer"

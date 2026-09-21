@@ -47,10 +47,10 @@ const router = createBrowserRouter([
       path: "/buildingdemocracy-start",
       element: <Buildingdemocracy />,
     },
-    {
-      path: "/buildingdemocracy-impressum",
-      element: <BuildingdemocracyScreen />,
-    },
+    // {
+    //   path: "/buildingdemocracy-impressum",
+    //   element: <BuildingdemocracyScreen />,
+    // },
     {
       path: "/remoteislandstart",
       element: <RemoteIslandStart />,
@@ -63,18 +63,18 @@ const router = createBrowserRouter([
       path: "/buildingdemocracy-start-2",
       element: <Screen4 />,
     },
-    {
-      path: "/remoteisland-gallery",
-      element: <RemoteislandGallery />,
-    },
-    {
-      path: "/testimony-debug",
-      element: <TestimonyDebug />,
-    },
-    {
-      path: "/buildingdemocracy-start-5",
-      element: <Screen6 />,
-    },
+    // {
+    //   path: "/remoteisland-gallery",
+    //   element: <RemoteislandGallery />,
+    // },
+    // {
+    //   path: "/testimony-debug",
+    //   element: <TestimonyDebug />,
+    // },
+    // {
+    //   path: "/buildingdemocracy-start-5",
+    //   element: <Screen6 />,
+    // },
     {
       path: "/bd",
       element: <Bd />,
@@ -87,14 +87,14 @@ const router = createBrowserRouter([
       path: "/bd-1",
       element: <BdWrapper />,
     },
-    {
-      path: "/impressum",
-      element: <Impressum />,
-    },
-    {
-      path: "/mitwirkende",
-      element: <Mitwirkende />,
-    },
+    // {
+    //   path: "/impressum",
+    //   element: <Impressum />,
+    // },
+    // {
+    //   path: "/mitwirkende",
+    //   element: <Mitwirkende />,
+    // },
     {
       path: "/ri",
       element: <Ri />,
@@ -115,38 +115,38 @@ const router = createBrowserRouter([
       path: "/home",
       element: <Home />,
     },
-    {
-      path: "/aboutus",
-      element: <Aboutus />,
-    },
-    {
-      path: "/portfolio",
-      element: <Portfolio />,
-    },
-    {
-      path: "/quiz",
-      element: <Quiz />,
-    },
-    {
-      path: "/rollenspiele",
-      element: <Rollenspiele />,
-    },
-    {
-      path: "/kreative-workshops",
-      element: <KreativeWorkshops />,
-    },
-    {
-      path: "/soziale-spiele",
-      element: <SozialeSpiele />,
-    },
-    {
-      path: "/mitgliedwerden",
-      element: <Mitgliedwerden />,
-    },
-    {
-      path: "/impressum-m",
-      element: <ImpressumM />,
-    },
+    //{
+    //   path: "/aboutus",
+    //   element: <Aboutus />,
+    // },
+    // {
+    //   path: "/portfolio",
+    //   element: <Portfolio />,
+    // },
+    // {
+    //   path: "/quiz",
+    //   element: <Quiz />,
+    // },
+    // {
+    //   path: "/rollenspiele",
+    //   element: <Rollenspiele />,
+    // },
+    // {
+    //   path: "/kreative-workshops",
+    //   element: <KreativeWorkshops />,
+    // },
+    // {
+    //   path: "/soziale-spiele",
+    //   element: <SozialeSpiele />,
+    // },
+    // {
+    //   path: "/mitgliedwerden",
+    //   element: <Mitgliedwerden />,
+    // },
+    // {
+    //   path: "/impressum-m",
+    //   element: <ImpressumM />,
+    // },
     ],
   },
 ]);

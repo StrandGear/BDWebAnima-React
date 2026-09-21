@@ -274,17 +274,26 @@ export const Screen4 = () => {
           />
 
           <div className="smartphone-3" />
-          <Link className="text-wrapper-34" to="/buildingdemocracy-impressum">
+
+          <Link className="text-wrapper-34" to="/buildingdemocracy-start" state={{ activeView: "impressum" }}>
             Impressum
           </Link>
-          <div className="spielaleitung-4">
-            Spielaleitung
+
+          <a 
+            href="/Anleitung.pdf" 
+            download="Anleitung.pdf"
+            className="spielaleitung-4"
+            style={{ textDecoration: "none", cursor: "pointer" }}
+          >
+            Spielanleitung
             <br />
             Download
-          </div>
-          <Link className="text-wrapper-35" to="/buildingdemocracy-start-5">
+          </a>
+
+          <Link className="text-wrapper-35" to="/buildingdemocracy-start" state={{ activeView: "mitwirkende" }}>
             Mitwirkende
           </Link>
+          
           <Link className="gruppe-35" to="/buildingdemocracy-gallery">
             <div className="gruppe-36">
               <div className="rechteck-19" />

@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Unity, useUnityContext } from "react-unity-webgl"; // Import these
-import "../../services/firebase"; // Keep your Firebase bridge
-import { Link, useLocation } from "react-router-dom"; // Added useLocation
+import { Unity, useUnityContext } from "react-unity-webgl";
+import "../../services/firebase";
+import { Link, useLocation } from "react-router-dom";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
 import "./style.css";
 import { LegalText, legalContent, mitwirkendeContent } from "./LegalText";
 import { DesktopLayout } from "../../DesktopLayout";
 import { fetchVideoUrls } from "../../services/videoService";
 
-
-
-// Static (non-carousel) testimony card: renders once and never reshuffles.
-// Shows only the photo + org name, and always links through to the full
-// carousel screen (Screen4), passing along which testimony was clicked so
-// the carousel can open centered on it.
 const CAROUSEL_ROUTE = "/buildingdemocracy-start-2";
 
 const StaticTestimonyCard = ({ className, textClassName, testimony }) => {
-  if (!testimony) return null; // hide the slot rather than show a placeholder
+  if (!testimony) return null;
 
   const style = testimony.imageUrl
     ? {
@@ -98,12 +92,11 @@ export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
 
 export const BuildingdemocracyDesktop = () => {
   const location = useLocation();
-// Read activeView passed from DivWrapper navigation state, default to "game"
+
   const [activeView, setActiveView] = useState(
     location.state?.activeView || "game"
   );
 
-  // Sync state if navigation state changes while mounted
   useEffect(() => {
     if (location.state?.activeView) {
       setActiveView(location.state.activeView);
@@ -112,6 +105,10 @@ export const BuildingdemocracyDesktop = () => {
   
   const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   const [testimonies, setTestimonies] = useState([]);
+
+  // Unity start & loading state trackers
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [showReloadPrompt, setShowReloadPrompt] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
@@ -128,24 +125,34 @@ export const BuildingdemocracyDesktop = () => {
     };
   }, []);
 
-  // Left-to-right slot order matches actual on-screen position (by `left` px).
   const [slot0, slot1, slot2, slot3] = testimonies;
 
-  // Configure paths (make sure these files are in your /public folder)
-  const { unityProvider } = useUnityContext({
+  const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-        dataUrl: "/unity/Build/6640e2f4be267caee486349ef91bf17e.data",
+    dataUrl: "/unity/Build/6640e2f4be267caee486349ef91bf17e.data",
     frameworkUrl: "/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
     codeUrl: "/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
     streamingAssetsUrl: "/unity/StreamingAssets"
   });
-  
+
+  // Long-load timeout: trigger prompt after 15 seconds of waiting
+  useEffect(() => {
+    let timer;
+    if (isGameStarted && !isLoaded) {
+      timer = setTimeout(() => setShowReloadPrompt(true), 15000);
+    }
+    if (isLoaded) {
+      setShowReloadPrompt(false);
+    }
+    return () => clearTimeout(timer);
+  }, [isGameStarted, isLoaded]);
+
   return (
     <DesktopLayout>
       <div className="buildingdemocracy">
         <div className="overlap-group-wrapper">
           <div className="overlap-group">
-          {/* Top Bar with toggle */}
+           {/* Top Bar with toggle */}
             {/* <Link className="schalter-mit" to="/remoteislandstart">
               <div className="text-wrapper">BUILDING DEMOCRACY</div>
               <div className="text-wrapper-2">REMOTE ISLAND</div>
@@ -157,66 +164,108 @@ export const BuildingdemocracyDesktop = () => {
             <div className="NS-dok-logo" />
 
             <div className="middle-screen">
-            
-              {/* phone frame */}
+              {/* Phone bezel frame */}
               <div className="smartphone" /> 
+
               {/* Inner Screen Container */}
               <div className="smartphone-screen">
 
-                {/* Unity Container (Stays mounted, hidden via opacity/pointer-events) */}
+                {/* Unity Container (Preloads in background, visible only when started and loaded) */}
                 <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
-                  {isFirebaseReady ? (
+                  {isFirebaseReady && (
                     <Unity 
                       unityProvider={unityProvider} 
-                      style={{ width: "100%", height: "100%", borderRadius: "20px" }} 
+                      style={{ 
+                        width: "100%", 
+                        height: "100%", 
+                        borderRadius: "20px",
+                        display: isGameStarted && isLoaded ? "block" : "none" 
+                      }} 
                     />
-                  ) : (
-                    <div className="loading-text">Loading Game...</div>
                   )}
                 </div>
 
-                {/* Text overlay that shows/hides dynamically */}
+                {/* Start Screen Overlay */}
+                {!isGameStarted && (
+                  <div className="desktop-start-screen-overlay">
+                    <div className="desktop-BD-logo">
+                      <img className="desktop-pfad" alt="Pfad" src="/img/pfad-210-2.png" />
+                      <div className="desktop-gruppe" />
+                    </div>
+                    <div className="desktop-deine-demokratie-app">
+                      Deine Demokratie-App<br />lokal. digital. interaktiv
+                    </div>
+                    <button className="desktop-start-btn" onClick={() => setIsGameStarted(true)}>
+                      <span className="desktop-start-btn-text">Tap to start!</span>
+                    </button>
+                  </div>
+                )}
+
+                {/* Loading Progress Overlay */}
+                {isGameStarted && !isLoaded && (
+                  <div className="desktop-loading-overlay">
+                    <div className="desktop-loading-text">
+                      Loading Game... {Math.round(loadingProgression * 100)}%
+                    </div>
+                    <div className="desktop-progress-container">
+                      <div 
+                        className="desktop-progress-fill" 
+                        style={{ width: `${Math.round(loadingProgression * 100)}%` }} 
+                      />
+                    </div>
+                    {showReloadPrompt && (
+                      <div className="desktop-reload-prompt">
+                        Loading is taking longer than usual.<br />
+                        <button onClick={() => window.location.reload()} className="desktop-reload-btn">
+                          Reload Page
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Impressum / Mitwirkende Overlays */}
                 {activeView !== "game" && (
                   <div className="phone-text-overlay">
                     {activeView === "impressum" && <LegalText content={legalContent} />}
                     {activeView === "mitwirkende" && <LegalText content={mitwirkendeContent} />}
                   </div>
                 )}
-              </div> {/* smartphone-screen */}
-            </div> {/*  phone frame */}
-            
+              </div>
+            </div>
+
             <div className="bottom-nav-container">
-            {/* 1. Mitwirkende Button */}
-            <button 
-              className="raw-text-btn nav-btn"
-              onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
-            >
-              {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
-            </button>
+              <button 
+                className="raw-text-btn nav-btn"
+                onClick={() => setActiveView(prev => prev === "mitwirkende" ? "game" : "mitwirkende")}
+              >
+                {activeView === "mitwirkende" ? "Home" : "Mitwirkende"}
+              </button>
 
-            {/* 2. Impressum / Home Button */}
-            <button 
-              className="raw-text-btn nav-btn"
-              onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
-            >
-              {activeView === "impressum" ? "Home" : "Impressum"}
-            </button>
+              <button 
+                className="raw-text-btn nav-btn"
+                onClick={() => setActiveView(prev => prev === "impressum" ? "game" : "impressum")}
+              >
+                {activeView === "impressum" ? "Home" : "Impressum"}
+              </button>
 
-            <button 
+              <button 
                 className="raw-text-btn nav-btn"
                 onClick={() => setActiveView(prev => prev === "video" ? "game" : "video")}
               >
                 {activeView === "video" ? "Home" : "Video"}
               </button>
 
-            {/* 3. PDF Download Button */}
-            <a 
-              href="/pdf/Anleitung.pdf" 
-              download="Anleitung.pdf"
-              className="raw-text-btn nav-btn download-btn"
-            >
-              Spielanleitung<br />Download
-            </a>
+              {/* Spielanleitung download link hides when playing */}
+              {!isGameStarted && (
+                <a 
+                  href="/pdf/Anleitung.pdf" 
+                  download="Anleitung.pdf"
+                  className="raw-text-btn nav-btn download-btn"
+                >
+                  Spielanleitung<br />Download
+                </a>
+              )}
             </div>
 
             <StaticTestimonyCard
@@ -257,7 +306,7 @@ export const BuildingdemocracyDesktop = () => {
             </Link>
           </div>
         </div>
-        {/* Dynamic Video Popup */}
+
         {activeView === "video" && (
           <VideoModal setActiveView={setActiveView} />
         )}

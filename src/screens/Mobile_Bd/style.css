@@ -44,7 +44,7 @@
   z-index: 5;
   border-radius: 20px;
   overflow: hidden;
-  background-color: #1c1c1c;
+  background-color: #0E0E0E;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -597,4 +597,143 @@
 /* Last element shouldn't add dead space at the end of the scroll */
 .BD .info-overlay-scroll .legal-text > *:last-child {
   margin-bottom: 0;
+}
+
+/* --- Start Screen Overlay --- */
+.BD .start-screen-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-image: url(/img/gruppe-159-20.png); */
+  background-size: cover;
+  background-position: center;
+  z-index: 10;
+  border-radius: 20px;
+  background-color: #0E0E0E;
+}
+
+.BD .BD-logo-3 {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.BD .pfad-10 {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+}
+
+.BD .gruppe-31 {
+  background-image: url(/img/gruppe-162-2.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.BD .deine-demokratie-app-3 {
+  color: #a59342;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.4;
+}
+
+.BD .button-3 {
+  all: unset;
+  background-image: url(/img/pfad-201-2.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  height: 50px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.BD .button-3:active {
+  transform: scale(0.95);
+}
+
+.BD .text-wrapper-31 {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: -4px; /* Adjust text vertical alignment to fit background image */
+}
+
+/* --- Loading Overlay & Progress Bar --- */
+.BD .loading-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: #1c1c1c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 20px;
+}
+
+.BD .loading-text-centered {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.BD .progress-bar-container {
+  width: 70%;
+  height: 8px;
+  background-color: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.BD .progress-bar-fill {
+  height: 100%;
+  background-color: #a59342;
+  transition: width 0.2s ease-out;
+}
+
+.BD .reload-prompt {
+  margin-top: 24px;
+  text-align: center;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.BD .reload-btn {
+  margin-top: 8px;
+  background-color: #a59342;
+  color: #090a0b;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: "Ubuntu", Helvetica;
+  font-weight: 700;
+  cursor: pointer;
 }

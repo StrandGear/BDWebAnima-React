@@ -3,7 +3,10 @@ import React from "react";
 import { useWindowSize } from "./useWindowSize";
 import "./DesktopLayout.css";
 
-export const DesktopLayout = ({ children, targetWidth = 1920, targetHeight = 1080 }) => {
+export const DesktopLayout = ({ children, 
+  targetWidth = 1920, 
+  targetHeight = 1080,
+  style }) => {
   const size = useWindowSize();
   const width = size?.width ?? size?.innerWidth ?? size?.[0] ?? window.innerWidth;
   const height = size?.height ?? size?.innerHeight ?? size?.[1] ?? window.innerHeight;
@@ -11,7 +14,7 @@ export const DesktopLayout = ({ children, targetWidth = 1920, targetHeight = 108
   const scale = Math.min(width / targetWidth, height / targetHeight);
 
   return (
-    <div className="desktop-layout-outer">
+    <div className="desktop-layout-outer" style={style}>
       <div
         className="desktop-layout-canvas"
         style={{

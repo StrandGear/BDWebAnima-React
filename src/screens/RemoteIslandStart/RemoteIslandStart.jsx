@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 import { useState } from "react";
+import { DesktopLayout } from "../../DesktopLayout";
 
 export const RemoteIslandStart = () => {
 
@@ -11,6 +12,7 @@ export const RemoteIslandStart = () => {
   const [activeTab, setActiveTab] = useState("default");
 
   return (
+    <DesktopLayout style={{ backgroundColor: "#b79eb6" }}>
     <div className="remote-island-start">
       <div className="rechteck-11" />
 
@@ -286,5 +288,6 @@ export const RemoteIslandStart = () => {
         </div>
       )}
     </div>
+    </DesktopLayout>
   );
 };

@@ -335,7 +335,7 @@ export const BuildingdemocracyDesktop = () => {
               textClassName="k-nigin-luise-schule-3"
               testimony={slot0}
             />
-            <Link to="/buildingdemocracy-start-5">
+            <Link to="/buildingdemocracy-start-2">
             <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" />
             </Link>
             {/* <img className="polygon" alt="Polygon" src="/BDWebAnima-React/img/polygon-2-3.png" /> */}

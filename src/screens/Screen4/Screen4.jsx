@@ -172,11 +172,6 @@ export const Screen4 = () => {
     setStartIndex((i) => wrapIndex(i + 1, testimonies.length));
     };
 
-  const handlePrev = () => {
-    if (testimonies.length === 0) return;
-    setStartIndex((i) => wrapIndex(i - 1, testimonies.length));
-    };
-
   return (
     <DesktopLayout>
     <div className="screen-4">
@@ -260,14 +255,15 @@ export const Screen4 = () => {
             onSelect={() => handleCardClick(2)}
           />
 
-          {/* Right Arrow: Next Testimony */}
-          <img
-            className="polygon-4"
-            alt="Nächstes Testimonial"
-            src="/BDWebAnima-React/img/polygon-2-3.png"
-            onClick={handlePrev}
-            style={{ cursor: "pointer" }}
-          />
+          {/* Left Arrow: back to the main screen */}
+          <Link to="/buildingdemocracy-start">
+            <img
+              className="polygon-4"
+              alt="Zurück zur Startseite"
+              src="/BDWebAnima-React/img/polygon-2-3.png"
+              style={{ cursor: "pointer" }}
+            />
+          </Link>
           {/* Left Arrow: Previous Testimony */}
           <img
             className="polygon-5"

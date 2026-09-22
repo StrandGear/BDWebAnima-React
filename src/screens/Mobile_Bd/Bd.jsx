@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import "../../services/firebase"; 
@@ -63,6 +63,75 @@ export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
   );
 };
 
+const KEYBOARD_HEIGHT_THRESHOLD = 100; // px — ignore tiny visualViewport jitter
+
+const InputPreviewBar = () => {
+  const [preview, setPreview] = useState(null);
+  const activeFieldRef = useRef(null);
+
+  useEffect(() => {
+    const isTextField = (el) =>
+      el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA");
+
+    const handleFocusIn = (e) => {
+      if (!isTextField(e.target)) return;
+      activeFieldRef.current = e.target;
+      setPreview(e.target.value);
+    };
+
+    const handleInput = (e) => {
+      if (activeFieldRef.current && e.target === activeFieldRef.current) {
+        setPreview(e.target.value);
+      }
+    };
+
+    // Keyboard-closed detection only — not used for positioning anymore,
+    // just to catch the "Done/swipe dismiss without blur" case
+    const checkKeyboardClosed = () => {
+      const vv = window.visualViewport;
+      if (!vv) return;
+      const overlap = window.innerHeight - vv.height - vv.offsetTop;
+      if (overlap < 80) {
+        setPreview(null);
+        activeFieldRef.current = null;
+      }
+    };
+
+    const handleFocusOut = (e) => {
+      if (activeFieldRef.current && e.target === activeFieldRef.current) {
+        setPreview(null);
+        activeFieldRef.current = null;
+      }
+    };
+
+    document.addEventListener("focusin", handleFocusIn);
+    document.addEventListener("input", handleInput);
+    document.addEventListener("focusout", handleFocusOut);
+    window.visualViewport?.addEventListener("resize", checkKeyboardClosed);
+
+    return () => {
+      document.removeEventListener("focusin", handleFocusIn);
+      document.removeEventListener("input", handleInput);
+      document.removeEventListener("focusout", handleFocusOut);
+      window.visualViewport?.removeEventListener("resize", checkKeyboardClosed);
+    };
+  }, []);
+
+  if (preview === null) return null;
+
+  return (
+    <>
+      {/* Floating preview bar with blinking cursor */}
+      <div className="input-preview-bar">
+        <span className="input-preview-text">
+          {preview || ""}
+          <span className="blinking-cursor">|</span>
+        </span>
+      </div>
+    </>
+  );
+};
+
 export const Bd = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -89,30 +158,22 @@ export const Bd = () => {
     return () => clearTimeout(timer);
   }, []);
   
-// Lock mobile layout height against virtual keyboard viewports
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.visualViewport) {
-        const bdElement = document.querySelector(".BD");
-        if (bdElement) {
-          bdElement.style.height = `${window.visualViewport.height}px`;
-        }
-      }
-      window.scrollTo(0, 0);
-    };
-
+useEffect(() => {
+  const handleResize = () => {
+    // no longer resizing .BD — just keep the page pinned
+    window.scrollTo(0, 0);
+  };
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener("resize", handleResize);
+    window.visualViewport.addEventListener("scroll", handleResize);
+  }
+  return () => {
     if (window.visualViewport) {
-      window.visualViewport.addEventListener("resize", handleResize);
-      window.visualViewport.addEventListener("scroll", handleResize);
+      window.visualViewport.removeEventListener("resize", handleResize);
+      window.visualViewport.removeEventListener("scroll", handleResize);
     }
-
-    return () => {
-      if (window.visualViewport) {
-        window.visualViewport.removeEventListener("resize", handleResize);
-        window.visualViewport.removeEventListener("scroll", handleResize);
-      }
-    };
-  }, []);
+  };
+}, []);
 
   // in Bd.jsx, or in index.html as a global script
   useEffect(() => { 
@@ -364,6 +425,9 @@ export const Bd = () => {
         {activeView === "video" && (
           <VideoModal setActiveView={setActiveView} />
         )}
+
+        <InputPreviewBar />
+
     </div>
   );
 };

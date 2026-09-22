@@ -162,7 +162,7 @@ export const BuildingdemocracyDesktop = () => {
           const elapsedSeconds = (Date.now() - hiddenTime) / 1000;
           
           // If the phone was locked/inactive for more than 30 seconds, reload the page
-          if (elapsedSeconds > 30) {
+          if (elapsedSeconds > 50) {
             console.log(`App was inactive for ${Math.round(elapsedSeconds)}s. Reloading page...`);
             window.location.reload();
           }

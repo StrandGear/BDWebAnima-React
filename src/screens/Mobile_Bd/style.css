@@ -748,3 +748,51 @@ video::-webkit-media-controls-panel {
   font-weight: 700;
   cursor: pointer;
 }
+
+.input-preview-bar {
+  position: fixed;
+  top: 36%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(85vw, 320px);
+  z-index: 9999;
+  /* Frosted glass background with local blur */
+  background: rgba(66, 67, 95, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  padding: 12px 18px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid rgba(250, 229, 186, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 15vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+
+/* Blinking vertical text cursor */
+.blinking-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: #fae5ba;
+  font-weight: 400;
+  font-style: normal;
+  animation: cursor-blink 1s steps(2, start) infinite;
+}
+
+@keyframes cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}

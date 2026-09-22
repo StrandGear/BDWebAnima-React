@@ -297,13 +297,13 @@ export const Bd = () => {
       
           <Link className="gruppe-3" to="/bd-1">
             <img className="polygon" alt="Previous" src="/img/polygon-1-4.png" />
-            {!isGameStarted && (
+            {!isGameStarted && activeView === "game" && (
               <div className="ergebnis-beitr-ge">Ergebnis-<br />beiträge</div>
             )}
           </Link>
           
           <Link className="gruppe-4" to="/bd-2">
-           {!isGameStarted && (
+           {!isGameStarted && activeView === "game" && (
             <div className="spielaleitung">Spielanleitung<br/>Datenschutz</div>
            )}
             <img className="polygon" alt="Next" src="/img/polygon-3-3.png" />

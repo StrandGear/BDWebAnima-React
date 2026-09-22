@@ -88,6 +88,55 @@ export const Bd = () => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
   }, []);
+  
+// Lock mobile layout height against virtual keyboard viewports
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.visualViewport) {
+        const bdElement = document.querySelector(".BD");
+        if (bdElement) {
+          bdElement.style.height = `${window.visualViewport.height}px`;
+        }
+      }
+      window.scrollTo(0, 0);
+    };
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", handleResize);
+      window.visualViewport.addEventListener("scroll", handleResize);
+    }
+
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", handleResize);
+        window.visualViewport.removeEventListener("scroll", handleResize);
+      }
+    };
+  }, []);
+
+  // in Bd.jsx, or in index.html as a global script
+  useEffect(() => { 
+  const lockScroll = () => {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+  };
+
+  const handleFocusIn = (e) => {
+    if (e.target.matches('input, textarea')) {
+      // iOS shifts the layout viewport asynchronously during keyboard animation,
+      // so keep stomping the scroll position for the duration of that animation
+      let ticks = 0;
+      const raf = () => {
+        lockScroll();
+        if (ticks++ < 30) requestAnimationFrame(raf); // ~0.5s at 60fps
+      };
+      requestAnimationFrame(raf);
+    }
+  };
+
+  document.addEventListener('focusin', handleFocusIn);
+  return () => document.removeEventListener('focusin', handleFocusIn);
+}, []);
 
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",

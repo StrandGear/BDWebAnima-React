@@ -399,6 +399,17 @@
   padding: 16px;
   box-sizing: border-box;
 }
+video::-internal-media-controls-download-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px); /* Hides overflow menu icons on Chromium */
+}
 
 .BD .video-modal-container {
   position: relative;

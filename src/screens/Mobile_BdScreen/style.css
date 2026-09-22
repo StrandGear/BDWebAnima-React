@@ -293,3 +293,15 @@
 .BD .footer-link-btn.active {
   color: #a59342;
 }
+
+video::-internal-media-controls-download-button {
+  display: none !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+video::-webkit-media-controls-panel {
+  width: calc(100% + 30px); /* Hides overflow menu icons on Chromium */
+}

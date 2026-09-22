@@ -44,6 +44,8 @@ return (
             src={videoUrl} 
             controls 
             autoPlay 
+            controlsList="nodownload"
+            onContextMenu={(e) => e.preventDefault()}
             className="popup-video-element"
           />
         ) : (

@@ -206,7 +206,7 @@ export const RemoteIslandStart = () => {
 
       <div className="text-wrapper-21">Impressum</div>
       <div className="text-wrapper-33">Datenschutz</div>
-      <div className="NS-dok-logo-3" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
       <div className="gruppe-26" />
 
       {/* -------------------------------------------------- */}

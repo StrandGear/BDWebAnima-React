@@ -42,7 +42,7 @@ export const Screen6 = () => {
               <div className="uncheck-7" />
             </div>
           </Link> */}
-          <div className="NS-dok-logo-7" />
+          <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-7" />
           <div className="gruppe-65">
             <button className="button-4">
               <div className="text-wrapper-45">Tap to start!</div>

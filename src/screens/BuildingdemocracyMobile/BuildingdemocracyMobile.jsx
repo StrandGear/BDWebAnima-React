@@ -12,7 +12,7 @@ export const BuildingdemocracyMobile = () => {
           <div className="uncheck" />
         </div>
       </div>
-      <div className="NS-dok-logo" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo" />
       <div className="text-wrapper-3">Impressum</div>
       <div className="text-wrapper-4">Mitwirkende</div>
       <div className="rechteck-2" />

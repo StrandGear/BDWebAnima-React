@@ -128,7 +128,7 @@ export const BdScreen = () => {
       </div>
 
       {/* Footer Logo & Aligned Links */}
-      <div className="NS-dok-logo-2" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-2" />
       <div className="footer-links">
         <Link className="footer-link"
           to="/bd" 

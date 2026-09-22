@@ -13,7 +13,7 @@ export const RiWrapper = () => {
           <div className="uncheck-8" />
         </div>
       </Link>
-      <div className="NS-dok-logo-8" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-8" />
       <Link className="text-wrapper-42" to="/mitwirkende">
         Impressum
       </Link>

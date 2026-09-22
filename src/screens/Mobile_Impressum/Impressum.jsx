@@ -25,7 +25,7 @@ export const Impressum = () => {
           <div className="uncheck-4" />
         </div>
       </Link>
-      <div className="NS-dok-logo-4" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-4" />
       <Link className="text-wrapper-18" to="/mitwirkende">
         Impressum
       </Link>

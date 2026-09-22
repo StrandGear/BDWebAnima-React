@@ -268,7 +268,7 @@ export const Bd = () => {
         <div className="text-wrapper-2">REMOTE ISLAND</div>
       </Link> */}
       
-      <div className="NS-dok-logo" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo" />
       
       {/* Footer Navigation Buttons acting as overlay toggles */}
       <div className="footer-links">

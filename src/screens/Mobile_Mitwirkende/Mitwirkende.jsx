@@ -119,7 +119,7 @@ export const Mitwirkende = () => {
           <div className="uncheck-5" />
         </div>
       </Link>
-      <div className="NS-dok-logo-5" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-5" />
       <div className="text-wrapper-24">Impressum</div>
       <Link className="text-wrapper-25" to="/impressum">
         Mitwirkende

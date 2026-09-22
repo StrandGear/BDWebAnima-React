@@ -270,7 +270,7 @@ export const Screen4 = () => {
               <div className="uncheck-5" />
             </div>
           </Link> */}
-          <div className="NS-dok-logo-5" />
+          <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-5" />
           <Link className="gruppe-30" to="/buildingdemocracy-start">
             <button className="button-3">
               <div className="text-wrapper-31">Tap to start!</div>

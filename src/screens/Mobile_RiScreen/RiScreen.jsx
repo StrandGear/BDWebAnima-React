@@ -13,7 +13,7 @@ export const RiScreen = () => {
           <div className="uncheck-7" />
         </div>
       </div>
-      <div className="NS-dok-logo-7" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-7" />
       <Link className="text-wrapper-35" to="/mitwirkende">
         Impressum
       </Link>

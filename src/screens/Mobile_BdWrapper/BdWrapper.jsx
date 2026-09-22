@@ -111,7 +111,7 @@ export const BdWrapper = () => {
       </Link> */}
       
       {/* Footer links */}
-      <div className="NS-dok-logo-3" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
             <div className="footer-links">
         <Link className="footer-link"
           to="/bd" 

@@ -77,7 +77,7 @@ export const Ri = () => {
         </div>
       </Link>
 
-      <div className="NS-dok-logo-6" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-6" />
      <Link 
       className="text-wrapper-28" 
       to="/bd" 

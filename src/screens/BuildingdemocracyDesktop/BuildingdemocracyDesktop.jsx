@@ -220,7 +220,7 @@ export const BuildingdemocracyDesktop = () => {
                 <div className="uncheck" />
               </div>
             </Link> */}
-            <div className="NS-dok-logo" />
+            <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo" />
 
             <div className="middle-screen">
               {/* Phone bezel frame */}

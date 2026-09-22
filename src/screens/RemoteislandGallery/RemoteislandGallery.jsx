@@ -94,7 +94,7 @@ export const RemoteislandGallery = () => {
       </div>
       <div className="text-wrapper-41">Video</div>
       <div className="text-wrapper-42">Impressum</div>
-      <div className="NS-dok-logo-6" />
+      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-6" />
       <div className="gruppe-wrapper">
         <div className="gruppe-38">
           <div className="gruppe-38">

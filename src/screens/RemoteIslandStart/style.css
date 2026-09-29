@@ -339,21 +339,6 @@
   width: 101px;
 }
 
-.remote-island-start .text-wrapper-20 {
-  color: #42435f;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
-  font-weight: 700;
-  height: 18px;
-  letter-spacing: 0;
-  line-height: 14px;
-  position: absolute;
-  right: calc(32.78% - 13px);
-  top: calc(30.41% - 5px);
-  white-space: nowrap;
-  width: 41px;
-}
-
 .remote-island-start .text-wrapper-21 {
    bottom: 50px;
   color: #fae5ba;
@@ -850,4 +835,106 @@
   object-fit: cover;
   transform: rotate(-45deg);
   width: 95.23px;
+}
+
+.remote-island-start .aktuelles-tab {
+  /* Aligns with the yellow-orange angled polygon tab (pfad-6) */
+  position: absolute;
+  right: calc(47.26% - 48px);
+  top: calc(37.42% - 72px);
+  width: 103px;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  user-select: none;
+}
+
+.remote-island-start .aktuelles-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fae5ba; /* Red/coral accent color from the mock-up */
+  font-family: "Ubuntu", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.remote-island-start .aktuelles-char {
+  display: block;
+}
+
+.raw-text-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #42435f;
+  cursor: pointer;
+  outline: none;
+
+  /* Centers text and prevents layout shifts when word changes */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px; /* Reserves enough fixed width for "Impressum" */
+  text-align: center;
+}
+
+.remote-island-start .text-wrapper-20 {
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  height: 18px;
+  letter-spacing: 0;
+  line-height: 14px;
+  position: absolute;
+  right: calc(32.78% - 13px);
+  top: calc(30.41% - 5px);
+  white-space: nowrap;
+  width: 41px;
+}
+
+.video-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.video-modal-container {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.popup-video-element {
+  width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
 }

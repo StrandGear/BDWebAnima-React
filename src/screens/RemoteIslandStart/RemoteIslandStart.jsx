@@ -1,293 +1,365 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DesktopLayout } from "../../DesktopLayout";
+import { fetchVideoUrls } from "../../services/videoService";
+
+export const VideoModal = ({ setActiveView, videoKey = "ri_video" }) => {
+  const [videoUrl, setVideoUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetchVideoUrls().then((urls) => {
+      if (!cancelled) {
+        if (urls && urls[videoKey]) {
+          setVideoUrl(urls[videoKey]);
+        }
+        setIsLoading(false);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [videoKey]);
+
+  return (
+    <div className="video-modal-backdrop" onClick={() => setActiveView(null)}>
+      <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
+        <button 
+          className="video-modal-close" 
+          onClick={() => setActiveView(null)}
+          aria-label="Close"
+        >
+          ✕
+        </button>
+
+        {isLoading ? (
+          <div className="loading-text" style={{ color: "#fff" }}>
+            Loading Video...
+          </div>
+        ) : videoUrl ? (
+          <video 
+            src={videoUrl} 
+            controls 
+            autoPlay 
+            controlsList="nodownload"
+            onContextMenu={(e) => e.preventDefault()}
+            className="popup-video-element"
+          />
+        ) : (
+          <div className="error-text" style={{ color: "#fff" }}>
+            Video could not be loaded.
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export const RemoteIslandStart = () => {
-
   // State to track whether the gallery overlay is visible
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
-// State to track the active text view: "default", "about", or "greetings"
+  // State to track active text view: "default", "about", "greetings", "aktuelles"
   const [activeTab, setActiveTab] = useState("default");
+
+  // State to track video modal visibility
+  const [activeView, setActiveView] = useState(null);
 
   return (
     <DesktopLayout style={{ backgroundColor: "#b79eb6" }}>
-    <div className="remote-island-start">
-      <div className="rechteck-11" />
+      <div className="remote-island-start">
+        <div className="rechteck-11" />
 
-      {/* Navigation and Main Content */}
-      <Link className="schalter-mit-2" to="/buildingdemocracy-start">
-        <div className="text-wrapper-16">BUILDING DEMOCRACY</div>
-        <div className="text-wrapper-17">REMOTE ISLAND</div>
-        <div className="schalter-3">
-          <div className="rechteck-12" />
-          <div className="uncheck-3" />
+        {/* Navigation and Main Content */}
+        <Link className="schalter-mit-2" to="/buildingdemocracy-start">
+          <div className="text-wrapper-16">BUILDING DEMOCRACY</div>
+          <div className="text-wrapper-17">REMOTE ISLAND</div>
+          <div className="schalter-3">
+            <div className="rechteck-12" />
+            <div className="uncheck-3" />
+          </div>
+        </Link>
+
+        {/* Background/Static decorative images */}
+        <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />
+        <img className="pfad-4" alt="Pfad" src="/img/pfad-236-1.png" />
+        <img className="pfad-5" alt="Pfad" src="/img/pfad-237-1.png" />
+        <img className="pfad-6" alt="Pfad" src="/img/pfad-238-1.png" />
+        <img className="pfad-7" alt="Pfad" src="/img/pfad-239-1.png" />
+
+        <div className="gruppe-16">
+          <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
+          <p className="dauer-stunden">
+            Dauer
+            <br />3 Stunden
+            <br />
+            <br />
+            Kosten
+            <br />
+            Schulklassen: 90 €<br />
+            Studierende &amp; Jugendgruppen: 150 €<br />
+            Erwachsene: 225 €<br />
+            <br />
+            Für wen
+            <br />
+            Dieser Workshop eignet sich für Schulklassen ab dem 9. Jahrgang und
+            für Erwachsenengruppen von mindestens 15 bis maximal 35 Personen.
+            <br />
+            Für Kölner Schulen sind sämtliche pädagogischen Angebote des NS-DOK
+            kostenfrei.
+            <br />
+            Am Wochenende und feiertags fallen zusätzliche Gebühren an.
+          </p>
         </div>
-      </Link>
+        <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />
 
-      {/* Background/Static decorative images */}
-      <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />
-      <img className="pfad-4" alt="Pfad" src="/img/pfad-236-1.png" />
-      <img className="pfad-5" alt="Pfad" src="/img/pfad-237-1.png" />
-      <img className="pfad-6" alt="Pfad" src="/img/pfad-238-1.png" />
-      <img className="pfad-7" alt="Pfad" src="/img/pfad-239-1.png" />
+        {/* --- MERGED & SWITCHABLE TEXT CONTAINER --- */}
+        <div className="text-content-container">
+          {activeTab === "default" && (
+            <div className="text-main-block">
+              <p className="text-sub-block">
+                Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
+                Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
+                Remote Island organisieren wollen.
+              </p>
+              <p className="text-sub-block">
+                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
+                Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
+                unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
+                Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
+                Challenges in den jeweiligen Räumen und durch anregende
+                Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
+                ein Zusammenleben auf Remote Island organisiert werden kann.
+              </p>
+              <p className="text-sub-block">
+                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
+                und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
+                jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
+                abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
+                dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
+              </p>
+              <p className="text-sub-block">
+                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
+                die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
+                auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
+                diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
+                Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
+                Alltag?
+              </p>
+            </div>
+          )}
 
-      {/* <img
-        className="LOGO-REMOTE"
-        alt="Logo REMOTE"
-        src="/img/logo-op7-remote-island-imagotyp-2023-1.png"
-      /> */}
+          {activeTab === "about" && (
+            <div className="text-main-block">
+              <p className="text-sub-block">
+                Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
+                Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
+                Remote Island organisieren wollen.
+              </p>
+              <p className="text-sub-block">
+                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
+                Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
+                unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
+                Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
+                Challenges in den jeweiligen Räumen und durch anregende
+                Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
+                ein Zusammenleben auf Remote Island organisiert werden kann.
+              </p>
+              <p className="text-sub-block">
+                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
+                und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
+                jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
+                abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
+                dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
+              </p>
+              <p className="text-sub-block">
+                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
+                die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
+                auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
+                diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
+                Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
+                Alltag?
+              </p>
+            </div>
+          )}
 
-      <div className="gruppe-16">
-        <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
-        <p className="dauer-stunden">
-          Dauer
-          <br />3 Stunden
-          <br />
-          <br />
-          Kosten
-          <br />
-          Schulklassen: 90 €<br />
-          Studierende &amp; Jugendgruppen: 150 €<br />
-          Erwachsene: 225 €<br />
-          <br />
-          Für wen
-          <br />
-          Dieser Workshop eignet sich für Schulklassen ab dem 9. Jahrgang und
-          für Erwachsenengruppen von mindestens 15 bis maximal 35 Personen.
-          <br />
-          Für Kölner Schulen sind sämtliche pädagogischen Angebote des NS-DOK
-          kostenfrei.
-          <br />
-          Am Wochenende und feiertags fallen zusätzliche Gebühren an.
-        </p>
-      </div>
-      <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />
+          {activeTab === "greetings" && (
+            <div className="text-main-block">
+              <p className="text-sub-block">
+                Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:
+              </p>
+              <p className="text-sub-block">
+                "REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt."
+              </p>
+              <p className="text-sub-block">
+                "Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion."
+              </p>
+              <p className="text-sub-block">
+                "Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!"
+              </p>
+              <p className="text-sub-block">
+                "TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!"
+              </p>
+              <p className="text-sub-block">
+                "Unsere Entscheidungen haben Folgen!"
+              </p>
+              <p className="text-sub-block">
+                "Stimmt zusammen ab und achtet auf einander!"
+              </p>
+              <p className="text-sub-block">
+                "Demokratie ist schön – macht aber Arbeit."
+              </p>
+              <p className="text-sub-block">
+                "Immer einigen. Spaß haben. Teamarbeit ist wichtig."
+              </p>
+            </div>
+          )}
 
-{/* --- MERGED & SWITCHABLE TEXT CONTAINER --- */}
-      <div className="text-content-container">
-        {activeTab === "default" && (
-          <div className="text-main-block">
-            <p className="text-sub-block">
-              Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-              Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-              Remote Island organisieren wollen.
-            </p>
-            <p className="text-sub-block">
-              Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-              Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-              unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-              Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-              Challenges in den jeweiligen Räumen und durch anregende
-              Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-              ein Zusammenleben auf Remote Island organisiert werden kann.
-            </p>
-            <p className="text-sub-block">
-              Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-              und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-              jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-              abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-              dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-            </p>
-            <p className="text-sub-block">
-              Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-              die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-              auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-              diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-              Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-              Alltag?
-            </p>
-          </div>
+          {activeTab === "aktuelles" && (
+            <div className="text-main-block">
+              <p className="text-sub-block">
+                Text text text text text text text text Text text text text text 
+                text text textText text text text text text text text
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Buttons */}
+        <Link to="">
+          <div className="buchen-als">Buchen</div>
+        </Link>
+
+        {/* "About" Button */}
+        <div 
+          className="gruppe-17" 
+          onClick={() => setActiveTab("about")}
+          style={{ cursor: "pointer" }}
+        >
+          <img className="pfad-8" alt="Pfad" src="/img/pfad-235-1.png" />
+          <div className="text-wrapper-19">About</div>
+        </div>
+
+        <div 
+          className="buchen-als-gruppe" 
+          onClick={() => setIsGalleryOpen(true)}
+          style={{ cursor: "pointer" }}
+        >
+          Galerie
+        </div>
+
+        {/* "Grüße aus Remote Island" Button */}
+        <div 
+          className="gr-e-aus-remote" 
+          onClick={() => setActiveTab("greetings")}
+          style={{ cursor: "pointer" }}
+        >
+          Grüße aus <br />Remote Island
+        </div> 
+
+        {/* "Aktuelles" Tab on the left */}
+        <div
+          className="aktuelles-tab"
+          onClick={() => setActiveTab("aktuelles")}
+          style={{ cursor: "pointer" }}
+        >
+          <span className="aktuelles-text">
+            {"Aktuelles".split("").map((char, index) => (
+              <span key={index} className="aktuelles-char">
+                {char}
+              </span>
+            ))}
+          </span>
+        </div>
+        
+        {/* Video button matching your layout */}
+        <button 
+          type="button"
+          className="raw-text-btn text-wrapper-20"
+          onClick={() => setActiveView(prev => prev === "video" ? null : "video")}
+          style={{ cursor: "pointer", background: "none", border: "none" }}
+        >
+          Video
+        </button>
+
+        <div className="text-wrapper-21">Impressum</div>
+        <div className="text-wrapper-33">Datenschutz</div>
+        <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
+        <div className="gruppe-26" />
+
+        {/* Video Modal Popup */}
+        {activeView === "video" && (
+          <VideoModal 
+            setActiveView={setActiveView} 
+            videoKey="ri_video" /* Adjust key if your backend uses a different identifier */
+          />
         )}
 
-        {activeTab === "about" && (
-          <div className="text-main-block">
-            <p className="text-sub-block">
-              Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-              Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-              Remote Island organisieren wollen.
-            </p>
-            <p className="text-sub-block">
-              Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-              Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-              unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-              Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-              Challenges in den jeweiligen Räumen und durch anregende
-              Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-              ein Zusammenleben auf Remote Island organisiert werden kann.
-            </p>
-            <p className="text-sub-block">
-              Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-              und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-              jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-              abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-              dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-            </p>
-            <p className="text-sub-block">
-              Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-              die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-              auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-              diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-              Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-              Alltag?
-            </p>
-          </div>
-        )}
-
-        {activeTab === "greetings" && (
-          <div className="text-main-block">
-          <p className="text-sub-block">
-            Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:
-          </p>
-          <p className="text-sub-block">
-            "REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt."
-          </p>
-          <p className="text-sub-block">
-            "Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion."
-          </p>
-          <p className="text-sub-block">
-            "Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!"
-          </p>
-          <p className="text-sub-block">
-            "TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!"
-          </p>
-          <p className="text-sub-block">
-            "Unsere Entscheidungen haben Folgen!"
-          </p>
-          <p className="text-sub-block">
-            "Stimmt zusammen ab und achtet auf einander!"
-          </p>
-          <p className="text-sub-block">
-            "Demokratie ist schön – macht aber Arbeit."
-          </p>
-          <p className="text-sub-block">
-            "Immer einigen. Spaß haben. Teamarbeit ist wichtig."
-          </p>
-          </div>
-        )}
-      </div>
-
-{/* Buttons */}
-<Link className="" to="">
-        <div className="buchen-als">Buchen</div>
-      </Link>
-
- {/* "Über uns" Button triggers state change */}
-      <div 
-        className="gruppe-17" 
-        onClick={() => setActiveTab("about")}
-        style={{ cursor: "pointer" }}
-      >
-        <img className="pfad-8" alt="Pfad" src="/img/pfad-235-1.png" />
-        <div className="text-wrapper-19">Über uns</div>
-      </div>
-
-      <div 
-        className="buchen-als-gruppe" 
-        onClick={() => setIsGalleryOpen(true)}
-        style={{ cursor: "pointer" }}
-      >
-        Galerie
-      </div>
-
-      {/* "Grüße aus Remote Island" Button triggers state change */}
-      <div 
-        className="gr-e-aus-remote" 
-        onClick={() => setActiveTab("greetings")}
-        style={{ cursor: "pointer" }}
-      >
-        Grüße aus <br />Remote Island
-      </div> 
-
-      <Link className="" to="">
-        <div className="text-wrapper-20">Video</div>
-      </Link>
-
-      <div className="text-wrapper-21">Impressum</div>
-      <div className="text-wrapper-33">Datenschutz</div>
-      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
-      <div className="gruppe-26" />
-
-      {/* -------------------------------------------------- */}
-      {/* CONDITIONAL GALLERY OVERLAY LAYER                  */}
-      {/* -------------------------------------------------- */}
-      {isGalleryOpen && (
-        <div className="gallery-overlay">
-          {/* Gallery image elements imported from your gallery layout */}
-          <div className="gruppe-wrapper">
-            <div className="gruppe-38">
-              <div className="gruppe-39">
-                {/* <div className="gruppe-40" />
-                <div className="gruppe-41" />*/}
-                <img className="pfad-19" alt="Pfad" src="/img/pfad-246.png" /> 
-                <div className="rechteck-25" />
-                {/* <div className="gruppe-42" /> */}
-              </div>
-            </div>
-          </div>
-          
-          <div className="gruppe-43">
-            <div className="gruppe-44">
-              <div className="gruppe-45">
-                {/* <div className="gruppe-46" />
-                <div className="gruppe-47" /> */}
-                <img className="pfad-20" alt="Pfad" src="/img/pfad-250.png" />
-                <div className="rechteck-26" />
-                {/* <div className="gruppe-48" /> */}
-              </div>
-            </div>
-          </div>
-
-          <div className="gruppe-49">
-            <div className="gruppe-50">
-              <div className="gruppe-51">
-                {/* <div className="gruppe-52" />
-                <div className="gruppe-53" />*/}
-                <img className="pfad-21" alt="Pfad" src="/img/pfad-254.png" /> 
-                <div className="rechteck-27" />
-                {/* <div className="gruppe-54" />
-                <div className="gruppe-55" /> */}
-              </div>
-            </div>
-          </div>
-
-          <div className="gruppe-56">
-            <div className="gruppe-57">
-              <div className="gruppe-58">
-                <div className="gruppe-59">
-                  {/* <div className="gruppe-60" />*/}
-                  <img className="pfad-22" alt="Pfad" src="/img/pfad-258.png" /> 
-                  <div className="rechteck-28" />
-                  {/* <div className="gruppe-61" />
-                  <div className="gruppe-62" />*/}
-                  <img className="pfad-23" alt="Pfad" src="/img/pfad-261.png" /> 
-                  <div className="rechteck-29" />
+        {/* -------------------------------------------------- */}
+        {/* CONDITIONAL GALLERY OVERLAY LAYER                  */}
+        {/* -------------------------------------------------- */}
+        {isGalleryOpen && (
+          <div className="gallery-overlay">
+            <div className="gruppe-wrapper">
+              <div className="gruppe-38">
+                <div className="gruppe-39">
+                  <img className="pfad-19" alt="Pfad" src="/img/pfad-246.png" /> 
+                  <div className="rechteck-25" />
                 </div>
               </div>
-              {/* <div className="gruppe-63" /> */}
-              <div className="gruppe-64" />
+            </div>
+            
+            <div className="gruppe-43">
+              <div className="gruppe-44">
+                <div className="gruppe-45">
+                  <img className="pfad-20" alt="Pfad" src="/img/pfad-250.png" />
+                  <div className="rechteck-26" />
+                </div>
+              </div>
+            </div>
+
+            <div className="gruppe-49">
+              <div className="gruppe-50">
+                <div className="gruppe-51">
+                  <img className="pfad-21" alt="Pfad" src="/img/pfad-254.png" /> 
+                  <div className="rechteck-27" />
+                </div>
+              </div>
+            </div>
+
+            <div className="gruppe-56">
+              <div className="gruppe-57">
+                <div className="gruppe-58">
+                  <div className="gruppe-59">
+                    <img className="pfad-22" alt="Pfad" src="/img/pfad-258.png" /> 
+                    <div className="rechteck-28" />
+                    <img className="pfad-23" alt="Pfad" src="/img/pfad-261.png" /> 
+                    <div className="rechteck-29" />
+                  </div>
+                </div>
+                <div className="gruppe-64" />
+              </div>
+            </div>
+
+            {/* Close/Cross Button */}
+            <div 
+              className="vereinigungsmenge-wrapper" 
+              onClick={() => setIsGalleryOpen(false)}
+              style={{ cursor: "pointer" }}
+            >
+              <img
+                className="vereinigungsmenge"
+                alt="Vereinigungsmenge"
+                src="/img/vereinigungsmenge-1.png"
+              />
             </div>
           </div>
-
-          {/* <img className="kamera" alt="Kamera" src="/img/kamera.png" /> */}
-          {/* <img className="golden-compass" alt="Golden compass" src="/img/golden-compass.png" /> */}
-
-          {/* Close/Cross Button: toggles state back to FALSE */}
-          <div 
-            className="vereinigungsmenge-wrapper" 
-            onClick={() => setIsGalleryOpen(false)}
-            style={{ cursor: "pointer" }}
-          >
-            <img
-              className="vereinigungsmenge"
-              alt="Vereinigungsmenge"
-              src="/img/vereinigungsmenge-1.png"
-            />
-          </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
     </DesktopLayout>
   );
 };

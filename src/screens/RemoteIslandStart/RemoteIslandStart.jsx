@@ -227,12 +227,33 @@ export const RemoteIslandStart = () => {
               </p>
             </div>
           )}
+
+          {activeTab === "buchen" && (
+          <div className="text-main-block">
+            <p className="text-sub-block">
+              <strong> buchen</strong>
+            </p>
+            <p className="text-sub-block">
+            Dauer <br />
+            3 Stunden            
+            </p>
+            <p className="text-sub-block">
+              Kosten
+            </p>
+          </div>
+        )}
         </div>
 
         {/* Buttons */}
-        <Link to="">
-          <div className="buchen-als">Buchen</div>
-        </Link>
+
+        {/* "Buchen" Tab */}
+        <div 
+          className="buchen-als" 
+          onClick={() => setActiveTab("buchen")}
+          style={{ cursor: "pointer" }}
+        >
+          Buchen
+        </div>
 
         {/* "About" Button */}
         <div 

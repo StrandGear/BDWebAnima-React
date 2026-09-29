@@ -323,7 +323,7 @@ export const BuildingdemocracyDesktop = () => {
                   download="Anleitung.pdf"
                   className="raw-text-btn nav-btn download-btn"
                 >
-                  Spielanleitung<br />Download
+                  Wie funktioniert’s? <br />Anleitung
                 </a>
               {/* Datenschutz download link */}
                 <a 

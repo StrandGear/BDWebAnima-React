@@ -354,7 +354,7 @@ export const Screen4 = () => {
                 download="Anleitung.pdf"
                 className="raw-text-btn nav-btn download-btn"
               >
-                Spielanleitung<br />Download
+                Wie funktioniert’s? <br />Anleitung
               </a>
               <a 
                 href="/Datenschutz.pdf" 

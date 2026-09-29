@@ -152,12 +152,12 @@ export const RemoteislandGallery = () => {
           <div className="gruppe-64" />
         </div>
       </div>
-      <img className="kamera" alt="Kamera" src="/img/kamera.png" />
-      <img
+      {/* <img className="kamera" alt="Kamera" src="/img/kamera.png" /> */}
+      {/* <img
         className="golden-compass"
         alt="Golden compass"
         src="/img/golden-compass.png"
-      />
+      /> */}
       <Link className="vereinigungsmenge-wrapper" to="/remoteislandstart">
         <img
           className="vereinigungsmenge"

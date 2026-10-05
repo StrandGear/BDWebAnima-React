@@ -3,6 +3,13 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import { DesktopLayout } from "../../DesktopLayout";
 import { fetchVideoUrls } from "../../services/videoService";
+import { 
+  aboutContent, 
+  buchenContent, 
+  gruesseContent, 
+  aktuellesContent, 
+  RemoteIslandTextContent 
+} from "./RemoteIslandContent";
 
 export const VideoModal = ({ setActiveView, videoKey = "ri_video" }) => {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -119,129 +126,11 @@ export const RemoteIslandStart = () => {
 
         {/* --- MERGED & SWITCHABLE TEXT CONTAINER --- */}
         <div className="text-content-container">
-          {activeTab === "default" && (
-            <div className="text-main-block">
-              <p className="text-sub-block">
-                Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-                Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-                Remote Island organisieren wollen.
-              </p>
-              <p className="text-sub-block">
-                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-                Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-                unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-                Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-                Challenges in den jeweiligen Räumen und durch anregende
-                Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-                ein Zusammenleben auf Remote Island organisiert werden kann.
-              </p>
-              <p className="text-sub-block">
-                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-                und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-                jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-                abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-                dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-              </p>
-              <p className="text-sub-block">
-                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-                die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-                auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-                diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-                Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-                Alltag?
-              </p>
-            </div>
-          )}
-
-          {activeTab === "about" && (
-            <div className="text-main-block">
-              <p className="text-sub-block">
-                Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-                Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-                Remote Island organisieren wollen.
-              </p>
-              <p className="text-sub-block">
-                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-                Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-                unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-                Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-                Challenges in den jeweiligen Räumen und durch anregende
-                Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-                ein Zusammenleben auf Remote Island organisiert werden kann.
-              </p>
-              <p className="text-sub-block">
-                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-                und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-                jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-                abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-                dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-              </p>
-              <p className="text-sub-block">
-                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-                die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-                auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-                diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-                Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-                Alltag?
-              </p>
-            </div>
-          )}
-
-          {activeTab === "greetings" && (
-            <div className="text-main-block">
-              <p className="text-sub-block">
-                Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:
-              </p>
-              <p className="text-sub-block">
-                "REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt."
-              </p>
-              <p className="text-sub-block">
-                "Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion."
-              </p>
-              <p className="text-sub-block">
-                "Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!"
-              </p>
-              <p className="text-sub-block">
-                "TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!"
-              </p>
-              <p className="text-sub-block">
-                "Unsere Entscheidungen haben Folgen!"
-              </p>
-              <p className="text-sub-block">
-                "Stimmt zusammen ab und achtet auf einander!"
-              </p>
-              <p className="text-sub-block">
-                "Demokratie ist schön – macht aber Arbeit."
-              </p>
-              <p className="text-sub-block">
-                "Immer einigen. Spaß haben. Teamarbeit ist wichtig."
-              </p>
-            </div>
-          )}
-
-          {activeTab === "aktuelles" && (
-            <div className="text-main-block">
-              <p className="text-sub-block">
-                Text text text text text text text text Text text text text text 
-                text text textText text text text text text text text
-              </p>
-            </div>
-          )}
-
-          {activeTab === "buchen" && (
-          <div className="text-main-block">
-            <p className="text-sub-block">
-              <strong> buchen</strong>
-            </p>
-            <p className="text-sub-block">
-            Dauer <br />
-            3 Stunden            
-            </p>
-            <p className="text-sub-block">
-              Kosten
-            </p>
-          </div>
-        )}
+          {activeTab === "default" && <RemoteIslandTextContent content={aboutContent} />}
+          {activeTab === "about" && <RemoteIslandTextContent content={aboutContent} />}
+          {activeTab === "greetings" && <RemoteIslandTextContent content={gruesseContent} />}
+          {activeTab === "aktuelles" && <RemoteIslandTextContent content={aktuellesContent} />}
+          {activeTab === "buchen" && <RemoteIslandTextContent content={buchenContent} />}
         </div>
 
         {/* Buttons */}
@@ -276,20 +165,20 @@ export const RemoteIslandStart = () => {
         {/* "Grüße aus Remote Island" Button */}
         <div 
           className="gr-e-aus-remote" 
-          onClick={() => setActiveTab("greetings")}
+          onClick={() => setActiveTab("aktuelles")}
           style={{ cursor: "pointer" }}
         >
-          Grüße aus <br />Remote Island
-        </div> 
+          Aktuelles
+        </div>
 
         {/* "Aktuelles" Tab on the left */}
         <div
           className="aktuelles-tab"
-          onClick={() => setActiveTab("aktuelles")}
+          onClick={() => setActiveView(prev => prev === "video" ? null : "video")}
           style={{ cursor: "pointer" }}
         >
           <span className="aktuelles-text">
-            {"Aktuelles".split("").map((char, index) => (
+            {"Video".split("").map((char, index) => (
               <span key={index} className="aktuelles-char">
                 {char}
               </span>
@@ -297,15 +186,14 @@ export const RemoteIslandStart = () => {
           </span>
         </div>
         
-        {/* Video button matching your layout */}
-        <button 
-          type="button"
+        {/* Video button  */}
+        <div 
           className="raw-text-btn text-wrapper-20"
-          onClick={() => setActiveView(prev => prev === "video" ? null : "video")}
+          onClick={() => setActiveTab("greetings")}
           style={{ cursor: "pointer", background: "none", border: "none" }}
         >
-          Video
-        </button>
+          Grüße aus <br />Remote Island
+        </div>
 
         <div className="text-wrapper-21">Impressum</div>
         <div className="text-wrapper-33">Datenschutz</div>

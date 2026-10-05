@@ -253,7 +253,7 @@
   left: calc(28.55% - 137px);
   width: 480px;
   /* Adjust max-height and overflow if your placeholder text gets too long */
-  max-height: 600px;
+  max-height: 530px;
   overflow-y: auto; 
 }
 
@@ -267,7 +267,7 @@
 
 .remote-island-start .text-sub-block {
   line-height: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .remote-island-start .buchen-als {

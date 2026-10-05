@@ -267,16 +267,18 @@ export const Ri = () => {
               </p>
 
               <p className="text-title">
-                <strong>Für Schulklassen buchen Sie hier:</strong><br />
+                <strong>Für Schulklassen{' '} 
                 <a href="https://buchung.museenkoeln.de/angebotbuchen.aspx?angebot=1412" target="_blank" rel="noopener noreferrer">
-                  https://buchung.museenkoeln.de/angebotbuchen.aspx?angebot=1412
+                  hier buchen
                 </a>
+                </strong><br />
               </p>
               <p className="text-title">
-                <strong>Für Erwachsenengruppen und außerschulische Jugendgruppen buchen Sie hier:</strong><br />
+                <strong>Für Erwachsenengruppen und außerschulische Jugendgruppen{' '}  
                 <a href="https://buchung.museenkoeln.de/angebotbuchen.aspx?inst=14&amp;angebot=1411" target="_blank" rel="noopener noreferrer">
-                  https://buchung.museenkoeln.de/angebotbuchen.aspx?inst=14&amp;angebot=1411
+                  hier buchen
                 </a>
+                </strong><br />
               </p>
 
               <p className="text-title">Allgemeine Hinweise</p>

@@ -347,7 +347,7 @@
   font-style: italic;
   font-weight: 700;
   height: 18px;
-  left: calc(44.83% - 33px);
+  left: calc(50%);
   letter-spacing: 0;
   line-height: 14px;
   position: absolute;
@@ -937,4 +937,239 @@
   max-height: 80vh;
   border-radius: 8px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Wrapper for the "Aktuelles" box (Top Left) */
+.remote-island-start .aktuelles-box-wrapper {
+  position: absolute;
+  right: calc(19.26% - 36px);
+  top: calc(20.40% - 20px);
+  width: 185px;
+  height: 97px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper for the "Grüße aus Remote Island" box (Center White) */
+.remote-island-start .gruesse-box-wrapper {
+  position: absolute;
+  right: calc(26.41% - 129px);
+  top: calc(30.98% - 62px);
+  width: 489px;
+  height: 201px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The text element inside the wrappers */
+.remote-island-start .centered-tab-text {
+  position: absolute;
+  z-index: 2;
+  color: #42435f; /* Or #fae5ba depending on desired color */
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+  pointer-events: none; /* Allows clicks to pass through to the wrapper */
+}
+
+/* Specific color override if "Aktuelles" needs to be yellow/orange text */
+.remote-island-start .aktuelles-box-wrapper .centered-tab-text {
+  color: #fae5ba; 
+}
+
+/* --- WRAPPERS --- */
+.remote-island-start .aktuelles-wrapper {
+  position: absolute;
+  right: calc(19.26% - 36px);
+  top: calc(20.40% - 20px);
+  width: 185px;
+  height: 97px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.remote-island-start .gruesse-wrapper {
+  position: absolute;
+  right: calc(26.41% - 129px);
+  top: calc(30.98% - 62px);
+  width: 489px;
+  height: 201px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Background image inside wrapper */
+.remote-island-start .tab-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Puts image behind the text */
+}
+
+/* --- CENTERED TEXT WITH OFFSETS --- */
+.remote-island-start .tab-text-aktuelles {
+  position: relative;
+  z-index: 2; /* Puts text above the image */
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  
+  /* The pink shape is heavy on the right. This nudges the text right to center it optically */
+  margin-left: 20px; 
+}
+
+.remote-island-start .tab-text-gruesse {
+  position: relative;
+  z-index: 2;
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+  
+  /* The white shape dips down. This nudges the text lower to center it optically */
+  margin-top: 15px; 
+}
+
+/* --- NEW WRAPPERS FOR TABS --- */
+
+/* 1. Aktuelles (Far Left Pink Box) */
+.remote-island-start .aktuelles-wrapper {
+  position: absolute;
+  right: calc(45.04% - 83px);
+  top: calc(23.13% - 27px);
+  width: 184px;
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 2. Galerie (Mid Left Light Blue Box) */
+.remote-island-start .galerie-wrapper {
+  position: absolute;
+  right: calc(35.62% - 57px);
+  top: calc(19.92% - 19px);
+  width: 161px;
+  height: 93px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 3. About (Mid Right Dark Blue Box) */
+.remote-island-start .about-wrapper {
+  position: absolute;
+  right: calc(28.27% - 33px);
+  top: calc(19.79% - 16px);
+  width: 115px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 4. Buchen (Far Right Yellow Box) */
+.remote-island-start .buchen-wrapper {
+  position: absolute;
+  right: calc(19.26% - 36px);
+  top: calc(20.40% - 20px);
+  width: 185px;
+  height: 97px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 5. Video (Left Vertical Orange Box) */
+.remote-island-start .video-wrapper {
+  position: absolute;
+  right: calc(47.26% - 48px);
+  top: calc(37.42% - 72px);
+  width: 103px;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 6. Grüße (Center White Box) */
+.remote-island-start .gruesse-wrapper {
+  position: absolute;
+  right: calc(26.41% - 129px);
+  top: calc(30.98% - 62px);
+  width: 489px;
+  height: 201px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Background image inside all wrappers */
+.remote-island-start .tab-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1; /* Setzt das Bild hinter den Text */
+}
+
+/* --- CENTERED TEXT CLASSES --- */
+
+.remote-island-start .tab-text-standard {
+  position: relative;
+  z-index: 2; /* Setzt den Text über das Bild */
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.remote-island-start .tab-text-vertical {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.05;
+  pointer-events: none;
+}
+
+.remote-island-start .tab-text-gruesse {
+  position: relative;
+  z-index: 2;
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 18px;
+  pointer-events: none;
+  margin-top: -10px; 
 }

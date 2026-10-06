@@ -10,6 +10,31 @@ import {
   aktuellesContent, 
   RemoteIslandTextContent 
 } from "./RemoteIslandContent";
+import { getVisualCenter } from "../../services/visualCenter";
+
+// useEffect(() => {
+//     // Pass the exact same image path used in your <img> tag
+//     getVisualCenter("/img/pfad-237-1.png")
+//       .then((center) => {
+//         // center.offsetX and offsetY tell you exactly how many pixels to nudge the text
+//         setAktuellesOffset({ x: center.offsetX, y: center.offsetY });
+//       })
+//       .catch(console.error);
+//   }, []);
+
+//   // ... Down in your JSX:
+//   <div className="aktuelles-wrapper" onClick={() => setActiveTab("aktuelles")}>
+//     <img className="tab-bg-img" alt="Pfad" src="/img/pfad-237-1.png" />
+//     <span 
+//       className="tab-text-standard"
+//       style={{
+//         // Apply the mathematical calculation directly to the margin or transform
+//         transform: `translate(${aktuellesOffset.x}px, ${aktuellesOffset.y}px)`
+//       }}
+//     >
+//       Aktuelles
+//     </span>
+// </div>
 
 export const VideoModal = ({ setActiveView, videoKey = "ri_video" }) => {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -76,6 +101,47 @@ export const RemoteIslandStart = () => {
   // State to track video modal visibility
   const [activeView, setActiveView] = useState(null);
 
+  const [offsets, setOffsets] = useState({
+    aktuelles: { x: 0, y: 0 },
+    galerie: { x: 0, y: 0 },
+    about: { x: 0, y: 0 },
+    buchen: { x: 0, y: 0 },
+    video: { x: 0, y: 0 },
+    gruesse: { x: 0, y: 0 }
+  });
+  // --- CALCULATE OFFSETS ON MOUNT ---
+  useEffect(() => {
+    // Array of the images used by each tab
+    const tabsToCalculate = [
+      { key: "aktuelles", src: "/img/pfad-237-1.png" },
+      { key: "galerie", src: "/img/pfad-236-1.png" },
+      { key: "about", src: "/img/pfad-235-1.png" },
+      { key: "buchen", src: "/img/pfad-234-1.png" },
+      { key: "video", src: "/img/pfad-238-1.png" },
+      { key: "gruesse", src: "/img/pfad-239-1.png" }
+    ];
+
+    // Fetch and calculate all visual centers in parallel
+    Promise.all(
+      tabsToCalculate.map((tab) => 
+        getVisualCenter(tab.src).then((center) => ({
+          key: tab.key,
+          x: center.offsetX,
+          y: center.offsetY
+        }))
+      )
+    )
+    .then((results) => {
+      // Map the results back to a single state object
+      const newOffsets = {};
+      results.forEach((res) => {
+        newOffsets[res.key] = { x: res.x, y: res.y };
+      });
+      setOffsets(newOffsets);
+    })
+    .catch(console.error);
+  }, []);
+
   return (
     <DesktopLayout style={{ backgroundColor: "#b79eb6" }}>
       <div className="remote-island-start">
@@ -92,11 +158,11 @@ export const RemoteIslandStart = () => {
         </Link>
 
         {/* Background/Static decorative images */}
-        <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />
+        {/* <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />
         <img className="pfad-4" alt="Pfad" src="/img/pfad-236-1.png" />
         <img className="pfad-5" alt="Pfad" src="/img/pfad-237-1.png" />
         <img className="pfad-6" alt="Pfad" src="/img/pfad-238-1.png" />
-        <img className="pfad-7" alt="Pfad" src="/img/pfad-239-1.png" />
+        <img className="pfad-7" alt="Pfad" src="/img/pfad-239-1.png" /> */}
 
         <div className="gruppe-16">
           <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
@@ -135,68 +201,76 @@ export const RemoteIslandStart = () => {
 
         {/* Buttons */}
 
-        {/* "Buchen" Tab */}
-        <div 
-          className="buchen-als" 
-          onClick={() => setActiveTab("buchen")}
-          style={{ cursor: "pointer" }}
-        >
-          Buchen
+        {/* 1. Aktuelles */}
+        <div className="aktuelles-wrapper" onClick={() => setActiveTab("aktuelles")}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-237-1.png" />
+          <span 
+            className="tab-text-standard"
+            style={{ transform: `translate(${offsets.aktuelles.x}px, ${offsets.aktuelles.y}px)` }}
+          >
+            Aktuelles
+          </span>
         </div>
 
-        {/* "About" Button */}
-        <div 
-          className="gruppe-17" 
-          onClick={() => setActiveTab("about")}
-          style={{ cursor: "pointer" }}
-        >
-          <img className="pfad-8" alt="Pfad" src="/img/pfad-235-1.png" />
-          <div className="text-wrapper-19">About</div>
+        {/* 2. Galerie */}
+        <div className="galerie-wrapper" onClick={() => setIsGalleryOpen(true)}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-236-1.png" />
+          <span 
+            className="tab-text-standard"
+            style={{ transform: `translate(${offsets.galerie.x}px, ${offsets.galerie.y}px)` }}
+          >
+            Galerie
+          </span>
         </div>
 
-        <div 
-          className="buchen-als-gruppe" 
-          onClick={() => setIsGalleryOpen(true)}
-          style={{ cursor: "pointer" }}
-        >
-          Galerie
+        {/* 3. About */}
+        <div className="about-wrapper" onClick={() => setActiveTab("about")}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-235-1.png" />
+          <span 
+            className="tab-text-standard"
+            style={{ transform: `translate(${offsets.about.x}px, ${offsets.about.y}px)` }}
+          >
+            About
+          </span>
         </div>
 
-        {/* "Grüße aus Remote Island" Button */}
-        <div 
-          className="gr-e-aus-remote" 
-          onClick={() => setActiveTab("aktuelles")}
-          style={{ cursor: "pointer" }}
-        >
-          Aktuelles
+        {/* 4. Buchen */}
+        <div className="buchen-wrapper" onClick={() => setActiveTab("buchen")}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-234-1.png" />
+          <span 
+            className="tab-text-standard"
+            style={{ transform: `translate(${offsets.buchen.x}px, ${offsets.buchen.y}px)` }}
+          >
+            Buchen
+          </span>
         </div>
 
-        {/* "Aktuelles" Tab on the left */}
-        <div
-          className="aktuelles-tab"
-          onClick={() => setActiveView(prev => prev === "video" ? null : "video")}
-          style={{ cursor: "pointer" }}
-        >
-          <span className="aktuelles-text">
+        {/* 5. Video */}
+        <div className="video-wrapper" onClick={() => setActiveView(prev => prev === "video" ? null : "video")}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-238-1.png" />
+          <span 
+            className="tab-text-vertical"
+            style={{ transform: `translate(${offsets.video.x}px, ${offsets.video.y}px)` }}
+          >
             {"Video".split("").map((char, index) => (
-              <span key={index} className="aktuelles-char">
-                {char}
-              </span>
+              <span key={index} className="aktuelles-char">{char}</span>
             ))}
           </span>
         </div>
         
-        {/* Video button  */}
-        <div 
-          className="raw-text-btn text-wrapper-20"
-          onClick={() => setActiveTab("greetings")}
-          style={{ cursor: "pointer", background: "none", border: "none" }}
-        >
-          Grüße aus <br />Remote Island
+        {/* 6. Grüße aus Remote Island */}
+        <div className="gruesse-wrapper" onClick={() => setActiveTab("greetings")}>
+          <img className="tab-bg-img" alt="Pfad" src="/img/pfad-239-1.png" />
+          <span 
+            className="tab-text-gruesse"
+            style={{ transform: `translate(${offsets.gruesse.x}px, ${offsets.gruesse.y}px)` }}
+          >
+            Grüße aus <br />Remote Island
+          </span>
         </div>
 
         <div className="text-wrapper-21">Impressum</div>
-        <div className="text-wrapper-33">Datenschutz</div>
+        {/* <div className="text-wrapper-33">Datenschutz</div> */}
         <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
         <div className="gruppe-26" />
 
@@ -204,7 +278,7 @@ export const RemoteIslandStart = () => {
         {activeView === "video" && (
           <VideoModal 
             setActiveView={setActiveView} 
-            videoKey="ri_video" /* Adjust key if your backend uses a different identifier */
+            videoKey="ri_video" 
           />
         )}
 

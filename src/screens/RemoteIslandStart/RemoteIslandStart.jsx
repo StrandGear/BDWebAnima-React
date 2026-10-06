@@ -291,18 +291,22 @@ export const RemoteIslandStart = () => {
           <div className="gallery-overlay">
             <div className="gruppe-wrapper">
               <div className="gruppe-38">
+                {/* --- Frame 1 (Top Left) --- */}
                 <div className="gruppe-39">
-                  <img className="pfad-19" alt="Pfad" src="/img/pfad-246.png" /> 
-                  <div className="rechteck-25" />
+                  {/* 1. Put the white frame back */}
+                  <img className="pfad-19" alt="Rahmen" src="/img/pfad-246.png" /> 
+                  {/* 2. Turn the black rectangle into your photo */}
+                  <img className="rechteck-25" alt="Galerie Foto 1" src="/img/galerie/galerie-1.jpg" style={{ objectFit: "cover" }} />
                 </div>
               </div>
             </div>
             
             <div className="gruppe-43">
               <div className="gruppe-44">
+                {/* --- Frame 2 (Mid Left) --- */}
                 <div className="gruppe-45">
-                  <img className="pfad-20" alt="Pfad" src="/img/pfad-250.png" />
-                  <div className="rechteck-26" />
+                  <img className="pfad-20" alt="Rahmen" src="/img/pfad-250.png" />
+                  <img className="rechteck-26" alt="Galerie Foto 2" src="/img/galerie/galerie-2.jpg" style={{ objectFit: "cover" }} />
                 </div>
               </div>
             </div>
@@ -310,8 +314,8 @@ export const RemoteIslandStart = () => {
             <div className="gruppe-49">
               <div className="gruppe-50">
                 <div className="gruppe-51">
-                  <img className="pfad-21" alt="Pfad" src="/img/pfad-254.png" /> 
-                  <div className="rechteck-27" />
+                  <img className="pfad-21" alt="Rahmen" src="/img/pfad-254.png" /> 
+                  <img className="rechteck-27" alt="Galerie Foto 3" src="/img/galerie/galerie-3.jpg" style={{ objectFit: "cover" }} />
                 </div>
               </div>
             </div>
@@ -319,11 +323,13 @@ export const RemoteIslandStart = () => {
             <div className="gruppe-56">
               <div className="gruppe-57">
                 <div className="gruppe-58">
+                  {/* --- Frame 4 & 5 (Bottom Right - Front & Back) --- */}
                   <div className="gruppe-59">
-                    <img className="pfad-22" alt="Pfad" src="/img/pfad-258.png" /> 
-                    <div className="rechteck-28" />
-                    <img className="pfad-23" alt="Pfad" src="/img/pfad-261.png" /> 
-                    <div className="rechteck-29" />
+                    <img className="pfad-22" alt="Rahmen" src="/img/pfad-258.png" /> 
+                    <img className="rechteck-28" alt="Galerie Foto 4" src="/img/galerie/galerie-4.jpg" style={{ objectFit: "cover" }} />
+                    
+                    <img className="pfad-23" alt="Rahmen" src="/img/pfad-261.png" /> 
+                    <img className="rechteck-29" alt="Galerie Foto 5" src="/img/galerie/galerie-5.jpg" style={{ objectFit: "cover" }} />
                   </div>
                 </div>
                 <div className="gruppe-64" />

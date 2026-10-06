@@ -640,13 +640,17 @@
 }
 
 .remote-island-start .rechteck-27 {
-  background-color: #212121;
-  height: calc(100% + 28px);
-  left: 111px;
   position: absolute;
-  top: -12px;
-  transform: rotate(-85.76deg);
-  width: calc(100% - 222px);
+  background-color: #212121; /* Fallback, falls das Bild lädt */
+  
+  /* Neue horizontale Maße, damit es in den weißen Rahmen (pfad-21) passt */
+  width: calc(100% - 90px);
+  height: calc(100% - 100px);
+  left: 45px;
+  top: 50px;
+  
+  /* Leicht nach links gedreht. Du kannst die Zahl anpassen (z.B. -3deg oder -8deg) */
+  transform: rotate(4deg);
 }
 
 .remote-island-start .gruppe-54 {
@@ -732,7 +736,7 @@
   left: 28px;
   position: absolute;
   top: 37px;
-  transform: rotate(-89.57deg);
+  /* transform: rotate(-89.57deg); */
   width: 251px;
 }
 
@@ -766,7 +770,7 @@
   height: calc(100% - 47px);
   object-fit: cover;
   position: absolute;
-  right: 1px;
+  right: 1px; 
   top: 22px;
   width: 347px;
 }
@@ -777,7 +781,7 @@
   position: absolute;
   right: 51px;
   top: 65px;
-  transform: rotate(-79.06deg);
+  transform: rotate(10.0deg);
   width: 251px;
 }
 
@@ -1166,7 +1170,7 @@
   align-items: center;
   color: #42435f;
   font-family: "Ubuntu", Helvetica;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: 1.05;
   pointer-events: none;

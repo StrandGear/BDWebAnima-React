@@ -8,6 +8,7 @@ import {
   buchenContent, 
   gruesseContent, 
   aktuellesContent, 
+  impressumUndDatenschutz,
   RemoteIslandTextContent 
 } from "./RemoteIslandContent";
 import { getVisualCenter } from "../../services/visualCenter";
@@ -167,25 +168,19 @@ export const RemoteIslandStart = () => {
         <div className="gruppe-16">
           <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
           <p className="dauer-stunden">
-            Dauer
-            <br />3 Stunden
+                      <br />
             <br />
             <br />
-            Kosten
+            <p style={{ fontSize: "17px", fontWeight: "bold" }}>Herzlich Willkommen auf Remote Island -<br /> dem wohl abgelegensten Ort der Welt ...</p>
             <br />
-            Schulklassen: 90 €<br />
-            Studierende &amp; Jugendgruppen: 150 €<br />
-            Erwachsene: 225 €<br />
             <br />
-            Für wen
+            Entdeckt das begehbare Computerspiel im<br />
+             NS-DOK und taucht ein in euer "Abenteuer Demokratie auf einer Insel"!
             <br />
-            Dieser Workshop eignet sich für Schulklassen ab dem 9. Jahrgang und
-            für Erwachsenengruppen von mindestens 15 bis maximal 35 Personen.
             <br />
-            Für Kölner Schulen sind sämtliche pädagogischen Angebote des NS-DOK
-            kostenfrei.
             <br />
-            Am Wochenende und feiertags fallen zusätzliche Gebühren an.
+            Handelt, entscheidet und reflektiert gemeinsam als Gruppe: Remote Island macht Bildung zum Erlebnis!​
+            
           </p>
         </div>
         <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />
@@ -197,6 +192,7 @@ export const RemoteIslandStart = () => {
           {activeTab === "greetings" && <RemoteIslandTextContent content={gruesseContent} />}
           {activeTab === "aktuelles" && <RemoteIslandTextContent content={aktuellesContent} />}
           {activeTab === "buchen" && <RemoteIslandTextContent content={buchenContent} />}
+          {activeTab === "impressum" && <RemoteIslandTextContent content={impressumUndDatenschutz} />}
         </div>
 
         {/* Buttons */}
@@ -252,7 +248,7 @@ export const RemoteIslandStart = () => {
             className="tab-text-vertical"
             style={{ transform: `translate(${offsets.video.x}px, ${offsets.video.y}px)` }}
           >
-            {"Video".split("").map((char, index) => (
+            {"VIDEO".split("").map((char, index) => (
               <span key={index} className="aktuelles-char">{char}</span>
             ))}
           </span>
@@ -265,11 +261,17 @@ export const RemoteIslandStart = () => {
             className="tab-text-gruesse"
             style={{ transform: `translate(${offsets.gruesse.x}px, ${offsets.gruesse.y}px)` }}
           >
-            Grüße aus <br />Remote Island
+            Grüße von <br />Remote Island
           </span>
         </div>
 
-        <div className="text-wrapper-21">Impressum</div>
+        <div 
+          className="text-wrapper-21" 
+          onClick={() => setActiveTab("impressum")}
+          style={{ cursor: "pointer" }}
+          >
+          Impressum
+        </div>
         {/* <div className="text-wrapper-33">Datenschutz</div> */}
         <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
         <div className="gruppe-26" />

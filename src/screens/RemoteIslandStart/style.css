@@ -169,15 +169,15 @@
 }
 
 .remote-island-start .dauer-stunden {
-  bottom: calc(40.81% - 118px);
+  bottom: calc(40.81% - 100px);
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 18px;
+  /* font-weight: 700; */
   height: 290px;
   left: calc(45.74% - 183px);
   letter-spacing: 0;
-  line-height: 16px;
+  line-height: 20px;
   position: absolute;
   width: 401px;
 }
@@ -263,6 +263,11 @@
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
+  padding-right: 20px;
+}
+
+.remote-island-start .text-main-block strong {
+  font-weight: 700; /* Erzwingt, dass das strong-Tag wirklich fett ist */
 }
 
 .remote-island-start .text-sub-block {
@@ -867,6 +872,9 @@
 
 .remote-island-start .aktuelles-char {
   display: block;
+  width: 12px; /* Forces every letter to occupy the exact same width */
+  margin-bottom: 2px; /* Optional: Adds a tiny bit of breathing room between letters */
+  text-align: center; 
 }
 
 .raw-text-btn {
@@ -1035,10 +1043,11 @@
   z-index: 2;
   color: #42435f;
   font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   text-align: center;
   line-height: 18px;
+  padding: 25px;
   
   /* The white shape dips down. This nudges the text lower to center it optically */
   margin-top: 15px; 
@@ -1142,9 +1151,11 @@
   z-index: 2; /* Setzt den Text über das Bild */
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
-  pointer-events: none;
+  pointer-events: auto; 
+  cursor: pointer;
+  padding: 25px;
 }
 
 .remote-island-start .tab-text-vertical {
@@ -1153,9 +1164,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fae5ba;
+  color: #42435f;
   font-family: "Ubuntu", Helvetica;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.05;
   pointer-events: none;
@@ -1166,10 +1177,55 @@
   z-index: 2;
   color: #42435f;
   font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   text-align: center;
   line-height: 18px;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   margin-top: -10px; 
 }
+
+
+/* --- VISUAL CLICK FEEDBACK --- */
+
+/* Ensure a smooth return when the button is released */
+.remote-island-start .aktuelles-wrapper,
+.remote-island-start .galerie-wrapper,
+.remote-island-start .about-wrapper,
+.remote-island-start .buchen-wrapper,
+.remote-island-start .gruesse-wrapper,
+.remote-island-start .text-wrapper-33 {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  pointer-events: none;
+}
+
+/* Make the tabs grow slightly when the mouse hovers over them */
+.remote-island-start .aktuelles-wrapper:hover,
+.remote-island-start .galerie-wrapper:hover,
+.remote-island-start .about-wrapper:hover,
+.remote-island-start .buchen-wrapper:hover,
+.remote-island-start .video-wrapper:hover,
+.remote-island-start .gruesse-wrapper:hover,
+.remote-island-start .text-wrapper-21:hover, /* Impressum */
+.remote-island-start .text-wrapper-33:hover  /* Datenschutz */ {
+  transform: scale(1.05); /* Scales up by 5%. Change to 1.1 for 10%, etc. */
+  filter: brightness(1.05); /* Optional: makes them slightly brighter on hover */
+}
+
+/* Targets all the image wrappers and standard buttons when pressed */
+.remote-island-start .aktuelles-wrapper:active,
+.remote-island-start .galerie-wrapper:active,
+.remote-island-start .about-wrapper:active,
+.remote-island-start .buchen-wrapper:active,
+.remote-island-start .video-wrapper:active,
+.remote-island-start .gruesse-wrapper:active,
+.remote-island-start .text-wrapper-21:active, /* Impressum button */
+.remote-island-start .text-wrapper-33:active  /* Datenschutz button */ {
+  transform: scale(0.97); /* Shrinks the button by 3% */
+  filter: brightness(0.9); /* Slightly darkens the button */
+  transition: transform 0.05s ease, filter 0.05s ease; /* Makes it snappy */
+}
+
+
+

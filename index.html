@@ -59,6 +59,35 @@ html, body {
         font-weight: 700;
         src: url('./fonts/Ubuntu-Bold.ttf') format('truetype');
     }
+
+    /* --- GLOBAL CUSTOM SCROLLBAR --- */
+
+/* For Firefox: Applies to all elements */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a59342 transparent;
+}
+
+/* For Chrome, Edge, and Safari: Applies to all elements */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* Added height in case you ever have horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a59342; 
+  border-radius: 10px;
+  border: 3px solid rgba(254, 252, 252, 0); 
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fae5ba; 
+}
 </style>
 <style>
     html, body {

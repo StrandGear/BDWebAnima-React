@@ -241,17 +241,26 @@ position: absolute;
   border: none;
   padding: 0;
   margin: 0;
-  font: inherit;
-  color: inherit;
   cursor: pointer;
   outline: none;
-
-  /* Centers text and prevents layout shifts when word changes */
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-width: 50px; /* Reserves enough fixed width for "Impressum" */
   text-align: center;
+  text-decoration: none;
+}
+
+.nav-btn,
+.raw-text-btn.nav-btn {
+  color: #fae5ba !important;
+  font-family: "Ubuntu", Helvetica, sans-serif !important;
+  font-size: 14px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+  line-height: 16px !important;
+  text-align: center;
+  white-space: nowrap;
+  min-width: 100px;
 }
 
 /* Centered Navigation Container */
@@ -265,20 +274,6 @@ position: absolute;
   justify-content: center;
   gap: 45px; /* Spacing between the three items */
   z-index: 5;
-}
-
-/* Shared styling for all 3 bottom buttons */
-.nav-btn {
-  color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 16px;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none;
-  min-width: 100px; /* Keeps width stable when toggling to 'Home' */
 }
 
 /* Specific fix for multi-line link download button */

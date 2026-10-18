@@ -1,265 +1,313 @@
-:root {
-  --scale: 0.8;
-}
-
 .RI {
   background-color: #090a0b;
-  min-height: 932px;
-  min-width: 430px;
-  width: 430px;
-  height: 932px;
-  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100vw;
+  position: fixed;
+  inset: 0;
   overflow: hidden;
-  transform: scale(var(--scale));
-  transform-origin: top left;
-  margin: 0 auto;
 }
 
+/* Top & Bottom Fixed Bars */
 .RI .rechteck-11 {
   background-color: #090a0b;
   box-shadow: 0px 3px 6px #00000029;
   height: 91px;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
+  z-index: 20;
 }
 
 .RI .rechteck-12 {
   background-color: #090a0b;
   bottom: 0;
-  box-shadow: 0px 3px 6px #00000029;
+  box-shadow: 0px -3px 6px #00000029;
   height: 90px;
   left: 0;
-  position: absolute;
+  position: fixed;
   width: 100%;
+  z-index: 20;
 }
 
+/* Centered Top Navigation Toggle (Matches Bd.jsx) */
 .RI .gruppe-10 {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 28px;
-  left: 42px;
-  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
   top: 31px;
-  width: 308px;
+  width: min(308px, 85vw);
+  z-index: 25;
+  text-decoration: none;
 }
 
 .RI .text-wrapper-26 {
-  bottom: calc(35.11% - 5px);
   color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
+  font-family: "Ubuntu", Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 700;
-  height: 15px;
-  left: 0;
-  letter-spacing: 0;
   line-height: 12px;
-  position: absolute;
   white-space: nowrap;
-  width: 139px;
 }
 
 .RI .text-wrapper-27 {
-  bottom: calc(32.62% - 5px);
   color: #a59342;
-  font-family: "Ubuntu", Helvetica;
+  font-family: "Ubuntu", Helvetica, sans-serif;
   font-size: 11px;
   font-weight: 700;
-  height: 14px;
-  letter-spacing: 0;
   line-height: 11px;
-  position: absolute;
-  right: -2px;
   white-space: nowrap;
-  width: 91px;
 }
 
 .RI .schalter-5 {
   background-color: #fae5ba;
   border-radius: 22px;
   display: flex;
-  height: 100%;
-  position: absolute;
-  right: calc(40.77% - 26px);
-  top: 0;
-  width: 63px;
+  align-items: center;
+  justify-content: flex-end;
+  height: 20px;
+  width: 48px;
+  position: relative;
+  box-sizing: border-box;
+  padding: 0 2px;
 }
 
 .RI .uncheck-6 {
   background-color: #a59342;
-  border: 1px solid;
-  border-color: #707070;
-  border-radius: 11.81px;
-  box-shadow: inset 3px 3px 2px #00000029;
-  flex: 1;
-  margin-bottom: 2.5px;
-  margin-left: 36.1px;
-  margin-right: 3.5px;
-  margin-top: 2px;
-  width: 23.63px;
+  border: 1px solid #707070;
+  border-radius: 50%;
+  box-shadow: inset 2px 2px 2px #00000029;
+  height: 16px;
+  width: 16px;
 }
 
-.RI .NS-dok-logo-6 {
-  background-image: url(/img/gruppe-165-7.png);
-  background-position: 50% 50%;
-  background-size: cover;
-  bottom: 29px;
-  height: 34px;
-  left: 33px;
-  position: absolute;
-  width: 45px;
-}
-
-.RI .text-wrapper-28 {
-  bottom: 26px;
-  color: #fae5ba;
-  display: block;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 11px;
-  font-style: italic;
-  font-weight: 700;
-  height: 14px;
-  letter-spacing: 0;
-  line-height: 11px;
-  position: absolute;
-  right: 38px;
-  text-align: right;
-  white-space: nowrap;
-  width: 58px;
-}
-
-.RI .text-wrapper-29 {
-  bottom: 50px;
-  color: #fae5ba;
-  display: block;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 11px;
-  font-style: italic;
-  font-weight: 700;
-  height: 14px;
-  letter-spacing: 0;
-  line-height: 11px;
-  position: absolute;
-  right: 38px;
-  text-align: right;
-  white-space: nowrap;
-  width: 68px;
-}
-
-.RI .rechteck-13 {
-  background-color: #42435f;
-  height: calc(100% - 181px);
-  left: 0;
+/* --- Full-Width Center Stage (Fills all width, NO rounded corners) --- */
+.RI .ri-stage-wrapper {
   position: absolute;
   top: 91px;
+  bottom: 90px;
+  left: 0;
+  right: 0;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 0;
+  z-index: 5;
+}
+
+/* Full-bleed background across the entire width */
+.RI .rechteck-13 {
+  background-color: #42435f;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  border-radius: 0;
+  z-index: 1;
 }
 
 .RI .a {
-  height: calc(100% - 181px);
+  height: 100%;
+  width: 100%;
   left: 0;
+  top: 0;
   mix-blend-mode: multiply;
   object-fit: cover;
   position: absolute;
-  top: 91px;
-  width: 100%;
-}
-
-.RI .pfad-2 {
-  height: 65px;
-  object-fit: cover;
-  position: absolute;
-  right: 31px;
-  top: 110px;
-  width: 116px;
-}
-
-.RI .pfad-3 {
-  height: 65px;
-  object-fit: cover;
-  position: absolute;
-  right: calc(37.59% - 32px);
-  top: 105px;
-  width: 86px;
-}
-
-.RI .pfad-4 {
-  height: 62px;
-  left: calc(37.99% - 39px);
-  object-fit: cover;
-  position: absolute;
-  top: 108px;
-  width: 102px;
-}
-
-.RI .pfad-5 {
-  height: 120px;
-  left: 22px;
-  object-fit: cover;
-  position: absolute;
-  top: calc(23.11% - 28px);
-  width: 68px;
-}
-
-.RI .pfad-6 {
-  height: 126px;
-  object-fit: cover;
-  position: absolute;
-  right: calc(42.16% - 124px);
-  top: calc(18.88% - 24px);
-  width: 295px;
-}
-
-/* MAIN CARD CONTAINER */
-.RI .gruppe-11 {
-  bottom: calc(45.94% - 209px);
-  height: 455px;
-  position: absolute;
-  right: calc(41.72% - 111px);
-  width: 267px;
-}
-
-.RI .pfad-7 {
-  height: calc(100% + 18px);
-  left: -9px;
-  object-fit: cover;
-  position: absolute;
-  top: -6px;
-  width: calc(100% + 18px);
-  pointer-events: none;
-}
-
-/* SCROLLABLE TEXT AREA INSIDE MAIN CARD */
-.RI .text-content-container {
-  color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 14px;
-  line-height: 18px;
-  height: 380px;
-  width: 230px;
-  position: absolute;
-  top: 35px;
-  left: 18px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 6px;
-  box-sizing: border-box;
+  border-radius: 0;
   z-index: 2;
 }
 
-.RI .text-title {
-  font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 4px;
+/* Scaled interactive container sitting over the full-width background */
+.RI .ri-canvas-card {
+  width: 430px;
+  height: 751px;
+  position: relative;
+  transform-origin: center center;
+  border-radius: 0;
+  overflow: visible;
+  flex-shrink: 0;
+  z-index: 3;
 }
 
-/* VISIBLE SCROLLBAR */
+/* --- Interactive Polygon Tabs (Desktop Placement) --- */
+.RI .ri-tab {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  user-select: none;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.RI .ri-tab:hover {
+  transform: scale(1.04);
+  filter: brightness(1.06);
+}
+
+.RI .ri-tab:active {
+  transform: scale(0.96);
+}
+
+.RI .ri-tab-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* 1. Aktuelles (Pink Left Box) */
+.RI .tab-aktuelles {
+  left: 20px;
+  top: 32px;
+  width: 112px;
+  height: 68px;
+}
+
+/* 2. Galerie (Light-Blue Mid-Left Box) */
+.RI .tab-galerie {
+  left: 124px;
+  top: 17px;
+  width: 102px;
+  height: 62px;
+}
+
+/* 3. About (Dark-Blue Mid-Right Box) */
+.RI .tab-about {
+  right: 129px;
+  top: 14px;
+  width: 86px;
+  height: 65px;
+}
+
+/* 4. Buchen (Olive Far-Right Box) */
+.RI .tab-buchen {
+  right: 22px;
+  top: 19px;
+  width: 116px;
+  height: 65px;
+}
+
+/* 5. VIDEO (Vertical Orange Box on Left) */
+.RI .tab-video {
+  left: 22px;
+  top: 96px;
+  width: 68px;
+  height: 120px;
+}
+
+/* 6. Grüße von Remote Island (Center White Shape) */
+.RI .tab-gruesse {
+  right: 57px;
+  top: 61px;
+  width: 295px;
+  height: 126px;
+  z-index: 3;
+}
+
+/* Tab Labels */
+.RI .ri-tab-label {
+  position: relative;
+  z-index: 2;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.15;
+  pointer-events: none;
+}
+
+.RI .ri-tab-label-vertical {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.05;
+  pointer-events: none;
+}
+
+.RI .ri-vertical-char {
+  display: block;
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+.RI .ri-tab-label-gruesse {
+  position: relative;
+  z-index: 2;
+  color: #42435f;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  margin-top: -6px;
+  pointer-events: none;
+}
+
+/* --- Main Dark-Blue Content Polygon (pfad-243-1.png) --- */
+.RI .gruppe-11 {
+  position: absolute;
+  top: 215px;
+  bottom: 24px;
+  left: 16px;
+  right: 18px;
+  z-index: 5;
+}
+
+.RI .pfad-7 {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  object-fit: fill;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Scrollable Text Area Inside pfad-243-1.png */
+.RI .text-content-container {
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 13.5px;
+  line-height: 18px;
+  position: absolute;
+  top: 20px;
+  bottom: 55px;
+  left: 42px;
+  right: 34px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  box-sizing: border-box;
+  z-index: 6;
+}
+
 .RI .text-content-container::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 .RI .text-content-container::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
 }
 
@@ -268,144 +316,122 @@
   border-radius: 3px;
 }
 
-/* NAVIGATION BUTTON POSITIONS */
-.RI .buchen-als {
+/* --- Formatted Content Styles (from RemoteIslandMobileContent.jsx) --- */
+.RI .ri-mobile-text-block {
   color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 10px;
-  font-weight: 700;
-  height: 24px;
-  letter-spacing: 0;
-  line-height: 10px;
-  position: absolute;
-  right: calc(16.79% - 10px);
-  top: calc(14.44% - 3px);
-  white-space: nowrap;
-  width: 58px;
-  z-index: 3;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.42;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
 }
 
-.RI .text-wrapper-30 {
+.RI .ri-mobile-heading {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 14px 0 6px;
+  line-height: 1.35;
+}
+
+.RI .ri-mobile-heading:first-child {
+  margin-top: 0;
+}
+
+.RI .ri-mobile-paragraph {
+  margin: 0 0 12px;
+  white-space: pre-line;
+}
+
+.RI .ri-mobile-address-block {
+  margin: 0 0 12px;
+  white-space: pre-line;
+  line-height: 1.35;
+}
+
+.RI .ri-mobile-list {
+  margin: 0 0 14px;
+  padding-left: 14px;
+  list-style: none;
+}
+
+.RI .ri-mobile-list li {
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.RI .ri-mobile-list li::before {
+  content: "–";
+  position: absolute;
+  left: -12px;
+}
+
+.RI .ri-mobile-inline-link {
   color: #fae5ba;
-  display: block;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 10px;
+  text-decoration: underline;
   font-weight: 700;
-  height: 13px;
-  letter-spacing: 0;
-  line-height: 10px;
-  position: absolute;
-  right: calc(39.91% - 14px);
-  top: calc(14.21% - 2px);
-  white-space: nowrap;
-  width: 36px;
-  z-index: 3;
+  cursor: pointer;
 }
 
-.RI .buchen-als-gruppe {
-  color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 10px;
-  font-weight: 700;
-  height: 24px;
-  left: calc(38.74% - 21px);
-  letter-spacing: 0;
-  line-height: 10px;
-  position: absolute;
-  top: calc(13.70% - 3px);
-  white-space: nowrap;
-  width: 53px;
-  z-index: 3;
+/* --- Footer Logo & Right-Aligned Links --- */
+.RI .NS-dok-logo-6 {
+  background-image: url(/img/gruppe-165-7.png);
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  bottom: 28px;
+  height: 34px;
+  left: 24px;
+  position: fixed;
+  width: 45px;
+  z-index: 25;
 }
 
-.RI .gruppe-12 {
-  display: block;
-  height: 57px;
-  left: 29px;
-  position: absolute;
-  top: 129px;
-  width: 98px;
-  z-index: 3;
-}
-
-.RI .text-wrapper-31 {
-  bottom: calc(47.24% - 6px);
-  color: #fae5ba;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 10px;
-  font-weight: 700;
-  height: 13px;
-  left: calc(34.25% - 23px);
-  letter-spacing: 0;
-  line-height: 10px;
-  position: absolute;
-  white-space: nowrap;
-  width: 67px;
-}
-
-.RI .text-wrapper-32 {
-  color: #42435f;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 10px;
-  font-weight: 700;
-  height: 13px;
-  left: calc(49.01% - 15px);
-  letter-spacing: 0;
-  line-height: 10px;
-  position: absolute;
-  top: calc(20.08% - 3px);
-  white-space: nowrap;
-  width: 30px;
-  z-index: 3;
-}
-
-/* OVERLAY VIDEO STYLING */
-.RI .video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(9, 10, 11, 0.95);
-  z-index: 100;
+.RI .ri-footer-links {
+  position: fixed;
+  right: 24px;
+  bottom: 30px;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 25;
+}
+
+.RI .ri-footer-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.RI .ri-footer-link.active,
+.RI .ri-footer-link:hover {
+  color: #a59342;
+}
+
+/* --- Video & Gallery Modals (Matched to Bd.jsx / styleBd.css) --- */
+.RI .video-modal-backdrop,
+.RI .ri-gallery-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 15px;
+  z-index: 100;
+  padding: 16px;
   box-sizing: border-box;
-}
-
-.RI .video-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-}
-
-.RI .video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.RI .video-close-btn {
-  position: absolute;
-  top: 25px;
-  right: 20px;
-  background: #fae5ba;
-  color: #090a0b;
-  font-family: "Ubuntu", Helvetica;
-  font-size: 11px;
-  font-weight: 700;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 16px;
-  cursor: pointer;
-  z-index: 101;
 }
 
 video::-internal-media-controls-download-button {
@@ -418,4 +444,157 @@ video::-webkit-media-controls-enclosure {
 
 video::-webkit-media-controls-panel {
   width: calc(100% + 30px); /* Hides overflow menu icons on Chromium */
+}
+
+.RI .video-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  background-color: #1c1c1c;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #fae5ba;
+}
+
+.RI .video-modal-close {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fae5ba;
+  color: #090a0b;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.RI .video-modal-close:hover {
+  background-color: #a59342;
+  color: #ffffff;
+}
+
+.RI .popup-video-element {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.RI .ri-gallery-modal {
+  position: relative;
+  width: 100%;
+  max-height: 80dvh;
+  background-color: #42435f;
+  border-radius: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #fae5ba;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+.RI .ri-gallery-scroll {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE and Edge */
+}
+
+.RI .ri-gallery-scroll::-webkit-scrollbar {
+  display: none;               /* Chrome, Safari, iOS/iPadOS */
+}
+
+.RI .ri-gallery-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid #fae5ba;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Tablet & iPad Responsive Scaling (768px and up) — Matches Bd.jsx
+   ========================================================================== */
+@media (min-width: 768px) {
+  .RI .rechteck-11 {
+    height: 100px;
+  }
+
+  .RI .rechteck-12 {
+    height: 100px;
+  }
+
+  .RI .ri-stage-wrapper {
+    top: 100px;
+    bottom: 100px;
+  }
+
+  /* 1. Top Toggle & Header Text */
+  .RI .gruppe-10 {
+    width: min(420px, 85vw);
+    height: 36px;
+    top: 32px;
+  }
+
+  .RI .text-wrapper-26 {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .RI .text-wrapper-27 {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .RI .schalter-5 {
+    width: 62px;
+    height: 26px;
+    border-radius: 26px;
+    padding: 0 3px;
+  }
+
+  .RI .uncheck-6 {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* 2. Footer Logo & Links */
+  .RI .NS-dok-logo-6 {
+    width: 60px;
+    height: 45px;
+    left: 32px;
+    bottom: 24px;
+  }
+
+  .RI .ri-footer-links {
+    right: 32px;
+    bottom: 34px;
+    gap: 10px;
+  }
+
+  .RI .ri-footer-link {
+    font-size: 14px;
+  }
+
+  .RI .video-modal-container,
+  .RI .ri-gallery-modal {
+    max-width: 720px;
+  }
 }

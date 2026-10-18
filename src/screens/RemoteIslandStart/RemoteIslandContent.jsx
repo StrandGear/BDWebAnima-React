@@ -30,8 +30,9 @@ export const buchenContent = [
     type: "p", 
     parts: [
       { text: "Gruppengröße:", bold: true },
-      "\n15-35 Personen\n\n",
-      { text: "Dauer:", bold: true },
+      "\n15-35 Personen\nAngebote für Einzelpersonen und kleinere Gruppen unter ",
+      { text: "Aktuelles", tabLink: "aktuelles" }, 
+      { text: "\n\nDauer:", bold: true },
       "\n3 Stunden"
     ] 
   },
@@ -69,8 +70,8 @@ export const buchenContent = [
 ];
 
 export const gruesseContent = [
-  { type: "p", text: "Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:" },
-  { type: "p", text: "\"REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt.\"" },
+  { type: "h", text: "Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:" },
+  { type: "p", text: "\n\"REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt.\"" },
   { type: "p", text: "\"Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion.\"" },
   { type: "p", text: "\"Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!\"" },
   { type: "p", text: "\"TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!\"" },
@@ -81,7 +82,7 @@ export const gruesseContent = [
 ];
 
 export const aktuellesContent = [
-  { type: "h", text: "Öffentliche Spieltermine im Rahmen des Köln-Tags:" },
+  { type: "h", text: "Öffentliche Spieltermine für Einzelbesuchende und kleinere Gruppen im Rahmen des Köln-Tags:" },
 
   {
     type: "p",
@@ -110,7 +111,14 @@ export const aktuellesContent = [
   },
   { 
     type: "p", 
-    text: "Museumsnacht-Special: Sa, 07. Nov. 2026" 
+    text: "\nMuseumsnacht-Special: Sa, 07. Nov. 2026" 
+  },
+  { 
+    type: "p", 
+    parts: [
+      { text: "Entdeckt bei der Museumsnacht Remote Island im NS-DOK und sprecht mit unseren Inselscout*innen zur Idee und den Inhalten des Demokratiespiels zwischen 18:30 Uhr und 24:00 Uhr. Eine separate Anmeldung ist nicht notwendig.", 
+        cursive: true },
+    ] 
   },
 ];
 
@@ -321,11 +329,27 @@ poststelle@ldi.nrw.de`,
   // },
 ];
 
-const renderParts = (parts) =>
+const renderParts = (parts, setActiveTab) =>
   parts.map((part, i) => {
     // Wenn es ein normaler String ist
     if (typeof part === "string") {
       return <React.Fragment key={i}>{part}</React.Fragment>;
+    }
+
+    if (part.tabLink) {
+      return (
+        <span
+          key={i}
+          onClick={() => setActiveTab && setActiveTab(part.tabLink)}
+          style={{ 
+            textDecoration: "underline", 
+            cursor: "pointer", 
+            color: "inherit" 
+          }}
+        >
+          {part.text}
+        </span>
+      );
     }
     
     // Wenn es ein Link ist (hat ein href-Attribut)
@@ -350,13 +374,17 @@ const renderParts = (parts) =>
       return <strong key={i}>{part.text}</strong>;
     }
 
+    if (part.italic || part.cursive) {
+      return <em key={i}>{part.text}</em>;
+    }
+
     return null;
   });
 
-export const RemoteIslandTextContent = ({ content }) => (
+export const RemoteIslandTextContent = ({ content, setActiveTab }) => (
   <div className="text-main-block">
     {content.map((node, i) => {
-      const body = node.parts ? renderParts(node.parts) : node.text;
+      const body = node.parts ? renderParts(node.parts, setActiveTab) : node.text;
 
       // Wenn es eine Überschrift ist
       if (node.type === "h") {

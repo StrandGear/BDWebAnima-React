@@ -249,11 +249,11 @@
 
 .remote-island-start .text-content-container {
   position: absolute;
-  top: calc(29.98% - 17px);
+  top: calc(29.98% - 50px);
   left: calc(28.55% - 137px);
   width: 480px;
   /* Adjust max-height and overflow if your placeholder text gets too long */
-  max-height: 530px;
+  max-height: 560px;
   overflow-y: auto; 
 }
 
@@ -269,9 +269,17 @@
 .remote-island-start .text-main-block strong {
   font-weight: 700; /* Erzwingt, dass das strong-Tag wirklich fett ist */
 }
+.remote-island-start .text-main-block em {
+  font-style: italic;
+}
+.remote-island-start .text-main-block strong em,
+.remote-island-start .text-main-block em strong {
+  font-weight: 700;
+  font-style: italic;
+}
 
 .remote-island-start .text-sub-block {
-  line-height: 18px;
+  line-height: 22px;
   margin-bottom: 20px;
 }
 

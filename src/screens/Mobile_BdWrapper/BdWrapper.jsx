@@ -89,28 +89,24 @@ export const BdWrapper = () => {
 
   return (
     <div className="BD-wrapper">
-      <Link className="wiederholungsraster-3" to="/bd">
-        <div className="auto-flex-3">
-          <div className="div-3" />
-          <div className="div-3" />
-          <div className="div-3" />
+  <div className="wiederholungsraster-3">
+        <div className="auto-flex-2">
+          <div className="div-2" />
+          <div className="div-2" />
+          <div className="div-2" />
         </div>
-{/*         <div className="auto-flex-3">
-          <div className="div-3" />
-          <div className="div-3" />
-          <div className="div-3" />
-        </div> */}
-      </Link>
+      </div>
+
       <div className="rechteck-5" />
       <div className="rechteck-6" />
       {/* Top Toggle Header */}
-      {/* <Link className="gruppe-6" to="/ri">
+      <Link className="gruppe-6" to="/ri">
         <div className="text-wrapper-10">BUILDING DEMOCRACY</div>
         <div className="schalter-2">
           <div className="uncheck-3" />
         </div>
         <div className="text-wrapper-11">REMOTE ISLAND</div>
-      </Link> */}
+      </Link>
       
       {/* Footer links */}
       <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
@@ -155,15 +151,6 @@ export const BdWrapper = () => {
         Spielaleitung
         <br />
         Download
-      </div>
-      <div className="ergebnis-beitr-ge-2">
-        Ergebnis-
-        <br />
-        beiträge
-      </div>
-
-      <div className="gruppe-7">
-        <div className="text-wrapper-14">Tap to start!</div>
       </div>
       <div
         className="k-nigin-luise-schule-wrapper testimony-flip-outer"

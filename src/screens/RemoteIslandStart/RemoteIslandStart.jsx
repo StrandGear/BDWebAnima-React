@@ -187,12 +187,12 @@ export const RemoteIslandStart = () => {
 
         {/* --- MERGED & SWITCHABLE TEXT CONTAINER --- */}
         <div className="text-content-container">
-          {activeTab === "default" && <RemoteIslandTextContent content={aboutContent} />}
-          {activeTab === "about" && <RemoteIslandTextContent content={aboutContent} />}
-          {activeTab === "greetings" && <RemoteIslandTextContent content={gruesseContent} />}
-          {activeTab === "aktuelles" && <RemoteIslandTextContent content={aktuellesContent} />}
-          {activeTab === "buchen" && <RemoteIslandTextContent content={buchenContent} />}
-          {activeTab === "impressum" && <RemoteIslandTextContent content={impressumUndDatenschutz} />}
+          {activeTab === "default" && <RemoteIslandTextContent content={aboutContent} setActiveTab={setActiveTab} />}
+          {activeTab === "about" && <RemoteIslandTextContent content={aboutContent} setActiveTab={setActiveTab} />}
+          {activeTab === "greetings" && <RemoteIslandTextContent content={gruesseContent} setActiveTab={setActiveTab} />}
+          {activeTab === "aktuelles" && <RemoteIslandTextContent content={aktuellesContent} setActiveTab={setActiveTab} />}
+          {activeTab === "buchen" && <RemoteIslandTextContent content={buchenContent} setActiveTab={setActiveTab} />}
+          {activeTab === "impressum" && <RemoteIslandTextContent content={impressumUndDatenschutz} setActiveTab={setActiveTab} />}
         </div>
 
         {/* Buttons */}

@@ -5,31 +5,26 @@
   width: 100vw;
   position: fixed;
   overflow: hidden;
+  inset: 0;
 }
 
 .BD .wiederholungsraster {
-  align-items: flex-end;
-  display: flex;
-  height: 100%;
+  position: absolute;
+  top: 80px;
+  bottom: 90px;
   left: 0;
   width: 100%;
-  position: absolute;
-  top: 0;
+  background-image: url(/img/waves-01-4.png);
+  background-repeat: repeat;
+  background-position: center top;
+  /* Keeps the exact same wave scale/aspect ratio across phones & tablets without cropping */
+  background-size: 430px auto;
+  z-index: 1;
 }
 
-.BD .auto-flex {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
+.BD .auto-flex,
 .BD .div {
-  background-position: 50% 50%;
-  background-size: cover;
-  flex: 1;
-  width: 100%;
+  display: none;
 }
 
 /* --- Responsive Unity Container --- */
@@ -77,8 +72,8 @@
 
 .BD .overlay-close-btn {
   position: absolute;
-  top: 12px;
-  right: 14px;
+  top: 2px;
+  right: 5px;
   background: transparent;
   border: none;
   color: #fae5ba;
@@ -146,7 +141,7 @@
 .BD .rechteck {
   background-color: #090a0b;
   box-shadow: 0px 3px 6px #00000029;
-  height: 91px;
+  height: 70px;
   left: 0;
   position: fixed;
   top: 0;
@@ -795,4 +790,171 @@ video::-webkit-media-controls-panel {
   to {
     visibility: hidden;
   }
+}
+
+/* ==========================================================================
+   Tablet & iPad Responsive Scaling (768px and up)
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* 1. Maximize the Unity & Overlay Container */
+  .BD .unity-mobile-container {
+    top: 100px;
+    height: calc(100dvh - 200px); /* Uses full vertical space between bars */
+    max-height: none;             /* Removes the 720px cap */
+    /* Scales width proportionally with height (9:16 portrait) while leaving room for side arrows */
+    width: min(72vw, calc((100dvh - 200px) * 0.58));
+    border-radius: 28px;
+  }
+
+  .BD .start-screen-overlay,
+  .BD .loading-overlay,
+  .BD .info-overlay-card {
+    border-radius: 28px;
+  }
+
+  .BD .info-overlay-card {
+    padding: 36px 32px;
+  }
+
+  .BD .overlay-close-btn {
+    top: 18px;
+    right: 22px;
+    font-size: 24px;
+  }
+
+  /* 2. Scale up Start Screen Elements inside the container */
+  .BD .BD-logo-3 {
+    width: 180px;
+    height: 90px;
+    margin-bottom: 28px;
+  }
+
+  .BD .deine-demokratie-app-3 {
+    font-size: 18px;
+    margin-bottom: 50px;
+  }
+
+  .BD .button-3 {
+    width: 260px;
+    height: 65px;
+  }
+
+  .BD .text-wrapper-31 {
+    font-size: 18px;
+  }
+
+  /* 3. Slightly bigger Top Toggle & Header Text */
+  .BD .gruppe-2 {
+    width: min(420px, 85vw);
+    height: 36px;
+    top: 32px;
+  }
+
+  .BD .text-wrapper {
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  .BD .text-wrapper-2 {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .BD .schalter {
+    width: 62px;
+    height: 26px;
+    border-radius: 26px;
+  }
+
+  .BD .uncheck {
+    width: 20px;
+    height: 20px;
+    margin-left: 3px;
+  }
+
+  /* 4. Slightly bigger Side Arrows & Labels */
+  .BD .gruppe-3 {
+    left: min(24px, 3vw);
+    gap: 10px;
+  }
+
+  .BD .gruppe-4 {
+    right: min(24px, 3vw);
+    gap: 10px;
+  }
+
+  .BD .polygon {
+    width: 20px;
+  }
+
+  .BD .ergebnis-beitr-ge,
+  .BD .spielaleitung {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  /* 5. Slightly bigger Footer Logo & Links */
+  .BD .NS-dok-logo {
+    width: 60px;
+    height: 45px;
+    left: 32px;
+    bottom: 24px;
+  }
+
+  .BD .footer-links {
+    right: 32px;
+    bottom: 20px;
+    gap: 10px;
+  }
+
+  .BD .footer-link-btn {
+    font-size: 14px !important;
+  }
+
+  /* 6. Scale up Legal / Overlay Text & Input Preview Bar */
+  .BD .info-overlay-scroll .legal-text,
+  .BD .info-text-content {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .BD .info-overlay-scroll .legal-heading,
+  .BD .info-overlay-scroll .legal-credit-role {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .BD .video-modal-container {
+    max-width: 720px;
+  }
+
+  .input-preview-bar {
+    width: min(85vw, 480px);
+    font-size: 20px;
+    padding: 16px 24px;
+  }
+}
+
+.BD .footer-link,
+.BD .footer-link-btn,
+.BD-wrapper .footer-link,
+.BD-wrapper .footer-link-btn,
+.BD-screen .footer-link,
+.BD-screen .footer-link-btn {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 13px; /* Locks exact height for both <a> and <button> */
+  font-style: italic;
+  font-weight: 700;
+  text-align: right;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s ease;
 }

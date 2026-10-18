@@ -1,7 +1,20 @@
-import { Link } from "react-router-dom";
-import "./style.css";
-import { useState, useEffect } from "react"; // 1. Added useEffect here
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./style.css"; // Or "./styleRi.css" depending on your folder setup
 import { fetchVideoUrls } from "../../services/videoService";
+import { getVisualCenter } from "../../services/visualCenter";
+import {
+  aboutContentMobile,
+  buchenContentMobile,
+  gruesseContentMobile,
+  aktuellesContentMobile,
+  impressumUndDatenschutzMobile,
+  RemoteIslandMobileTextContent,
+} from "./RemoteIslandMobileContent";
+
+// Adjust this path if your desktop RemoteIslandStart route is named differently in App.jsx
+const DESKTOP_RI_ROUTE = "/remote-island-start";
+const DESKTOP_BREAKPOINT = 1024; // Switches to desktop above 1024px (keeps iPad Air/Mini in portrait on this view)
 
 export const VideoModal = ({ onClose, videoKey = "ri_video" }) => {
   const [videoUrl, setVideoUrl] = useState(null);
@@ -24,11 +37,11 @@ export const VideoModal = ({ onClose, videoKey = "ri_video" }) => {
     };
   }, [videoKey]);
 
-return (
+  return (
     <div className="video-modal-backdrop" onClick={onClose}>
       <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
-        <button 
-          className="video-modal-close" 
+        <button
+          className="video-modal-close"
           onClick={onClose}
           aria-label="Close"
         >
@@ -40,10 +53,10 @@ return (
             Loading Video...
           </div>
         ) : videoUrl ? (
-          <video 
-            src={videoUrl} 
-            controls 
-            autoPlay 
+          <video
+            src={videoUrl}
+            controls
+            autoPlay
             controlsList="nodownload"
             onContextMenu={(e) => e.preventDefault()}
             className="popup-video-element"
@@ -59,269 +72,292 @@ return (
 };
 
 export const Ri = () => {
-  // Track active tab for main card: "info", "about", "greetings", "booking"
-  const [activeTab, setActiveTab] = useState("info");
-  
-  // Track overlay video state
+  const navigate = useNavigate();
+
+  // Active tab: "about" (default), "aktuelles", "greetings", "buchen", "impressum"
+  const [activeTab, setActiveTab] = useState("about");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+
+  // Dynamically scale the 430x751 interactive layout so it fills mobile AND iPad screens
+  const [cardScale, setCardScale] = useState(1);
+
+  const [offsets, setOffsets] = useState({
+    aktuelles: { x: 0, y: 0 },
+    galerie: { x: 0, y: 0 },
+    about: { x: 0, y: 0 },
+    buchen: { x: 0, y: 0 },
+    video: { x: 0, y: 0 },
+    gruesse: { x: 0, y: 0 },
+  });
+
+  // --- CALCULATE PIXEL-PERFECT VISUAL CENTERS ON MOUNT ---
+  useEffect(() => {
+    const tabsToCalculate = [
+      { key: "aktuelles", src: "/img/pfad-237-2.png" },
+      { key: "galerie", src: "/img/pfad-236-3.png" },
+      { key: "about", src: "/img/pfad-235-3.png" },
+      { key: "buchen", src: "/img/pfad-234-3.png" },
+      { key: "video", src: "/img/pfad-238-3.png" },
+      { key: "gruesse", src: "/img/pfad-239-3.png" },
+    ];
+
+    Promise.all(
+      tabsToCalculate.map((tab) =>
+        getVisualCenter(tab.src).then((center) => ({
+          key: tab.key,
+          x: center.offsetX,
+          y: center.offsetY,
+        }))
+      )
+    )
+      .then((results) => {
+        const newOffsets = {};
+        results.forEach((res) => {
+          newOffsets[res.key] = { x: res.x, y: res.y };
+        });
+        setOffsets(newOffsets);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+
+      // 1. Automatic switch to Desktop screen when resolution increases
+      if (vw >= DESKTOP_BREAKPOINT && vw > vh) {
+        navigate(DESKTOP_RI_ROUTE, { replace: true });
+        return;
+      }
+
+      // 2. Calculate optimal scale to fit between top bar and bottom bar
+      const isTablet = vw >= 768;
+      const verticalBars = isTablet ? 200 : 181;
+      const availableHeight = vh - verticalBars;
+      const availableWidth = vw;
+
+      const scaleW = availableWidth / 430;
+      const scaleH = availableHeight / 751;
+      setCardScale(Math.min(scaleW, scaleH));
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [navigate]);
 
   return (
     <div className="RI">
+      {/* Top & Bottom Fixed Bars (Matches Bd.jsx) */}
       <div className="rechteck-11" />
       <div className="rechteck-12" />
 
-      {/* Top Header Link */}
+      {/* Centered Top Toggle Header */}
       <Link className="gruppe-10" to="/bd">
         <div className="text-wrapper-26">BUILDING DEMOCRACY</div>
-        <div className="text-wrapper-27">REMOTE ISLAND</div>
         <div className="schalter-5">
           <div className="uncheck-6" />
         </div>
+        <div className="text-wrapper-27">REMOTE ISLAND</div>
       </Link>
 
+      {/* Full-Width Stage between Header and Footer (No rounded corners) */}
+      <div className="ri-stage-wrapper">
+        {/* Full-bleed background fills 100% width & height without rounded corners */}
+        <div className="rechteck-13" />
+        <img className="a" alt="Background" src="/img/a-10731x2970-2.png" />
+
+        <div
+          className="ri-canvas-card"
+          style={{ transform: `scale(${cardScale})` }}
+        >
+          {/* --- TABS WITH DESKTOP PLACEMENT --- */}
+
+          {/* 1. Aktuelles */}
+          <div
+            className={`ri-tab tab-aktuelles ${activeTab === "aktuelles" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("aktuelles")}
+          >
+            <img className="ri-tab-bg" alt="Aktuelles" src="/img/pfad-237-2.png" />
+            <span
+              className="ri-tab-label"
+              style={{ transform: `translate(${offsets.aktuelles.x}px, ${offsets.aktuelles.y}px)` }}
+            >
+              Aktuelles
+            </span>
+          </div>
+
+          {/* 2. Galerie */}
+          <div
+            className="ri-tab tab-galerie"
+            onClick={() => setIsGalleryOpen(true)}
+          >
+            <img className="ri-tab-bg" alt="Galerie" src="/img/pfad-236-3.png" />
+            <span
+              className="ri-tab-label"
+              style={{ transform: `translate(${offsets.galerie.x}px, ${offsets.galerie.y}px)` }}
+            >
+              Galerie
+            </span>
+          </div>
+
+          {/* 3. About */}
+          <div
+            className={`ri-tab tab-about ${activeTab === "about" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("about")}
+          >
+            <img className="ri-tab-bg" alt="About" src="/img/pfad-235-3.png" />
+            <span
+              className="ri-tab-label"
+              style={{ transform: `translate(${offsets.about.x}px, ${offsets.about.y}px)` }}
+            >
+              About
+            </span>
+          </div>
+
+          {/* 4. Buchen */}
+          <div
+            className={`ri-tab tab-buchen ${activeTab === "buchen" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("buchen")}
+          >
+            <img className="ri-tab-bg" alt="Buchen" src="/img/pfad-234-3.png" />
+            <span
+              className="ri-tab-label"
+              style={{ transform: `translate(${offsets.buchen.x}px, ${offsets.buchen.y}px)` }}
+            >
+              Buchen
+            </span>
+          </div>
+
+          {/* 5. VIDEO */}
+          <div
+            className="ri-tab tab-video"
+            onClick={() => setIsVideoOpen(true)}
+          >
+            <img className="ri-tab-bg" alt="Video" src="/img/pfad-238-3.png" />
+            <span
+              className="ri-tab-label-vertical"
+              style={{ transform: `translate(${offsets.video.x}px, ${offsets.video.y}px)` }}
+            >
+              {"VIDEO".split("").map((char, index) => (
+                <span key={index} className="ri-vertical-char">
+                  {char}
+                </span>
+              ))}
+            </span>
+          </div>
+
+          {/* 6. Grüße von Remote Island */}
+          <div
+            className={`ri-tab tab-gruesse ${activeTab === "greetings" ? "is-active" : ""}`}
+            onClick={() => setActiveTab("greetings")}
+          >
+            <img className="ri-tab-bg" alt="Grüße" src="/img/pfad-239-3.png" />
+            <span
+              className="ri-tab-label-gruesse"
+              style={{ transform: `translate(${offsets.gruesse.x}px, ${offsets.gruesse.y}px)` }}
+            >
+              Grüße von
+              <br />
+              Remote Island
+            </span>
+          </div>
+
+          {/* --- MAIN CONTENT CARD (Now using pfad-243-1.png) --- */}
+          <div className="gruppe-11">
+            <img className="pfad-7" alt="Card Frame" src="/img/pfad-243-1.png" />
+
+            <div className="text-content-container">
+              {activeTab === "about" && (
+                <RemoteIslandMobileTextContent
+                  content={aboutContentMobile}
+                  setActiveTab={setActiveTab}
+                />
+              )}
+              {activeTab === "aktuelles" && (
+                <RemoteIslandMobileTextContent
+                  content={aktuellesContentMobile}
+                  setActiveTab={setActiveTab}
+                />
+              )}
+              {activeTab === "greetings" && (
+                <RemoteIslandMobileTextContent
+                  content={gruesseContentMobile}
+                  setActiveTab={setActiveTab}
+                />
+              )}
+              {activeTab === "buchen" && (
+                <RemoteIslandMobileTextContent
+                  content={buchenContentMobile}
+                  setActiveTab={setActiveTab}
+                />
+              )}
+              {activeTab === "impressum" && (
+                <RemoteIslandMobileTextContent
+                  content={impressumUndDatenschutzMobile}
+                  setActiveTab={setActiveTab}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Logo & Right-Aligned Links */}
       <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-6" />
-     <Link 
-      className="text-wrapper-28" 
-      to="/bd" 
-      state={{ activeView: "impressum" }}
-    >
-      Impressum
-    </Link>
-    <Link 
-      className="text-wrapper-29" 
-      to="/bd" 
-      state={{ activeView: "mitwirkende" }}
-    >
-      Mitwirkende 
-    </Link>
 
-      <div className="rechteck-13" />
-      <img className="a" alt="A" src="/img/a-10731x2970-2.png" />
-
-      {/* Decorative path shapes */}
-      <img className="pfad-2" alt="Pfad" src="/img/pfad-234-3.png" />
-      <img className="pfad-3" alt="Pfad" src="/img/pfad-235-3.png" />
-      <img className="pfad-4" alt="Pfad" src="/img/pfad-236-3.png" />
-      <img className="pfad-5" alt="Pfad" src="/img/pfad-238-3.png" />
-      <img className="pfad-6" alt="Pfad" src="/img/pfad-239-3.png" />
-
-      {/* Nav Buttons triggering content tabs */}
-      <div
-        className="buchen-als"
-        onClick={() => setActiveTab("booking")}
-        style={{ cursor: "pointer" }}
-      >
-        Buchen
+      <div className="ri-footer-links">
+        {/* <Link
+          className="ri-footer-link"
+          to="/bd"
+          state={{ activeView: "mitwirkende", from: "/ri" }}
+        >
+          Mitwirkende
+        </Link> */}
+        <button
+          className={`ri-footer-link ${activeTab === "impressum" ? "active" : ""}`}
+          onClick={() =>
+            setActiveTab((prev) => (prev === "impressum" ? "about" : "impressum"))
+          }
+        >
+          {activeTab === "impressum" ? "Home" : "Impressum"}
+        </button>
       </div>
 
-      <div
-        className="text-wrapper-30"
-        onClick={() => setActiveTab("info")}
-        style={{ cursor: "pointer" }}
-      >
-        Über uns
-      </div>
-
-      <div
-        className="buchen-als-gruppe"
-        onClick={() => setActiveTab("about")}
-        style={{ cursor: "pointer" }}
-      >
-        Galerie
-      </div>
-
-      <div
-        className="gruppe-12"
-        onClick={() => setActiveTab("greetings")}
-        style={{ cursor: "pointer" }}
-      >
-        <img className="pfad-7" alt="Pfad" src="/img/pfad-237-2.png" />
-        <div className="text-wrapper-31">
-          Grüße aus <br />
-          Remote Island
+      {/* Mobile / iPad Gallery Modal Overlay */}
+      {isGalleryOpen && (
+        <div
+          className="ri-gallery-backdrop"
+          onClick={() => setIsGalleryOpen(false)}
+        >
+          <div
+            className="ri-gallery-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="video-modal-close"
+              onClick={() => setIsGalleryOpen(false)}
+              aria-label="Close Gallery"
+            >
+              ✕
+            </button>
+            <div className="ri-gallery-scroll">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <img
+                  key={num}
+                  src={`/img/galerie/galerie-${num}.jpg`}
+                  alt={`Remote Island Galerie ${num}`}
+                  className="ri-gallery-img"
+                />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Video button opens video modal overlay */}
-      <div
-        className="text-wrapper-32"
-        onClick={() => setIsVideoOpen(true)}
-        style={{ cursor: "pointer" }}
-      >
-        Video
-      </div>
-
-      {/* MAIN CONTAINER WITH SWITCHABLE SCROLLABLE CONTENT */}
-      <div className="gruppe-11">
-        <img className="pfad-7" alt="Pfad" src="/img/pfad-242-1.png" />
-
-        <div className="text-content-container">
-          {activeTab === "info" && (
-            <div className="text-block">
-              <p className="text-title">
-                Abenteuer Demokratie auf einer Insel: Mithilfe spannender Challenges und
-                Fragen entscheiden die Teilnehmenden, wie sie ihr Zusammenleben auf
-                Remote Island organisieren wollen.
-              </p>
-              <p className="text-title">
-                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die
-                Spielenden selbstständig in Kleingruppen – ohne Lehrkräfte –
-                unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf
-                Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch
-                Challenges in den jeweiligen Räumen und durch anregende
-                Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie
-                ein Zusammenleben auf Remote Island organisiert werden kann.
-              </p>
-              <p className="text-title">
-                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse
-                und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den
-                jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer
-                abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus
-                dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-              </p>
-              <p className="text-title">
-                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie
-                die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel
-                auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich
-                diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst
-                Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem
-                Alltag?
-              </p>
-            </div>
-          )}
-
-          {activeTab === "about" && (
-            <div className="text-block"></div>
-          )}
-
-          {activeTab === "greetings" && (
-            <div className="text-block">
-              <p className="text-title">
-                Gruppen, die bereits auf Remote Island waren, haben Grüße und Gedanken dagelassen. Hier eine kleine Auswahl:
-              </p>
-              <p className="text-title">
-                "REMOTE ISLAND war eine sehr schöne und teambuildende Erfahrung, die zum Nachdenken anregt."
-              </p>
-              <p className="text-title">
-                "Das moderne Monopoly – um nicht nur mit deiner Familie zu streiten. Demokratie in Aktion."
-              </p>
-              <p className="text-title">
-                "Liebe Grüße – Habt viel Spaß und macht mal Musikvideos!"
-              </p>
-              <p className="text-title">
-                "TEILHABE IST ZUKUNFT und macht Freude! MACHT MIT!"
-              </p>
-              <p className="text-title">
-                "Unsere Entscheidungen haben Folgen!"
-              </p>
-              <p className="text-title">
-                "Stimmt zusammen ab und achtet auf einander!"
-              </p>
-              <p className="text-title">
-                "Demokratie ist schön – macht aber Arbeit."
-              </p>
-              <p className="text-title">
-                "Immer einigen. Spaß haben. Teamarbeit ist wichtig."
-              </p>
-            </div>
-          )}
-
-          {activeTab === "booking" && (
-            <div className="text-block">
-              <p className="text-intro">
-                Startscreen mit Karte und Räumen. Unterhalb davon befindet sich ein automatisch abgespielter Videoclip; oberhalb der Karte liegt ein automatischer Schieberegler zur App-Website.
-              </p>
-
-              <p className="text-title">Fotos</p>
-              <p className="text-sub-block">
-                4–5 Fotos von den Pressebildern.
-              </p>
-
-              <p className="text-title">Beschreibung des Angebots / About</p>
-              <p className="text-sub-block">
-                Nach einer globalen Apokalypse auf einer Insel gestrandet, müssen die Spielenden selbstständig in Kleingruppen – ohne Begleitung – unterschiedliche Aufgaben bewältigen. Dies geschieht in fünf Themenräumen: Schutz, Wohnen, Ernährung, Kultur und Arbeit. Durch Challenges in den jeweiligen Räumen und durch anregende Entscheidungsfragen setzen sich die Teilnehmenden damit auseinander, wie ein Zusammenleben auf Remote Island organisiert werden kann.
-              </p>
-              <p className="text-sub-block">
-                Im Inselrat diskutieren die Spielenden über ihre jeweiligen Ergebnisse und Positionen. Dabei treffen sie gemeinsam Entscheidungen zu den jeweiligen Themen und erstellen ihren eigenen Inselvertrag. In einer abschließenden Reflexionsphase werden die Erlebnisse und Erfahrungen aus dem Spiel mit den Lebenswelten der Teilnehmenden in Bezug gesetzt.
-              </p>
-              <p className="text-sub-block">
-                Wie sehen sie ihre jeweilige Rolle als Einzelne und wie beschreiben sie die Entscheidungsprozesse in den Gruppen? Was lässt sich aus dem Spiel auf unsere gesellschaftlichen Verhältnisse übertragen, wie lassen sich diese dadurch auch hinterfragen? Und wo sehen die Teilnehmenden selbst Möglichkeiten zur demokratischen Teilhabe und Partizipation in ihrem Alltag?
-              </p>
-
-              <p className="text-title">Buchen</p>
-              <p className="text-title">
-                <strong>Für wen:</strong> Remote Island eignet sich sowohl für Jugendgruppen (ab 14 Jahren / 9. Klasse) als auch für Erwachsenengruppen.
-              </p>
-              <p className="text-title">
-                <strong>Gruppengröße:</strong> 15–35 Personen<br />
-                <strong>Dauer:</strong> 3 Stunden
-              </p>
-
-              <p className="text-title">Kosten:</p>
-              <p className="text-title">
-                Schulklassen: 90 €<br />
-                Studierende &amp; Jugendgruppen: 150 €<br />
-                Erwachsene: 225 €<br />
-                Am Wochenende und feiertags fallen zusätzliche Gebühren an.<br />
-                Für Kölner Schulen sind sämtliche pädagogischen Angebote des NS-DOK kostenfrei.
-              </p>
-
-              <p className="text-title">
-                <strong>Für Schulklassen{' '} 
-                <a href="https://buchung.museenkoeln.de/angebotbuchen.aspx?angebot=1412" target="_blank" rel="noopener noreferrer">
-                  hier buchen
-                </a>
-                </strong><br />
-              </p>
-              <p className="text-title">
-                <strong>Für Erwachsenengruppen und außerschulische Jugendgruppen{' '}  
-                <a href="https://buchung.museenkoeln.de/angebotbuchen.aspx?inst=14&amp;angebot=1411" target="_blank" rel="noopener noreferrer">
-                  hier buchen
-                </a>
-                </strong><br />
-              </p>
-
-              <p className="text-title">Allgemeine Hinweise</p>
-              <p className="text-title">
-                Das Angebot findet in deutscher Sprache statt und wird durch eine teamende Person angeleitet.
-              </p>
-              <p className="text-title">
-                Remote Island kann von Personen mit einem Rollstuhl mit einer maximalen Breite von 75 cm genutzt werden.
-              </p>
-              <p className="text-title">
-                An einer Stelle des Inselspiels kommt es zu stroboskopähnlichen Effekten. Epilepsiegefährdete Personen sollten diesen Bereich meiden. Bitte teilen Sie uns dies bei der Buchung mit.
-              </p>
-              <p className="text-title">
-                Bitte beachten Sie, dass im Rahmen dieser Veranstaltung weder die Gedenkstätte noch die Dauerausstellung besucht werden und dass der Aufenthalt auf Remote Island über die Veranstaltung hinaus für Gruppen leider nicht möglich ist.
-              </p>
-              <p className="text-title">
-                Auch bei Schulklassen und Jugendgruppen gehen die Teilnehmenden allein durch die Installation. Lehrkräfte und Begleitpersonen nehmen in einem Aufenthaltsraum Platz und müssen für die gesamte Spieldauer ansprechbar sein.
-              </p>
-
-              <p className="text-title">Aktuelles</p>
-              <p className="text-title">
-                Vor allem aktuelle Termine, ggfs. aber auch sonstige Hinweise. Zum Start bitte folgender Text:
-              </p>
-              <p className="text-title">
-                <strong>Öffentliche Spieltermine im Rahmen des Köln-Tags:</strong><br />
-                Do, 01. Okt. 2026, 18 Uhr – Anmeldung<br />
-                Do, 05. Nov. 2026, 18 Uhr – Anmeldung<br />
-                Do, 03. Dez. 2026, 18 Uhr – Anmeldung<br />
-                Do, 07. Jan. 2027, 18 Uhr – Anmeldung
-              </p>
-              <p className="text-title">
-                Die Teilnahme ist im Rahmen des Köln-Tages kostenfrei und findet statt, sofern die Mindestteilnehmendenzahl erreicht ist.
-              </p>
-              <p className="text-title">
-                <strong>Museumsnacht-Special:</strong><br />
-                Sa, 07. Nov. 2026
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* 2. Fixed modal rendering using isVideoOpen state */}
+      {/* Video Modal Overlay */}
       {isVideoOpen && (
         <VideoModal onClose={() => setIsVideoOpen(false)} videoKey="ri_video" />
       )}

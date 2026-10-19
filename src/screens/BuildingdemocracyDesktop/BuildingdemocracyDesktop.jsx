@@ -214,14 +214,14 @@ export const BuildingdemocracyDesktop = () => {
         <div className="overlap-group-wrapper">
           <div className="overlap-group">
            {/* Top Bar with toggle */}
-            <Link className="schalter-mit" to="/remoteislandstart">
+            {/* <Link className="schalter-mit" to="/remoteislandstart">
               <div className="text-wrapper">BUILDING DEMOCRACY</div>
               <div className="text-wrapper-2">REMOTE ISLAND</div>
               <div className="schalter">
                 <div className="rechteck" />
                 <div className="uncheck" />
               </div>
-            </Link>
+            </Link> */}
             <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo" />
 
             <div className="middle-screen">

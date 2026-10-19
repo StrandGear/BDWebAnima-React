@@ -100,13 +100,13 @@ export const BdWrapper = () => {
       <div className="rechteck-5" />
       <div className="rechteck-6" />
       {/* Top Toggle Header */}
-      <Link className="gruppe-6" to="/ri">
+      {/* <Link className="gruppe-6" to="/ri">
         <div className="text-wrapper-10">BUILDING DEMOCRACY</div>
         <div className="schalter-2">
           <div className="uncheck-3" />
         </div>
         <div className="text-wrapper-11">REMOTE ISLAND</div>
-      </Link>
+      </Link> */}
       
       {/* Footer links */}
       <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />

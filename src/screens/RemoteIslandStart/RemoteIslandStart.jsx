@@ -149,14 +149,14 @@ export const RemoteIslandStart = () => {
         <div className="rechteck-11" />
 
         {/* Navigation and Main Content */}
-        <Link className="schalter-mit-2" to="/buildingdemocracy-start">
+        {/* <Link className="schalter-mit-2" to="/buildingdemocracy-start">
           <div className="text-wrapper-16">BUILDING DEMOCRACY</div>
           <div className="text-wrapper-17">REMOTE ISLAND</div>
           <div className="schalter-3">
             <div className="rechteck-12" />
             <div className="uncheck-3" />
           </div>
-        </Link>
+        </Link> */}
 
         {/* Background/Static decorative images */}
         {/* <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />

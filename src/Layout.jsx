@@ -1,14 +1,24 @@
-import React from "react";
+// src/Layout.jsx
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { useWindowSize } from "./useWindowSize";
 
 export const Layout = () => {
-  const { isMobile, windowWidth } = useWindowSize();
+  const [isMobile, setIsMobile] = useState(() => {
+    return window.innerWidth < 1024 || window.innerHeight > window.innerWidth;
+  });
 
-  return (
-    <div className="app-layout">
-      {/* Pass isMobile and windowWidth down to all routes automatically */}
-      <Outlet context={{ isMobile, windowWidth }} />
-    </div>
-  );
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024 || window.innerHeight > window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
+  }, []);
+
+  return <Outlet context={{ isMobile }} />;
 };

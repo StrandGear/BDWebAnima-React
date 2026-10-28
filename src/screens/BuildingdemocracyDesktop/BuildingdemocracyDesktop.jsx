@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Unity, useUnityContext } from "react-unity-webgl";
+// import { Unity, useUnityContext } from "react-unity-webgl";
 import "../../services/firebase";
 import { Link, useLocation } from "react-router-dom";
 import { fetchApprovedTestimonies } from "../../services/testimonyService";
@@ -105,17 +105,19 @@ export const BuildingdemocracyDesktop = () => {
     }
   }, [location.state]);
   
-  const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+  // const [isFirebaseReady, setIsFirebaseReady] = useState(false);
   const [testimonies, setTestimonies] = useState([]);
 
   // Unity start & loading state trackers
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [showReloadPrompt, setShowReloadPrompt] = useState(false);
+  // const [showReloadPrompt, setShowReloadPrompt] = useState(false);
 
+  /*
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
   }, []);
+  */
 
   useEffect(() => {
     let cancelled = false;
@@ -129,6 +131,7 @@ export const BuildingdemocracyDesktop = () => {
 
   const [slot0, slot1, slot2, slot3] = testimonies;
 
+  /* --- COMMENTED OUT EMBEDDED UNITY LOGIC ---
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
     dataUrl: "/unity/Build/5a35c858ac421439dcf8ca1f1924def1.data",
@@ -207,6 +210,7 @@ export const BuildingdemocracyDesktop = () => {
     }
     return () => clearTimeout(timer);
   }, [isGameStarted, isLoaded]);
+  --- END COMMENTED OUT EMBEDDED UNITY LOGIC --- */
 
   return (
     <DesktopLayout>
@@ -232,6 +236,7 @@ export const BuildingdemocracyDesktop = () => {
               <div className="smartphone-screen">
 
                 {/* Unity Container (Preloads in background, visible only when started and loaded) */}
+                {/* 
                 <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : "active"}`}>
                   {isFirebaseReady && (
                     <Unity 
@@ -245,6 +250,7 @@ export const BuildingdemocracyDesktop = () => {
                     />
                   )}
                 </div>
+                */}
 
                 {/* Start Screen Overlay */}
                 {!isGameStarted && (
@@ -256,13 +262,22 @@ export const BuildingdemocracyDesktop = () => {
                     <div className="desktop-deine-demokratie-app">
                       Deine Demokratie-App<br />lokal. digital. interaktiv
                     </div>
-                    <button className="desktop-start-btn" onClick={() => setIsGameStarted(true)}>
+                    {/* Opens external link in new tab instead of starting embedded Unity */}
+                    <a
+                      href="https://app.remote-island.de/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="desktop-start-btn"
+                      style={{ textDecoration: "none" }}
+                      // onClick={() => setIsGameStarted(true)}
+                    >
                       <span className="desktop-start-btn-text">Tap to start!</span>
-                    </button>
+                    </a>
                   </div>
                 )}
 
                 {/* Loading Progress Overlay */}
+                {/* 
                 {isGameStarted && !isLoaded && (
                   <div className="desktop-loading-overlay">
                     <div className="desktop-loading-text">
@@ -284,6 +299,7 @@ export const BuildingdemocracyDesktop = () => {
                     )}
                   </div>
                 )}
+                */}
 
                 {/* Impressum / Mitwirkende Overlays */}
                 {activeView !== "game" && (

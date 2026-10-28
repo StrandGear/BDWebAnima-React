@@ -6,6 +6,7 @@
   position: fixed;
   overflow: hidden;
   inset: 0;
+  touch-action: pan-x pan-y;
 }
 
 .BD .wiederholungsraster {

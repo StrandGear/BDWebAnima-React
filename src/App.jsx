@@ -56,6 +56,14 @@ const router = createBrowserRouter([
         path: "/*",
         element: <Buildingdemocracy />,
       },
+          {
+      path: "/buildingdemocracy-gallery",
+      element: <DivWrapper />,
+    },
+    {
+      path: "/buildingdemocracy-start-2",
+      element: <Screen4 />,
+    },
     ],
   },
 ]);

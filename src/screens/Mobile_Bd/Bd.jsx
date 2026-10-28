@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Unity, useUnityContext } from "react-unity-webgl";
+// import { Unity, useUnityContext } from "react-unity-webgl";
 import "../../services/firebase"; 
 import "./style.css";
 import { LegalText, legalContent, mitwirkendeContent } from "./LegalText";
@@ -140,11 +140,11 @@ export const Bd = () => {
   const [activeView, setActiveView] = useState(
     location.state?.activeView || "game"
   );
-  const [isFirebaseReady, setIsFirebaseReady] = useState(false);
+  // const [isFirebaseReady, setIsFirebaseReady] = useState(false);
 
   // New States for Start Screen and Loading Timeout
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [showReloadPrompt, setShowReloadPrompt] = useState(false);
+  // const [showReloadPrompt, setShowReloadPrompt] = useState(false);
 
   // Sync state if navigation state changes while mounted
   useEffect(() => {
@@ -153,52 +153,55 @@ export const Bd = () => {
     }
   }, [location.state]);
 
+  /*
   useEffect(() => {
     const timer = setTimeout(() => setIsFirebaseReady(true), 500);
     return () => clearTimeout(timer);
   }, []);
+  */
   
-useEffect(() => {
-  const handleResize = () => {
-    // no longer resizing .BD — just keep the page pinned
-    window.scrollTo(0, 0);
-  };
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener("resize", handleResize);
-    window.visualViewport.addEventListener("scroll", handleResize);
-  }
-  return () => {
+  useEffect(() => {
+    const handleResize = () => {
+      // no longer resizing .BD — just keep the page pinned
+      window.scrollTo(0, 0);
+    };
     if (window.visualViewport) {
-      window.visualViewport.removeEventListener("resize", handleResize);
-      window.visualViewport.removeEventListener("scroll", handleResize);
+      window.visualViewport.addEventListener("resize", handleResize);
+      window.visualViewport.addEventListener("scroll", handleResize);
     }
-  };
-}, []);
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener("resize", handleResize);
+        window.visualViewport.removeEventListener("scroll", handleResize);
+      }
+    };
+  }, []);
 
   // in Bd.jsx, or in index.html as a global script
   useEffect(() => { 
-  const lockScroll = () => {
-    window.scrollTo(0, 0);
-    document.body.scrollTop = 0;
-  };
+    const lockScroll = () => {
+      window.scrollTo(0, 0);
+      document.body.scrollTop = 0;
+    };
 
-  const handleFocusIn = (e) => {
-    if (e.target.matches('input, textarea')) {
-      // iOS shifts the layout viewport asynchronously during keyboard animation,
-      // so keep stomping the scroll position for the duration of that animation
-      let ticks = 0;
-      const raf = () => {
-        lockScroll();
-        if (ticks++ < 30) requestAnimationFrame(raf); // ~0.5s at 60fps
-      };
-      requestAnimationFrame(raf);
-    }
-  };
+    const handleFocusIn = (e) => {
+      if (e.target.matches('input, textarea')) {
+        // iOS shifts the layout viewport asynchronously during keyboard animation,
+        // so keep stomping the scroll position for the duration of that animation
+        let ticks = 0;
+        const raf = () => {
+          lockScroll();
+          if (ticks++ < 30) requestAnimationFrame(raf); // ~0.5s at 60fps
+        };
+        requestAnimationFrame(raf);
+      }
+    };
 
-  document.addEventListener('focusin', handleFocusIn);
-  return () => document.removeEventListener('focusin', handleFocusIn);
-}, []);
+    document.addEventListener('focusin', handleFocusIn);
+    return () => document.removeEventListener('focusin', handleFocusIn);
+  }, []);
 
+  /* --- COMMENTED OUT EMBEDDED UNITY LOGIC ---
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
     dataUrl: "/unity/Build/5a35c858ac421439dcf8ca1f1924def1.data",
@@ -277,6 +280,7 @@ useEffect(() => {
     }
     return () => clearTimeout(timer);
   }, [isGameStarted, isLoaded]);
+  --- END COMMENTED OUT EMBEDDED UNITY LOGIC --- */
 
   // Handler to toggle overlay view or return to game
   const handleToggleView = (targetView) => {
@@ -305,6 +309,7 @@ useEffect(() => {
       <div className="unity-mobile-container">
 
         {/* The Unity Canvas mounts immediately to preload, but is hidden until started and loaded */}
+        {/* 
         <div className={`unity-wrapper ${activeView !== "game" ? "hidden-behind" : ""}`}>
           {isFirebaseReady && (
             <Unity 
@@ -313,6 +318,7 @@ useEffect(() => {
             />
           )}
         </div>
+        */}
 
         {/* Start Screen Overlay */}
         {!isGameStarted && (
@@ -324,13 +330,22 @@ useEffect(() => {
             <div className="deine-demokratie-app-3">
               Deine Demokratie-App<br />lokal. digital. interaktiv
             </div>
-            <button className="button-3" onClick={() => setIsGameStarted(true)}>
+            {/* Opens external link in new tab instead of starting embedded Unity */}
+            <a
+              href="https://app.remote-island.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-3"
+              style={{ textDecoration: "none" }}
+              // onClick={() => setIsGameStarted(true)}
+            >
               <span className="text-wrapper-31">Tap to start!</span>
-            </button>
+            </a>
           </div>
         )}
 
         {/* Custom Loading Screen Overlay */}
+        {/* 
         {isGameStarted && !isLoaded && (
           <div className="loading-overlay">
             <div className="loading-text-centered">Loading Game... {Math.round(loadingProgression * 100)}%</div>
@@ -348,6 +363,7 @@ useEffect(() => {
             )}
           </div>
         )}
+        */}
 
         {/* Purple Overlay Container rendered on top when activeView !== "game" */}
         {activeView !== "game" && (

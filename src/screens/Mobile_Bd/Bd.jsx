@@ -201,9 +201,9 @@ useEffect(() => {
 
   const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
     loaderUrl: "/unity/Build/9edd899bc6b6e0bbc4f46ff33ca0bba6.loader.js",
-    dataUrl: "/unity/Build/6640e2f4be267caee486349ef91bf17e.data",
-    frameworkUrl: "/unity/Build/005d4f487ee79e378e58dbac699c4593.framework.js",
-    codeUrl: "/unity/Build/5f016967b961d2540b171381efa4120a.wasm",
+    dataUrl: "/unity/Build/5a35c858ac421439dcf8ca1f1924def1.data",
+    frameworkUrl: "/unity/Build/6314cfac6f8a68e47bb8de07d85ba15e.framework.js",
+    codeUrl: "/unity/Build/885b52e40cdd83f0e86e748b14a2fa63.wasm",
     streamingAssetsUrl: "/unity/StreamingAssets",
 
     companyName: "NS-DOK Köln",

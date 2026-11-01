@@ -262,17 +262,18 @@ export const BuildingdemocracyDesktop = () => {
                     <div className="desktop-deine-demokratie-app">
                       Deine Demokratie-App<br />lokal. digital. interaktiv
                     </div>
+                    
                     {/* Opens external link in new tab instead of starting embedded Unity */}
                     <a
-                      href="https://app.remote-island.de/"
+                      href="/play"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="desktop-start-btn"
                       style={{ textDecoration: "none" }}
-                      // onClick={() => setIsGameStarted(true)}
                     >
                       <span className="desktop-start-btn-text">Tap to start!</span>
                     </a>
+
                   </div>
                 )}
 

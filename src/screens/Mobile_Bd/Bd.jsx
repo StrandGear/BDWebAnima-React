@@ -68,6 +68,7 @@ const KEYBOARD_HEIGHT_THRESHOLD = 100; // px — ignore tiny visualViewport jitt
 const InputPreviewBar = () => {
   const [preview, setPreview] = useState(null);
   const activeFieldRef = useRef(null);
+  const hadKeyboardOverlapRef = useRef(false);
 
   useEffect(() => {
     const isTextField = (el) =>
@@ -76,6 +77,7 @@ const InputPreviewBar = () => {
     const handleFocusIn = (e) => {
       if (!isTextField(e.target)) return;
       activeFieldRef.current = e.target;
+      hadKeyboardOverlapRef.current = false;
       setPreview(e.target.value);
     };
 
@@ -85,15 +87,19 @@ const InputPreviewBar = () => {
       }
     };
 
-    // Keyboard-closed detection only — not used for positioning anymore,
-    // just to catch the "Done/swipe dismiss without blur" case
     const checkKeyboardClosed = () => {
       const vv = window.visualViewport;
       if (!vv) return;
       const overlap = window.innerHeight - vv.height - vv.offsetTop;
-      if (overlap < 80) {
+
+      if (overlap >= 80) {
+        // Mark that the full on-screen keyboard actually opened
+        hadKeyboardOverlapRef.current = true;
+      } else if (hadKeyboardOverlapRef.current && overlap < 80) {
+        // Only close if the keyboard was open and just collapsed
         setPreview(null);
         activeFieldRef.current = null;
+        hadKeyboardOverlapRef.current = false;
       }
     };
 
@@ -101,6 +107,7 @@ const InputPreviewBar = () => {
       if (activeFieldRef.current && e.target === activeFieldRef.current) {
         setPreview(null);
         activeFieldRef.current = null;
+        hadKeyboardOverlapRef.current = false;
       }
     };
 
@@ -120,15 +127,12 @@ const InputPreviewBar = () => {
   if (preview === null) return null;
 
   return (
-    <>
-      {/* Floating preview bar with blinking cursor */}
-      <div className="input-preview-bar">
-        <span className="input-preview-text">
-          {preview || ""}
-          <span className="blinking-cursor">|</span>
-        </span>
-      </div>
-    </>
+    <div className="input-preview-bar">
+      <span className="input-preview-text">
+        {preview || ""}
+        <span className="blinking-cursor">|</span>
+      </span>
+    </div>
   );
 };
 
@@ -330,17 +334,18 @@ export const Bd = () => {
             <div className="deine-demokratie-app-3">
               Deine Demokratie-App<br />lokal. digital. interaktiv
             </div>
-            {/* Opens external link in new tab instead of starting embedded Unity */}
+
+            {/* Unity Build */}
             <a
-              href="https://app.remote-island.de/"
+              href="/play"
               target="_blank"
               rel="noopener noreferrer"
               className="button-3"
               style={{ textDecoration: "none" }}
-              // onClick={() => setIsGameStarted(true)}
             >
               <span className="text-wrapper-31">Tap to start!</span>
             </a>
+
           </div>
         )}
 

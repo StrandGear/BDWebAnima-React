@@ -16,6 +16,8 @@ import { BdScreen } from "./screens/Mobile_BdScreen";
 import { BdWrapper } from "./screens/Mobile_BdWrapper";
 import { Startscreen } from "./screens/Mobile_Startscreen";
 
+import { UnityFullscreen } from "./screens/UnityFullscreen/UnityFullscreen";
+
 const router = createBrowserRouter([
   {
     element: <Layout />, // Passes context={{ isMobile }} down
@@ -64,6 +66,10 @@ const router = createBrowserRouter([
       path: "/buildingdemocracy-start-2",
       element: <Screen4 />,
     },
+    {
+    path: "/play",
+    element: <UnityFullscreen />,
+    }
     ],
   },
 ]);

@@ -1003,3 +1003,227 @@ video::-webkit-media-controls-panel {
   font-weight: 700;
   cursor: pointer;
 }
+
+/* ==========================================================================
+   First-Time Onboarding Modal (Mobile, Tablet & Desktop)
+   ========================================================================== */
+.onboarding-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.onboarding-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background-color: #42435f;
+  border: 1px solid #fae5ba;
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+}
+
+.onboarding-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: #fae5ba;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-modal-close:hover {
+  color: #a59342;
+}
+
+.onboarding-modal-content {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.onboarding-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #fae5ba;
+}
+
+.onboarding-paragraph {
+  margin: 0 0 12px;
+  font-weight: 400;
+}
+
+.onboarding-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.onboarding-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.onboarding-btn:active {
+  transform: scale(0.98);
+}
+
+.onboarding-btn-download {
+  background-color: #a59342;
+  color: #090a0b;
+}
+
+.onboarding-btn-start {
+  background-color: rgba(250, 229, 186, 0.15);
+  color: #fae5ba;
+  border: 1px solid #fae5ba;
+}
+
+.onboarding-btn-download:hover,
+.onboarding-btn-start:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   First-Time Onboarding Modal (Mobile, Tablet & Desktop)
+   ========================================================================== */
+.onboarding-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.onboarding-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background-color: #42435f;
+  border: 1px solid #fae5ba;
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+  color: #fae5ba;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+}
+
+.onboarding-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  color: #fae5ba;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-modal-close:hover {
+  color: #a59342;
+}
+
+.onboarding-modal-content {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.onboarding-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #fae5ba;
+}
+
+.onboarding-paragraph {
+  margin: 0 0 12px;
+  font-weight: 400;
+}
+
+.onboarding-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.onboarding-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-family: "Ubuntu", Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.onboarding-btn:active {
+  transform: scale(0.98);
+}
+
+.onboarding-btn-download {
+  background-color: #a59342;
+  color: #090a0b;
+}
+
+.onboarding-btn-start {
+  background-color: rgba(250, 229, 186, 0.15);
+  color: #fae5ba;
+  border: 1px solid #fae5ba;
+}
+
+.onboarding-btn-download:hover,
+.onboarding-btn-start:hover {
+  opacity: 0.9;
+}

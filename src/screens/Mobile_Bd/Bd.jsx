@@ -63,7 +63,67 @@ export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
   );
 };
 
+const ONBOARDING_STORAGE_KEY = "bd_has_seen_onboarding";
+export const FirstTimeModal = ({ onClose, onProceed }) => {
+  return (
+    <div className="onboarding-modal-backdrop" onClick={onClose}>
+      <div
+        className="onboarding-modal-card"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          className="onboarding-modal-close"
+          onClick={onClose}
+          aria-label="Schließen"
+        >
+          ✕
+        </button>
+
+        <div className="onboarding-modal-content">
+          <p className="onboarding-title">
+            <strong>Zum ersten Mal bei Building Democracy?</strong>
+          </p>
+          <p className="onboarding-paragraph">
+            Dann schau dir zuerst die Anleitung an, bevor du mit „Tap to start!“
+            die Web App öffnest – vor allem wenn du als Spielleitung eine neue
+            Session beginnen möchtest. Die Anleitung findest du unten in der
+            Menüzeile.
+          </p>
+          <p className="onboarding-paragraph">
+            Building Democracy ist für die Nutzung auf dem Smartphone optimiert,
+            funktioniert aber auch auf Tablets und über den Desktop.
+          </p>
+          <p className="onboarding-paragraph" style={{ marginBottom: 0 }}>
+            Viel Spaß!
+          </p>
+        </div>
+
+        <div className="onboarding-modal-actions">
+          <a
+            href="/Anleitung.pdf"
+            download="Anleitung.pdf"
+            className="onboarding-btn onboarding-btn-download"
+          >
+            Anleitung herunterladen (PDF)
+          </a>
+
+          <a
+            href="/play"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-btn onboarding-btn-start"
+            onClick={onProceed}
+          >
+            Weiter zur Web App
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const KEYBOARD_HEIGHT_THRESHOLD = 100; // px — ignore tiny visualViewport jitter
+
 
 const InputPreviewBar = () => {
   const [preview, setPreview] = useState(null);
@@ -139,6 +199,24 @@ const InputPreviewBar = () => {
 export const Bd = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [showOnboardingModal, setShowOnboardingModal] = useState(false);
+
+  const handleStartClick = (e) => {
+    try {
+      const hasSeen = localStorage.getItem(ONBOARDING_STORAGE_KEY);
+      if (!hasSeen) {
+        // First time: prevent opening /play immediately and show the popup instead
+        e.preventDefault();
+        localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
+        setShowOnboardingModal(true);
+      }
+    } catch (err) {
+      // Fallback if localStorage is blocked (e.g. strict Safari private mode)
+      e.preventDefault();
+      setShowOnboardingModal(true);
+    }
+  };
 
   // Track initial active view passed from navigation state (e.g. from /bd-wrapper or /bd-2)
   const [activeView, setActiveView] = useState(
@@ -342,6 +420,7 @@ export const Bd = () => {
               rel="noopener noreferrer"
               className="button-3"
               style={{ textDecoration: "none" }}
+              onClick={handleStartClick}
             >
               <span className="text-wrapper-31">Tap to start!</span>
             </a>
@@ -446,6 +525,13 @@ export const Bd = () => {
         {activeView === "video" && (
           <VideoModal setActiveView={setActiveView} />
         )}
+
+        {showOnboardingModal && (
+        <FirstTimeModal
+          onClose={() => setShowOnboardingModal(false)}
+          onProceed={() => setShowOnboardingModal(false)}
+        />
+         )}
 
         <InputPreviewBar />
 

@@ -306,7 +306,13 @@ export const Ri = () => {
       </div>
 
       {/* Footer Logo & Right-Aligned Links */}
-      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-6" />
+      <Link 
+              to="https://nsdok.de/Start" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Zur Startseite" 
+              className="NS-dok-logo-6" 
+            />
 
       <div className="ri-footer-links">
         {/* <Link

@@ -273,7 +273,13 @@ export const RemoteIslandStart = () => {
           Impressum
         </div>
         {/* <div className="text-wrapper-33">Datenschutz</div> */}
-        <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-3" />
+        <Link 
+              to="https://nsdok.de/Start" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Zur Startseite" 
+              className="NS-dok-logo-3" 
+            />
         <div className="gruppe-26" />
 
         {/* Video Modal Popup */}

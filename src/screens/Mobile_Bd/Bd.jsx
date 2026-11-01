@@ -480,7 +480,13 @@ export const Bd = () => {
         <div className="text-wrapper-2">REMOTE ISLAND</div>
       </Link> */}
       
-      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo" />
+      <Link 
+                        to="https://nsdok.de/Start" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        aria-label="Zur Startseite" 
+                        className="NS-dok-logo" 
+                      />
       
       {/* Footer Navigation Buttons acting as overlay toggles */}
       <div className="footer-links">

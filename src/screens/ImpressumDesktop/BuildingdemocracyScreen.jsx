@@ -133,7 +133,13 @@ export const BuildingdemocracyScreen = () => {
             <div className="rechteck-6" />
             <div className="uncheck-2" />
           </Link>
-          <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-2" />
+          <Link 
+                        to="https://nsdok.de/Start" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        aria-label="Zur Startseite" 
+                        className="NS-dok-logo" 
+                      />
           <div className="gruppe-8">
             <button className="button-2">
               <div className="text-wrapper-10">Tap to start!</div>

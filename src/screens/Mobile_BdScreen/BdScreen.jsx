@@ -130,7 +130,13 @@ export const BdScreen = () => {
       </div>
 
       {/* Footer Logo & Aligned Links */}
-      <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-2" />
+      <Link 
+              to="https://nsdok.de/Start" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label="Zur Startseite" 
+              className="NS-dok-logo-2" 
+            />
       <div className="footer-links">
         <Link className="footer-link"
           to="/bd" 

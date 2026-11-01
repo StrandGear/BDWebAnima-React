@@ -128,7 +128,13 @@ export const DivWrapper = () => {
       <div className="div-wrapper">
         <div className="buildingdemocracy-3">
           <div className="overlap-group-3">
-            <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-4" />
+          <Link 
+                        to="https://nsdok.de/Start" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        aria-label="Zur Startseite" 
+                        className="NS-dok-logo-4" 
+                      />
 
             {/* 1. Nav Panel with clean horizontal layout */}
             <div className="auto">

@@ -66,10 +66,10 @@ const router = createBrowserRouter([
       path: "/buildingdemocracy-start-2",
       element: <Screen4 />,
     },
-    {
-    path: "/play",
-    element: <UnityFullscreen />,
-    }
+    // {
+    // path: "/play",
+    // element: <UnityFullscreen />,
+    // }
     ],
   },
 ]);

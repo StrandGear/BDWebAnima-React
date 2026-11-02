@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css"; // Or "./styleRi.css" depending on your folder setup
-import { fetchVideoUrls } from "../../services/videoService";
+// import { fetchVideoUrls } from "../../services/videoService";
 import { getVisualCenter } from "../../services/visualCenter";
 import {
   aboutContentMobile,
@@ -16,56 +16,41 @@ import {
 const DESKTOP_RI_ROUTE = "/remote-island-start";
 const DESKTOP_BREAKPOINT = 1024; // Switches to desktop above 1024px (keeps iPad Air/Mini in portrait on this view)
 
-export const VideoModal = ({ onClose, videoKey = "ri_video" }) => {
-  const [videoUrl, setVideoUrl] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const YOUTUBE_EMBED_URLS = {
+  bd_video: "https://www.youtube.com/embed/kX_rK7IElps?autoplay=1&rel=0",
+  ri_video: "https://www.youtube.com/embed/SmDjDmjwr9s?autoplay=1&rel=0",
+};
 
-  useEffect(() => {
-    let cancelled = false;
+export const VideoModal = ({ onClose, setActiveView, videoKey = "bd_video" }) => {
+  const embedUrl = YOUTUBE_EMBED_URLS[videoKey] || YOUTUBE_EMBED_URLS.bd_video;
 
-    fetchVideoUrls().then((urls) => {
-      if (!cancelled) {
-        if (urls && urls[videoKey]) {
-          setVideoUrl(urls[videoKey]);
-        }
-        setIsLoading(false);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [videoKey]);
+  const handleClose = () => {
+    if (onClose) {
+      onClose();
+    } else if (setActiveView) {
+      setActiveView("game");
+    }
+  };
 
   return (
-    <div className="video-modal-backdrop" onClick={onClose}>
+    <div className="video-modal-backdrop" onClick={handleClose}>
       <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
         <button
           className="video-modal-close"
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close"
         >
           ✕
         </button>
 
-        {isLoading ? (
-          <div className="loading-text" style={{ color: "#fff" }}>
-            Loading Video...
-          </div>
-        ) : videoUrl ? (
-          <video
-            src={videoUrl}
-            controls
-            autoPlay
-            controlsList="nodownload"
-            onContextMenu={(e) => e.preventDefault()}
-            className="popup-video-element"
-          />
-        ) : (
-          <div className="error-text" style={{ color: "#fff" }}>
-            Video could not be loaded.
-          </div>
-        )}
+        <iframe
+          src={embedUrl}
+          title={videoKey === "ri_video" ? "Remote Island Video" : "Building Democracy Video"}
+          className="popup-video-element"
+          style={{ width: "100%", height: "100%", aspectRatio: "16 / 9", border: "none" }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
       </div>
     </div>
   );

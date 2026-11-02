@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { useState, useEffect } from "react";
 import { DesktopLayout } from "../../DesktopLayout";
-import { fetchVideoUrls } from "../../services/videoService";
+// import { fetchVideoUrls } from "../../services/videoService";
 import { 
   aboutContent, 
   buchenContent, 
@@ -37,56 +37,33 @@ import { getVisualCenter } from "../../services/visualCenter";
 //     </span>
 // </div>
 
-export const VideoModal = ({ setActiveView, videoKey = "ri_video" }) => {
-  const [videoUrl, setVideoUrl] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+const YOUTUBE_EMBED_URLS = {
+  bd_video: "https://www.youtube.com/embed/kX_rK7IElps?autoplay=1&rel=0",
+  ri_video: "https://www.youtube.com/embed/SmDjDmjwr9s?autoplay=1&rel=0",
+};
 
-  useEffect(() => {
-    let cancelled = false;
-
-    fetchVideoUrls().then((urls) => {
-      if (!cancelled) {
-        if (urls && urls[videoKey]) {
-          setVideoUrl(urls[videoKey]);
-        }
-        setIsLoading(false);
-      }
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [videoKey]);
+export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
+  const embedUrl = YOUTUBE_EMBED_URLS[videoKey] || YOUTUBE_EMBED_URLS.bd_video;
 
   return (
-    <div className="video-modal-backdrop" onClick={() => setActiveView(null)}>
+    <div className="video-modal-backdrop" onClick={() => setActiveView("game")}>
       <div className="video-modal-container" onClick={(e) => e.stopPropagation()}>
-        <button 
-          className="video-modal-close" 
-          onClick={() => setActiveView(null)}
+        <button
+          className="video-modal-close"
+          onClick={() => setActiveView("game")}
           aria-label="Close"
         >
           ✕
         </button>
 
-        {isLoading ? (
-          <div className="loading-text" style={{ color: "#fff" }}>
-            Loading Video...
-          </div>
-        ) : videoUrl ? (
-          <video 
-            src={videoUrl} 
-            controls 
-            autoPlay 
-            controlsList="nodownload"
-            onContextMenu={(e) => e.preventDefault()}
-            className="popup-video-element"
-          />
-        ) : (
-          <div className="error-text" style={{ color: "#fff" }}>
-            Video could not be loaded.
-          </div>
-        )}
+        <iframe
+          src={embedUrl}
+          title={videoKey === "ri_video" ? "Remote Island Video" : "Building Democracy Video"}
+          className="popup-video-element"
+          style={{ width: "100%", height: "100%", aspectRatio: "16 / 9", border: "none" }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
       </div>
     </div>
   );

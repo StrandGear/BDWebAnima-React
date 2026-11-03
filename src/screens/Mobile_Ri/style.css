@@ -12,7 +12,7 @@
 .RI .rechteck-11 {
   background-color: #090a0b;
   box-shadow: 0px 3px 6px #00000029;
-  height: 91px;
+  height: 60px;
   left: 0;
   position: fixed;
   top: 0;
@@ -24,14 +24,14 @@
   background-color: #090a0b;
   bottom: 0;
   box-shadow: 0px -3px 6px #00000029;
-  height: 90px;
+  height: 60px;
   left: 0;
   position: fixed;
   width: 100%;
   z-index: 20;
 }
 
-/* Centered Top Navigation Toggle (Matches Bd.jsx) */
+/* Centered Top Navigation Toggle */
 .RI .gruppe-10 {
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
-  top: 31px;
+  top: 16px;
   width: min(308px, 85vw);
   z-index: 25;
   text-decoration: none;
@@ -86,11 +86,11 @@
   width: 16px;
 }
 
-/* --- Full-Width Center Stage (Fills all width, NO rounded corners) --- */
+/* --- Full-Width Center Stage --- */
 .RI .ri-stage-wrapper {
   position: absolute;
-  top: 91px;
-  bottom: 90px;
+  top: 60px;
+  bottom: 60px;
   left: 0;
   right: 0;
   width: 100%;
@@ -138,7 +138,7 @@
   z-index: 3;
 }
 
-/* --- Interactive Polygon Tabs (Desktop Placement) --- */
+/* --- Interactive Polygon Tabs --- */
 .RI .ri-tab {
   position: absolute;
   display: flex;
@@ -170,60 +170,60 @@
 
 /* 1. Aktuelles (Pink Left Box) */
 .RI .tab-aktuelles {
-  left: 20px;
-  top: 32px;
-  width: 112px;
-  height: 68px;
+  left: 8px;
+  top: 24px;
+  width: 118px;
+  height: 70px;
 }
 
 /* 2. Galerie (Light-Blue Mid-Left Box) */
 .RI .tab-galerie {
-  left: 124px;
-  top: 17px;
-  width: 102px;
-  height: 62px;
+  left: 118px;
+  top: 10px;
+  width: 106px;
+  height: 64px;
 }
 
 /* 3. About (Dark-Blue Mid-Right Box) */
 .RI .tab-about {
-  right: 129px;
-  top: 14px;
-  width: 86px;
-  height: 65px;
+  right: 122px;
+  top: 8px;
+  width: 90px;
+  height: 67px;
 }
 
 /* 4. Buchen (Olive Far-Right Box) */
 .RI .tab-buchen {
-  right: 22px;
-  top: 19px;
-  width: 116px;
-  height: 65px;
+  right: 8px;
+  top: 12px;
+  width: 122px;
+  height: 67px;
 }
 
 /* 5. VIDEO (Vertical Orange Box on Left) */
 .RI .tab-video {
-  left: 22px;
-  top: 96px;
-  width: 68px;
-  height: 120px;
+  left: 10px;
+  top: 88px;
+  width: 72px;
+  height: 124px;
 }
 
 /* 6. Grüße von Remote Island (Center White Shape) */
 .RI .tab-gruesse {
-  right: 57px;
-  top: 61px;
-  width: 295px;
-  height: 126px;
+  right: 40px;
+  top: 54px;
+  width: 312px;
+  height: 130px;
   z-index: 3;
 }
 
-/* Tab Labels */
+/* Tab Labels ( Font Size) */
 .RI .ri-tab-label {
   position: relative;
   z-index: 2;
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   text-align: center;
   line-height: 1.15;
@@ -239,7 +239,7 @@
   justify-content: center;
   color: #42435f;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   line-height: 1.05;
   pointer-events: none;
@@ -256,7 +256,7 @@
   z-index: 2;
   color: #42435f;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 700;
   text-align: center;
   line-height: 1.2;
@@ -264,13 +264,13 @@
   pointer-events: none;
 }
 
-/* --- Main Dark-Blue Content Polygon (pfad-243-1.png) --- */
+/* --- Main Dark-Blue Content Polygon (Wider & Taller) --- */
 .RI .gruppe-11 {
   position: absolute;
-  top: 215px;
-  bottom: 24px;
-  left: 16px;
-  right: 18px;
+  top: 204px;
+  bottom: 10px;
+  left: 6px;
+  right: 6px;
   z-index: 5;
 }
 
@@ -284,20 +284,20 @@
   pointer-events: none;
 }
 
-/* Scrollable Text Area Inside pfad-243-1.png */
+/* Scrollable Text Area Inside pfad-243-1.png (Wider Line Width & Bigger Font) */
 .RI .text-content-container {
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 13.5px;
-  line-height: 18px;
+  font-size: 15.5px;
+  line-height: 1.45;
   position: absolute;
-  top: 20px;
-  bottom: 55px;
-  left: 42px;
-  right: 34px;
+  top: 18px;
+  bottom: 65px;
+  left: 24px;
+  right: 18px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 10px;
+  padding-right: 8px;
   box-sizing: border-box;
   z-index: 6;
 }
@@ -318,19 +318,20 @@
 
 /* --- Formatted Content Styles (from RemoteIslandMobileContent.jsx) --- */
 .RI .ri-mobile-text-block {
+  padding-left: 10px;
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 13.5px;
-  line-height: 1.42;
+  font-size: 15.5px;
+  line-height: 1.45;
   hyphens: auto;
   -webkit-hyphens: auto;
   overflow-wrap: break-word;
 }
 
 .RI .ri-mobile-heading {
-  font-size: 14.5px;
+  font-size: 17px;
   font-weight: 700;
-  margin: 14px 0 6px;
+  margin: 14px 0 8px;
   line-height: 1.35;
 }
 
@@ -346,12 +347,12 @@
 .RI .ri-mobile-address-block {
   margin: 0 0 12px;
   white-space: pre-line;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .RI .ri-mobile-list {
   margin: 0 0 14px;
-  padding-left: 14px;
+  padding-left: 16px;
   list-style: none;
 }
 
@@ -363,7 +364,7 @@
 .RI .ri-mobile-list li::before {
   content: "–";
   position: absolute;
-  left: -12px;
+  left: -14px;
 }
 
 .RI .ri-mobile-inline-link {
@@ -373,15 +374,15 @@
   cursor: pointer;
 }
 
-/* --- Footer Logo & Right-Aligned Links --- */
+/* --- Footer Logo & Right-Aligned Links (Adjusted for Shorter Bottom Bar) --- */
 .RI .NS-dok-logo-6 {
   background-image: url(/img/gruppe-165-7.png);
   background-position: 50% 50%;
   background-size: contain;
   background-repeat: no-repeat;
-  bottom: 28px;
+  bottom: 13px;
   height: 34px;
-  left: 24px;
+  left: 20px;
   position: fixed;
   width: 45px;
   z-index: 25;
@@ -389,12 +390,12 @@
 
 .RI .ri-footer-links {
   position: fixed;
-  right: 24px;
-  bottom: 30px;
+  right: 20px;
+  bottom: 22px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: 6px;
   z-index: 25;
 }
 
@@ -405,7 +406,7 @@
   margin: 0;
   color: #fae5ba;
   font-family: "Ubuntu", Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-style: italic;
   font-weight: 700;
   text-align: right;
@@ -420,7 +421,7 @@
   color: #a59342;
 }
 
-/* --- Video & Gallery Modals (Matched to Bd.jsx / styleBd.css) --- */
+/* --- Video & Gallery Modals --- */
 .RI .video-modal-backdrop,
 .RI .ri-gallery-backdrop {
   position: fixed;
@@ -443,7 +444,7 @@ video::-webkit-media-controls-enclosure {
 }
 
 video::-webkit-media-controls-panel {
-  width: calc(100% + 30px); /* Hides overflow menu icons on Chromium */
+  width: calc(100% + 30px);
 }
 
 .RI .video-modal-container {
@@ -512,12 +513,12 @@ video::-webkit-media-controls-panel {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  scrollbar-width: none;       /* Firefox */
-  -ms-overflow-style: none;    /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .RI .ri-gallery-scroll::-webkit-scrollbar {
-  display: none;               /* Chrome, Safari, iOS/iPadOS */
+  display: none;
 }
 
 .RI .ri-gallery-img {
@@ -530,27 +531,27 @@ video::-webkit-media-controls-panel {
 }
 
 /* ==========================================================================
-   Tablet & iPad Responsive Scaling (768px and up) — Matches Bd.jsx
+   Tablet & iPad Responsive Scaling (768px and up)
    ========================================================================== */
 @media (min-width: 768px) {
   .RI .rechteck-11 {
-    height: 100px;
+    height: 72px;
   }
 
   .RI .rechteck-12 {
-    height: 100px;
+    height: 72px;
   }
 
   .RI .ri-stage-wrapper {
-    top: 100px;
-    bottom: 100px;
+    top: 72px;
+    bottom: 72px;
   }
 
   /* 1. Top Toggle & Header Text */
   .RI .gruppe-10 {
     width: min(420px, 85vw);
     height: 36px;
-    top: 32px;
+    top: 18px;
   }
 
   .RI .text-wrapper-26 {
@@ -577,16 +578,16 @@ video::-webkit-media-controls-panel {
 
   /* 2. Footer Logo & Links */
   .RI .NS-dok-logo-6 {
-    width: 60px;
-    height: 45px;
+    width: 56px;
+    height: 42px;
     left: 32px;
-    bottom: 24px;
+    bottom: 15px;
   }
 
   .RI .ri-footer-links {
     right: 32px;
-    bottom: 34px;
-    gap: 10px;
+    bottom: 26px;
+    gap: 8px;
   }
 
   .RI .ri-footer-link {

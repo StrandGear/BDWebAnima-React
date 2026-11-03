@@ -119,7 +119,8 @@ export const Ri = () => {
 
       // 2. Calculate optimal scale to fit between top bar and bottom bar
       const isTablet = vw >= 768;
-      const verticalBars = isTablet ? 200 : 181;
+      // Reduced total vertical bar height (60px + 60px = 120px on mobile, 72px + 72px = 144px on tablet)
+      const verticalBars = isTablet ? 144 : 120;
       const availableHeight = vh - verticalBars;
       const availableWidth = vw;
 

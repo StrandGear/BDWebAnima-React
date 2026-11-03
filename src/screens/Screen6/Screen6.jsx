@@ -34,14 +34,14 @@ export const Screen6 = () => {
             </div>
           </div>
           {/* Top Bar with toggle */}
-          {/* <Link className="schalter-mit-6" to="/remoteislandstart">
+          <Link className="schalter-mit-6" to="/remoteislandstart">
             <div className="text-wrapper-43">BUILDING DEMOCRACY</div>
             <div className="text-wrapper-44">REMOTE ISLAND</div>
             <div className="schalter-7">
               <div className="rechteck-30" />
               <div className="uncheck-7" />
             </div>
-          </Link> */}
+          </Link>
           <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-7" />
           <div className="gruppe-65">
             <button className="button-4">

@@ -140,13 +140,13 @@ export const Ri = () => {
       <div className="rechteck-12" />
 
       {/* Centered Top Toggle Header */}
-      {/* <Link className="gruppe-10" to="/bd">
+      <Link className="gruppe-10" to="/bd">
         <div className="text-wrapper-26">BUILDING DEMOCRACY</div>
         <div className="schalter-5">
           <div className="uncheck-6" />
         </div>
         <div className="text-wrapper-27">REMOTE ISLAND</div>
-      </Link> */}
+      </Link>
 
       {/* Full-Width Stage between Header and Footer (No rounded corners) */}
       <div className="ri-stage-wrapper">

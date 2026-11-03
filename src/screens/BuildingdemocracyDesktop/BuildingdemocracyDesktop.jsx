@@ -138,21 +138,19 @@ export const BuildingdemocracyDesktop = () => {
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
 
-  const handleStartClick = (e) => {
+  // Show onboarding popup automatically on first page load
+  useEffect(() => {
     try {
       const hasSeen = localStorage.getItem(ONBOARDING_STORAGE_KEY);
       if (!hasSeen) {
-        // First time: prevent opening /play immediately and show the popup instead
-        e.preventDefault();
         localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
         setShowOnboardingModal(true);
       }
     } catch (err) {
-      // Fallback if localStorage is blocked (e.g. strict Safari private mode)
-      e.preventDefault();
+      // Fallback if localStorage is blocked (e.g., strict private browsing)
       setShowOnboardingModal(true);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (location.state?.activeView) {
@@ -331,7 +329,7 @@ export const BuildingdemocracyDesktop = () => {
                       rel="noopener noreferrer"
                       className="desktop-start-btn"
                       style={{ textDecoration: "none" }}
-                      onClick={handleStartClick}
+                      //onClick={handleStartClick}
                     >
                       <span className="desktop-start-btn-text">Tap to start!</span>
                     </a>

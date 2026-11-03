@@ -179,22 +179,19 @@ export const Bd = () => {
 
   const [showOnboardingModal, setShowOnboardingModal] = useState(false);
 
-  const handleStartClick = (e) => {
+  // Show onboarding popup automatically on first page load
+  useEffect(() => {
     try {
       const hasSeen = localStorage.getItem(ONBOARDING_STORAGE_KEY);
       if (!hasSeen) {
-        // First time: prevent opening /play immediately and show the popup instead
-        e.preventDefault();
         localStorage.setItem(ONBOARDING_STORAGE_KEY, "true");
         setShowOnboardingModal(true);
       }
     } catch (err) {
-      // Fallback if localStorage is blocked (e.g. strict Safari private mode)
-      e.preventDefault();
+      // Fallback if localStorage is blocked (e.g., strict private browsing)
       setShowOnboardingModal(true);
     }
-  };
-
+  }, []);
   // Track initial active view passed from navigation state (e.g. from /bd-wrapper or /bd-2)
   const [activeView, setActiveView] = useState(
     location.state?.activeView || "game"
@@ -397,7 +394,7 @@ export const Bd = () => {
               rel="noopener noreferrer"
               className="button-3"
               style={{ textDecoration: "none" }}
-              onClick={handleStartClick}
+              //onClick={handleStartClick}
             >
               <span className="text-wrapper-31">Tap to start!</span>
             </a>

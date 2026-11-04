@@ -27,6 +27,7 @@ export const Layout = () => {
     const isRemoteIsland =
       path.startsWith("/remoteisland") || path === "/ri";
 
+    document.title = isRemoteIsland ? "Remote Island" : "Building Democracy";
     const iconPath = isRemoteIsland ? "/img/favicon-island.png" : "/img/favicon-democracy.png";
 
     let link = document.getElementById("dynamic-favicon") || document.querySelector("link[rel*='icon']");

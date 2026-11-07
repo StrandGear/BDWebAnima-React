@@ -270,15 +270,24 @@ export const BuildingdemocracyDesktop = () => {
       <div className="buildingdemocracy">
         <div className="overlap-group-wrapper">
           <div className="overlap-group">
+          
            {/* Top Bar with toggle */}
-              <Link className="schalter-mit" to="/remoteislandstart">
+           <a
+            className="schalter-mit"
+            href={
+              window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+                ? "/ri"
+                : "https://remote-island.de"
+            }
+            >
               <div className="text-wrapper">BUILDING DEMOCRACY</div>
               <div className="text-wrapper-2">REMOTE ISLAND</div>
               <div className="schalter">
                 <div className="rechteck" />
                 <div className="uncheck" />
               </div>
-            </Link> 
+               </a>
+               
             <Link 
               to="https://nsdok.de/Start" 
               target="_blank" 

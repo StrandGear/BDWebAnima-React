@@ -16,7 +16,19 @@ import { BdScreen } from "./screens/Mobile_BdScreen";
 import { BdWrapper } from "./screens/Mobile_BdWrapper";
 import { Startscreen } from "./screens/Mobile_Startscreen";
 
-import { UnityFullscreen } from "./screens/UnityFullscreen/UnityFullscreen";
+//import { UnityFullscreen } from "./screens/UnityFullscreen/UnityFullscreen";
+
+const DomainRoot = () => {
+  const hostname = window.location.hostname.toLowerCase();
+
+  // If the user visits remote-island.de, render RemoteIsland directly at "/"
+  // (or use <Navigate to="/remoteisland" replace /> if you want the URL bar to show /remoteisland)
+  if (hostname.includes("remote-island") || hostname.includes("remoteisland")) {
+    return <RemoteIsland />;
+  }
+
+  return <Buildingdemocracy />;
+};
 
 const router = createBrowserRouter([
   {
@@ -24,7 +36,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Buildingdemocracy />,
+        element: <DomainRoot />, // <-- Now "/" checks the domain!
       },
       {
         path: "/buildingdemocracy-start",
@@ -51,25 +63,25 @@ const router = createBrowserRouter([
         element: <RemoteIsland />,
       },
       {
+        path: "/remote-island-start",
+        element: <RemoteIsland />,
+      },
+      {
         path: "/remoteislandstart",
         element: <RemoteIsland />,
       },
       {
-        path: "/*",
-        element: <Buildingdemocracy />,
+        path: "/buildingdemocracy-gallery",
+        element: <DivWrapper />,
       },
-          {
-      path: "/buildingdemocracy-gallery",
-      element: <DivWrapper />,
-    },
-    {
-      path: "/buildingdemocracy-start-2",
-      element: <Screen4 />,
-    },
-    // {
-    // path: "/play",
-    // element: <UnityFullscreen />,
-    // }
+      {
+        path: "/buildingdemocracy-start-2",
+        element: <Screen4 />,
+      },
+      {
+        path: "/*",
+        element: <DomainRoot />,
+      },
     ],
   },
 ]);

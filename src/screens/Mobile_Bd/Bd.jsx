@@ -446,14 +446,21 @@ export const Bd = () => {
       <div className="rechteck-2" />
       
       {/* Top Toggle Header */}
-      <Link className="gruppe-2" to="/ri">
+      <a
+          className="gruppe-2" /* (use "gruppe-5" in BdScreen, "gruppe-6" in BdWrapper, "schalter-mit" in Desktop) */
+          href={
+            window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+              ? "/ri"
+              : "https://remote-island.de"
+          }
+        >
         <div className="text-wrapper">BUILDING DEMOCRACY</div>
         <div className="schalter">
           <div className="uncheck" />
         </div>
         <div className="text-wrapper-2">REMOTE ISLAND</div>
-      </Link>
-      
+      </a>
+
       <Link 
                         to="https://nsdok.de/Start" 
                         target="_blank" 

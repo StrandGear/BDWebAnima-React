@@ -54,13 +54,20 @@ export const BdScreen = () => {
       <div className="rechteck-4" />
 
       {/* Centered Top Toggle */}
-      <Link className="gruppe-5" to="/ri">
+      <a
+          className="gruppe-5" 
+          href={
+            window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+              ? "/ri"
+              : "https://remote-island.de"
+          }
+        >
         <div className="text-wrapper-6">BUILDING DEMOCRACY</div>
         <div className="schalter-3">
           <div className="uncheck-2" />
         </div>
         <div className="text-wrapper-7">REMOTE ISLAND</div>
-      </Link>
+      </a>
 
       {/* Back Navigation Arrow */}
       <Link to="/bd">

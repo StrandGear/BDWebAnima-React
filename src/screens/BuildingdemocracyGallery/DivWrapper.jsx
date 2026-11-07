@@ -112,7 +112,24 @@ export const DivWrapper = () => {
                         aria-label="Zur Startseite" 
                         className="NS-dok-logo-4" 
                       />
-
+            {/* Top Domain Toggle (Matches BuildingDemocracyDesktop position) */}
+            <a
+              className="schalter-mit-3"
+              href={
+                window.location.hostname === "localhost" ||
+                window.location.hostname === "127.0.0.1"
+                  ? "/ri"
+                  : "https://remote-island.de"
+              }
+            >
+              <div className="text-wrapper-22">BUILDING DEMOCRACY</div>
+              <div className="text-wrapper-23">REMOTE ISLAND</div>
+              <div className="schalter-4">
+                <div className="rechteck-13" />
+                <div className="uncheck-4" />
+              </div>
+            </a>
+            
             {/* 1. Nav Panel with clean horizontal layout */}
             <div className="auto">
               <Link 

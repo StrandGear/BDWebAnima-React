@@ -141,14 +141,22 @@ export const Ri = () => {
       <div className="rechteck-12" />
 
       {/* Centered Top Toggle Header */}
-      <Link className="gruppe-10" to="/bd">
+      {/* Top Toggle Header in Bd.jsx, BdScreen.jsx, BdWrapper.jsx, BuildingdemocracyDesktop.jsx */}
+      <a
+        className="gruppe-10"
+        href={
+          window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+            ? "/bd"
+            : "https://building-democracy.de"
+        }
+      >      
         <div className="text-wrapper-26">BUILDING DEMOCRACY</div>
         <div className="schalter-5">
           <div className="uncheck-6" />
         </div>
         <div className="text-wrapper-27">REMOTE ISLAND</div>
-      </Link>
-
+      </a>
+      
       {/* Full-Width Stage between Header and Footer (No rounded corners) */}
       <div className="ri-stage-wrapper">
         {/* Full-bleed background fills 100% width & height without rounded corners */}

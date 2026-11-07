@@ -77,13 +77,20 @@ export const BdWrapper = () => {
       <div className="rechteck-5" />
       <div className="rechteck-6" />
       {/* Top Toggle Header */}
-      <Link className="gruppe-6" to="/ri">
+      <a
+          className="gruppe-6" 
+          href={
+            window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+              ? "/ri"
+              : "https://remote-island.de"
+          }
+        >
         <div className="text-wrapper-10">BUILDING DEMOCRACY</div>
         <div className="schalter-2">
           <div className="uncheck-3" />
         </div>
         <div className="text-wrapper-11">REMOTE ISLAND</div>
-      </Link>
+      </a>
       
       {/* Footer links */}
                 <Link 

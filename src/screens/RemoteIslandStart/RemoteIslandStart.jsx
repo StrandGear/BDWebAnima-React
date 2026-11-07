@@ -126,14 +126,22 @@ export const RemoteIslandStart = () => {
         <div className="rechteck-11" />
 
         {/* Navigation and Main Content */}
-        <Link className="schalter-mit-2" to="/buildingdemocracy-start">
-          <div className="text-wrapper-16">BUILDING DEMOCRACY</div>
+        {/* Top Toggle Header in Ri.jsx (use className="schalter-mit-2" in RemoteIslandStart.jsx) */}
+        <a
+          className="schalter-mit-2"
+          href={
+            window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+              ? "/bd"
+              : "https://building-democracy.de"
+          }
+        >
+                    <div className="text-wrapper-16">BUILDING DEMOCRACY</div>
           <div className="text-wrapper-17">REMOTE ISLAND</div>
           <div className="schalter-3">
             <div className="rechteck-12" />
             <div className="uncheck-3" />
           </div>
-        </Link>
+        </a>
 
         {/* Background/Static decorative images */}
         {/* <img className="pfad-3" alt="Pfad" src="/img/pfad-234-1.png" />

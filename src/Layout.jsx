@@ -23,22 +23,32 @@ export const Layout = () => {
   }, []);
 
   useEffect(() => {
-    const path = location.pathname.toLowerCase();
-    const isRemoteIsland =
-      path.startsWith("/remoteisland") || path === "/ri";
+  const hostname = window.location.hostname.toLowerCase();
+  const path = location.pathname.toLowerCase();
 
-    document.title = isRemoteIsland ? "Remote Island" : "Building Democracy";
-    const iconPath = isRemoteIsland ? "/img/favicon-island.png" : "/img/favicon-democracy.png";
+  const isRemoteIsland =
+    hostname.includes("remote-island") ||
+    hostname.includes("remoteisland") ||
+    path.startsWith("/remoteisland") ||
+    path.startsWith("/remote-island") ||
+    path === "/ri";
 
-    let link = document.getElementById("dynamic-favicon") || document.querySelector("link[rel*='icon']");
-    if (!link) {
-      link = document.createElement("link");
-      link.rel = "icon";
-      link.id = "dynamic-favicon";
-      document.head.appendChild(link);
-    }
-    link.href = iconPath;
-  }, [location.pathname]);
+  document.title = isRemoteIsland ? "Remote Island" : "Building Democracy";
+  const iconPath = isRemoteIsland
+    ? "/img/favicon-island.png"
+    : "/img/favicon-democracy.png";
+
+  let link =
+    document.getElementById("dynamic-favicon") ||
+    document.querySelector("link[rel*='icon']");
+  if (!link) {
+    link = document.createElement("link");
+    link.rel = "icon";
+    link.id = "dynamic-favicon";
+    document.head.appendChild(link);
+  }
+  link.href = iconPath;
+}, [location.pathname]);
 
   return <Outlet context={{ isMobile }} />;
 };

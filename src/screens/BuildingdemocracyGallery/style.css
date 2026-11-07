@@ -69,10 +69,12 @@
 .div-wrapper .schalter-mit-3 {
   display: block;
   height: 46px;
-  left: 658px;
+  left: calc(47.67% - 252px);
   position: absolute;
   top: 69px;
   width: 531px;
+  text-decoration: none;
+  z-index: 15;
 }
 
 .div-wrapper .text-wrapper-22 {
@@ -151,13 +153,13 @@
 /* Cards Grid Container */
 .div-wrapper .cards-grid {
   position: relative;
-  margin-top: 342px;               /* Starting height under header controls */
+  margin-top: 367px;
   padding-bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   display: grid;
-  grid-template-columns: repeat(5, 190px); /* rows of 5 cards */
-  gap: 35px 35px;             /* Vertical & horizontal space between cards */
+  grid-template-columns: repeat(5, 190px);
+  gap: 35px 35px;
   justify-content: center;
   z-index: 1;
 }
@@ -234,7 +236,7 @@
 /* Nav Panel (Mitwirkende, Impressum, Download) */
 .div-wrapper .auto {
   position: absolute;
-  top: 160px;
+  top: 185px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -248,7 +250,7 @@
 /* Ansicht ändern Button (Positioned below .auto) */
 .div-wrapper .gruppe-28 {
   position: absolute;
-  top: 220px;
+  top: 245px;
   left: 50%;
   transform: translateX(-50%);
   display: block;

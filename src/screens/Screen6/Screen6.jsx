@@ -33,15 +33,23 @@ export const Screen6 = () => {
               <div className="div-5" />
             </div>
           </div>
+          
           {/* Top Bar with toggle */}
-          <Link className="schalter-mit-6" to="/remoteislandstart">
-            <div className="text-wrapper-43">BUILDING DEMOCRACY</div>
-            <div className="text-wrapper-44">REMOTE ISLAND</div>
-            <div className="schalter-7">
-              <div className="rechteck-30" />
-              <div className="uncheck-7" />
+          <a
+            className="schalter-mit-6" 
+            href={
+              window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+                ? "/ri"
+                : "https://remote-island.de"
+            }
+          >
+            <div className="text-wrapper">BUILDING DEMOCRACY</div>
+            <div className="schalter">
+              <div className="uncheck" />
             </div>
-          </Link>
+            <div className="text-wrapper-2">REMOTE ISLAND</div>
+          </a>
+
           <Link to="/" aria-label="Zur Startseite" className="NS-dok-logo-7" />
           <div className="gruppe-65">
             <button className="button-4">

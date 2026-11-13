@@ -159,19 +159,6 @@ export const aktuellesContentMobile = [
     type: "p",
     text: "Die Teilnahme ist im Rahmen des Köln-Tages kostenfrei und findet statt, sofern die Mindestteilnehmendenzahl erreicht ist.",
   },
-  {
-    type: "h",
-    text: "Museumsnacht-Special: Sa, 07. Nov. 2026",
-  },
-  {
-    type: "p",
-    parts: [
-      {
-        text: "Entdeckt bei der Museumsnacht Remote Island im NS-DOK und sprecht mit unseren Inselscout*innen zur Idee und den Inhalten des Demokratiespiels zwischen 18:30 Uhr und 24:00 Uhr. Eine separate Anmeldung ist nicht notwendig.",
-        cursive: true,
-      },
-    ],
-  },
 ];
 
 export const impressumUndDatenschutzMobile = [

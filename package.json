@@ -31,5 +31,10 @@
     "globals": "15.15.0",
     "storybook": "^10.4.3",
     "vite": "^7.3.5"
+  },
+  "allowScripts": {
+    "@firebase/util@1.15.1": true,
+    "esbuild@0.27.3": true,
+    "protobufjs@7.6.3": true
   }
 }

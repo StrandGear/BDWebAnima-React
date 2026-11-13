@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Papa from "papaparse";
 
 export const photosContent = [
   { type: "p", text: "4-5 Fotos von den Pressebildern" }
@@ -81,36 +82,50 @@ export const gruesseContent = [
   { type: "p", text: "\"Immer einigen. Spaß haben. Teamarbeit ist wichtig.\"" },
 ];
 
-export const aktuellesContent = [
-  { type: "h", text: "Öffentliche Spieltermine für Einzelbesuchende und kleinere Gruppen im Rahmen des Köln-Tags:" },
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMBsxJIM5dX-jErfB6oJzHzqZ-GvsxDaxN9F5gfTscIt4KDGPkY0sRTcJq1KvfWElrUWqqKhl4nyko/pub?gid=0&single=true&output=csv";
 
-  {
-    type: "p",
-    parts: [
-      "\nDo, 05.Nov. 2026, 18 Uhr - ",
-      { text: "Anmeldung", href: "https://buchung.museenkoeln.de/kursbuchen.aspx?termin=54014&inst=14" },
-    ],
-  },
-  {
-    type: "p",
-    parts: [
-      "Do, 03. Dez. 2026, 18 Uhr - ",
-      { text: "Anmeldung", href: "https://buchung.museenkoeln.de/kursbuchen.aspx?termin=54015&inst=14" },
-    ],
-  },
-  {
-    type: "p",
-    parts: [
-      "Do, 07.Jan. 2027, 18 Uhr - ",
-      { text: "Anmeldung", href: "https://buchung.museenkoeln.de/kursbuchen.aspx?termin=54016&inst=14" },
-    ],
-  },
-  { 
-    type: "p", 
-    text: "\nDie Teilnahme ist im Rahmen des Köln-Tages kostenfrei und findet statt, sofern die Mindestteilnehmendenzahl erreicht ist." 
-  },
+// Fallback shown if the sheet can't be loaded
+const AKTUELLES_FALLBACK = [
+  { type: "p", text: "Aktuelle Informationen folgen in Kürze." },
 ];
 
+// "text [Link](url) _italic_"  ->  ["text ", {text, href}, {text, cursive:true}]
+function parseInline(str) {
+  const regex = /\[([^\]]+)\]\(([^)\s]+)\)|_([^_]+)_/g;
+  const parts = [];
+  let last = 0, m;
+  while ((m = regex.exec(str))) {
+    if (m.index > last) parts.push(str.slice(last, m.index));
+    parts.push(m[1] ? { text: m[1], href: m[2] } : { text: m[3], cursive: true });
+    last = regex.lastIndex;
+  }
+  if (last < str.length) parts.push(str.slice(last));
+  return parts;
+}
+
+// Same shape as the old hardcoded aktuellesContent
+export function useAktuellesContent() {
+  const [content, setContent] = useState(AKTUELLES_FALLBACK);
+
+  useEffect(() => {
+    fetch(`${SHEET_URL}&t=${Date.now()}`)
+      .then((r) => r.text())
+      .then((csv) => {
+        const { data } = Papa.parse(csv, { header: true, skipEmptyLines: true });
+        const today = new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Berlin" }); // YYYY-MM-DD
+        const nodes = data
+          .filter((r) => r.text?.trim() && (!r.show_until?.trim() || r.show_until.trim() >= today))
+          .map((r) => ({
+            type: r.type?.trim() === "h" ? "h" : "p",
+            parts: parseInline(r.text.trim()),
+          }));
+        if (nodes.length) setContent(nodes);
+      })
+      .catch(() => {}); // keep fallback
+  }, []);
+
+  return content;
+}
 export const impressumUndDatenschutz = [
   {
     type: "p",

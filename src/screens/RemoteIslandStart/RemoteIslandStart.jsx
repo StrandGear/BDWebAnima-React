@@ -7,7 +7,7 @@ import {
   aboutContent, 
   buchenContent, 
   gruesseContent, 
-  aktuellesContent, 
+  useAktuellesContent, 
   impressumUndDatenschutz,
   RemoteIslandTextContent 
 } from "./RemoteIslandContent";
@@ -70,6 +70,8 @@ export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
 };
 
 export const RemoteIslandStart = () => {
+
+  const aktuellesContent = useAktuellesContent();   
   // State to track whether the gallery overlay is visible
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 

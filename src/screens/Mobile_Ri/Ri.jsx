@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css"; // Or "./styleRi.css" depending on your folder setup
 // import { fetchVideoUrls } from "../../services/videoService";
 import { getVisualCenter } from "../../services/visualCenter";
+import { useAktuellesContent } from "../../services/aktuellesService";
 import {
   aboutContentMobile,
   buchenContentMobile,
   gruesseContentMobile,
-  aktuellesContentMobile,
   impressumUndDatenschutzMobile,
   RemoteIslandMobileTextContent,
 } from "./RemoteIslandMobileContent";
@@ -58,6 +58,7 @@ export const VideoModal = ({ onClose, setActiveView, videoKey = "bd_video" }) =>
 
 export const Ri = () => {
   const navigate = useNavigate();
+  const aktuellesContent = useAktuellesContent();
 
   // Active tab: "about" (default), "aktuelles", "greetings", "buchen", "impressum"
   const [activeTab, setActiveTab] = useState("about");
@@ -272,7 +273,7 @@ export const Ri = () => {
               )}
               {activeTab === "aktuelles" && (
                 <RemoteIslandMobileTextContent
-                  content={aktuellesContentMobile}
+                  content={aktuellesContent}
                   setActiveTab={setActiveTab}
                 />
               )}

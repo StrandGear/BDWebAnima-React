@@ -3,11 +3,11 @@ import "./style.css";
 import { useState, useEffect } from "react";
 import { DesktopLayout } from "../../DesktopLayout";
 // import { fetchVideoUrls } from "../../services/videoService";
+import { useAktuellesContent } from "../../services/aktuellesService";
 import { 
   aboutContent, 
   buchenContent, 
   gruesseContent, 
-  useAktuellesContent, 
   impressumUndDatenschutz,
   RemoteIslandTextContent 
 } from "./RemoteIslandContent";

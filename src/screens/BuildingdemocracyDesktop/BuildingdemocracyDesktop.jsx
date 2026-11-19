@@ -46,13 +46,13 @@ export const FirstTimeModal = ({ onClose, onProceed }) => {
         className="onboarding-modal-card"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        {/* <button
           className="onboarding-modal-close"
           onClick={onClose}
           aria-label="Schließen"
         >
           ✕
-        </button>
+        </button> */}
 
         <div className="onboarding-modal-content">
           <p className="onboarding-title">
@@ -82,15 +82,13 @@ export const FirstTimeModal = ({ onClose, onProceed }) => {
             Anleitung herunterladen (PDF)
           </a>
 
-          <a
-            href="https://app.remote-island.de/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
             className="onboarding-btn onboarding-btn-start"
-            onClick={onProceed}
+            onClick={onClose}
           >
-            Weiter zur Web App
-          </a>
+            Weiter zur Website
+          </button>
         </div>
       </div>
     </div>

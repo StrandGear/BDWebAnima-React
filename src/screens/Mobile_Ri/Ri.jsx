@@ -66,7 +66,8 @@ export const Ri = () => {
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
   // Dynamically scale the 430x751 interactive layout so it fills mobile AND iPad screens
-  const [cardScale, setCardScale] = useState(1);
+  const stageRef = React.useRef(null);
+  const [canvasLayout, setCanvasLayout] = useState({ scale: 1, height: 751 });
 
   const [offsets, setOffsets] = useState({
     aktuelles: { x: 0, y: 0 },
@@ -112,22 +113,21 @@ export const Ri = () => {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
 
-      // 1. Automatic switch to Desktop screen when resolution increases
       if (vw >= DESKTOP_BREAKPOINT && vw > vh) {
         navigate(DESKTOP_RI_ROUTE, { replace: true });
         return;
       }
 
-      // 2. Calculate optimal scale to fit between top bar and bottom bar
-      const isTablet = vw >= 768;
-      // Reduced total vertical bar height (60px + 60px = 120px on mobile, 72px + 72px = 144px on tablet)
-      const verticalBars = isTablet ? 144 : 120;
-      const availableHeight = vh - verticalBars;
-      const availableWidth = vw;
+      if (!stageRef.current) return;
+      const stageW = stageRef.current.clientWidth;
+      const stageH = stageRef.current.clientHeight;
 
-      const scaleW = availableWidth / 430;
-      const scaleH = availableHeight / 751;
-      setCardScale(Math.min(scaleW, scaleH));
+      // Scale to fill 100% of screen width so tabs scale up without spreading apart
+      const scale = stageW / 430;
+      // Dynamically match the stage height so the text box never overflows or leaves gaps
+      const dynamicHeight = stageH / scale;
+
+      setCanvasLayout({ scale, height: dynamicHeight });
     };
 
     handleResize();
@@ -159,15 +159,18 @@ export const Ri = () => {
       </a>
       
       {/* Full-Width Stage between Header and Footer (No rounded corners) */}
-      <div className="ri-stage-wrapper">
-        {/* Full-bleed background fills 100% width & height without rounded corners */}
-        <div className="rechteck-13" />
-        <img className="a" alt="Background" src="/img/a-10731x2970-2.png" />
+<div className="ri-stage-wrapper" ref={stageRef}>
+  <div className="rechteck-13" />
+  <img className="a" alt="Background" src="/img/a-10731x2970-2.png" />
 
-        <div
-          className="ri-canvas-card"
-          style={{ transform: `scale(${cardScale})` }}
-        >
+  <div
+  className="ri-canvas-card"
+  style={{
+    width: "430px",
+    height: `${canvasLayout.height}px`,
+    transform: `scale(${canvasLayout.scale})`,
+    }}
+  >
           {/* --- TABS WITH DESKTOP PLACEMENT --- */}
 
           {/* 1. Aktuelles */}

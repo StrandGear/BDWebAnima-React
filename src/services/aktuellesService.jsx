@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import Papa from "papaparse";
 
-const SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vTMBsxJIM5dX-jErfB6oJzHzqZ-GvsxDaxN9F5gfTscIt4KDGPkY0sRTcJq1KvfWElrUWqqKhl4nyko/pub?gid=0&single=true&output=csv";
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?gid=0&single=true&output=csv";
+const FUNCTION_URL = "https://aktuelles-vajhbjyxoq-ew.a.run.app"; 
 
+const FEED_URL = import.meta.env.DEV ? SHEET_URL : FUNCTION_URL;
 const FALLBACK = [{ type: "p", text: "Aktuelle Informationen folgen in Kürze." }];
 
 function parseInline(str) {
@@ -23,7 +24,7 @@ export function useAktuellesContent() {
   const [content, setContent] = useState(FALLBACK);
 
   useEffect(() => {
-    fetch(`${SHEET_URL}&t=${Date.now()}`)
+    fetch(FUNCTION_URL)
       .then((r) => r.text())
       .then((csv) => {
         const { data } = Papa.parse(csv, { skipEmptyLines: true });

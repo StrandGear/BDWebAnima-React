@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import "./style.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { DesktopLayout } from "../../DesktopLayout";
 // import { fetchVideoUrls } from "../../services/videoService";
-import { useAktuellesContent } from "../../services/aktuellesService";
+import { useSheetContent } from "../../services/aktuellesService";
 import { 
-  aboutContent, 
-  buchenContent, 
-  gruesseContent, 
+  aboutContent as aboutFallback, 
+  buchenContent as buchenFallback, 
+  gruesseContent as gruesseFallback, 
   impressumUndDatenschutz,
-  RemoteIslandTextContent 
+  RemoteIslandTextContent,
+  renderParts 
 } from "./RemoteIslandContent";
 import { getVisualCenter } from "../../services/visualCenter";
+
+// Static fallbacks, shown only if the Google Sheet can't be reached
+const AKTUELLES_FALLBACK = [
+  { type: "p", text: "Aktuelle Informationen folgen in Kürze." },
+];
+
+const WILLKOMMEN_FALLBACK = [
+  { type: "h", text: "Herzlich Willkommen auf Remote Island -\ndem wohl abgelegensten Ort der Welt ..." },
+  { type: "p", text: 'Entdeckt das begehbare Computerspiel im\nNS-DOK und taucht ein in euer "Abenteuer Demokratie auf einer Insel"!' },
+  { type: "p", text: "Handelt, entscheidet und reflektiert gemeinsam als Gruppe: Remote Island macht Bildung zum Erlebnis!" },
+];
 
 // useEffect(() => {
 //     // Pass the exact same image path used in your <img> tag
@@ -71,7 +83,12 @@ export const VideoModal = ({ setActiveView, videoKey = "bd_video" }) => {
 
 export const RemoteIslandStart = () => {
 
-  const aktuellesContent = useAktuellesContent();   
+  // Content is edited by the client in Google Sheets (one tab per section)
+  const willkommenContent = useSheetContent("willkommen", AKTUELLES_FALLBACK);
+  const aktuellesContent = useSheetContent("aktuelles", AKTUELLES_FALLBACK);
+  const aboutContent = useSheetContent("about", AKTUELLES_FALLBACK);
+  const buchenContent = useSheetContent("buchen", AKTUELLES_FALLBACK);
+  const gruesseContent = useSheetContent("gruesse", AKTUELLES_FALLBACK);
   // State to track whether the gallery overlay is visible
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
@@ -155,19 +172,21 @@ export const RemoteIslandStart = () => {
         <div className="gruppe-16">
           <img className="pfad-8" alt="Pfad" src="/img/pfad-242-1.png" />
           <p className="dauer-stunden">
-                      <br />
-            <br />
-            <br />
-            <p style={{ fontSize: "17px", fontWeight: "bold" }}>Herzlich Willkommen auf Remote Island -<br /> dem wohl abgelegensten Ort der Welt ...</p>
-            <br />
-            <br />
-            Entdeckt das begehbare Computerspiel im<br />
-             NS-DOK und taucht ein in euer "Abenteuer Demokratie auf einer Insel"!
-            <br />
-            <br />
-            <br />
-            Handelt, entscheidet und reflektiert gemeinsam als Gruppe: Remote Island macht Bildung zum Erlebnis!​
-            
+            <br /><br /><br />
+            {willkommenContent.map((node, i) => (
+              <Fragment key={i}>
+                <span
+                  style={{
+                    display: "block",
+                    whiteSpace: "pre-line",
+                    ...(node.type === "h" ? { fontSize: "17px", fontWeight: "bold" } : {}),
+                  }}
+                >
+                  {node.parts ? renderParts(node.parts, setActiveTab) : node.text}
+                </span>
+                {i < willkommenContent.length - 1 && (<><br /><br /></>)}
+              </Fragment>
+            ))}
           </p>
         </div>
         <img className="pfad-9" alt="Pfad" src="/img/pfad-243-1.png" />

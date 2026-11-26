@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./style.css"; // Or "./styleRi.css" depending on your folder setup
 // import { fetchVideoUrls } from "../../services/videoService";
 import { getVisualCenter } from "../../services/visualCenter";
-import { useAktuellesContent } from "../../services/aktuellesService";
+import { useSheetContent } from "../../services/aktuellesService";
 import {
-  aboutContentMobile,
-  buchenContentMobile,
-  gruesseContentMobile,
+  aboutContentMobile as aboutFallback,
+  buchenContentMobile as buchenFallback,
+  gruesseContentMobile as gruesseFallback,
+  aktuellesContentMobile as aktuellesFallback,
   impressumUndDatenschutzMobile,
   RemoteIslandMobileTextContent,
 } from "./RemoteIslandMobileContent";
@@ -58,7 +59,12 @@ export const VideoModal = ({ onClose, setActiveView, videoKey = "bd_video" }) =>
 
 export const Ri = () => {
   const navigate = useNavigate();
-  const aktuellesContent = useAktuellesContent();
+  // Content is edited by the client in Google Sheets (one tab per section).
+  // Same tabs as the desktop page; the static arrays are only a fallback.
+  const aktuellesContent = useSheetContent("aktuelles", aktuellesFallback);
+  const aboutContent = useSheetContent("about", aboutFallback);
+  const buchenContent = useSheetContent("buchen", buchenFallback);
+  const gruesseContent = useSheetContent("gruesse", gruesseFallback);
 
   // Active tab: "about" (default), "aktuelles", "greetings", "buchen", "impressum"
   const [activeTab, setActiveTab] = useState("about");
@@ -270,7 +276,7 @@ export const Ri = () => {
             <div className="text-content-container">
               {activeTab === "about" && (
                 <RemoteIslandMobileTextContent
-                  content={aboutContentMobile}
+                  content={aboutContent}
                   setActiveTab={setActiveTab}
                 />
               )}
@@ -282,13 +288,13 @@ export const Ri = () => {
               )}
               {activeTab === "greetings" && (
                 <RemoteIslandMobileTextContent
-                  content={gruesseContentMobile}
+                  content={gruesseContent}
                   setActiveTab={setActiveTab}
                 />
               )}
               {activeTab === "buchen" && (
                 <RemoteIslandMobileTextContent
-                  content={buchenContentMobile}
+                  content={buchenContent}
                   setActiveTab={setActiveTab}
                 />
               )}
